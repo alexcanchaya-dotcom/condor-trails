@@ -17,10 +17,59 @@
 
   <!-- Blog-specific styles -->
   <style>
+    /* ============================================
+       BLOG HERO
+       ============================================ */
+    .blog-hero {
+      background: var(--color-surface-offset);
+      padding-top: calc(clamp(var(--space-16), 8vw, var(--space-32)) + 80px);
+      padding-bottom: clamp(var(--space-12), 6vw, var(--space-20));
+      text-align: center;
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .blog-hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: 500;
+      font-style: italic;
+      color: var(--color-text);
+      line-height: 1.05;
+      margin-bottom: var(--space-5);
+    }
+
+    .blog-hero-subtitle {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      max-width: 56ch;
+      margin: 0 auto;
+    }
   </style>
   <link rel="stylesheet" href="./chatbot.css">
 </head>
 <body>
-<p>Condor Trails Blog placeholder - full content loading</p>
+<a href="#main" class="skip-to-content">Skip to content</a>
+<nav class="nav scrolled" id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="./index.html" class="nav-logo">
+        <span class="nav-logo-text">Condor Trails</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="./index.html#destinations">Destinations</a></li>
+        <li><a href="./blog.html" class="nav-link-active">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<main id="main">
+  <section class="blog-hero">
+    <div class="container">
+      <h1 class="blog-hero-title">Stories from the Trail</h1>
+    </div>
+  </section>
+</main>
 </body>
 </html>
