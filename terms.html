@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Terms &amp; Conditions for Condor Trails — booking terms, cancellation policy, liability, and governing law for our tailor-made South America travel packages.">
+  <title>Terms &amp; Conditions — Condor Trails</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    .legal-hero { background: var(--color-surface-offset); padding-top: calc(clamp(var(--space-16), 8vw, var(--space-32)) + 80px); padding-bottom: clamp(var(--space-12), 6vw, var(--space-20)); border-bottom: 1px solid var(--color-divider); }
+    .legal-hero-title { font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 500; font-style: italic; color: var(--color-text); line-height: 1.05; margin-bottom: var(--space-4); }
+    .legal-updated { font-family: var(--font-body); font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-4); }
+    .breadcrumb { display: flex; align-items: center; gap: var(--space-2); font-family: var(--font-body); font-size: var(--text-xs); color: var(--color-text-muted); margin-bottom: var(--space-6); }
+    .breadcrumb a { color: var(--color-primary); text-decoration: none; transition: color var(--transition-interactive); }
+    .breadcrumb a:hover { color: var(--color-primary-hover); }
+    .breadcrumb-sep { color: var(--color-text-faint); user-select: none; }
+    .legal-content { padding-block: clamp(var(--space-12), 6vw, var(--space-20)); }
+    .legal-body { max-width: 72ch; }
+    .legal-body h2 { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; color: var(--color-text); line-height: 1.15; margin-top: var(--space-12); margin-bottom: var(--space-4); padding-bottom: var(--space-3); border-bottom: 1px solid var(--color-divider); }
+    .legal-body h2:first-child { margin-top: 0; }
+    .legal-body h3 { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; color: var(--color-text); line-height: 1.2; margin-top: var(--space-8); margin-bottom: var(--space-3); }
+    .legal-body p { font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.7; margin-bottom: var(--space-4); max-width: 72ch; }
+    .legal-body ul, .legal-body ol { font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.7; margin-bottom: var(--space-4); padding-left: var(--space-6); }
+    .legal-body li { margin-bottom: var(--space-2); max-width: 72ch; }
+    .legal-body a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; transition: color var(--transition-interactive); }
+    .legal-body a:hover { color: var(--color-primary-hover); }
+    .legal-body strong { color: var(--color-text); font-weight: 600; }
+    .legal-body .legal-table { width: 100%; border-collapse: collapse; margin-bottom: var(--space-6); margin-top: var(--space-4); font-family: var(--font-body); font-size: var(--text-sm); }
+    .legal-table th, .legal-table td { padding: var(--space-3) var(--space-4); text-align: left; border-bottom: 1px solid var(--color-divider); color: var(--color-text-muted); }
+    .legal-table th { color: var(--color-text); font-weight: 600; background: var(--color-surface-offset); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.06em; }
+    .legal-table tr:last-child td { border-bottom: none; }
+    .legal-table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); }
+    .legal-intro { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); margin-bottom: var(--space-8); }
+    .legal-intro p { margin-bottom: var(--space-3); }
+    .legal-intro p:last-child { margin-bottom: 0; }
+    .legal-cross-links { display: flex; align-items: center; gap: var(--space-4); margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid var(--color-divider); flex-wrap: wrap; }
+    .legal-cross-link { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-5); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; color: var(--color-primary); text-decoration: none; transition: background var(--transition-interactive), border-color var(--transition-interactive), transform var(--transition-interactive), box-shadow var(--transition-interactive); }
+    .legal-cross-link:hover { background: var(--color-primary-highlight); border-color: var(--color-primary); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+    .nav { background: color-mix(in oklch, var(--color-bg) 94%, transparent); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: var(--shadow-sm); border-bottom: 1px solid var(--color-divider); padding: var(--space-3) 0; }
+    .nav .nav-logo-text { color: var(--color-text); }
+    .nav .nav-logo-icon path, .nav .nav-logo-icon ellipse { fill: var(--color-primary); }
+    .nav .nav-links a { color: var(--color-text-muted); }
+    .nav .nav-links a:hover { color: var(--color-primary); }
+    .nav .theme-toggle { color: var(--color-text-muted); background: var(--color-surface); border-color: var(--color-border); }
+    .nav .theme-toggle:hover { background: var(--color-surface-offset); color: var(--color-text); }
+    .nav .nav-menu-toggle { color: var(--color-text); background: var(--color-surface); border-color: var(--color-border); }
+    .legal-layout { display: grid; grid-template-columns: 1fr; gap: var(--space-10); }
+    @media (min-width: 1024px) { .legal-layout { grid-template-columns: 1fr 240px; } }
+    .legal-toc { display: none; }
+    @media (min-width: 1024px) { .legal-toc { display: block; position: sticky; top: 100px; align-self: start; } }
+    .legal-toc-title { font-family: var(--font-body); font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-faint); margin-bottom: var(--space-4); }
+    .legal-toc-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+    .legal-toc-list a { font-family: var(--font-body); font-size: var(--text-xs); color: var(--color-text-muted); text-decoration: none; line-height: 1.5; transition: color var(--transition-interactive); display: block; padding: var(--space-1) 0; }
+    .legal-toc-list a:hover { color: var(--color-primary); }
+    @media (max-width: 768px) { .legal-hero-title { font-size: var(--text-2xl); } }
+  </style>
+</head>
+<body>
+<a href="#main" class="skip-to-content">Skip to content</a>
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="container"><div class="nav-inner">
+    <a href="./index.html" class="nav-logo" aria-label="Condor Trails — Home">
+      <svg class="nav-logo-icon" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="currentColor"/>
+        <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="currentColor"/>
+        <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="currentColor"/>
+        <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="currentColor" opacity="0.8"/>
+        <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="currentColor"/>
+      </svg>
+      <span class="nav-logo-text">Condor Trails</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="./index.html#destinations">Destinations</a></li>
+      <li><a href="./index.html#experiences">Experiences</a></li>
+      <li><a href="./index.html#how-it-works">How It Works</a></li>
+      <li><a href="./index.html#about">About</a></li>
+      <li><a href="./blog.html">Blog</a></li>
+      <li><a href="./recipes.html">Recipes</a></li>
+      <li><a href="./planner.html">Trip Planner</a></li>
+      <li><a href="./index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="./index.html#contact" class="btn btn-primary nav-cta">Plan My Journey</a>
+      <button class="nav-menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div></div>
+</nav>
+<div class="nav-mobile" id="mobileNav" role="dialog" aria-label="Navigation menu" aria-modal="true">
+  <button class="nav-mobile-close" id="mobileNavClose" aria-label="Close navigation menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <div style="display: flex; align-items: center; gap: var(--space-3);">
+    <svg width="32" height="22" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="var(--color-primary)"/>
+      <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="var(--color-primary)"/>
+      <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="var(--color-primary)"/>
+      <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="var(--color-primary)" opacity="0.8"/>
+      <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="var(--color-primary)"/>
+    </svg>
+    <span style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text);">Condor Trails</span>
+  </div>
+  <ul class="nav-mobile-links" role="list">
+    <li><a href="./index.html#destinations" onclick="closeMobileNav()">Destinations</a></li>
+    <li><a href="./index.html#experiences" onclick="closeMobileNav()">Experiences</a></li>
+    <li><a href="./index.html#how-it-works" onclick="closeMobileNav()">How It Works</a></li>
+    <li><a href="./index.html#about" onclick="closeMobileNav()">About</a></li>
+    <li><a href="./blog.html" onclick="closeMobileNav()">Blog</a></li>
+    <li><a href="./recipes.html" onclick="closeMobileNav()">Recipes</a></li>
+    <li><a href="./planner.html" onclick="closeMobileNav()">Trip Planner</a></li>
+    <li><a href="./index.html#contact" onclick="closeMobileNav()">Contact</a></li>
+  </ul>
+  <div style="margin-top: var(--space-8);"><a href="./index.html#contact" onclick="closeMobileNav()" class="btn btn-primary" style="width: 100%; justify-content: center;">Plan My Journey</a></div>
+</div>
+<main id="main">
+  <section class="legal-hero" aria-labelledby="legal-title">
+    <div class="container container--default">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="./index.html">Home</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span aria-current="page">Terms &amp; Conditions</span>
+      </nav>
+      <h1 class="legal-hero-title" id="legal-title">Terms &amp; Conditions</h1>
+      <p class="legal-updated">Last updated: March 2026</p>
+    </div>
+  </section>
+  <section class="legal-content">
+    <div class="container container--default">
+      <div class="legal-layout">
+        <div class="legal-body">
+          <div class="legal-intro">
+            <p>These Terms &amp; Conditions govern all bookings made with Condor Trails, a trading name of a business owned and operated by Aleksander Canchaya, registered in Dublin, Ireland. By making a booking with us, you agree to be bound by these terms. Please read them carefully before confirming your reservation.</p>
+            <p>Condor Trails specialises in tailor-made travel packages to Peru, Bolivia, Patagonia, Colombia, Ecuador, Argentina, the Dominican Republic, and Cancún &amp; Riviera Maya.</p>
+            <p><strong>Contact:</strong> <a href="mailto:info@condortrails.com">info@condortrails.com</a> · <a href="tel:+353857604985">+353 85 760 4985</a> · Dublin, Ireland</p>
+          </div>
+          <h2 id="definitions">1. Definitions</h2>
+          <p>In these Terms &amp; Conditions:</p>
+          <ul>
+            <li><strong>"We", "us", "our"</strong> refers to Condor Trails, operated by Aleksander Canchaya, Dublin, Ireland.</li>
+            <li><strong>"You", "your"</strong> refers to the lead passenger or person making the booking.</li>
+            <li><strong>"Booking"</strong> means any travel arrangement confirmed and paid for through Condor Trails.</li>
+            <li><strong>"Package"</strong> means a combination of at least two different types of travel services (e.g. transport, accommodation, car rental, or other tourist services) as defined under the EU Package Travel Directive 2015/2302.</li>
+            <li><strong>"Departure date"</strong> means the date on which your trip is scheduled to commence.</li>
+          </ul>
+          <h2 id="booking-payment">2. Booking &amp; Payment</h2>
+          <h3>2.1 Making a Booking</h3>
+          <p>A booking is confirmed once we have received your deposit payment and sent you a written confirmation via email. The person making the booking must be at least 18 years of age and accepts these Terms &amp; Conditions on behalf of all members of the travelling party.</p>
+          <h3>2.2 Deposit</h3>
+          <p>A non-refundable deposit of <strong>25% of the total trip cost</strong> is required at the time of booking to secure your reservation. For certain elements requiring advance booking (such as Inca Trail permits, Galápagos cruises, or peak-season accommodation), higher deposits may apply. We will advise you of this before confirmation.</p>
+          <h3>2.3 Balance Payment</h3>
+          <p>The remaining balance is due <strong>no later than 60 days before your departure date</strong>. If booking within 60 days of departure, the full amount is payable immediately upon confirmation.</p>
+          <h3>2.4 Payment Methods</h3>
+          <p>We accept bank transfer, credit card, and debit card payments. Payments may be made in USD, EUR, or GBP. Any currency conversion costs or bank transfer fees are the responsibility of the traveller.</p>
+          <h3>2.5 Late Payment</h3>
+          <p>If we do not receive the balance payment by the due date, we reserve the right to treat the booking as cancelled and retain the deposit paid.</p>
+          <h2 id="pricing">3. Pricing</h2>
+          <p>All prices quoted are per person unless otherwise stated and are based on costs at the time of quotation. We reserve the right to adjust pricing before a booking is confirmed. Once your booking is confirmed and deposit paid, the price is fixed except in cases of:</p>
+          <ul>
+            <li>Changes in transportation costs (including fuel surcharges)</li>
+            <li>Government-imposed taxes, fees, or charges</li>
+            <li>Currency exchange rate fluctuations exceeding 2%</li>
+          </ul>
+          <p>In accordance with the EU Package Travel Directive, we will absorb the first 2% of any such increase. If the total price increase exceeds 8%, you have the right to cancel your booking and receive a full refund of all payments made.</p>
+          <h2 id="cancellation">4. Cancellation Policy</h2>
+          <h3>4.1 Cancellation by You</h3>
+          <p>If you need to cancel your booking, you must notify us in writing via email to <a href="mailto:info@condortrails.com">info@condortrails.com</a>. The following cancellation charges apply, calculated from the date we receive your written cancellation notice:</p>
+          <div class="legal-table-wrap">
+            <table class="legal-table">
+              <thead><tr><th>Notice Period</th><th>Cancellation Charge</th></tr></thead>
+              <tbody>
+                <tr><td>More than 60 days before departure</td><td>Full refund minus €100 administration fee per person</td></tr>
+                <tr><td>30–60 days before departure</td><td>50% of total trip cost</td></tr>
+                <tr><td>Less than 30 days before departure</td><td>100% of total trip cost (non-refundable)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Some elements of your trip may carry non-refundable supplier charges (such as Inca Trail permits, internal flights, or cruise reservations) regardless of the cancellation timeline. We will inform you of any such non-refundable components at the time of booking.</p>
+          <h3>4.2 Cancellation by Us</h3>
+          <p>We reserve the right to cancel a booking in the event of insufficient participants, safety concerns, or circumstances beyond our control. If we cancel your trip, you will be offered either:</p>
+          <ul>
+            <li>An alternative trip of comparable standard, or</li>
+            <li>A full refund of all payments made</li>
+          </ul>
+          <p>We will not be liable for any additional costs incurred by you as a result of cancellation, including but not limited to flights, visas, or travel insurance.</p>
+          <h2 id="insurance">5. Travel Insurance</h2>
+          <p><strong>Travel insurance is mandatory for all Condor Trails travellers.</strong> You must have comprehensive travel insurance that covers, at a minimum:</p>
+          <ul>
+            <li>Trip cancellation and curtailment</li>
+            <li>Medical expenses and emergency evacuation (including high-altitude rescue where applicable)</li>
+            <li>Personal liability</li>
+            <li>Loss of luggage and personal belongings</li>
+            <li>Repatriation</li>
+          </ul>
+          <p>We strongly recommend a policy that includes cover for adventure activities if your itinerary includes trekking, rafting, mountain biking, or similar. You must provide us with your insurance policy number and emergency contact details before departure. We are not responsible for any costs arising from inadequate or absent insurance cover.</p>
+          <h2 id="itinerary-changes">6. Itinerary Changes</h2>
+          <p>While we make every effort to operate trips as described, the nature of adventure travel in South America means that itineraries may need to change. Condor Trails reserves the right to alter or modify any itinerary before or during the trip due to:</p>
+          <ul>
+            <li>Weather conditions or natural events</li>
+            <li>Safety or security considerations</li>
+            <li>Government regulations or restrictions</li>
+            <li>Availability of accommodation, transport, or guides</li>
+            <li>Road, trail, or infrastructure conditions</li>
+          </ul>
+          <p>We will always endeavour to provide alternatives of comparable quality. If a significant change is made before departure, you will be notified as soon as practicable and given the option to accept the revised itinerary or cancel with a full refund.</p>
+          <h2 id="liability">7. Liability</h2>
+          <h3>7.1 Our Role</h3>
+          <p>Condor Trails acts as an agent and intermediary between you and local travel service providers, including but not limited to hotels, airlines, ground transport operators, tour guides, and activity providers. These suppliers operate under their own terms and conditions.</p>
+          <h3>7.2 Limitation of Liability</h3>
+          <p>To the fullest extent permitted by law, Condor Trails shall not be liable for:</p>
+          <ul>
+            <li>Death, injury, illness, loss, damage, or expense arising from the act, negligence, or default of any third-party supplier</li>
+            <li>Loss or damage to personal property</li>
+            <li>Delays, cancellations, or changes caused by airlines, government actions, or events beyond our control</li>
+            <li>Any loss arising from your failure to follow safety instructions or local laws</li>
+          </ul>
+          <p>Nothing in these terms excludes or limits our liability for death or personal injury caused by our proven negligence, or any liability that cannot be excluded under Irish or EU law.</p>
+          <h3>7.3 Compliance with the EU Package Travel Directive</h3>
+          <p>Where your booking constitutes a "package" under the EU Package Travel Directive 2015/2302, we accept responsibility for the proper performance of all travel services included in the contract, regardless of whether these are provided by us or by other service providers. If any of the travel services are not performed in accordance with the contract, we will remedy the lack of conformity, unless this is impossible or entails disproportionate costs.</p>
+          <h2 id="health-fitness">8. Health &amp; Fitness</h2>
+          <p>Many of our destinations involve high altitude, remote locations, and physically demanding activities. It is your responsibility to:</p>
+          <ul>
+            <li>Ensure you are physically fit and healthy enough for your chosen itinerary</li>
+            <li>Disclose any medical conditions, allergies, dietary requirements, or mobility limitations before booking</li>
+            <li>Obtain appropriate vaccinations and medical advice for your destination countries</li>
+            <li>Carry necessary personal medications</li>
+          </ul>
+          <p>We reserve the right to refuse participation in specific activities if we believe there is a risk to your safety or the safety of others.</p>
+          <h2 id="travel-documents">9. Travel Documents</h2>
+          <p>It is your responsibility to ensure that you hold a valid passport (with at least six months' validity beyond your return date) and any necessary visas, entry permits, or transit documents for all countries on your itinerary. Condor Trails cannot accept liability for any loss or expense resulting from your failure to secure the correct documentation.</p>
+          <h2 id="age-requirements">10. Age Requirements</h2>
+          <p>The lead person making a booking must be at least <strong>18 years of age</strong>. Travellers under 18 must be accompanied by a parent or legal guardian at all times during the trip. For certain activities (such as adventure sports or specific trekking routes), minimum age requirements set by local operators may apply. We will advise you of these at the time of booking.</p>
+          <h2 id="force-majeure">11. Force Majeure</h2>
+          <p>We shall not be held liable for any failure or delay in performing our obligations where such failure or delay results from circumstances beyond our reasonable control, including but not limited to:</p>
+          <ul>
+            <li>Natural disasters, earthquakes, volcanic eruptions, floods, or landslides</li>
+            <li>Epidemics, pandemics, or public health emergencies</li>
+            <li>War, terrorism, civil unrest, or political instability</li>
+            <li>Government travel advisories, border closures, or airspace restrictions</li>
+            <li>Strikes, labour disputes, or industrial action</li>
+            <li>Severe weather events</li>
+          </ul>
+          <p>In such cases, we will use our best efforts to offer alternative arrangements or rescheduling. Where this is not possible, we will issue a credit for future travel or, at our discretion, a refund minus any costs already incurred with third-party suppliers.</p>
+          <h2 id="complaints">12. Complaints Procedure</h2>
+          <p>If you have a complaint during your trip, please contact your local guide or Condor Trails' 24/7 support line immediately so we can attempt to resolve the matter on the ground.</p>
+          <p>If you remain dissatisfied, you must submit your complaint in writing within <strong>28 days of your return date</strong> to:</p>
+          <p><strong>Condor Trails</strong><br>Email: <a href="mailto:info@condortrails.com">info@condortrails.com</a><br>Phone: <a href="tel:+353857604985">+353 85 760 4985</a><br>Dublin, Ireland</p>
+          <p>We will acknowledge your complaint within 5 working days and aim to provide a full response within 28 days. Complaints received after the 28-day window may be considered at our discretion but are not guaranteed a formal review.</p>
+          <h2 id="data-protection">13. Data Protection</h2>
+          <p>We collect and process your personal data in accordance with our <a href="./privacy.html">Privacy Policy</a> and in compliance with the General Data Protection Regulation (GDPR) and Irish data protection legislation. By making a booking, you consent to the transfer of necessary personal data (including passport details and dietary or medical information) to our local partner operators for the purpose of fulfilling your booking.</p>
+          <h2 id="governing-law">14. Governing Law</h2>
+          <p>These Terms &amp; Conditions are governed by and construed in accordance with the laws of the <strong>Republic of Ireland</strong>. Any disputes arising from or in connection with these terms shall be subject to the exclusive jurisdiction of the Irish courts.</p>
+          <p>For bookings that constitute a "package" under EU law, your rights under the <strong>EU Package Travel Directive 2015/2302</strong> (as transposed into Irish law) are fully respected and upheld.</p>
+          <h2 id="amendments">15. Amendments</h2>
+          <p>We reserve the right to update or amend these Terms &amp; Conditions at any time. The version in effect at the time of your booking will apply to your contract with us. Any material changes will be communicated to affected travellers before departure.</p>
+          <h2 id="contact-us">16. Contact Us</h2>
+          <p>If you have any questions about these Terms &amp; Conditions, please contact us:</p>
+          <p><strong>Condor Trails</strong><br>Email: <a href="mailto:info@condortrails.com">info@condortrails.com</a><br>Phone: <a href="tel:+353857604985">+353 85 760 4985</a><br>Web: <a href="https://condortrails.com">condortrails.com</a><br>Dublin, Ireland</p>
+          <div class="legal-cross-links">
+            <a href="./privacy.html" class="legal-cross-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+              Privacy Policy
+            </a>
+            <a href="./index.html" class="legal-cross-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              Back to Homepage
+            </a>
+          </div>
+        </div>
+        <aside class="legal-toc" aria-label="Table of contents">
+          <div class="legal-toc-title">On This Page</div>
+          <ul class="legal-toc-list" role="list">
+            <li><a href="#definitions">1. Definitions</a></li>
+            <li><a href="#booking-payment">2. Booking &amp; Payment</a></li>
+            <li><a href="#pricing">3. Pricing</a></li>
+            <li><a href="#cancellation">4. Cancellation Policy</a></li>
+            <li><a href="#insurance">5. Travel Insurance</a></li>
+            <li><a href="#itinerary-changes">6. Itinerary Changes</a></li>
+            <li><a href="#liability">7. Liability</a></li>
+            <li><a href="#health-fitness">8. Health &amp; Fitness</a></li>
+            <li><a href="#travel-documents">9. Travel Documents</a></li>
+            <li><a href="#age-requirements">10. Age Requirements</a></li>
+            <li><a href="#force-majeure">11. Force Majeure</a></li>
+            <li><a href="#complaints">12. Complaints</a></li>
+            <li><a href="#data-protection">13. Data Protection</a></li>
+            <li><a href="#governing-law">14. Governing Law</a></li>
+            <li><a href="#amendments">15. Amendments</a></li>
+            <li><a href="#contact-us">16. Contact Us</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="container"><div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <svg width="28" height="20" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="var(--color-primary)"/>
+          <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="var(--color-primary)"/>
+          <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="var(--color-primary)"/>
+          <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="var(--color-primary)" opacity="0.8"/>
+          <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="var(--color-primary)"/>
+        </svg>
+        <span class="footer-logo-text">Condor Trails</span>
+      </div>
+      <div class="footer-tagline">South America, Revealed.</div>
+      <div class="footer-newsletter-label">Stay Inspired</div>
+      <form class="footer-newsletter-form" onsubmit="handleNewsletterSubmit(event)" aria-label="Newsletter subscription">
+        <label class="sr-only" for="newsletter-email">Email address for newsletter</label>
+        <input type="email" id="newsletter-email" class="footer-newsletter-input" placeholder="your@email.com" autocomplete="email" aria-label="Email address">
+        <button type="submit" class="footer-newsletter-btn">Subscribe</button>
+      </form>
+    </div>
+    <div>
+      <div class="footer-col-title">Destinations</div>
+      <ul class="footer-links" role="list">
+        <li><a href="./peru.html">Peru</a></li><li><a href="./patagonia.html">Patagonia</a></li>
+        <li><a href="./bolivia.html">Bolivia</a></li><li><a href="./colombia.html">Colombia</a></li>
+        <li><a href="./ecuador.html">Ecuador &amp; Galápagos</a></li><li><a href="./argentina.html">Argentina</a></li>
+        <li><a href="./trips/dominican-republic.html">Dominican Republic</a></li><li><a href="./trips/cancun.html">Cancún</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links" role="list">
+        <li><a href="./index.html#about">About Us</a></li><li><a href="./index.html#how-it-works">How It Works</a></li>
+        <li><a href="./index.html#about">Sustainability</a></li><li><a href="./index.html#contact">Careers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Support</div>
+      <ul class="footer-links" role="list">
+        <li><a href="./index.html#contact">Contact</a></li><li><a href="./index.html#contact">FAQ</a></li>
+        <li><a href="./index.html#contact">Travel Insurance</a></li>
+        <li><a href="./terms.html">Terms &amp; Conditions</a></li><li><a href="./privacy.html">Privacy Policy</a></li>
+      </ul>
+      <div class="footer-col-title" style="margin-top: var(--space-6);">Connect</div>
+      <ul class="footer-links" role="list">
+        <li><a href="https://instagram.com/condortrails" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://facebook.com/condortrails" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="https://tripadvisor.com" target="_blank" rel="noopener noreferrer">TripAdvisor</a></li>
+        <li><a href="tel:+353857604985">Phone</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copyright">&copy; 2026 Condor Trails. All rights reserved.</p>
+    <p class="footer-made"><a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.35); text-decoration: none; transition: color 180ms ease;">Created with Perplexity Computer</a> &nbsp;·&nbsp; Made with passion in Peru. 🦅</p>
+  </div>
+  </div>
+</footer>
+<script>
+  'use strict';
+  (function() {
+    const root = document.documentElement;
+    let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.setAttribute('data-theme', theme);
+    const toggle = document.querySelector('[data-theme-toggle]');
+    if (toggle) {
+      updateToggleIcon(toggle, theme);
+      toggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+        updateToggleIcon(toggle, theme);
+      });
+    }
+    function updateToggleIcon(btn, t) {
+      btn.innerHTML = t === 'dark'
+        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    }
+  })();
+  const mobileNav = document.getElementById('mobileNav');
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNavClose = document.getElementById('mobileNavClose');
+  let isNavOpen = false;
+  function openMobileNav() {
+    mobileNav.style.display = 'flex';
+    requestAnimationFrame(() => { mobileNav.classList.add('open'); });
+    document.body.style.overflow = 'hidden';
+    menuToggle.setAttribute('aria-expanded', 'true');
+    isNavOpen = true;
+  }
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+    menuToggle.setAttribute('aria-expanded', 'false');
+    isNavOpen = false;
+    setTimeout(() => { mobileNav.style.display = 'none'; }, 350);
+  }
+  if (menuToggle) menuToggle.addEventListener('click', openMobileNav);
+  if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isNavOpen) closeMobileNav(); });
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const id = anchor.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+  function handleNewsletterSubmit(e) {
+    e.preventDefault();
+    const input = document.getElementById('newsletter-email');
+    const btn = e.target.querySelector('.footer-newsletter-btn');
+    if (!input.value.trim()) return;
+    btn.textContent = 'Subscribed!';
+    btn.style.background = 'var(--color-success, #437a22)';
+    input.value = '';
+    setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 3000);
+  }
+</script>
+</body>
+</html>
