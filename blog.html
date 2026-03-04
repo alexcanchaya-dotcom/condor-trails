@@ -46,30 +46,1960 @@
       max-width: 56ch;
       margin: 0 auto;
     }
+
+    /* ============================================
+       BLOG LAYOUT — 2-col grid + sidebar
+       ============================================ */
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      padding-block: clamp(var(--space-12), 6vw, var(--space-20));
+    }
+
+    @media (min-width: 1024px) {
+      .blog-layout {
+        grid-template-columns: 1fr 320px;
+        gap: var(--space-10);
+      }
+    }
+
+    .blog-main {
+      min-width: 0;
+    }
+
+    .blog-sidebar {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      .blog-sidebar {
+        display: block;
+        position: sticky;
+        top: 100px;
+        align-self: start;
+      }
+    }
+
+    /* ============================================
+       ARTICLE CARDS GRID
+       ============================================ */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    @media (min-width: 768px) {
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ============================================
+       ARTICLE CARD
+       ============================================ */
+    .article-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition-interactive), transform var(--transition-interactive);
+    }
+
+    .article-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    @media (hover: none) {
+      .article-card:hover { transform: none; }
+    }
+
+    .article-card.expanded {
+      grid-column: 1 / -1;
+    }
+
+    .article-card.expanded:hover {
+      transform: none;
+    }
+
+    .article-card-header {
+      padding: var(--space-6) var(--space-6) var(--space-4);
+    }
+
+    .article-card-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+
+    .article-reading-time {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-secondary);
+      background: var(--color-secondary-highlight);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+    }
+
+    .article-card-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.2;
+      margin-bottom: var(--space-3);
+    }
+
+    .article-card-excerpt {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      max-width: 65ch;
+    }
+
+    .article-card-footer {
+      padding: 0 var(--space-6) var(--space-6);
+    }
+
+    .article-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-primary);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: var(--space-2) 0;
+      transition: color var(--transition-interactive), gap var(--transition-interactive);
+    }
+
+    .article-toggle-btn:hover {
+      color: var(--color-primary-hover);
+      gap: var(--space-3);
+    }
+
+    .article-toggle-btn svg {
+      transition: transform var(--transition-interactive);
+    }
+
+    .article-card.expanded .article-toggle-btn svg {
+      transform: rotate(180deg);
+    }
+
+    /* ============================================
+       EXPANDED ARTICLE CONTENT
+       ============================================ */
+    .article-full-content {
+      display: none;
+      padding: 0 var(--space-6) var(--space-8);
+      border-top: 1px solid var(--color-divider);
+      margin-top: var(--space-4);
+    }
+
+    .article-card.expanded .article-full-content {
+      display: block;
+    }
+
+    .article-body {
+      max-width: 72ch;
+      margin: var(--space-6) auto 0;
+    }
+
+    .article-body h3 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.15;
+      margin-top: var(--space-10);
+      margin-bottom: var(--space-4);
+    }
+
+    .article-body h4 {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.2;
+      margin-top: var(--space-8);
+      margin-bottom: var(--space-3);
+    }
+
+    .article-body p {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      margin-bottom: var(--space-5);
+    }
+
+    .article-body p a {
+      color: var(--color-primary);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color var(--transition-interactive);
+    }
+
+    .article-body p a:hover {
+      color: var(--color-primary-hover);
+    }
+
+    .article-body ul, .article-body ol {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      margin-bottom: var(--space-5);
+      padding-left: var(--space-6);
+    }
+
+    .article-body li {
+      margin-bottom: var(--space-2);
+    }
+
+    .article-body li a {
+      color: var(--color-primary);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .article-body em {
+      font-style: italic;
+    }
+
+    .article-body strong {
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    /* Condor Trails Tip callout */
+    .callout-tip {
+      background: var(--color-surface-2);
+      border-left: 4px solid var(--color-primary);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: var(--space-5) var(--space-6);
+      margin: var(--space-6) 0;
+    }
+
+    .callout-tip strong {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--color-primary);
+      display: block;
+      margin-bottom: var(--space-2);
+    }
+
+    .callout-tip p {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      margin-bottom: 0;
+    }
+
+    /* Author bio */
+    .article-author-bio {
+      background: var(--color-surface-offset);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-6);
+      margin-top: var(--space-8);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      font-style: italic;
+      border: 1px solid var(--color-divider);
+    }
+
+    /* Budget table */
+    .article-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-6) 0;
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+    }
+
+    .article-body table th {
+      background: var(--color-surface-offset);
+      font-weight: 600;
+      color: var(--color-text);
+      text-align: left;
+      padding: var(--space-3) var(--space-4);
+      border: 1px solid var(--color-divider);
+    }
+
+    .article-body table td {
+      padding: var(--space-3) var(--space-4);
+      border: 1px solid var(--color-divider);
+      color: var(--color-text-muted);
+    }
+
+    .article-body hr {
+      border: none;
+      border-top: 1px solid var(--color-divider);
+      margin: var(--space-8) 0;
+    }
+
+    /* ============================================
+       AD PLACEMENTS
+       ============================================ */
+    /* Ad 1: CTA Banner after article 2 */
+    .ad-cta-banner {
+      background: var(--color-primary);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8) var(--space-10);
+      text-align: center;
+      grid-column: 1 / -1;
+      box-shadow: var(--shadow-md);
+    }
+
+    .ad-cta-banner-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: var(--space-3);
+      line-height: 1.15;
+    }
+
+    .ad-cta-banner-text {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      max-width: 50ch;
+      margin: 0 auto var(--space-6);
+    }
+
+    .ad-cta-banner .btn {
+      background: #fff;
+      color: var(--color-primary);
+      border-color: #fff;
+    }
+
+    .ad-cta-banner .btn:hover {
+      background: var(--color-surface);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Ad 2: Sidebar social promo */
+    .ad-social-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .ad-social-card-eyebrow {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-secondary);
+      margin-bottom: var(--space-3);
+    }
+
+    .ad-social-card-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.2;
+      margin-bottom: var(--space-3);
+    }
+
+    .ad-social-card-text {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: var(--space-5);
+    }
+
+    .ad-social-handle {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: var(--space-5);
+      display: block;
+    }
+
+    .ad-social-icons {
+      display: flex;
+      gap: var(--space-3);
+    }
+
+    .ad-social-icon-link {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--color-primary-highlight);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      text-decoration: none;
+      transition: background var(--transition-interactive), color var(--transition-interactive), transform var(--transition-interactive);
+    }
+
+    .ad-social-icon-link:hover {
+      background: var(--color-primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Ad 3: Lead magnet after article 4 */
+    .ad-lead-magnet {
+      background: var(--color-surface-offset);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8) var(--space-10);
+      text-align: center;
+      grid-column: 1 / -1;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .ad-lead-magnet-eyebrow {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-secondary);
+      margin-bottom: var(--space-3);
+    }
+
+    .ad-lead-magnet-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.15;
+      margin-bottom: var(--space-3);
+    }
+
+    .ad-lead-magnet-text {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      max-width: 50ch;
+      margin: 0 auto var(--space-6);
+    }
+
+    .ad-lead-magnet-form {
+      display: flex;
+      gap: var(--space-3);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .ad-lead-magnet-form input {
+      flex: 1;
+      padding: var(--space-3) var(--space-4);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      min-height: 48px;
+      transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+
+    .ad-lead-magnet-form input::placeholder {
+      color: var(--color-text-faint);
+    }
+
+    .ad-lead-magnet-form input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-primary) 18%, transparent);
+    }
+
+    @media (max-width: 480px) {
+      .ad-lead-magnet-form {
+        flex-direction: column;
+      }
+      .ad-cta-banner {
+        padding: var(--space-6);
+      }
+      .ad-lead-magnet {
+        padding: var(--space-6);
+      }
+    }
+
+    /* ============================================
+       NEWSLETTER SECTION (before footer)
+       ============================================ */
+    .blog-newsletter {
+      background: var(--color-surface-offset);
+      padding-block: clamp(var(--space-12), 6vw, var(--space-20));
+      text-align: center;
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .blog-newsletter-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.1;
+      margin-bottom: var(--space-3);
+    }
+
+    .blog-newsletter-text {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      max-width: 48ch;
+      margin: 0 auto var(--space-8);
+    }
+
+    .blog-newsletter-form {
+      display: flex;
+      gap: var(--space-3);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .blog-newsletter-form input {
+      flex: 1;
+      padding: var(--space-3) var(--space-4);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      min-height: 48px;
+      transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+
+    .blog-newsletter-form input::placeholder {
+      color: var(--color-text-faint);
+    }
+
+    .blog-newsletter-form input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-primary) 18%, transparent);
+    }
+
+    @media (max-width: 480px) {
+      .blog-newsletter-form {
+        flex-direction: column;
+      }
+    }
+
+    /* ============================================
+       NAV ACTIVE STATE (Blog link)
+       ============================================ */
+    .nav-links .nav-link-active {
+      color: #fff !important;
+      position: relative;
+    }
+
+    .nav.scrolled .nav-links .nav-link-active {
+      color: var(--color-primary) !important;
+    }
+
+    /* Mobile social promo (shown below articles on mobile) */
+    .ad-social-mobile {
+      display: block;
+      grid-column: 1 / -1;
+    }
+
+    @media (min-width: 1024px) {
+      .ad-social-mobile {
+        display: none;
+      }
+    }
+
+    /* Responsive table scroll */
+    .article-body .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: var(--space-6) 0;
+    }
+
+    .article-body .table-wrap table {
+      margin: 0;
+      min-width: 560px;
+    }
   </style>
   <link rel="stylesheet" href="./chatbot.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+<!-- Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
 </head>
 <body>
+
+<!-- Skip to content -->
 <a href="#main" class="skip-to-content">Skip to content</a>
-<nav class="nav scrolled" id="nav">
+
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
+<nav class="nav scrolled" id="nav" aria-label="Main navigation">
   <div class="container">
     <div class="nav-inner">
-      <a href="./index.html" class="nav-logo">
+
+      <!-- Logo -->
+      <a href="./index.html" class="nav-logo" aria-label="Condor Trails — Home">
+        <svg class="nav-logo-icon" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="currentColor"/>
+          <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="currentColor"/>
+          <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="currentColor"/>
+          <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="currentColor" opacity="0.8"/>
+          <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="currentColor"/>
+        </svg>
         <span class="nav-logo-text">Condor Trails</span>
       </a>
+
+      <!-- Desktop links -->
       <ul class="nav-links" role="list">
         <li><a href="./index.html#destinations">Destinations</a></li>
+        <li><a href="./index.html#experiences">Experiences</a></li>
+        <li><a href="./index.html#how-it-works">How It Works</a></li>
+        <li><a href="./index.html#about">About</a></li>
         <li><a href="./blog.html" class="nav-link-active">Blog</a></li>
+        <li><a href="./recipes.html">Recipes</a></li>
+        <li><a href="./index.html#contact">Contact</a></li>
       </ul>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <!-- Theme toggle -->
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- CTA -->
+        <a href="./index.html#contact" class="btn btn-primary nav-cta">Plan My Journey</a>
+
+        <!-- Mobile toggle -->
+        <button class="nav-menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </nav>
+
+<!-- Mobile nav drawer -->
+<div class="nav-mobile" id="mobileNav" role="dialog" aria-label="Navigation menu" aria-modal="true">
+  <button class="nav-mobile-close" id="mobileNavClose" aria-label="Close navigation menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+
+  <div style="display: flex; align-items: center; gap: var(--space-3);">
+    <svg width="32" height="22" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="var(--color-primary)"/>
+      <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="var(--color-primary)"/>
+      <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="var(--color-primary)"/>
+      <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="var(--color-primary)" opacity="0.8"/>
+      <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="var(--color-primary)"/>
+    </svg>
+    <span style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text);">Condor Trails</span>
+  </div>
+
+  <ul class="nav-mobile-links" role="list">
+    <li><a href="./index.html#destinations" onclick="closeMobileNav()">Destinations</a></li>
+    <li><a href="./index.html#experiences" onclick="closeMobileNav()">Experiences</a></li>
+    <li><a href="./index.html#how-it-works" onclick="closeMobileNav()">How It Works</a></li>
+    <li><a href="./index.html#about" onclick="closeMobileNav()">About</a></li>
+    <li><a href="./blog.html" onclick="closeMobileNav()" style="color: var(--color-primary);">Blog</a></li>
+    <li><a href="./recipes.html" onclick="closeMobileNav()">Recipes</a></li>
+    <li><a href="./index.html#contact" onclick="closeMobileNav()">Contact</a></li>
+  </ul>
+  <div style="margin-top: var(--space-8);">
+    <a href="./index.html#contact" onclick="closeMobileNav()" class="btn btn-primary" style="width: 100%; justify-content: center;">Plan My Journey</a>
+  </div>
+</div>
+
+<!-- ============================================
+     MAIN CONTENT
+     ============================================ -->
 <main id="main">
-  <section class="blog-hero">
+
+  <!-- =====================
+       BLOG HERO
+       ===================== -->
+  <section class="blog-hero" aria-label="Blog hero">
     <div class="container">
       <h1 class="blog-hero-title">Stories from the Trail</h1>
+      <p class="blog-hero-subtitle">Personal journeys, local knowledge, insider guides — from a Peruvian who knows every path.</p>
     </div>
   </section>
+
+  <!-- =====================
+       BLOG CONTENT
+       ===================== -->
+  <section class="section" style="padding-top: 0; background: var(--color-bg);" aria-label="Blog articles">
+    <div class="container">
+      <div class="blog-layout">
+
+        <!-- Main column -->
+        <div class="blog-main">
+          <div class="articles-grid">
+
+            <!-- ==================== ARTICLE 1 ==================== -->
+            <article class="article-card fade-in" id="article-1">
+              <div class="article-card-header">
+                <div class="article-card-meta">
+                  <span class="article-reading-time">12 min read</span>
+                </div>
+                <h2 class="article-card-title">Why I Started Condor Trails — A Peruvian's Love Letter to South America</h2>
+                <p class="article-card-excerpt">I grew up in Jauja. Not Lima. Not Cusco. Not the Peru on the postcards. I mean Jauja — a small city tucked into the Mantaro Valley at 3,400 metres above sea level. The air is thin and cold and tastes like nothing you've ever breathed before.</p>
+              </div>
+              <div class="article-card-footer">
+                <button class="article-toggle-btn" onclick="toggleArticle('article-1')" aria-expanded="false">
+                  Read More
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </div>
+              <div class="article-full-content">
+                <div class="article-body">
+
+                  <p>I grew up in Jauja.</p>
+
+                  <p>Not Lima. Not Cusco. Not the Peru on the postcards. I mean Jauja — a small city tucked into the Mantaro Valley at 3,400 metres above sea level, in the Junín province of the central highlands. The air is thin and cold and tastes like nothing you've ever breathed before. On clear mornings you can see the snow-capped peaks of the Andes from the main square. The people are <em>Huancas</em> — Wanka, in Quechua — one of the fiercest indigenous nations in the Andes, the people who held out against the Inca longer than almost anyone else. My surname is Canchaya. In Quechua, it means "courtyard" or "enclosed space" — a cancha, the word that gave English its own "cancha" (court, in racquet sports), carried across the Atlantic without anyone knowing its Andean roots.</p>
+
+                  <p>I tell you all this because it matters for what Condor Trails is. This isn't a travel blog written by someone who visited Peru once. This is Peru, lived from the inside.</p>
+
+                  <h3>Growing Up Between Two Worlds</h3>
+
+                  <p>My family has been in the travel business as long as I can remember. My parents run <a href="https://www.tourinca.com">tourinca.com</a>, a travel agency based in Peru — and watching them build something they loved, something that gave visitors a genuine window into the country, shaped how I see tourism entirely. Travel done right is a bridge. Done wrong, it's a transaction.</p>
+
+                  <p>I was raised with that distinction in my bones. We didn't just talk about Peru at home — we lived it. The festivals, the food, the languages. I speak Quechua (the Wanka dialect, which sounds quite different from the Cusco Quechua most tourists hear), Spanish, English, and Polish. Each language unlocks a different version of me. And each one has taught me something about how identity and place are tangled together in ways that no itinerary can fully capture — but a great trip can start to unravel.</p>
+
+                  <p>When I moved to Dublin in my adult years, something unexpected happened. Ireland, a country that has always wrestled with its own complicated relationship between heritage and modernity, gave me a kind of clarity about Peru that I hadn't had while living inside it.</p>
+
+                  <h3>Seeing Peru With Foreign Eyes</h3>
+
+                  <p>Living abroad does something to your relationship with your home country. At first it's painful — you miss the food, the altitude (yes, you miss even that), the particular light of a Sunday afternoon in a Peruvian market. Then you start to see your country through other people's eyes, and that's when it gets interesting.</p>
+
+                  <p>The question I got asked most — by Irish colleagues, by English friends, by the internationals I met through work in finance and accounting — was some version of: <em>"Oh, you're from Peru? Like, Machu Picchu?"</em></p>
+
+                  <p>And I understood it. Machu Picchu is extraordinary. It deserves every bit of its fame. But the question always contained a silent full stop at the end — as if Machu Picchu were Peru's only chapter. As if the country were a single famous photograph rather than an entire library.</p>
+
+                  <p>The Peru I knew was different. It was sopa seca on a Sunday in Chincha, green noodles so fragrant with basil and cilantro you could smell them from the street. It was warm Pacific water at Punta Sal when the rest of South America's Pacific coast is too cold to swim in. It was standing at Tambo Colorado, a 500-year-old Inca site an hour from Pisco, painted walls still glowing red and ochre, while the only other visitors were a local family eating lunch in the shade. It was the cajón drum, invented in Peru by Afro-Peruvian musicians during the colonial era, now part of flamenco stages in Seville without most audiences knowing where it came from.</p>
+
+                  <p>None of that is in the standard traveller's Peru.</p>
+
+                  <h3>The Gap I Couldn't Stop Thinking About</h3>
+
+                  <p>I have a background in financial analysis and accounting — not the most romantic professional origin story for a travel blog, I know. But it gave me a habit of looking for inefficiencies. Gaps between perceived value and real value. And the gap I kept seeing, over and over, was between the Peru most English-speaking travellers knew about and the Peru that was actually there.</p>
+
+                  <p>It wasn't a failure of Peru. It was a failure of translation. The country's tourism infrastructure is so heavily oriented toward the gringo trail — Lima, Cusco, Machu Picchu, maybe Arequipa, maybe the Amazon — that an entire parallel country goes largely unseen. A country with warm tropical beaches. A country with one of the world's most extraordinary food cultures, shaped by Andean, Spanish, African, Chinese, and Japanese influences over five centuries. A country where the indigenous heritage isn't just history — it's a living language, a living cuisine, a living way of being in the world.</p>
+
+                  <p>I thought: someone should write about that. Someone who actually knows it. Someone who grew up inside it, who has the Quechua words and the family relationships and the memory of exactly which market stall in which highland city makes the best chicharrón.</p>
+
+                  <p>That someone might as well be me.</p>
+
+                  <h3>What Condor Trails Is</h3>
+
+                  <p>I named it Condor Trails. The condor — <em>kuntur</em> in Quechua — is the bird of the Andes, the messenger between the human world and the spiritual world in Andean cosmology. It flies where others cannot reach. It sees the whole landscape from above.</p>
+
+                  <p>That's the ambition here: to give you the view from above, and then to bring you down into the valleys.</p>
+
+                  <p>Condor Trails is not a budget backpacker guide. It's not a luxury-for-its-own-sake showcase either. What I want to build is something more like the experience of travelling with a Peruvian friend who happens to know every restaurant, every road, every cultural context — someone who can tell you which ceviche to order and why, which ruins are worth the detour, when the festivals happen, how to get there, and what it actually means.</p>
+
+                  <p>My parents' travel agency, tourinca.com, has been doing this work in person for years. Condor Trails is the written extension of that same philosophy: real Peru, honest Peru, the Peru that rewards the traveller who wants more than a checked box on a bucket list.</p>
+
+                  <div class="callout-tip">
+                    <strong>Condor Trails Tip:</strong>
+                    <p>If you're planning your first trip to Peru, don't limit yourself to Lima–Cusco–Machu Picchu. That triangle is spectacular, but Peru's south coast (Chincha, Paracas, Ica) can be done as a 3-day addition from Lima with minimal extra logistics — and it will show you a version of Peru that most travellers never find. Start there before you head to the highlands. The contrast makes both experiences better.</p>
+                  </div>
+
+                  <h3>An Invitation</h3>
+
+                  <p>Peru is one of the world's most complex and beautiful countries. Its coast stretches 2,400 kilometres. Its highlands contain dozens of distinct indigenous cultures. Its Amazon basin holds an astonishing 10% of all the world's species. Its food has been repeatedly ranked among the best on earth — Lima holds more spots on the World's 50 Best Restaurants list than almost any other city outside Europe and North America.</p>
+
+                  <p>You deserve to see more of it.</p>
+
+                  <p>I'm going to take you there — to the warm-water beaches of the far north, to the Afro-Peruvian heartland south of Lima, to the desert cliffs above a turquoise Pacific, to highland markets and Inca ruins and coastal wineries and the places that most travel itineraries simply skip.</p>
+
+                  <p>Start anywhere. Read everything. And when you're ready to actually go — Condor Trails is here to help you do it right.</p>
+
+                  <p><em>Hasta pronto. See you on the trail.</em></p>
+
+                  <div class="article-author-bio">
+                    About the author: The writer behind Condor Trails was born and raised in Jauja, Junín, Peru, with Quechua (Huanca/Wanka) heritage and the surname Canchaya. He now lives in Dublin, Ireland, and writes about Peru with the conviction of someone who grew up inside the country he's describing. His parents run tourinca.com, a travel agency in Peru.
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ==================== ARTICLE 2 ==================== -->
+            <article class="article-card fade-in" id="article-2">
+              <div class="article-card-header">
+                <div class="article-card-meta">
+                  <span class="article-reading-time">15 min read</span>
+                </div>
+                <h2 class="article-card-title">Punta Sal — Peru's Best-Kept Beach Secret (And Why I Keep Going Back)</h2>
+                <p class="article-card-excerpt">There's a moment, about ten minutes after arriving at Punta Sal for the first time, when most people stop walking and just stare. You've come from Lima — grey, humid, wrapped in that coastal fog called <em>garúa</em> — and then the Pacific is in front of you, warm and turquoise and utterly calm.</p>
+              </div>
+              <div class="article-card-footer">
+                <button class="article-toggle-btn" onclick="toggleArticle('article-2')" aria-expanded="false">
+                  Read More
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </div>
+              <div class="article-full-content">
+                <div class="article-body">
+
+                  <p>There's a moment, about ten minutes after arriving at Punta Sal for the first time, when most people stop walking and just stare.</p>
+
+                  <p>You've come from Lima — grey, humid, wrapped in that coastal fog called <em>garúa</em> that sits on the city for months — or you've flown in from somewhere colder entirely. And then you step out of the taxi and the Pacific is in front of you, warm and turquoise and utterly calm, and the beach curves away in both directions for what seems like forever, and there is almost nobody on it.</p>
+
+                  <p>That was me, the first time. I grew up in the highlands. The Pacific was always something I knew about the way you know about a famous relative — talked about, occasionally visited, never truly familiar. But Punta Sal was different. Punta Sal made me understand, in a full-body way, why Peruvians who know this beach keep coming back.</p>
+
+                  <h3>Why the Water Is Warm (The Geography That Changes Everything)</h3>
+
+                  <p>Let me give you the fact that explains everything about Punta Sal, because most visitors don't know it and it's the whole story.</p>
+
+                  <p>Peru's Pacific coast is, for most of its length, cold. The Humboldt Current sweeps up from Antarctica along the South American coastline, keeping ocean temperatures between 14°C and 20°C for most of the year — refreshing if you're a Humboldt penguin, teeth-chattering if you're trying to swim. This is why Lima's beaches, while dramatic, are not great for swimming from May to November.</p>
+
+                  <p>Punta Sal breaks this rule completely. Located in the far north of Peru, close to the equator, the beach benefits from a warm counter-current that keeps <a href="https://www.valenciatravelcusco.com/passion-passport/what-to-do-in-punta-sal">sea temperatures around 24°C year-round</a>. Every season. Rain or shine. The result is one of the only stretches of the entire South American Pacific coast where you can swim comfortably in July.</p>
+
+                  <p>That single fact — warm water, always — explains why Punta Sal punches so far above its international profile.</p>
+
+                  <h3>The Beach Itself</h3>
+
+                  <p><a href="https://www.valenciatravelcusco.com/passion-passport/what-to-do-in-punta-sal">The beach runs approximately 6.5 kilometres</a>, making it one of the longest continuous beaches on the Peruvian coast. It divides into two zones: Punta Sal Chico and the larger Punta Sal Grande, separated by rocky outcroppings that form natural tidal pools — perfect for snorkelling without going more than a metre from shore.</p>
+
+                  <p>The colour of the water changes through the day. Morning: pale green. Midday: deep turquoise. Late afternoon, when the sun angles in from the west: something close to gold. The sand is cream-white and fine. The waves are gentle enough for children, with none of the heavy surf that makes Máncora, 29 kilometres to the south, more exciting for surfers but less relaxing for everyone else.</p>
+
+                  <p>I've been here in December, when it's crowded with Peruvian families on holiday and the beach comes alive with music and the smell of food from the hotel restaurants. And I've been in July, when it's quiet enough that you can walk an hour along the waterline and pass almost nobody. Both versions are worth experiencing.</p>
+
+                  <h3>Whales, Whale Sharks, and Sea Turtles</h3>
+
+                  <p>Between June and October, Punta Sal becomes one of South America's best whale-watching locations. <a href="https://www.valenciatravelcusco.com/passion-passport/what-to-do-in-punta-sal">Humpback whales migrate to the northern Peruvian coast to reproduce and give birth</a>, and tour boats departing from Cancas (the main fishing village near the beach) can get you close enough to hear them breathe. Tour operators report sightings of up to 15 whales at a time. The same season also brings whale sharks — the ocean's largest fish, gentle filter feeders — to these waters, and this stretch of coast is one of the few places in the world where you can swim alongside them under guide supervision. Tourism here directly funds conservation research programs for the species.</p>
+
+                  <p>Year-round, the offshore reef at 18 metres depth is home to sea turtles, octopuses, seahorses, moray eels, sea lions, and butterfly fish. But the most accessible sea turtle experience isn't here — it's at Ñuro.</p>
+
+                  <p>Ñuro is a small fishing village about 40 minutes south of Punta Sal by road. The pier there is a gathering point for green sea turtles that mingle with the fishing boats as naturally as pigeons in a city square. You pay a local guide $10–15 USD for a boat ride, and within minutes you're in the water with them. There's also a <a href="https://www.valenciatravelcusco.com/passion-passport/what-to-do-in-punta-sal">Green Sea Turtle Conservation Center</a> in the village. It's one of the most genuinely moving wildlife experiences I've had anywhere in Peru.</p>
+
+                  <h3>The Tumbes Mangroves and the Last Crocodiles</h3>
+
+                  <p>An hour north of Punta Sal, near the port town of Puerto Pizarro, lies the <a href="https://www.tierrasvivas.com/en/tumbes-peru">Santuario Nacional Los Manglares de Tumbes</a> — 2,972 hectares of mangrove forest, the northernmost surviving mangrove ecosystem on the Pacific coast of South America.</p>
+
+                  <p>You access it by boat, winding through narrow green channels while herons and frigatebirds take off from the roots around you. The resident wildlife includes pelicans, Peruvian boobies, and a population of the Tumbes crocodile (<em>Crocodylus acutus</em>) — a species found nowhere else on Earth in its Peruvian form, critically endangered and absolutely prehistoric-looking when the guide points one out half-submerged in the shadows. The contrast between this and the open beach an hour south is almost surreal — from postcard tropical coast to a living jungle waterway in under 60 minutes.</p>
+
+                  <div class="callout-tip">
+                    <strong>Condor Trails Tip:</strong>
+                    <p>Visit the mangroves between April and December — the January–March rainy season makes boat navigation difficult and visibility poor. Combine your mangrove trip with a stop at <a href="https://www.peru-explorer.com/tumbes-peru-travel-information-plan-your-visit.htm">Isla de los Pájaros</a> (Bird Island) just offshore from Puerto Pizarro — it's one of the great overlooked birding spots on the Peruvian coast.</p>
+                  </div>
+
+                  <h3>Where to Stay</h3>
+
+                  <p>Punta Sal's hotel strip is concentrated in the beachfront village of Canoas de Punta Sal. With <a href="https://www.tripadvisor.com/Hotels-g3179435-Punta_Sal_Tumbes_Region-Hotels.html">54+ accommodation options</a>, there's something for every budget — but the range of quality is significant, so pick carefully.</p>
+
+                  <p><strong>For a luxury or boutique experience</strong>, I'd point you to two properties. <a href="https://www.tripadvisor.com/Hotels-g3179435-Punta_Sal_Tumbes_Region-Hotels.html">Yemaya Boutique Hotel</a> (4.6/5 from 260+ reviews) is the one I'd stay at with my partner — praised for its tranquility, its excellent restaurant, and service that makes you feel no need to leave the grounds. <a href="https://www.tripadvisor.com/Hotels-g3179435-Punta_Sal_Tumbes_Region-Hotels.html">El Samay Hotel Boutique</a> (5.0/5 from 110 reviews) is known for exceptional breakfasts on the veranda and views that make you pause mid-coffee. If money is no object, Villa Romana has infinity pools and four-poster beds.</p>
+
+                  <p><strong>For families or mid-range travel</strong>, <a href="https://www.tripadvisor.com/Hotels-g3179435-Punta_Sal_Tumbes_Region-Hotels.html">Punta del Norte Bungalows</a> (4.8/5) gets rave reviews — hammocks, spacious layouts, excellent breakfasts, and a genuinely family-friendly atmosphere. Canoas de Punta Sal Bungalows has been described by guests as offering "some of the finest accommodation in South America" for a mid-range price.</p>
+
+                  <p><strong>For budget travellers</strong>, <a href="https://www.tripadvisor.com/Hotels-g3179435-Punta_Sal_Tumbes_Region-Hotels.html">Hua Punta Sal Hospedaje-Restaurante</a> (4.1/5 from 140 reviews) offers beachfront rooms from around $37/night and is generally regarded as the best value on the beach. Budget bungalows start around that price; high-season average across all properties is $161/night.</p>
+
+                  <p>The <a href="https://www.tripadvisor.com/Hotels-g3179435-Punta_Sal_Tumbes_Region-Hotels.html">Royal Decameron Punta Sal</a> is the big all-inclusive resort — good if you want everything under one roof, but mixed reviews (3.6/5) suggest it can be inconsistent.</p>
+
+                  <h3>What to Eat</h3>
+
+                  <p>Northern Peruvian coastal cuisine is genuinely distinct from Lima's food scene, and Punta Sal is where you learn that. Almost all dining happens through the hotels (there are very few independent restaurants), so where you stay shapes what you eat — which is another argument for choosing well.</p>
+
+                  <p>The must-order dishes:</p>
+
+                  <p><strong>Ceviche de conchas negras</strong> — black clam ceviche, a northern Peruvian specialty. The <em>concha negra</em> (black shell) has an intense, briny, almost ferrous flavour that's completely different from the delicate white-fish ceviches of Lima. It's acquired-taste territory for some, but I find it extraordinary. <a href="https://www.tripadvisor.com/Restaurants-g3179435-Punta_Sal_Tumbes_Region.html">The best black-shell ceviche in the region is actually in Tumbes city</a>, 45 minutes away — worth a special trip if you're a ceviche obsessive.</p>
+
+                  <p><strong>Chicharrón de pescado</strong> — crispy fried fish strips served with salsa criolla (pickled onion and lime). Simple. Perfect.</p>
+
+                  <p><strong>Tamalitos verdes</strong> — green tamales made with fresh corn and cilantro, a northern coastal specialty that you genuinely cannot find properly in Lima. Try them with the <a href="https://www.tripadvisor.com/Restaurants-g3179435-Punta_Sal_Tumbes_Region.html">Restaurante Hua's</a> version — their menu also features ceviche de mero (grouper ceviche) and arroz con mariscos (seafood rice) that are well worth the wait.</p>
+
+                  <p><strong>La Piramide del Mar</strong> (4.5/5 from 248 reviews) is the most acclaimed independent restaurant in the area — Peruvian and Latin cuisine, and the go-to for fresh ceviche if you want to eat outside your hotel.</p>
+
+                  <h3>Getting There</h3>
+
+                  <p>Punta Sal is 1,165 km north of Lima — this is important context. It is not a weekend hop from the capital in the way that Paracas or Chincha are. Plan for it.</p>
+
+                  <p><strong>The fastest route</strong> is <a href="https://www.rome2rio.com/s/Lima/Punta-Sal">fly Lima (LIM) → Tumbes (TBP), approximately 1 hour 52 minutes</a>, on LATAM, Sky Airline, or JetSmart from $47 one-way. From Tumbes airport, a taxi or private transfer to Punta Sal takes about 1 hour 20 minutes and costs $55–100 USD. Total door-to-door: around 3 hours.</p>
+
+                  <p><strong>Local insider tip</strong>: Many Peruvians fly to Piura (PIU) instead of Tumbes — often cheaper and with more flight options. From Piura airport, a private transfer to Punta Sal takes about 2 hours ($60–80). Worth checking both routes when booking.</p>
+
+                  <p><strong>By bus</strong>: Companies including Cruz del Sur, ITTSA, and Oltursa operate overnight services from Lima to Máncora (18–21 hours, $24–65 depending on seat class). From Máncora, a taxi to Punta Sal is 30 minutes and about $15. The overnight bus with lie-flat <em>bus cama</em> seats is manageable — I've done it — but you need to want it.</p>
+
+                  <h3>Practical Tips and Costs</h3>
+
+                  <ul>
+                    <li><strong>Budget</strong>: $50–80 USD/day per person (budget bungalow, inexpensive restaurants)</li>
+                    <li><strong>Mid-range</strong>: $100–150 USD/day per person (boutique hotel, hotel restaurant meals)</li>
+                    <li><strong>Luxury</strong>: $200–350 USD/day per person (top resorts, activities, private tours)</li>
+                  </ul>
+
+                  <p>Bring cash — card acceptance is limited outside main hotels. Bring reef-safe sunscreen if you're swimming near sea turtles at Ñuro. The equatorial sun at this latitude is significantly stronger than most visitors expect. And bring a windbreaker for evenings — the sea breeze after sunset can be surprisingly cool.</p>
+
+                  <h3>Why Most English-Speaking Tourists Miss It Entirely</h3>
+
+                  <p>The answer is simple: they know Máncora.</p>
+
+                  <p>Máncora — 29 km south of Punta Sal — is the beach that made it onto the international travel circuit. It has surf schools, backpacker hostels, nightlife, international coverage in every major travel guide. It's excellent, genuinely. But it also has colder water, heavier waves, and the particular energy of a place that knows it's famous.</p>
+
+                  <p>Punta Sal is what Máncora might have been before it became Máncora. Warmer water, a longer beach, quieter, with better wildlife access and more interesting food. The traveller who discovers it tends to feel disproportionately pleased with themselves — as though they found the secret room behind the bookshelf.</p>
+
+                  <p>You now have the address. Use it.</p>
+
+                  <div class="article-author-bio">
+                    About the author: The writer behind Condor Trails was born and raised in Jauja, Junín, Peru, with Quechua (Huanca/Wanka) heritage. He now lives in Dublin, Ireland, and his parents run tourinca.com, a travel agency in Peru. He has been visiting Punta Sal since before it appeared in any English-language travel guide.
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ==================== AD 1: CTA Banner after Article 2 ==================== -->
+            <div class="ad-cta-banner fade-in">
+              <div class="ad-cta-banner-title">Plan Your South Coast Journey</div>
+              <p class="ad-cta-banner-text">From Chincha's Afro-Peruvian heartland to the turquoise waters of Paracas — let us design your perfect 3-day south coast itinerary.</p>
+              <a href="./index.html#contact" class="btn btn-lg">Start Planning</a>
+            </div>
+
+            <!-- ==================== ARTICLE 3 ==================== -->
+            <article class="article-card fade-in" id="article-3">
+              <div class="article-card-header">
+                <div class="article-card-meta">
+                  <span class="article-reading-time">18 min read</span>
+                </div>
+                <h2 class="article-card-title">Chincha — The Heart of Afro-Peruvian Culture (And the Best Food You've Never Heard Of)</h2>
+                <p class="article-card-excerpt">I have to confess something about Chincha: for most of my childhood, I took it for granted. It wasn't until I moved abroad and started seeing Peru's cultural landscape from the outside that I understood what Chincha actually is.</p>
+              </div>
+              <div class="article-card-footer">
+                <button class="article-toggle-btn" onclick="toggleArticle('article-3')" aria-expanded="false">
+                  Read More
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </div>
+              <div class="article-full-content">
+                <div class="article-body">
+
+                  <p>I have to confess something about Chincha: for most of my childhood, I took it for granted.</p>
+
+                  <p>It was a place you passed through on the way to Ica, or a day trip for Lima families, or the town where a certain type of green noodle came from that my mother occasionally made on Sundays. It wasn't until I moved abroad and started seeing Peru's cultural landscape from the outside that I understood what Chincha actually is.</p>
+
+                  <p>Chincha is where African and Andean and European histories collided over four centuries and produced something that belongs to none of those origins entirely and to all of them at once. It is one of the most extraordinary cultural sites in all of South America. Most international tourists drive straight past it on the Panamericana Sur. That is one of the great oversights in Peruvian travel.</p>
+
+                  <p>Let me fix that.</p>
+
+                  <h3>The History That Made Chincha</h3>
+
+                  <p>The Chincha Valley, 200 km south of Lima, <a href="https://erasmusu.com/en/erasmus-peru/erasmus-blog/chincha-the-land-of-the-afro-peruvian-culture-950995">became one of the most significant centres of enslaved African labour in the Americas</a> from the 17th century onward. The cotton and sugar plantations of the valley were among the most reliant on enslaved workers anywhere in the hemisphere. The Africans brought here — primarily from Guinea in West Africa, beginning as early as the 1530s — did not simply labour and disappear. They created. They built communities and cultural forms that persisted across generations, survived emancipation in 1854, and continue today with remarkable vitality.</p>
+
+                  <p>The <a href="https://erasmusu.com/en/erasmus-peru/erasmus-blog/chincha-the-land-of-the-afro-peruvian-culture-950995">Afro-Peruvian population is approximately 3.6% of Peru's total</a>, concentrated historically along the coastal valleys south of Lima. But the percentage doesn't capture the cultural weight. Afro-Peruvian music, dance, and cuisine punch far above their demographic share in shaping what Peru is.</p>
+
+                  <p>Two cultural exports from Chincha deserve particular attention.</p>
+
+                  <p><strong>The cajón.</strong> The box-shaped wooden percussion instrument that has become Peru's most globally recognised musical contribution was invented here, in this valley, by Afro-Peruvian musicians during the colonial era. The Spanish authorities banned traditional African drums as a form of cultural suppression. <a href="https://erasmusu.com/en/erasmus-peru/erasmus-blog/chincha-the-land-of-the-afro-peruvian-culture-950995">The Afro-Peruvian response was the cajón</a> — a packing crate, ostensibly an innocent piece of furniture, repurposed as an instrument by sitting on it and striking the front face with the palms and fingers. Its sound is complex and powerful and irreplaceable. In the 1970s, Spanish flamenco guitarist Paco de Lucía encountered the cajón in Peru and brought it back to Spain, where it has since become an essential part of flamenco music. The instrument invented by enslaved workers in a Chincha valley plantation is now performed on stages in Seville and Madrid without most audiences knowing its origin.</p>
+
+                  <p><strong>Festejo.</strong> The <a href="https://erasmusu.com/en/erasmus-peru/erasmus-blog/chincha-the-land-of-the-afro-peruvian-culture-950995">most emblematic Afro-Peruvian dance form</a> — fast, rhythmic, joyful, rooted in the celebrations of freed enslaved people. To watch festejo performed by its real practitioners in El Carmen is to understand what Chincha is about in a way that no museum display can match.</p>
+
+                  <h3>El Carmen and the Ballumbrosio Family</h3>
+
+                  <p>El Carmen is a small town 10 km southeast of Chincha Alta, and it is the most important cultural site in the entire region. The central plaza still hosts spontaneous live performances of Afro-Peruvian music and <em>zapateo</em> dancing — rhythmic foot-stomping that sends sound through the ground like a second percussion instrument.</p>
+
+                  <p>But the heart of El Carmen, for any serious visitor, is the <a href="https://erasmusu.com/en/erasmus-peru/erasmus-blog/chincha-the-land-of-the-afro-peruvian-culture-950995">Ballumbrosio family home</a>. Amador Ballumbrosio (1933–2009) dedicated his life to preserving and teaching Afro-Peruvian traditions, and his family has continued that work across multiple generations. Their home is open to visitors — family members perform cajón drumming and festejo dance, the walls are covered in photographs of notable guests who have passed through over the decades. It is the kind of cultural experience that is increasingly rare anywhere in the world: intimate, unmediated, alive.</p>
+
+                  <p>I will not pretend this is a comfortable experience in the tourist-resort sense. There are no glossy brochures. The chairs are plastic. But I have sat in that room and watched a Ballumbrosio grandchild play cajón, and I have felt something shift in my understanding of what music is for.</p>
+
+                  <p>Book through a local guide in advance if you want a guaranteed visit — arrivals without arrangement are sometimes possible but not guaranteed.</p>
+
+                  <h3>Hacienda San José: History You Can Sleep Inside</h3>
+
+                  <p><a href="https://en.wikipedia.org/wiki/Hacienda_San_Jos%C3%A9_(hotel)">The Hacienda San José was founded in 1688</a> and operated as a sugar and cotton plantation that at its peak held over 1,000 enslaved workers. The colonial manor house — <a href="https://en.wikipedia.org/wiki/Hacienda_San_Jos%C3%A9_(hotel)">declared a Cultural Heritage Site in 1970</a> — stands largely intact: baroque chapel, colonial galleries, tropical garden, and a swimming pool incongruously set among the colonial architecture.</p>
+
+                  <p>But the most powerful part of Hacienda San José is underground.</p>
+
+                  <p>The hacienda has a network of catacombs and tunnels carved by enslaved workers over generations — used as hiding places, escape routes, and punishment cells. Tours descend into these narrow stone passages carrying only a candle. The darkness is absolute. The scale of what happened above ground, and what was survived below it, lands differently when you are physically inside the space where it occurred.</p>
+
+                  <p>The hacienda is now also a <a href="https://www.tripadvisor.com/Hotel_Review-g946508-d677829-Reviews-Casa_Hacienda_San_Jose-Chincha_Alta_Ica_Region.html">boutique hotel with 12 rooms, priced at $137–252 USD/night including breakfast</a>, rated 4.2/5 from 347 reviews on TripAdvisor. Staying overnight — having the place to yourself after the day visitors leave, walking the colonial corridors by lamplight, eating criollo cuisine in the estate restaurant — is an experience I recommend without reservation.</p>
+
+                  <p>Note: the hacienda closed after the 2007 earthquake (magnitude 8.0, epicenter near Pisco) caused significant damage, and reopened fully in 2012 after restoration.</p>
+
+                  <div class="callout-tip">
+                    <strong>Condor Trails Tip:</strong>
+                    <p>Book Hacienda San José for a weeknight rather than a weekend — the property is quieter, and you're more likely to have the catacombs tour and the garden largely to yourself. The baroque chapel is particularly beautiful in the late-afternoon light. Use Waze rather than Google Maps to navigate there — <a href="https://www.rome2rio.com/s/Lima/Chincha-Alta">guests report that Google Maps leads to incorrect detours</a>; Waze has the correct approach route.</p>
+                  </div>
+
+                  <h3>The Food: Sopa Seca and Its Companions</h3>
+
+                  <p>I need to talk about sopa seca. I have been thinking about how to describe it to someone who has never eaten it, and I keep arriving at the same problem: the name actively works against it.</p>
+
+                  <p><em>Sopa seca</em> means "dry soup." It is, in fact, pasta. <a href="https://peru.info/en-us/gastronomy/blogperu/2/12/sopa-seca--the-typical-dish-from-chincha-that-all-peruvians-fall-in-love-with-">Spaghetti cooked directly in a sauce of basil, cilantro, parsley, tomato, garlic, ají panca, and chicken stock</a>, then finished with chicken or pork pieces, until every last drop of liquid is absorbed. The noodles emerge bright green, intensely aromatic, unlike any Italian pasta dish that inspired them. The dish originated in the 1880s when Italian immigrants settled in Chincha and the Afro-Peruvian cooks took their pasta and seasoned it with native chilies and herbs. The result is one of the most purely Peruvian things on earth — a fusion that no longer feels like a fusion, just a dish that has always existed.</p>
+
+                  <p>Sopa seca appears at Chinchano family gatherings, weddings, baptisms, festivals. When a Chinchano is homesick, this is what they miss.</p>
+
+                  <p>Its eternal companion is <a href="https://www.eatperu.com/carapulcra-recipe/">carapulcra</a> — an ancient Andean stew of dried potatoes (<em>papa seca</em>) slow-cooked with pork or chicken, ground peanuts, ají panca, garlic, and cumin. The Andean original became coastal through the African community's addition of peanuts — another example of the Chincha synthesis. Served together, sopa seca and carapulcra form a combination Peruvians call <strong>manchapecho</strong> — literally "chest-stainer," because you're very likely to spill the richly coloured sauce on yourself, and worth every risk.</p>
+
+                  <p>February 10th is <a href="https://www.eatperu.com/carapulcra-recipe/">National Carapulcra Day in Peru</a>. I say this so you understand the seriousness with which this dish is taken.</p>
+
+                  <p>Other Chinchano specialties worth seeking out:</p>
+
+                  <ul>
+                    <li><strong>Chinchano tamales</strong> — wrapped in banana leaves, filled with chicken stuffed with peanuts, different from Lima tamales in every important respect. Find them early morning at local markets.</li>
+                    <li><strong>Chocotejas</strong> — pecans or other fillings encased in white chocolate; a local confection exported across Peru but best eaten here at the source.</li>
+                    <li><strong>Frejol colao</strong> — a sweet cream made from black beans, spread on bread. It sounds strange. It is delicious.</li>
+                    <li><strong>Cachina</strong> — young, barely-fermented grape wine from the Sunampe district vineyards. Slightly fizzy, naturally sweet, low-alcohol, served cold. A Chincha seasonal specialty that you can only find during and just after harvest (February–March).</li>
+                  </ul>
+
+                  <p>For the best sopa seca, ask locals about <strong>Mamá Ine</strong> in El Carmen — one of the most recognised home cooks in the district. For a proper restaurant setting, <a href="https://peru.info/en-us/gastronomy/blogperu/2/12/sopa-seca--the-typical-dish-from-chincha-that-all-peruvians-fall-in-love-with-">Restaurante El Refugio de Mamaine</a> is highly regarded.</p>
+
+                  <h3>Huaca La Centinela: Peru's Most Overlooked Pyramid</h3>
+
+                  <p>A short mototaxi ride from central Chincha, rising from cotton fields: <a href="https://erasmusu.com/en/erasmus-peru/erasmus-blog/chincha-the-land-of-the-afro-peruvian-culture-950995">Huaca La Centinela, the former capital of the Chincha culture</a>, an adobe pyramid complex that served a sophisticated trading civilization from approximately 900–1450 CE, before the Inca absorbed them.</p>
+
+                  <p>The Chincha culture were maritime traders of extraordinary range — their boats are recorded trading as far north as Ecuador and Colombia. The top of the central pyramid offers a panoramic view across the entire valley to the Pacific. There is a small on-site museum with Chincha ceramics. Almost nobody visits.</p>
+
+                  <p>I have stood on top of that pyramid with exactly zero other tourists in sight. In Peru, that is rarer than finding a warm beach in July.</p>
+
+                  <h3>Verano Negro: When Chincha Becomes Unmissable</h3>
+
+                  <p>The <a href="https://www.limaeasy.com/peru-guide/peruvian-public-holidays-festivities/afro-peruvian-summer-festival-festival-del-verano-negro-in-chincha">Verano Negro (Black Summer) festival</a>, held in the third week of February, centred on El Carmen, is the most important cultural event in Afro-Peruvian life. Multi-day explosion of music, dance, street parades, zapateo competitions, cajón performances. It is not a performance for tourists — it is a community event that happens to welcome observers.</p>
+
+                  <p>If you can time your visit for Verano Negro, do so. Book accommodation months in advance; everything fills. The alternative is the <a href="https://www.limaeasy.com/peru-guide/peruvian-public-holidays-festivities/afro-peruvian-summer-festival-festival-del-verano-negro-in-chincha">Festival de Danzas Negras in November</a>, considered by many to be even more authentic. June is <a href="https://erasmusu.com/en/erasmus-peru/erasmus-blog/chincha-the-land-of-the-afro-peruvian-culture-950995">Afro-Peruvian Culture Month nationally</a>, with the 4th honouring the birthday of Nicomedes Santa Cruz, the great researcher and advocate of this heritage.</p>
+
+                  <h3>Getting There and Practical Notes</h3>
+
+                  <p>Chincha is one of the most accessible Peruvian destinations from Lima. From Lima's Gran Terminal Terrestre Plaza Norte, <a href="https://www.rome2rio.com/s/Lima/Chincha-Alta">buses depart every 5–10 minutes</a>. Journey: 2.5–3 hours. Cost: $5–23 USD. Companies include Flores Hermanos, Jaksa, and Perubus. You can leave Lima after breakfast and be eating sopa seca in Chincha by lunch.</p>
+
+                  <p>Mototaxis are the main local transport in Chincha and El Carmen — cheap and ubiquitous. Agree on a price before getting in (S/15–20 to El Carmen from the terminal, about $4–5). Bring cash; many local restaurants and stalls are cash only.</p>
+
+                  <p>Most visitors either base at Hacienda San José or use Chincha as a stop on the way to/from Paracas — it sits 1 hour north of Pisco and 45 minutes north of Paracas, making it a natural first or last stop on any <a href="https://www.rome2rio.com/s/Lima/Chincha-Alta">south coast itinerary</a>.</p>
+
+                  <h3>Why This Matters</h3>
+
+                  <p>Afro-Peruvian culture is one of Peru's most powerful stories, and it is almost entirely absent from the international travel conversation. The cajón drum that now sits on flamenco stages worldwide came from a Chincha valley plantation. The sopa seca that Peruvian families argue about at Sunday lunch was invented by cooks who had no political power but absolute culinary genius. The festejo dance that UNESCO has included in Peru's cultural heritage was created by people whose names colonial records mostly didn't bother to record.</p>
+
+                  <p>Chincha keeps that history alive. It keeps it dancing. Two and a half hours south of Lima, there is an entire world that most international visitors to Peru never see.</p>
+
+                  <p>Go see it.</p>
+
+                  <div class="article-author-bio">
+                    About the author: The writer behind Condor Trails grew up in Jauja, Junín, with Quechua heritage and the surname Canchaya. He lives in Dublin, Ireland, and writes about Peru's overlooked cultures and destinations. His parents run tourinca.com, a travel agency in Peru.
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ==================== ARTICLE 4 ==================== -->
+            <article class="article-card fade-in" id="article-4">
+              <div class="article-card-header">
+                <div class="article-card-meta">
+                  <span class="article-reading-time">16 min read</span>
+                </div>
+                <h2 class="article-card-title">Pisco &amp; Paracas — Penguins, Pyramids, and the Spirit That Started It All</h2>
+                <p class="article-card-excerpt">The drive south from Lima is one of those journeys that teaches you something about a country you thought you already knew. You leave the city — the traffic, the fog, the grey Pacific horizon — and the Panamericana Sur carries you into something more austere and more beautiful.</p>
+              </div>
+              <div class="article-card-footer">
+                <button class="article-toggle-btn" onclick="toggleArticle('article-4')" aria-expanded="false">
+                  Read More
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </div>
+              <div class="article-full-content">
+                <div class="article-body">
+
+                  <p>The drive south from Lima is one of those journeys that teaches you something about a country you thought you already knew.</p>
+
+                  <p>You leave the city — the traffic, the fog, the grey Pacific horizon — and the Panamericana Sur carries you into something more austere and more beautiful. The coast sheds its vegetation almost immediately. By the time you're an hour out, you're in proper desert: dunes rolling down to the ocean, brown cliffs plunging into a sea that changes colour every few kilometres. The Andes are visible to the east, a white-capped wall at the edge of the world. Peru, you remember again, is not a gentle country.</p>
+
+                  <p>Then you arrive at Paracas, and the desert turns turquoise at its edges, and everything makes sense.</p>
+
+                  <h3>Pisco: The Spirit, the City, and the History</h3>
+
+                  <p>Before you arrive in Pisco the city, I need to tell you about pisco the spirit. Not because it's a digression — it's the entire reason this city exists.</p>
+
+                  <p><a href="https://en.wikipedia.org/wiki/Pisco">Pisco is a grape brandy</a>, distilled once in copper pot stills, rested for at least three months in glass or stainless steel, never aged in wood, with nothing added — no water, no sugar, no colouring. It comes in eight designated grape varieties: quebranta, mollar, negra criolla, uvina, italia, moscatel, torontel, and albilla. Peru's Denomination of Origin rules, established in 1991, are strict. The purity is the point.</p>
+
+                  <p>The history starts with grapes. Spanish conquistadors brought vines to Peru in 1553 and wine production thrived. Then, <a href="https://www.wineandspiritsmagazine.com/news/spirits-news/a-guide-to-peruvian-pisco">in 1641, King Philip IV of Spain banned Peruvian wine imports to protect Spain's domestic wine market</a>. Peruvian producers, sitting on vast vineyards and suddenly unable to sell wine legally, began distilling their excess grapes into <em>aguardiente</em>. The Jesuits were central to systematising this production, particularly around Pisco and Nazca. <a href="https://www.wineandspiritsmagazine.com/news/spirits-news/a-guide-to-peruvian-pisco">By 1764, pisco represented 90% of Peru's grape beverage production</a>. An economic constraint produced one of the world's great spirits — which is either a consolation or a vindication of adversity, depending on how you look at it.</p>
+
+                  <p>The word <em>pisco</em>, incidentally, is Quechua for "bird." It was the name of the colonial port before it became the name of the spirit. I find something quietly satisfying about that — a Quechua word now on bar menus across the world, even if nobody knows its origin.</p>
+
+                  <p><strong>The Pisco Sour</strong> — Peru's national cocktail, the elegant combination of pisco, lime juice, simple syrup, egg white, and a few drops of Angostura bitters — was invented by <a href="https://en.wikipedia.org/wiki/Pisco">an American named Victor Vaughen Morris, who emigrated to Peru for the mining trade and opened the Morris Bar in Lima in 1915</a>. He created it as a variant on the Whiskey Sour. Peru's most patriotic cocktail was created by a man from Utah. History enjoys this kind of irony.</p>
+
+                  <p><strong>The Chile debate.</strong> You will encounter this if you spend any time around pisco. Chile also produces a spirit called pisco, and the two countries maintain a fierce, occasionally diplomatic rivalry over the name's origin. The key differences: Chilean pisco can be distilled multiple times and aged in oak; Peruvian pisco is <a href="https://en.wikipedia.org/wiki/Pisco">distilled once and never aged in wood</a>, preserving the pure grape character. Neither country accepts the other's claim. I will let you try both and form your own view — but I know which one I'm ordering.</p>
+
+                  <div class="callout-tip">
+                    <strong>Condor Trails Tip:</strong>
+                    <p>The best way to understand pisco is to visit a bodega, not a bar. The Ica valley and Pisco area has several distilleries that welcome visitors — <a href="https://www.peruforless.com/travel-guides/paracas">El Catador and Vista Alegre</a> are popular near Ica, with tours of about 1–2 hours including tastings of 5+ varieties for approximately $15–25 USD. Schedule a morning bodega visit before the afternoon boat tour and you'll arrive at the Ballestas Islands with significantly improved appreciation for everything.</p>
+                  </div>
+
+                  <h3>The Ballestas Islands: The "Poor Man's Galápagos"</h3>
+
+                  <p><a href="https://www.peruforless.com/travel-guides/paracas">The Ballestas Islands lie 15 km offshore from the small beach town of Paracas (El Chaco)</a>. Boat tours depart from El Chaco pier, typically at 8am and 10am. The two-hour round trip is one of those experiences that lives up to its billing without caveats.</p>
+
+                  <p>On the outward journey, the boat passes the <a href="https://www.machutravelperu.com/blog/paracas-travel-guide">Candelabro geoglyph</a> — a massive figure approximately 170 metres tall, etched into the cliff face of the Paracas Peninsula, visible only from the sea. Three-pronged, candelabra-shaped, estimated at 2,000+ years old. Its creators and purpose are unknown: theories connect it to the Nazca Lines, to a coastal navigation marker, to ancient legend. It is enormous. It was made by hand. Nobody knows exactly why.</p>
+
+                  <p>Then the islands. The guidebooks call them "the Poor Man's Galápagos," which is slightly diminishing — they're extraordinary in their own right, not a consolation prize. The wildlife, year-round: <a href="https://www.peruforless.com/travel-guides/paracas">Humboldt penguins</a> (best sightings May–October), South American sea lions (especially active January–March for pupping season, when the rocks are covered in them), guanay cormorants, Peruvian pelicans, Peruvian boobies, and Inca terns — a bird I find almost comically beautiful, slate-grey with a white moustache. Dolphins occasionally. The boat circles the islands without landing (illegal, to protect the wildlife). You shoot photographs until your memory card is full and then you keep shooting.</p>
+
+                  <p>Entrance fee: approximately $5–7 USD at the pier. Boat tours: $15–50 USD depending on tour type. <a href="https://www.machutravelperu.com/blog/paracas-travel-guide">Boats depart from El Chaco pier in Paracas, not from Pisco city</a> — this confuses some visitors. If you're based in Pisco, it's a 15-minute taxi to El Chaco (about S/15–20).</p>
+
+                  <h3>Paracas National Reserve: Desert at the Edge of the Sea</h3>
+
+                  <p><a href="https://www.peruforless.com/travel-guides/paracas">The Paracas National Reserve covers 335,000 hectares</a> of protected coastal desert and marine area, created in 1975 and listed under the Ramsar Convention. The landscape is something that your eyes need a moment to process: red and ochre desert cliffs plunging directly into a turquoise Pacific, with no vegetation for miles in any direction. It looks like a planet slightly different from ours.</p>
+
+                  <p>Key sites within the reserve:</p>
+
+                  <p><strong>Playa Roja (Red Beach)</strong> — the sand is literally red, composed of broken volcanic rock. It would look improbable in a photograph if it weren't real.</p>
+
+                  <p><strong>La Mina Beach</strong> — one of Peru's most beautiful desert beaches. Turquoise water, volcanic cliffs, almost no development. The kind of beach you don't want to share.</p>
+
+                  <p><strong>The Paracas Museum (Museo de Sitio Julio C. Tello)</strong> — covers the prehistory of the Paracas culture, including the famous elongated skulls and extraordinary textiles that have made Paracas one of the most studied pre-Inca civilisations in the world.</p>
+
+                  <p>Note: the famous Cathedral sea arch, a Paracas landmark, <a href="https://en.wikipedia.org/wiki/2007_Peru_earthquake">partially collapsed in the 2007 earthquake</a>. The reserve is open 9am–4pm daily. A combined Paracas + Ballestas Islands ticket is approximately S/17.</p>
+
+                  <p>The <em>paracas</em> winds — from a <a href="https://www.paracasperu.com/best-time-to-visit-paracas-peru/">Quechua word meaning "sand rain"</a> — blow strongest June–August and can occasionally cancel Ballestas boat tours. Keep flexible dates if visiting in winter.</p>
+
+                  <h3>Tambo Colorado: The Inca Site Nobody Visits</h3>
+
+                  <p>About 48 km inland from Pisco city, up the Pisco River valley, sits one of the most remarkable and undervisited archaeological sites in all of Peru.</p>
+
+                  <p><a href="https://culturetrekking.com/tambo-colorado/">Tambo Colorado was built during the reign of the Inca Pachacutec in the mid-15th century</a> as an administrative and military centre controlling the coastal trade route to Cusco. Unlike the highland Inca sites built from stone, Tambo Colorado is constructed from adobe and compacted earth — an adaptation to the coastal desert environment. The name means "Red Tambo" in Quechua: <a href="https://culturetrekking.com/tambo-colorado/">the adobe walls were painted in vivid red, yellow, and white pigments that are still partially visible after 500+ years</a>. The colours have survived half a millennium of desert wind and sun.</p>
+
+                  <p>The site includes a central trapezoidal plaza 150 metres long, a northern palace, a southern palace, an <em>ushnu</em> (ceremonial platform), warehouses, housing quarters, and evidence of Inca indoor plumbing — stone channels carrying water into the rooms from a well. <a href="https://culturetrekking.com/tambo-colorado/">The 2007 earthquake caused minimal damage</a> due to the site's hilltop bedrock position.</p>
+
+                  <p>Open Monday–Sunday, 8am–4pm. Admission: S/7.50 (about $2). About 40 minutes by car from Pisco. I have been here on a Wednesday afternoon when I was the only visitor on site. A guard waved me through and I walked around those painted walls in complete silence, trying to imagine the place at the height of Inca administrative power. It is one of the most rewarding 40 minutes of detour in Peruvian travel.</p>
+
+                  <h3>The 2007 Earthquake: What Happened and What Remains</h3>
+
+                  <p>Pisco city cannot be discussed without acknowledging the earthquake that reshaped it.</p>
+
+                  <p><a href="https://en.wikipedia.org/wiki/2007_Peru_earthquake">On August 15, 2007, a magnitude 8.0 earthquake struck offshore, approximately 150 km south-southeast of Lima</a>. Pisco bore the worst of the impact. <a href="https://en.wikipedia.org/wiki/2007_Peru_earthquake">595 people died, over 2,290 were injured, and 58,581 houses were destroyed nationwide</a>. In Pisco city, over 85% of adobe buildings collapsed. In the most devastating single incident, the vault of the San Clemente church collapsed during a funeral service, killing approximately 148 people. More than 100,000 people were left homeless.</p>
+
+                  <p>The city has been slowly rebuilt. New construction stands alongside empty lots where colonial buildings once stood. There is a rawness to certain parts of Pisco that is part of its current identity — a city that survived something almost unsurvivable and is still figuring out what comes next.</p>
+
+                  <p>I think it's worth visiting with that history in mind. Not morbidly, but respectfully. Pisco has a complicated relationship with its own tourism future — it is simultaneously the gateway to one of Peru's great natural wonders and a city still carrying significant trauma. Spending money in local restaurants and businesses, hiring local guides, taking time to walk Parque San Martín (where Peru's liberator José de San Martín unfurled the first Peruvian flag in 1820) — these are small gestures toward the kind of tourism that actually supports the places it visits.</p>
+
+                  <h3>What to Eat</h3>
+
+                  <p>The Pisco and Paracas area is serious seafood territory. The cold Humboldt Current creates <a href="https://www.tripadvisor.com/Restaurants-g488183-c33-Pisco_Ica_Region.html">one of the most nutrient-rich marine environments on earth</a>, with extraordinary abundance of corvina (sea bass), lenguado (sole), clams, mussels, prawns, and octopus.</p>
+
+                  <p><strong>Ceviche de corvina</strong> — the classic Peruvian ceviche: raw sea bass marinated in lime, ají amarillo, and red onion, served with sweet potato and choclo (large-kernel corn). If you're eating this in Pisco, the fish was probably in the water this morning.</p>
+
+                  <p><strong>Leche de tigre</strong> — the leftover ceviche marinade, consumed as a shot. Considered restorative. Contains citrus, ají, ginger. It tastes like concentrated coastal Peru.</p>
+
+                  <p><strong>Parihuela</strong> — a rich, spicy seafood soup, Peru's version of bouillabaisse. The Pisco version often incorporates local shellfish in combinations you won't find in Lima.</p>
+
+                  <p><strong>Tiradito</strong> — similar to ceviche but sliced like sashimi, no onion, with a creamy ají sauce. Lighter and more elegant.</p>
+
+                  <p>In Pisco city, <a href="https://www.tripadvisor.com/Restaurants-g488183-c33-Pisco_Ica_Region.html">Taita Restaurante</a> (4.7/5 from 31 reviews) is praised for super-fresh ceviche and classic Peruvian dishes at reasonable prices. <a href="https://www.tripadvisor.com/Restaurants-g488183-c33-Pisco_Ica_Region.html">As de Oros</a> (4.1/5 from 246 reviews) is the most reviewed restaurant in the city.</p>
+
+                  <p>In Paracas town, order a pisco sour at any bar on the malecón — competing versions are taken very seriously, and the standard is high.</p>
+
+                  <h3>Getting There and When to Go</h3>
+
+                  <p>From Lima, <a href="https://www.machutravelperu.com/blog/paracas-travel-guide">Pisco city is approximately 260 km south on the Panamericana Sur</a>. Bus journey: 3–3.5 hours with companies including Cruz del Sur and Oltursa, $15–30 USD. Many buses continue directly to El Chaco (Paracas) — ask specifically when booking.</p>
+
+                  <p><a href="https://www.paracasperu.com/best-time-to-visit-paracas-peru/">September–October is the sweet spot</a>: warm, dry, wildlife-rich (both penguins and flamingos), fewer crowds, better prices than peak Northern Hemisphere holiday season. December–February is warmest and most popular with domestic tourists. May–September brings the best penguin sightings and clearest skies, but winter winds can occasionally disrupt boat tours.</p>
+
+                  <p>Combine Pisco and Paracas with Chincha (1 hour north) and Huacachina (1.5 hours inland near Ica) for the <a href="https://perudiscoverytours.com/tours/ballestas-islands-and-paracas-national-reserve-day-tour/">perfect 3-day south coast itinerary</a> — which I've written up in detail in the next article.</p>
+
+                  <div class="article-author-bio">
+                    About the author: The writer behind Condor Trails grew up in Jauja, Junín, with Quechua heritage and the surname Canchaya. He now lives in Dublin and writes about Peru from the inside out. His parents run tourinca.com.
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ==================== AD 3: Lead Magnet after Article 4 ==================== -->
+            <div class="ad-lead-magnet fade-in">
+              <p class="ad-lead-magnet-eyebrow">Free Download</p>
+              <div class="ad-lead-magnet-title">Download Our Free Peru Travel Guide</div>
+              <p class="ad-lead-magnet-text">50+ pages of insider tips, itineraries, packing lists, and restaurant recommendations — written by a Peruvian who knows every path.</p>
+              <form class="ad-lead-magnet-form" onsubmit="handleLeadMagnetSubmit(event)" aria-label="Download travel guide">
+                <label class="sr-only" for="lead-magnet-email">Email address for travel guide</label>
+                <input type="email" id="lead-magnet-email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
+                <button type="submit" class="btn btn-primary">Send Me the Guide</button>
+              </form>
+            </div>
+
+            <!-- ==================== ARTICLE 5 ==================== -->
+            <article class="article-card fade-in" id="article-5">
+              <div class="article-card-header">
+                <div class="article-card-meta">
+                  <span class="article-reading-time">14 min read</span>
+                </div>
+                <h2 class="article-card-title">A 3-Day South Coast Road Trip — Chincha, Pisco, Paracas &amp; Huacachina</h2>
+                <p class="article-card-excerpt">This is the itinerary I give friends when they ask me: "I have three days out of Lima — where do I go?" The south coast of Peru is one of the great underplayed itineraries in South American travel.</p>
+              </div>
+              <div class="article-card-footer">
+                <button class="article-toggle-btn" onclick="toggleArticle('article-5')" aria-expanded="false">
+                  Read More
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </div>
+              <div class="article-full-content">
+                <div class="article-body">
+
+                  <p>This is the itinerary I give friends when they ask me: "I have three days out of Lima — where do I go?"</p>
+
+                  <p>The south coast of Peru is one of the great underplayed itineraries in South American travel. Within a three-hour drive of Lima, you have pre-Inca pyramids, the birthplace of Peru's national spirit, one of the world's great wildlife boat tours, a desert coast that looks like it belongs on another planet, and a sand-dune oasis that is genuinely one of the strangest and most beautiful natural landscapes I've seen anywhere. And running through all of it: extraordinary food.</p>
+
+                  <p>Three days is enough to do this properly. Here's how.</p>
+
+                  <h3>Getting There: Your Options</h3>
+
+                  <p><strong>Budget</strong>: Long-distance buses from Lima to Chincha ($5–23), Pisco ($15–30), or direct to Paracas on services like Peru Hop. <a href="https://www.rome2rio.com/s/Lima/Chincha-Alta">Rome2Rio lists multiple daily departures</a>.</p>
+
+                  <p><strong>Mid-range</strong>: Rent a car in Lima (from approximately $40–60/day) and drive yourself via Panamericana Sur. The road is straightforward, well-maintained, and the landscape is dramatic. This is what I do — it gives you maximum flexibility for Tambo Colorado and the reserve circuit.</p>
+
+                  <p><strong>Luxury</strong>: Private transfer from Lima to your first stop, then private driver throughout. Budget approximately $250–400 for a three-day private driver. Condor Trails can arrange this through our network.</p>
+
+                  <p><strong>Best time</strong>: <a href="https://www.paracasperu.com/best-time-to-visit-paracas-peru/">September–October is the sweet spot</a> — shoulder season, warm and dry, with both penguins and flamingos active, fewer crowds, and better prices than the July–August peak. December–February is also excellent for warmth and beach weather.</p>
+
+                  <div class="callout-tip">
+                    <strong>Condor Trails Tip:</strong>
+                    <p>Leave Lima by 7am on Day 1 to avoid the notorious Lima morning traffic — the Panamericana Sur exits can add 45 minutes to your first leg if you leave after 8. With an early start, you'll be eating sopa seca in Chincha by midday.</p>
+                  </div>
+
+                  <hr>
+
+                  <h3>Day 1: Lima → Chincha</h3>
+
+                  <p><strong>Distance from Lima:</strong> 200 km | <strong>Drive time:</strong> ~2.5 hours</p>
+
+                  <p>Arrive in Chincha by mid-morning and go directly to <strong>El Carmen</strong>, the cultural heartbeat of Afro-Peruvian life. If you've arranged a visit to the <a href="https://erasmusu.com/en/erasmus-peru/erasmus-blog/chincha-the-land-of-the-afro-peruvian-culture-950995">Ballumbrosio family</a>, this is your morning — cajón drumming, festejo dance, and an encounter with living heritage that no museum can replicate.</p>
+
+                  <p><strong>Lunch</strong>: This is non-negotiable. Find <a href="https://peru.info/en-us/gastronomy/blogperu/2/12/sopa-seca--the-typical-dish-from-chincha-that-all-peruvians-fall-in-love-with-">sopa seca</a> — the signature green noodle dish of Chincha, pasta cooked in basil, cilantro, tomato, and ají until the liquid is completely absorbed. Order it with carapulcra (the ancient peanut-and-dried-potato stew) on the side, because that combination — called <em>manchapecho</em> — is what Sunday lunch in Chincha means. Ask a local for Mamá Ine or try Restaurante El Refugio de Mamaine.</p>
+
+                  <p><strong>Afternoon</strong>: Drive or mototaxi to <a href="https://en.wikipedia.org/wiki/Hacienda_San_Jos%C3%A9_(hotel)">Hacienda San José</a> — the 1688 colonial plantation house with underground catacombs and a baroque chapel. The candle-lit catacomb tour takes about an hour. Allow another hour to walk the colonial gallery and gardens.</p>
+
+                  <p><strong>Detour option</strong>: If you have energy, a mototaxi to <a href="https://erasmusu.com/en/erasmus-peru/erasmus-blog/chincha-the-land-of-the-afro-peruvian-culture-950995">Huaca La Centinela</a> — the pre-Inca adobe pyramid complex on the edge of the cotton fields — rewards with panoramic valley views and almost certain solitude.</p>
+
+                  <p><strong>Overnight</strong>: Stay at <a href="https://www.tripadvisor.com/Hotel_Review-g946508-d677829-Reviews-Casa_Hacienda_San_Jose-Chincha_Alta_Ica_Region.html">Hacienda San José</a> ($137–252/night including breakfast) for the full atmospheric experience. Budget travellers: there are basic hotels in Chincha Alta from $20–40/night, or push on to Paracas and save the Hacienda for a future dedicated visit.</p>
+
+                  <p><strong>Evening</strong>: Dinner at the hacienda restaurant (criollo cuisine, included in the room) or buy chocotejas (the local white-chocolate confection) from a market stall on the way in.</p>
+
+                  <hr>
+
+                  <h3>Day 2: Chincha → Paracas</h3>
+
+                  <p><strong>Distance:</strong> ~1 hour from Chincha to Pisco/Paracas</p>
+
+                  <p><strong>Early morning (6:30am)</strong>: Drive from Chincha to <a href="https://www.machutravelperu.com/blog/paracas-travel-guide">El Chaco pier in Paracas town</a>. The morning boat tours to the Ballestas Islands depart at approximately 8am and 10am. You want the 8am boat for the best light, calmer seas, and the fullest experience before the day warms up. Pay the <a href="https://www.peruforless.com/travel-guides/paracas">entrance fee of $5–7 USD</a> at the pier before boarding.</p>
+
+                  <p><strong>Ballestas Islands (8am–10am)</strong>: Two hours on the water. The outward journey passes the <a href="https://www.machutravelperu.com/blog/paracas-travel-guide">Candelabro geoglyph</a> — 170 metres of ancient mystery carved into the cliff, visible only from the sea. Then the islands: <a href="https://www.peruforless.com/travel-guides/paracas">Humboldt penguins, sea lions, cormorants, pelicans, boobies, and Inca terns</a> packed onto the rocks at improbable density. Bring a windbreaker (it is cold on the water, even in summer), binoculars if you have them, and a waterproof bag for your phone.</p>
+
+                  <p><strong>Late morning (10:30am–1pm)</strong>: Drive the <a href="https://www.peruforless.com/travel-guides/paracas">Paracas National Reserve</a> circuit — open 9am–4pm. The reserve combined ticket with the Ballestas entrance is approximately S/17. Key stops: <strong>Red Beach</strong> (Playa Roja, the sand actually is red, composed of volcanic rock), <strong>La Mina Beach</strong> (turquoise water, volcanic cliffs, zero crowds if you're here mid-week), and the <strong>Paracas Museum</strong> (Site Museum Julio C. Tello) covering the Paracas civilisation's extraordinary skull-modification practices and textile tradition.</p>
+
+                  <p><strong>Lunch (1pm)</strong>: Back in Paracas town, eat on the malecón. <a href="https://www.tripadvisor.com/Restaurants-g488183-c33-Pisco_Ica_Region.html">Ceviche de corvina</a> — raw sea bass in lime, ají amarillo, and red onion — is the order. Follow it with a <em>leche de tigre</em> shot (the ceviche marinade), which the coastal Peruvians will tell you cures everything.</p>
+
+                  <p><strong>Afternoon</strong>: Optional pisco bodega visit on the road between Paracas and Ica — <a href="https://www.peruforless.com/travel-guides/paracas">El Catador or Vista Alegre</a> both offer excellent 1–2 hour tours with tastings ($15–25 USD including 5+ varieties). A good way to spend the 1.5 hours between the reserve and your afternoon nap.</p>
+
+                  <p><strong>Overnight</strong>: Stay in Paracas town. Options range from boutique hotels to budget hostels on and near the malecón. <a href="https://www.machutravelperu.com/blog/paracas-travel-guide">Hotel Paracas, a Luxury Collection Resort</a> for the splurge; mid-range hotels are plentiful and well-reviewed.</p>
+
+                  <hr>
+
+                  <h3>Day 3: Pisco → Tambo Colorado → Huacachina → Lima</h3>
+
+                  <p><strong>Morning (9am)</strong>: Drive 48 km inland from Pisco city up the Pisco River valley to <a href="https://culturetrekking.com/tambo-colorado/">Tambo Colorado</a>. Budget 2 hours: <a href="https://culturetrekking.com/tambo-colorado/">painted Inca walls in red, yellow, and white</a> still visible after 500 years, a 150-metre trapezoidal plaza, evidence of Inca indoor plumbing, and the best likelihood of having an important archaeological site entirely to yourself. Admission: S/7.50.</p>
+
+                  <p><strong>Drive to Huacachina (12pm–1pm)</strong>: From Tambo Colorado, head back toward the coast and then east toward Ica. <a href="https://www.machutravelperu.com/blog/paracas-travel-guide">Huacachina</a> is a natural oasis — a palm-fringed lagoon surrounded by sand dunes up to 100 metres high, in the middle of absolute desert, about 75 km from Pisco.</p>
+
+                  <p><strong>Afternoon in Huacachina (2pm–7pm)</strong>: Lunch at one of the restaurants around the lagoon. Book an afternoon <a href="https://culturetrekking.com/tambo-colorado/">dune buggy tour</a> — the vehicles assault the dunes at angles that seem impossible, you sandboard down the faces, and by sunset you are standing on the highest dune ridge watching the light go golden and red over the entire desert horizon. This is one of the singular experiences available in Peru at any budget level.</p>
+
+                  <p><strong>Return to Lima (7pm onward)</strong>: Huacachina to Lima is approximately 4–4.5 hours. Most travellers catch a bus from Ica bus terminal to Lima (Cruz del Sur, Oltursa — departures throughout the evening, $15–25). If you drove, the Panamericana Norte brings you back to Lima by 11pm, traffic depending.</p>
+
+                  <hr>
+
+                  <h3>Budget Breakdown</h3>
+
+                  <div class="table-wrap">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Style</th>
+                          <th>Accommodation</th>
+                          <th>Food</th>
+                          <th>Transport</th>
+                          <th>Activities</th>
+                          <th>Total 3 days</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><strong>Budget</strong></td>
+                          <td>$25–40/night</td>
+                          <td>$15–25/day</td>
+                          <td>Bus: $30–50</td>
+                          <td>$25–40</td>
+                          <td><strong>$200–300</strong></td>
+                        </tr>
+                        <tr>
+                          <td><strong>Mid-range</strong></td>
+                          <td>$80–150/night</td>
+                          <td>$35–60/day</td>
+                          <td>Car: $100–150</td>
+                          <td>$60–80</td>
+                          <td><strong>$500–700</strong></td>
+                        </tr>
+                        <tr>
+                          <td><strong>Luxury</strong></td>
+                          <td>$150–350/night</td>
+                          <td>$80–150/day</td>
+                          <td>Private: $250–400</td>
+                          <td>$100–150</td>
+                          <td><strong>$1,200+</strong></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <p><em>Per person, double occupancy.</em></p>
+
+                  <hr>
+
+                  <h3>Packing List</h3>
+
+                  <ul>
+                    <li><strong>Warm layer</strong>: The Paracas peninsula and the boat to the Ballestas Islands are cold and windy regardless of season</li>
+                    <li><strong>Windbreaker</strong> (waterproof outer layer for the boat)</li>
+                    <li><strong>Sunscreen and hat</strong>: The desert sun is unforgiving</li>
+                    <li><strong>Binoculars</strong>: For the Ballestas Islands, the Candelabro, and the reserve bird life</li>
+                    <li><strong>Cash in soles</strong>: Mototaxis, small restaurants, site entrances, and markets often don't accept cards</li>
+                    <li><strong>Waze</strong> (not Google Maps) for navigating to Hacienda San José</li>
+                    <li><strong>Motion sickness medication</strong>: For sensitive stomachs on the Ballestas boat</li>
+                  </ul>
+
+                  <hr>
+
+                  <h3>The Case for Booking This Trip</h3>
+
+                  <p>This itinerary is doable independently with the information in this article. The buses run reliably, the roads are straightforward, and the sites are well-signed.</p>
+
+                  <p>But if you want your time in Peru to go deeper — if you want Ballumbrosio family access arranged in advance, a local guide at Tambo Colorado who can explain the Inca administrative system in the context of what you're standing in front of, a bodega visit where the distiller talks you through the eight grape varieties rather than pouring samples in silence — Condor Trails can build this trip with those layers included.</p>
+
+                  <p>My parents have been running <a href="https://www.tourinca.com">tourinca.com</a> for years. I've been advising travellers on Peru since before I knew that's what I was doing. This south coast circuit is one I know at every level: budget hostel, boutique hacienda, solo dawn drive to the Ballestas pier.</p>
+
+                  <p><a href="https://www.condortrails.com">Book through Condor Trails</a> and you travel it with all of that knowledge in your pocket.</p>
+
+                  <div class="article-author-bio">
+                    About the author: The writer behind Condor Trails grew up in Jauja, Junín, with Quechua (Huanca/Wanka) heritage and the surname Canchaya — "courtyard" in Quechua. He now lives in Dublin, Ireland, speaks English, Spanish, and Polish, and has been designing Peru travel experiences since long before Condor Trails had a name. His parents run tourinca.com, a travel agency in Peru.
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ==================== ARTICLE 6 ==================== -->
+            <article class="article-card fade-in" id="article-6">
+              <div class="article-card-header">
+                <div class="article-card-meta">
+                  <span class="article-reading-time">11 min read</span>
+                </div>
+                <h2 class="article-card-title">The Day My Kids Fell in Love with Ancient Peru — A Family Visit to the Larco Museum</h2>
+                <p class="article-card-excerpt">I wasn't sure the museum would hold them. Not all three. Not for a full morning. My eldest, fourteen, had already declared the morning "probably fine." My youngest, seven, had asked three times on the taxi ride whether there would be dinosaurs. And my daughter — ten, the artist — had said nothing at all.</p>
+              </div>
+              <div class="article-card-footer">
+                <button class="article-toggle-btn" onclick="toggleArticle('article-6')" aria-expanded="false">
+                  Read More
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </div>
+              <div class="article-full-content">
+                <div class="article-body">
+
+                  <p>I wasn't sure the museum would hold them. Not all three. Not for a full morning.</p>
+
+                  <p>My eldest, fourteen and entering that stage where enthusiasm is rationed carefully, had already declared the morning "probably fine." My youngest, seven, had asked three times on the taxi ride whether there would be dinosaurs. And my daughter — ten, the one who builds robots at her desk and paints watercolour birds and keeps a sketchbook full of patterns she copies from things she finds beautiful — had said nothing at all, which is usually a sign that she's reserving judgement.</p>
+
+                  <p>We were headed to the Larco Museum. Museo Larco, properly. In the Pueblo Libre district of Lima, about thirty minutes from Miraflores, depending on Lima traffic, which means anywhere from twenty minutes to an eternity. My wife and I had been once before, years ago, before the children. I remembered the gardens and the gold. I remembered thinking: <em>this is one of those places that deserves more time than any travel itinerary gives it.</em></p>
+
+                  <p>Now I had three children and a full morning to give. Let me tell you what happened.</p>
+
+                  <h3>A Mansion Built on a Pyramid</h3>
+
+                  <p>The first thing the kids noticed was not the museum. It was the building.</p>
+
+                  <p>The <a href="https://www.museolarco.org/en/">Larco Museum</a> is housed in an 18th-century colonial mansion — white walls, wooden balconies, that particular Lima colonial architecture that makes you feel like you've stepped into a painting from another century. But here's the detail that stopped my fourteen-year-old mid-stride, phone halfway to his pocket: the mansion was built on top of a pre-Columbian pyramid. A seventh-century adobe structure, still partially visible in places, sits beneath the colonial floors.</p>
+
+                  <p>"Wait — <em>under</em> the building?"</p>
+
+                  <p>Yes. Under the building. Welcome to Peru, where the layers of history are literal.</p>
+
+                  <p>The museum was <a href="https://www.viator.com/tours/Lima/Museo-Larco-Admission-fee/d928-33452P3">founded in 1926 by Rafael Larco Hoyle</a>, a Peruvian archaeologist who spent decades assembling one of the most important private collections of pre-Columbian art in the world. Today the collection holds <a href="https://www.getyourguide.com/larco-museum-l73799/">over 45,000 artefacts spanning 5,000 years of history</a> — ceramics, textiles, metals, jewellery, and some of the most extraordinary gold and silver work you will see anywhere on the continent. The scope is staggering. The presentation is beautiful. And the building itself — surrounded by gardens cascading with bougainvillea in every shade from magenta to white — makes the whole experience feel less like a museum visit and more like stepping into someone's extraordinary private world.</p>
+
+                  <p>Which, in a sense, is exactly what it is.</p>
+
+                  <h3>The Moche Faces That Changed Everything</h3>
+
+                  <p>We moved through the early galleries chronologically, as the museum intends — beginning with the earliest cultures and working forward through time. My youngest lasted about ten minutes before he began the gravitational drift toward my wife that signals "carry me or lose me." My eldest read every placard with the careful attention of someone who has recently discovered that history contains actual stories.</p>
+
+                  <p>But my daughter — my ten-year-old, the artist — found her room.</p>
+
+                  <p>The Moche portrait vessels.</p>
+
+                  <p>If you haven't encountered them, let me explain. The <a href="https://www.tangol.com/eng/peru/lima/day-tours/classic/larco-museum-with-gourmet-dinner_t_2220">Moche civilisation (roughly 100–800 CE) produced ceramic vessels shaped as human faces</a> with a degree of realism and individuality that is almost shocking. These are not stylised representations. They are <em>portraits</em> — specific people, with specific expressions, specific features, specific scars and moods. Some are laughing. Some are stern. Some look like they're mid-thought. The artistry required to achieve this in clay, without a wheel, over a thousand years before European contact, is extraordinary.</p>
+
+                  <p>My daughter stood in front of the first case for several minutes without speaking. Then she turned to me and said: "They're all different. Every single one is a different person."</p>
+
+                  <p>That was the moment the museum visit became something else entirely. She moved from case to case, face to face, studying them the way she studies her own art references at home — with that particular intensity that children have before the world teaches them to pretend they're not fascinated.</p>
+
+                  <p>I let her take her time. This is, for me, the whole point of travelling with children: not the itinerary, but the moment when something real connects.</p>
+
+                  <h3>Gold, Silver, and a Seven-Year-Old's Vocabulary</h3>
+
+                  <p>The Gold and Silver Gallery is where my youngest came back to life.</p>
+
+                  <p>There is something about gold — actual gold, worked into crowns and masks and pectorals and ear ornaments by hands that did this work fifteen hundred years ago — that overrides even a seven-year-old's attention span. The pieces here are museum-quality in the most literal sense: crowns that once sat on the heads of lords, ceremonial masks with turquoise inlay, nose ornaments so delicate they seem like they'd shatter if you breathed on them. My son pressed his face to the glass and said, quietly, "That's <em>actual</em> treasure."</p>
+
+                  <p>It is. And the context the museum provides — explaining which cultures made which pieces, what the symbols meant, how the metalworking was done — turns the shine into something deeper than spectacle.</p>
+
+                  <p>My eldest, by this point, had abandoned his carefully calibrated indifference and was reading the descriptions aloud to his younger brother, translating the historical context into seven-year-old language. "So basically these guys were like the kings and they wore this stuff so everyone knew they were in charge." Close enough.</p>
+
+                  <h3>The Reserva: Where 45,000 Artefacts Live</h3>
+
+                  <p>This is the part of the Larco Museum that makes it genuinely unique among the world's great museums, and the part I wanted my children to see most.</p>
+
+                  <p>The <a href="https://www.viator.com/tours/Lima/Museo-Larco-Admission-fee/d928-33452P3">Open Storage — the <em>Reserva</em></a> — is a vast room filled with floor-to-ceiling shelving, housing thousands upon thousands of ceramic vessels arranged by type, culture, and period. In most museums, what you see on display is a carefully curated fraction of what exists in the vaults. The Larco turns that model on its head: here, the storage <em>is</em> the exhibit. You walk through aisles of pottery — Moche stirrup vessels, Nazca polychrome bowls, Chimú blackware, Inca aryballos — in quantities that make the sheer productive output of these civilisations viscerally real.</p>
+
+                  <p>My daughter literally gasped. I am not exaggerating. She stood at the entrance to the Reserva and her breath caught.</p>
+
+                  <p>"There are <em>thousands</em>," she said.</p>
+
+                  <p>There are. And the experience of standing among them — of understanding that each one was made by hand, by a person, with skill and intention — is different from anything you get in a conventional gallery setting. It is abundance as education. It is the museum saying: <em>this is not a handful of exceptional objects. This is a civilisation's output. Pay attention.</em></p>
+
+                  <p>My son, for his part, was most impressed by the fact that some of the pots had faces on them "that look angry." He is seven. Angry faces are peak entertainment.</p>
+
+                  <h3>A Note for Parents: The Erotic Gallery</h3>
+
+                  <p>I should address this, because if you're visiting with children, you'll want to know.</p>
+
+                  <p>The Larco Museum has a famous <a href="https://www.viator.com/tours/Lima/Museo-Larco-Admission-fee/d928-33452P3">Erotic Gallery</a> — a collection of pre-Columbian ceramic pieces depicting sexual acts with a frankness that is both historically fascinating and, for parents of young children, something you'll want to navigate thoughtfully. The gallery is housed in a separate building, set back from the main museum path behind a screen of greenery and vines. It is entirely possible to visit the museum without entering it, and the separation makes it easy to skip with younger children.</p>
+
+                  <p>My wife and I made a game-time decision: the fourteen-year-old would survive (and, we suspected, find it more educational than embarrassing), but the younger two could happily spend those fifteen minutes in the gardens with one of us instead. This worked perfectly. No drama, no awkward explanations about Moche fertility symbolism at 10:30 on a Tuesday morning.</p>
+
+                  <p>For the record: the collection is genuinely important from an anthropological standpoint. These pieces aren't gratuitous — they're a window into how pre-Columbian societies understood fertility, mortality, and the relationship between the human and the divine. If your children are old enough for that conversation, it's a worthwhile one. If they're not, the gardens are lovely.</p>
+
+                  <h3>The Gardens: Bougainvillea and Breathing Room</h3>
+
+                  <p>Speaking of which.</p>
+
+                  <p>The <a href="https://www.tripadvisor.com/Restaurant_Review-g294316-d1079640-Reviews-Museo_Larco_Cafe_Restaurant-Lima_Lima_Region.html">gardens surrounding the Larco Museum</a> are not an afterthought. They are one of the great pleasures of the visit — waves of bougainvillea in magenta, coral, orange, and white tumbling over colonial walls, with stone paths winding through manicured beds and shaded benches where you can sit and process what you've just seen.</p>
+
+                  <p>For families, the gardens serve a critical function: decompression. Museums are intense for children. The sensory overload of thousands of years of history needs to be metabolised, and running along garden paths while your parents drink coffee is an excellent way to do it. My youngest spent a solid fifteen minutes examining a line of ants carrying leaf fragments across a stone path, which he declared "the best part of the whole museum." Children have their own hierarchies.</p>
+
+                  <p>The museum is wheelchair and stroller accessible, which matters if you're visiting with very young children or family members with mobility needs. No flash photography inside the galleries — a rule my daughter obeyed with the solemnity of someone who understands that light damages things that are older than she can properly imagine.</p>
+
+                  <h3>Lunch at the Museo Larco Café-Restaurant</h3>
+
+                  <p>After two and a half hours in the museum, we did what every family does: we sat down and ate.</p>
+
+                  <p>The <a href="https://www.tripadvisor.com/Restaurant_Review-g294316-d1079640-Reviews-Museo_Larco_Cafe_Restaurant-Lima_Lima_Region.html">Museo Larco Café-Restaurant</a> is located on the museum's terraces, overlooking those same bougainvillea gardens I've just described. The tables are set beneath a canopy of green — hanging vines, trailing flowers, dark wooden furniture against all that living colour. It is, without exaggeration, one of the most beautiful restaurant settings in Lima. And Lima is a city that takes its restaurant settings seriously.</p>
+
+                  <p>We arrived as walk-ins on a weekday and were seated within ten minutes, but the terrace was filling fast. Reservations are recommended, especially for weekend lunches when the garden tables go quickly. The restaurant is <a href="https://www.museolarco.org/en/plan-your-visit/">open to non-museum visitors too</a> — you don't need a museum ticket to eat here, which tells you something about how highly Lima residents regard the food.</p>
+
+                  <p>The menu emphasises Peruvian cuisine with the restaurant's own flair. My wife ordered the <strong>Lomo Saltado</strong> — the classic Peruvian stir-fry of beef tenderloin with onions, tomatoes, and ají, served with rice and fries — and it arrived beautifully plated, the meat tender and deeply flavoured. I went for the <strong>Ají de Gallina</strong>, a creamy chicken stew thickened with bread and ground walnuts, seasoned with ají amarillo, served over rice with a halved boiled egg and black olives. It tasted like something between comfort food and ceremony — the kind of dish that Peruvian grandmothers have been perfecting for generations.</p>
+
+                  <p>My daughter chose a <strong>risotto</strong> from the menu and ate it with the focused attention of someone who takes food as seriously as art. My eldest ordered <strong>Tacu Tacu</strong> — the Afro-Peruvian rice-and-bean cake that is one of Lima's great culinary traditions — and my youngest had a straightforward pasta, because he is seven and has firm opinions about unfamiliar sauces.</p>
+
+                  <p>For dessert: <strong>Crème Brûlée</strong> for the adults (perfectly executed, vanilla custard with a properly torched sugar shell) and <strong>Suspiro Limeño</strong> — the classic Limeña dessert of dulce de leche topped with port-infused meringue, here made with lucuma, the Peruvian superfruit whose flavour defies easy description. Something between maple, caramel, and sweet potato, if those things had a child that tasted entirely like itself.</p>
+
+                  <p>We drank coffee — good coffee, strong and well-made, which is what you'd hope for in a country that grows some of the world's best beans. My wife had a <strong>Pisco Sour</strong>, because we were in Lima, and it was excellent, and she had earned it.</p>
+
+                  <p>The bill came to roughly <a href="https://www.tripadvisor.com/Restaurant_Review-g294316-d1079640-Reviews-Museo_Larco_Cafe_Restaurant-Lima_Lima_Region.html">60–70 soles per person</a>, which is moderate for a restaurant of this quality in this setting. Highchairs are available if you're visiting with a toddler. The staff were warm, patient with children, and helpful with recommendations — one waiter spent several minutes explaining the difference between the ceviche preparations to my eldest, who listened with the attention he normally reserves for gaming tutorials.</p>
+
+                  <p>I cannot overstate how much the lunch completed the experience. The museum feeds your mind; the café feeds everything else. Sitting in that garden, watching the bougainvillea move in the breeze, listening to my children argue about which Moche face was the most realistic — that was the morning distilled into its best form.</p>
+
+                  <h3>Practical Tips for Families</h3>
+
+                  <p><strong>Getting there:</strong> The museum is at Avenida Bolívar 1515, Pueblo Libre, Lima. A taxi from Miraflores takes 20–30 minutes depending on traffic. Use a taxi app (Uber, InDrive, or Beat) rather than flagging one on the street — safer and more predictable pricing.</p>
+
+                  <p><strong>Hours:</strong> Open daily 9:00 a.m. to 7:00 p.m., including public holidays. Reduced hours on December 24, 25, 31 and January 1 (10:00 a.m. to 6:00 p.m.).</p>
+
+                  <p><strong>Admission</strong> (current pricing from <a href="https://www.museolarco.org/en/plan-your-visit/">museolarco.org</a>):</p>
+
+                  <ul>
+                    <li>General admission: S/50 on-site, S/45 online</li>
+                    <li>Minors ages 9–17: S/25 on-site, S/20 online</li>
+                    <li>Children ages 3–8: S/1</li>
+                    <li>Children 0–2: Free</li>
+                    <li>Buy tickets online in advance for a small discount and to skip any queue</li>
+                  </ul>
+
+                  <p><strong>How long to allow:</strong> Budget 2–3 hours for the museum itself. Add an hour for lunch at the café. With kids, plan a full morning or afternoon.</p>
+
+                  <p><strong>What to bring:</strong> A sketchbook if your child likes to draw — my daughter filled three pages. No flash photography. Comfortable shoes for the garden paths.</p>
+
+                  <div class="callout-tip">
+                    <strong>Condor Trails Tip:</strong>
+                    <p>The Erotic Gallery is in a separate building behind greenery. One parent takes the younger kids to the garden; the other takes the older kids through. Fifteen minutes, no stress. The gardens are genuinely lovely enough that the younger ones won't feel like they're missing out.</p>
+                  </div>
+
+                  <p><strong>Stroller/wheelchair access:</strong> Yes, the museum is accessible.</p>
+
+                  <p><strong>The café:</strong> Reservations recommended but walk-ins welcome. Access is free even without a museum ticket. Average 60–70 soles per person for a full meal. Highchairs available.</p>
+
+                  <p><strong>Combine with:</strong> The museum pairs well with a morning visit followed by an afternoon exploring Pueblo Libre's quiet streets and colonial architecture, or a taxi ride to the nearby Magic Water Circuit (Circuito Mágico del Agua) in Parque de la Reserva, which my youngest declared "the best thing in all of Peru" — outranking even the angry-faced pots.</p>
+
+                  <hr>
+
+                  <h3>Why This Matters</h3>
+
+                  <p>I take my children to Peru because it is half of who they are. They are growing up in Dublin, speaking English and Spanish and — in the case of my daughter, who has been practising with her grandmother on video calls — a handful of Quechua words. Their heritage is Wanka, from Jauja, from the highlands. But Peru is not only the highlands. Peru is the coast and the desert and the Amazon and the museums that hold the proof of everything that came before.</p>
+
+                  <p>The Larco Museum gave my children something I can't easily replicate with stories or photographs: the direct experience of standing in front of objects made by people who lived on the same land their family comes from, thousands of years before anyone wrote their names down. My daughter's sketchbook, filled with Moche faces and geometric patterns she copied from Nazca bowls, is the souvenir that matters.</p>
+
+                  <p>If you're visiting Lima with children — or without them, honestly — the Larco Museum deserves a full morning of your time. It is one of the <a href="https://www.getyourguide.com/larco-museum-l73799/">great museums of Latin America</a>, housed in one of the most beautiful buildings in Lima, surrounded by gardens that make you forget you're in a city of ten million people, with a restaurant that would be worth the visit even if the museum didn't exist.</p>
+
+                  <p>Go. Take your kids. Let them find their own room — the room where something connects, where history stops being a subject and becomes a story about real people who made real things with their real hands.</p>
+
+                  <p>My daughter found hers among the Moche faces. Your children will find theirs.</p>
+
+                  <p><em>Hasta la próxima. See you on the trail.</em></p>
+
+                  <hr>
+
+                  <p><strong>Plan a family visit to the Larco Museum — or a complete Lima itinerary designed around your children's ages and interests.</strong> <a href="https://www.condortrails.com">Condor Trails</a> builds Peru trips with the kind of local knowledge that turns a holiday into a story your family tells for years. Get in touch and let's start planning.</p>
+
+                  <div class="article-author-bio">
+                    About the author: Aleksander Canchaya — the writer behind Condor Trails — was born and raised in Jauja, Junín, Peru, with Quechua (Huanca/Wanka) heritage. He now lives in Dublin, Ireland, with his wife and three children, and writes about Peru with the perspective of someone raising the next generation between two worlds. His parents run <a href="https://www.tourinca.com">tourinca.com</a>, a travel agency in Peru.
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- ==================== AD 2 (mobile only — social promo) ==================== -->
+            <div class="ad-social-mobile fade-in">
+              <div class="ad-social-card">
+                <p class="ad-social-card-eyebrow">Follow Along</p>
+                <div class="ad-social-card-title">Follow Us on the Trail</div>
+                <p class="ad-social-card-text">Behind-the-scenes Peru content, travel tips, and stunning Andean photography — updated weekly.</p>
+                <span class="ad-social-handle">@condortrails</span>
+                <div class="ad-social-icons">
+                  <!-- Instagram -->
+                  <a href="https://instagram.com/condortrails" target="_blank" rel="noopener noreferrer" class="ad-social-icon-link" aria-label="Follow on Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+                  </a>
+                  <!-- TikTok -->
+                  <a href="https://tiktok.com/@condortrails" target="_blank" rel="noopener noreferrer" class="ad-social-icon-link" aria-label="Follow on TikTok">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+                  </a>
+                  <!-- YouTube -->
+                  <a href="https://youtube.com/@condortrails" target="_blank" rel="noopener noreferrer" class="ad-social-icon-link" aria-label="Follow on YouTube">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Sidebar (desktop only) -->
+        <aside class="blog-sidebar">
+          <div class="ad-social-card">
+            <p class="ad-social-card-eyebrow">Follow Along</p>
+            <div class="ad-social-card-title">Follow Us on the Trail</div>
+            <p class="ad-social-card-text">Behind-the-scenes Peru content, travel tips, and stunning Andean photography — updated weekly.</p>
+            <span class="ad-social-handle">@condortrails</span>
+            <div class="ad-social-icons">
+              <!-- Instagram -->
+              <a href="https://instagram.com/condortrails" target="_blank" rel="noopener noreferrer" class="ad-social-icon-link" aria-label="Follow on Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+              </a>
+              <!-- TikTok -->
+              <a href="https://tiktok.com/@condortrails" target="_blank" rel="noopener noreferrer" class="ad-social-icon-link" aria-label="Follow on TikTok">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+              </a>
+              <!-- YouTube -->
+              <a href="https://youtube.com/@condortrails" target="_blank" rel="noopener noreferrer" class="ad-social-icon-link" aria-label="Follow on YouTube">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+              </a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       NEWSLETTER SECTION
+       ===================== -->
+  <section class="blog-newsletter" aria-labelledby="newsletter-heading">
+    <div class="container">
+      <h2 id="newsletter-heading" class="blog-newsletter-title">Get Peru in Your Inbox</h2>
+      <p class="blog-newsletter-text">Insider guides, hidden destinations, and travel tips — delivered once a week. No spam, just trail stories.</p>
+      <form class="blog-newsletter-form" onsubmit="handleBlogNewsletterSubmit(event)" aria-label="Newsletter subscription">
+        <label class="sr-only" for="blog-newsletter-email">Email address for newsletter</label>
+        <input type="email" id="blog-newsletter-email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
 </main>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+
+      <!-- Brand + newsletter -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="28" height="20" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="var(--color-primary)"/>
+            <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="var(--color-primary)"/>
+            <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="var(--color-primary)"/>
+            <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="var(--color-primary)" opacity="0.8"/>
+            <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="var(--color-primary)"/>
+          </svg>
+          <span class="footer-logo-text">Condor Trails</span>
+        </div>
+        <div class="footer-tagline">South America, Revealed.</div>
+
+        <div class="footer-newsletter-label">Stay Inspired</div>
+        <form class="footer-newsletter-form" onsubmit="handleFooterNewsletterSubmit(event)" aria-label="Newsletter subscription">
+          <label class="sr-only" for="footer-newsletter-email">Email address for newsletter</label>
+          <input
+            type="email"
+            id="footer-newsletter-email"
+            class="footer-newsletter-input"
+            placeholder="your@email.com"
+            autocomplete="email"
+            aria-label="Email address"
+          >
+          <button type="submit" class="footer-newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Destinations -->
+      <div>
+        <div class="footer-col-title">Destinations</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./index.html#destinations">Peru</a></li>
+          <li><a href="./patagonia.html">Patagonia</a></li>
+          <li><a href="./bolivia.html">Bolivia</a></li>
+          <li><a href="./colombia.html">Colombia</a></li>
+          <li><a href="./ecuador.html">Ecuador &amp; Galápagos</a></li>
+          <li><a href="./argentina.html">Argentina</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./index.html#about">About Us</a></li>
+          <li><a href="./index.html#how-it-works">How It Works</a></li>
+          <li><a href="./index.html#about">Sustainability</a></li>
+          <li><a href="./blog.html">Blog</a></li>
+          <li><a href="./index.html#contact">Careers</a></li>
+        </ul>
+      </div>
+
+      <!-- Support + Connect -->
+      <div>
+        <div class="footer-col-title">Support</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./index.html#contact">Contact</a></li>
+          <li><a href="./index.html#contact">FAQ</a></li>
+          <li><a href="./index.html#contact">Travel Insurance</a></li>
+          <li><a href="./terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="./privacy.html">Privacy Policy</a></li>
+        </ul>
+
+        <div class="footer-col-title" style="margin-top: var(--space-6);">Connect</div>
+        <ul class="footer-links" role="list">
+          <li>
+            <a href="https://instagram.com/condortrails" target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com/condortrails" target="_blank" rel="noopener noreferrer">
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://tripadvisor.com" target="_blank" rel="noopener noreferrer">
+              TripAdvisor
+            </a>
+          </li>
+          <li>
+            <a href="tel:+353857604985">
+              Phone
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2026 Condor Trails. All rights reserved.</p>
+      <p class="footer-made">Made with passion in Peru. 🦅</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
+<script>
+  'use strict';
+
+  // ----------------------------------------
+  // THEME TOGGLE
+  // ----------------------------------------
+  (function() {
+    const root = document.documentElement;
+    let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.setAttribute('data-theme', theme);
+
+    const toggle = document.querySelector('[data-theme-toggle]');
+    if (toggle) {
+      updateToggleIcon(toggle, theme);
+
+      toggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+        updateToggleIcon(toggle, theme);
+      });
+    }
+
+    function updateToggleIcon(btn, t) {
+      btn.innerHTML = t === 'dark'
+        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    }
+  })();
+
+  // ----------------------------------------
+  // STICKY NAV — always solid on blog page
+  // ----------------------------------------
+  (function() {
+    const nav = document.getElementById('nav');
+    // Nav starts with .scrolled class on blog page
+    // But also handle scroll for consistent behavior
+    let ticking = false;
+
+    function updateNav() {
+      if (window.scrollY > 10) {
+        nav.classList.add('scrolled');
+      }
+      // Always keep scrolled on blog page (no transparent hero)
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateNav);
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
+
+  // ----------------------------------------
+  // MOBILE NAV
+  // ----------------------------------------
+  const mobileNav = document.getElementById('mobileNav');
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNavClose = document.getElementById('mobileNavClose');
+  let isNavOpen = false;
+
+  function openMobileNav() {
+    mobileNav.style.display = 'flex';
+    requestAnimationFrame(() => {
+      mobileNav.classList.add('open');
+    });
+    document.body.style.overflow = 'hidden';
+    menuToggle.setAttribute('aria-expanded', 'true');
+    isNavOpen = true;
+  }
+
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+    menuToggle.setAttribute('aria-expanded', 'false');
+    isNavOpen = false;
+    setTimeout(() => {
+      mobileNav.style.display = 'none';
+    }, 350);
+  }
+
+  if (menuToggle) menuToggle.addEventListener('click', openMobileNav);
+  if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isNavOpen) closeMobileNav();
+  });
+
+  // ----------------------------------------
+  // ARTICLE EXPAND / COLLAPSE
+  // ----------------------------------------
+  function toggleArticle(articleId) {
+    const card = document.getElementById(articleId);
+    const btn = card.querySelector('.article-toggle-btn');
+    const isExpanded = card.classList.contains('expanded');
+
+    if (isExpanded) {
+      // Collapse
+      card.classList.remove('expanded');
+      btn.innerHTML = 'Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+      btn.setAttribute('aria-expanded', 'false');
+      // Scroll back to card top
+      setTimeout(() => {
+        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    } else {
+      // Expand
+      card.classList.add('expanded');
+      btn.innerHTML = 'Show Less <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  // ----------------------------------------
+  // NEWSLETTER / LEAD MAGNET FORMS
+  // ----------------------------------------
+  function handleBlogNewsletterSubmit(e) {
+    e.preventDefault();
+    const input = document.getElementById('blog-newsletter-email');
+    const btn = e.target.querySelector('.btn');
+    if (!input.value.trim()) return;
+
+    btn.textContent = 'Subscribed!';
+    btn.style.background = 'var(--color-success, #437a22)';
+    input.value = '';
+
+    setTimeout(() => {
+      btn.textContent = 'Subscribe';
+      btn.style.background = '';
+    }, 3000);
+  }
+
+  function handleFooterNewsletterSubmit(e) {
+    e.preventDefault();
+    const input = document.getElementById('footer-newsletter-email');
+    const btn = e.target.querySelector('.footer-newsletter-btn');
+    if (!input.value.trim()) return;
+
+    btn.textContent = 'Subscribed!';
+    btn.style.background = 'var(--color-success, #437a22)';
+    input.value = '';
+
+    setTimeout(() => {
+      btn.textContent = 'Subscribe';
+      btn.style.background = '';
+    }, 3000);
+  }
+
+  function handleLeadMagnetSubmit(e) {
+    e.preventDefault();
+    const input = document.getElementById('lead-magnet-email');
+    const btn = e.target.querySelector('.btn');
+    if (!input.value.trim()) return;
+
+    btn.textContent = 'Sent! Check your inbox.';
+    btn.style.background = 'var(--color-success, #437a22)';
+    btn.style.borderColor = 'var(--color-success, #437a22)';
+    input.value = '';
+
+    setTimeout(() => {
+      btn.textContent = 'Send Me the Guide';
+      btn.style.background = '';
+      btn.style.borderColor = '';
+    }, 3000);
+  }
+
+  // ----------------------------------------
+  // SMOOTH SCROLL for anchor nav links
+  // ----------------------------------------
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const id = anchor.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ----------------------------------------
+  // INTERSECTION OBSERVER for fade-in
+  // ----------------------------------------
+  if (!CSS.supports('animation-timeline', 'scroll()')) {
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transition = 'opacity 600ms cubic-bezier(0.16, 1, 0.3, 1)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    fadeEls.forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  }
+</script>
+
+  <script src="./chatbot.js"></script>
 </body>
 </html>
