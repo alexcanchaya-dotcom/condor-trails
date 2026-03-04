@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Request a free, tailor-made travel quote from Condor Trails. Tell us about your dream trip across Peru, Patagonia, Bolivia, Colombia, Ecuador, Argentina, and more.">
+  <title>Request a Quote — Condor Trails</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./quote.css">
+</head>
+<body>
+
+<!-- Skip to content -->
+<a href="#main" class="skip-to-content">Skip to content</a>
+
+<!-- ============================================
+     NAVIGATION (copied from index.html)
+     ============================================ -->
+<nav class="nav nav--inner scrolled" id="nav" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a href="./index.html" class="nav-logo" aria-label="Condor Trails — Home">
+        <svg class="nav-logo-icon" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="currentColor"/>
+          <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="currentColor"/>
+          <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="currentColor"/>
+          <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="currentColor" opacity="0.8"/>
+          <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="currentColor"/>
+        </svg>
+        <span class="nav-logo-text">Condor Trails</span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links" role="list">
+        <li><a href="./index.html#destinations">Destinations</a></li>
+        <li><a href="./index.html#experiences">Experiences</a></li>
+        <li><a href="./index.html#how-it-works">How It Works</a></li>
+        <li><a href="./index.html#about">About</a></li>
+        <li><a href="./blog.html">Blog</a></li>
+        <li><a href="./recipes.html">Recipes</a></li>
+        <li><a href="./planner.html">Trip Planner</a></li>
+        <li><a href="./index.html#contact">Contact</a></li>
+      </ul>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <!-- Theme toggle -->
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- CTA -->
+        <a href="./quote.html" class="btn btn-primary nav-cta">Plan My Journey</a>
+
+        <!-- Mobile toggle -->
+        <button class="nav-menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile nav drawer -->
+<div class="nav-mobile" id="mobileNav" role="dialog" aria-label="Navigation menu" aria-modal="true">
+  <button class="nav-mobile-close" id="mobileNavClose" aria-label="Close navigation menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+
+  <div style="display: flex; align-items: center; gap: var(--space-3);">
+    <svg width="32" height="22" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="var(--color-primary)"/>
+      <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="var(--color-primary)"/>
+      <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="var(--color-primary)"/>
+      <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="var(--color-primary)" opacity="0.8"/>
+      <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="var(--color-primary)"/>
+    </svg>
+    <span style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text);">Condor Trails</span>
+  </div>
+
+  <ul class="nav-mobile-links" role="list">
+    <li><a href="./index.html#destinations" onclick="closeMobileNav()">Destinations</a></li>
+    <li><a href="./index.html#experiences" onclick="closeMobileNav()">Experiences</a></li>
+    <li><a href="./index.html#how-it-works" onclick="closeMobileNav()">How It Works</a></li>
+    <li><a href="./index.html#about" onclick="closeMobileNav()">About</a></li>
+    <li><a href="./blog.html" onclick="closeMobileNav()">Blog</a></li>
+    <li><a href="./recipes.html" onclick="closeMobileNav()">Recipes</a></li>
+    <li><a href="./planner.html" onclick="closeMobileNav()">Trip Planner</a></li>
+    <li><a href="./index.html#contact" onclick="closeMobileNav()">Contact</a></li>
+  </ul>
+  <div style="margin-top: var(--space-8);">
+    <a href="./quote.html" onclick="closeMobileNav()" class="btn btn-primary" style="width: 100%; justify-content: center;">Plan My Journey</a>
+  </div>
+</div>
+
+<!-- ============================================
+     MAIN CONTENT
+     ============================================ -->
+<main id="main">
+
+  <!-- =====================
+       HERO
+       ===================== -->
+  <section class="quote-hero" aria-label="Quote request hero">
+    <div class="quote-hero-bg">
+      <img
+        src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=1920&q=80"
+        alt="Misty mountain valley with lush green landscape at sunrise"
+        fetchpriority="high"
+        width="1920"
+        height="800"
+      >
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="quote-hero-content">
+      <p class="section-eyebrow" style="color: rgba(255,255,255,0.75);">Free Custom Quote</p>
+      <h1 class="quote-hero-title">Plan Your Perfect Journey</h1>
+      <p class="quote-hero-subtitle">Tell us about your dream trip and we'll craft a tailor-made itinerary within 24 hours.</p>
+    </div>
+  </section>
+
+  <!-- =====================
+       PROGRESS INDICATOR
+       ===================== -->
+  <div class="quote-progress-bar" id="progressBar">
+    <div class="container">
+      <div class="progress-steps">
+        <button class="progress-step active" data-step="1" aria-current="step">
+          <span class="progress-step-number">1</span>
+          <span class="progress-step-label">Your Details</span>
+        </button>
+        <div class="progress-connector"><div class="progress-connector-fill" id="conn1"></div></div>
+        <button class="progress-step" data-step="2">
+          <span class="progress-step-number">2</span>
+          <span class="progress-step-label">Trip Details</span>
+        </button>
+        <div class="progress-connector"><div class="progress-connector-fill" id="conn2"></div></div>
+        <button class="progress-step" data-step="3">
+          <span class="progress-step-number">3</span>
+          <span class="progress-step-label">Preferences</span>
+        </button>
+        <div class="progress-connector"><div class="progress-connector-fill" id="conn3"></div></div>
+        <button class="progress-step" data-step="4">
+          <span class="progress-step-number">4</span>
+          <span class="progress-step-label">Final Step</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================
+       QUOTE FORM
+       ===================== -->
+  <section class="section quote-section" aria-labelledby="quote-heading">
+    <div class="container--default">
+
+      <!-- Success message (hidden by default) -->
+      <div class="quote-success" id="quoteSuccess">
+        <div class="success-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h2 class="success-title">Your Quote Request Has Been Sent!</h2>
+        <p class="success-message">Thank you for choosing Condor Trails. Our travel specialists will review your request and reply with a personalised itinerary and quote within 24 hours.</p>
+        <div style="margin-top: var(--space-8); display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+          <a href="./index.html#destinations" class="btn btn-primary">Explore Destinations</a>
+          <a href="./index.html" class="btn btn-outline">Return Home</a>
+        </div>
+      </div>
+
+      <!--
+        IMPORTANT: To enable form submissions, Aleksander needs to:
+        1. Create a free account at https://formspree.io
+        2. Create a new form there
+        3. Replace "YOUR_FORM_ID" below with the actual form ID (e.g. "xpznkael")
+        The form will then send submissions directly to his email.
+      -->
+      <form
+        id="quoteForm"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+        novalidate
+        aria-label="Trip quotation request form"
+      >
+
+        <!-- ============ SECTION 1: YOUR DETAILS ============ -->
+        <fieldset class="quote-fieldset active" id="section1" data-section="1">
+          <legend class="quote-legend">
+            <span class="quote-legend-number">01</span>
+            Your Details
+          </legend>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="qFullName">Full Name <span class="required" aria-hidden="true">*</span></label>
+              <input type="text" id="qFullName" name="fullName" class="form-input" placeholder="Your full name" required autocomplete="name">
+              <span class="form-error" id="qFullNameError" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="qEmail">Email <span class="required" aria-hidden="true">*</span></label>
+              <input type="email" id="qEmail" name="email" class="form-input" placeholder="you@example.com" required autocomplete="email">
+              <span class="form-error" id="qEmailError" role="alert"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="qPhone">Phone <span class="optional">(optional)</span></label>
+              <div class="phone-input-group">
+                <select id="qPhoneCode" name="phoneCode" class="form-select phone-code-select" aria-label="Country code">
+                  <option value="+1">🇺🇸 +1</option>
+                  <option value="+44">🇬🇧 +44</option>
+                  <option value="+353" selected>🇮🇪 +353</option>
+                  <option value="+61">🇦🇺 +61</option>
+                  <option value="+49">🇩🇪 +49</option>
+                  <option value="+33">🇫🇷 +33</option>
+                  <option value="+34">🇪🇸 +34</option>
+                  <option value="+39">🇮🇹 +39</option>
+                  <option value="+31">🇳🇱 +31</option>
+                  <option value="+46">🇸🇪 +46</option>
+                  <option value="+47">🇳🇴 +47</option>
+                  <option value="+55">🇧🇷 +55</option>
+                  <option value="+52">🇲🇽 +52</option>
+                  <option value="+51">🇵🇪 +51</option>
+                  <option value="+57">🇨🇴 +57</option>
+                  <option value="+56">🇨🇱 +56</option>
+                  <option value="+54">🇦🇷 +54</option>
+                  <option value="+81">🇯🇵 +81</option>
+                  <option value="+91">🇮🇳 +91</option>
+                  <option value="+86">🇨🇳 +86</option>
+                </select>
+                <input type="tel" id="qPhone" name="phone" class="form-input phone-number-input" placeholder="85 760 4985" autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="qCountry">Country of Residence</label>
+              <select id="qCountry" name="country" class="form-select">
+                <option value="" disabled selected>Select country</option>
+                <option value="US">United States</option>
+                <option value="GB">United Kingdom</option>
+                <option value="IE">Ireland</option>
+                <option value="CA">Canada</option>
+                <option value="AU">Australia</option>
+                <option value="NZ">New Zealand</option>
+                <option value="DE">Germany</option>
+                <option value="FR">France</option>
+                <option value="ES">Spain</option>
+                <option value="IT">Italy</option>
+                <option value="NL">Netherlands</option>
+                <option value="BE">Belgium</option>
+                <option value="SE">Sweden</option>
+                <option value="NO">Norway</option>
+                <option value="DK">Denmark</option>
+                <option value="CH">Switzerland</option>
+                <option value="AT">Austria</option>
+                <option value="PT">Portugal</option>
+                <option value="BR">Brazil</option>
+                <option value="MX">Mexico</option>
+                <option value="AR">Argentina</option>
+                <option value="CO">Colombia</option>
+                <option value="CL">Chile</option>
+                <option value="PE">Peru</option>
+                <option value="JP">Japan</option>
+                <option value="SG">Singapore</option>
+                <option value="HK">Hong Kong</option>
+                <option value="ZA">South Africa</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="quote-nav-buttons">
+            <div></div>
+            <button type="button" class="btn btn-primary quote-next-btn" data-next="2">
+              Continue to Trip Details
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </fieldset>
+
+        <!-- ============ SECTION 2: TRIP DETAILS ============ -->
+        <fieldset class="quote-fieldset" id="section2" data-section="2">
+          <legend class="quote-legend">
+            <span class="quote-legend-number">02</span>
+            Trip Details
+          </legend>
+
+          <div class="form-group">
+            <label class="form-label">Destination(s) <span class="required" aria-hidden="true">*</span></label>
+            <div class="form-checkboxes dest-checkboxes" role="group" aria-label="Destination selection">
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="destinations" value="peru">
+                <span class="form-checkbox-label">Peru</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="destinations" value="bolivia">
+                <span class="form-checkbox-label">Bolivia</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="destinations" value="patagonia">
+                <span class="form-checkbox-label">Patagonia</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="destinations" value="colombia">
+                <span class="form-checkbox-label">Colombia</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="destinations" value="ecuador">
+                <span class="form-checkbox-label">Ecuador</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="destinations" value="argentina">
+                <span class="form-checkbox-label">Argentina</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="destinations" value="dominican-republic">
+                <span class="form-checkbox-label">Dominican Republic</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="destinations" value="cancun">
+                <span class="form-checkbox-label">Cancún &amp; Riviera Maya</span>
+              </label>
+            </div>
+            <span class="form-error" id="qDestError" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Trip Type</label>
+            <div class="radio-grid" role="radiogroup" aria-label="Trip type">
+              <label class="radio-card">
+                <input type="radio" name="tripType" value="classic">
+                <span class="radio-card-inner">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  Classic &amp; Cultural
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="tripType" value="adventure">
+                <span class="radio-card-inner">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg>
+                  Adventure &amp; Active
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="tripType" value="culinary">
+                <span class="radio-card-inner">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><path d="M6 1v3M10 1v3M14 1v3"/></svg>
+                  Culinary Journey
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="tripType" value="birding">
+                <span class="radio-card-inner">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                  Birdwatching &amp; Wildlife
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="tripType" value="beach">
+                <span class="radio-card-inner">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="3"/><path d="M12 8v13M4.93 20.5S7.46 17 12 17s7.07 3.5 7.07 3.5"/></svg>
+                  Beach &amp; Resort
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="tripType" value="honeymoon">
+                <span class="radio-card-inner">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  Honeymoon
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="tripType" value="custom">
+                <span class="radio-card-inner">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                  Custom
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Preferred Dates</label>
+            <div class="dates-row">
+              <div class="date-input-wrap">
+                <label for="qStartDate" class="form-label-sm">Start Date</label>
+                <input type="date" id="qStartDate" name="startDate" class="form-input">
+              </div>
+              <div class="date-input-wrap">
+                <label for="qEndDate" class="form-label-sm">End Date</label>
+                <input type="date" id="qEndDate" name="endDate" class="form-input">
+              </div>
+              <label class="form-checkbox-item flexible-check">
+                <input type="checkbox" name="flexibleDates" value="yes" id="qFlexDates">
+                <span class="form-checkbox-label">My dates are flexible</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="qDuration">Duration</label>
+              <select id="qDuration" name="duration" class="form-select">
+                <option value="" disabled selected>Select duration</option>
+                <option value="5">5 days</option>
+                <option value="7">7 days</option>
+                <option value="10">10 days</option>
+                <option value="14">14 days</option>
+                <option value="21">21 days</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Number of Travellers</label>
+              <div class="traveller-counters">
+                <div class="counter-group">
+                  <span class="counter-label">Adults</span>
+                  <div class="counter-controls">
+                    <button type="button" class="counter-btn" data-action="decrement" data-target="qAdults" aria-label="Decrease adults">−</button>
+                    <input type="number" id="qAdults" name="adults" class="counter-value" value="2" min="1" max="20" readonly>
+                    <button type="button" class="counter-btn" data-action="increment" data-target="qAdults" aria-label="Increase adults">+</button>
+                  </div>
+                </div>
+                <div class="counter-group">
+                  <span class="counter-label">Children</span>
+                  <div class="counter-controls">
+                    <button type="button" class="counter-btn" data-action="decrement" data-target="qChildren" aria-label="Decrease children">−</button>
+                    <input type="number" id="qChildren" name="children" class="counter-value" value="0" min="0" max="10" readonly>
+                    <button type="button" class="counter-btn" data-action="increment" data-target="qChildren" aria-label="Increase children">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="children-ages-wrap" id="childrenAgesWrap" style="display:none;">
+                <label class="form-label-sm" for="qChildrenAges">Children's ages</label>
+                <input type="text" id="qChildrenAges" name="childrenAges" class="form-input" placeholder="e.g. 4, 7, 12">
+              </div>
+            </div>
+          </div>
+
+          <div class="quote-nav-buttons">
+            <button type="button" class="btn btn-outline quote-prev-btn" data-prev="1">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Back
+            </button>
+            <button type="button" class="btn btn-primary quote-next-btn" data-next="3">
+              Continue to Preferences
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </fieldset>
+
+        <!-- ============ SECTION 3: PREFERENCES ============ -->
+        <fieldset class="quote-fieldset" id="section3" data-section="3">
+          <legend class="quote-legend">
+            <span class="quote-legend-number">03</span>
+            Preferences
+          </legend>
+
+          <div class="form-group">
+            <label class="form-label">Accommodation Level</label>
+            <div class="radio-pill-group" role="radiogroup" aria-label="Accommodation level">
+              <label class="radio-pill">
+                <input type="radio" name="accommodation" value="standard">
+                <span class="radio-pill-inner">Standard (3★)</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="accommodation" value="superior">
+                <span class="radio-pill-inner">Superior (4★)</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="accommodation" value="luxury">
+                <span class="radio-pill-inner">Luxury (5★)</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="accommodation" value="mix">
+                <span class="radio-pill-inner">Mix</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Budget Range per Person (USD)</label>
+            <div class="radio-pill-group budget-pills" role="radiogroup" aria-label="Budget range">
+              <label class="radio-pill">
+                <input type="radio" name="budget" value="under-1500">
+                <span class="radio-pill-inner">Under $1,500</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="budget" value="1500-2500">
+                <span class="radio-pill-inner">$1,500–$2,500</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="budget" value="2500-4000">
+                <span class="radio-pill-inner">$2,500–$4,000</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="budget" value="4000-6000">
+                <span class="radio-pill-inner">$4,000–$6,000</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="budget" value="6000+">
+                <span class="radio-pill-inner">$6,000+</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="budget" value="not-sure">
+                <span class="radio-pill-inner">Not sure yet</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Special Interests <span class="optional">(select all that apply)</span></label>
+            <div class="form-checkboxes interests-checkboxes" role="group" aria-label="Special interests">
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="interests" value="inca-trail">
+                <span class="form-checkbox-label">Inca Trail</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="interests" value="machu-picchu">
+                <span class="form-checkbox-label">Machu Picchu</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="interests" value="amazon">
+                <span class="form-checkbox-label">Amazon Rainforest</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="interests" value="galapagos">
+                <span class="form-checkbox-label">Galápagos</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="interests" value="culinary">
+                <span class="form-checkbox-label">Culinary Experiences</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="interests" value="photography">
+                <span class="form-checkbox-label">Photography</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="interests" value="birdwatching">
+                <span class="form-checkbox-label">Birdwatching</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="interests" value="wine-pisco">
+                <span class="form-checkbox-label">Wine &amp; Pisco Tasting</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="interests" value="communities">
+                <span class="form-checkbox-label">Local Communities</span>
+              </label>
+              <label class="form-checkbox-item">
+                <input type="checkbox" name="interests" value="adventure-sports">
+                <span class="form-checkbox-label">Adventure Sports</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="qRequirements">Special Requirements <span class="optional">(optional)</span></label>
+            <textarea id="qRequirements" name="requirements" class="form-textarea" placeholder="Dietary requirements, mobility needs, celebrations, special occasions, or anything else we should know…" rows="4"></textarea>
+          </div>
+
+          <div class="quote-nav-buttons">
+            <button type="button" class="btn btn-outline quote-prev-btn" data-prev="2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Back
+            </button>
+            <button type="button" class="btn btn-primary quote-next-btn" data-next="4">
+              Almost Done
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </fieldset>
+
+        <!-- ============ SECTION 4: HOW DID YOU FIND US ============ -->
+        <fieldset class="quote-fieldset" id="section4" data-section="4">
+          <legend class="quote-legend">
+            <span class="quote-legend-number">04</span>
+            How Did You Find Us?
+          </legend>
+
+          <div class="form-group">
+            <label class="form-label" for="qReferral">How did you hear about Condor Trails?</label>
+            <select id="qReferral" name="referral" class="form-select">
+              <option value="" disabled selected>Select an option</option>
+              <option value="google">Google Search</option>
+              <option value="youtube">YouTube</option>
+              <option value="instagram">Instagram</option>
+              <option value="facebook">Facebook</option>
+              <option value="friend">Friend / Family Referral</option>
+              <option value="blog">Travel Blog</option>
+              <option value="tripadvisor">TripAdvisor</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="quote-nav-buttons" style="margin-top: var(--space-8);">
+            <button type="button" class="btn btn-outline quote-prev-btn" data-prev="3">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Back
+            </button>
+            <button type="submit" class="btn btn-submit" id="submitBtn">
+              Request My Free Quote
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <p class="quote-disclaimer">We respond within 24 hours. No spam, ever.</p>
+        </fieldset>
+
+      </form>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================
+     FOOTER (copied from index.html)
+     ============================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+
+      <!-- Brand + newsletter -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="28" height="20" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="var(--color-primary)"/>
+            <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="var(--color-primary)"/>
+            <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="var(--color-primary)"/>
+            <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="var(--color-primary)" opacity="0.8"/>
+            <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="var(--color-primary)"/>
+          </svg>
+          <span class="footer-logo-text">Condor Trails</span>
+        </div>
+        <div class="footer-tagline">South America, Revealed.</div>
+
+        <div class="footer-newsletter-label">Stay Inspired</div>
+        <form class="footer-newsletter-form" onsubmit="handleNewsletterSubmit(event)" aria-label="Newsletter subscription">
+          <label class="sr-only" for="newsletter-email">Email address for newsletter</label>
+          <input
+            type="email"
+            id="newsletter-email"
+            class="footer-newsletter-input"
+            placeholder="your@email.com"
+            autocomplete="email"
+            aria-label="Email address"
+          >
+          <button type="submit" class="footer-newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Destinations -->
+      <div>
+        <div class="footer-col-title">Destinations</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./peru.html">Peru</a></li>
+          <li><a href="./patagonia.html">Patagonia</a></li>
+          <li><a href="./bolivia.html">Bolivia</a></li>
+          <li><a href="./colombia.html">Colombia</a></li>
+          <li><a href="./ecuador.html">Ecuador &amp; Galápagos</a></li>
+          <li><a href="./argentina.html">Argentina</a></li>
+          <li><a href="./trips/dominican-republic.html">Dominican Republic</a></li>
+          <li><a href="./trips/cancun.html">Cancún</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./index.html#about">About Us</a></li>
+          <li><a href="./index.html#how-it-works">How It Works</a></li>
+          <li><a href="./index.html#about">Sustainability</a></li>
+          <li><a href="./index.html#contact">Careers</a></li>
+        </ul>
+      </div>
+
+      <!-- Support + Connect -->
+      <div>
+        <div class="footer-col-title">Support</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./index.html#contact">Contact</a></li>
+          <li><a href="./index.html#contact">FAQ</a></li>
+          <li><a href="./index.html#contact">Travel Insurance</a></li>
+          <li><a href="./index.html#contact">Terms &amp; Conditions</a></li>
+        </ul>
+
+        <div class="footer-col-title" style="margin-top: var(--space-6);">Connect</div>
+        <ul class="footer-links" role="list">
+          <li>
+            <a href="https://instagram.com/condortrails" target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com/condortrails" target="_blank" rel="noopener noreferrer">
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://tripadvisor.com" target="_blank" rel="noopener noreferrer">
+              TripAdvisor
+            </a>
+          </li>
+          <li>
+            <a href="tel:+353857604985">
+              Phone
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2026 Condor Trails. All rights reserved.</p>
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-body); font-size: var(--text-xs); color: rgba(255,255,255,0.35); text-decoration: none; transition: color var(--transition-interactive);" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Created with Perplexity Computer</a>
+      <p class="footer-made">Made with passion in Peru. 🦅</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
+<script>
+  'use strict';
+
+  // ----------------------------------------
+  // THEME TOGGLE
+  // ----------------------------------------
+  (function() {
+    const root = document.documentElement;
+    let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.setAttribute('data-theme', theme);
+
+    const toggle = document.querySelector('[data-theme-toggle]');
+    if (toggle) {
+      updateToggleIcon(toggle, theme);
+      toggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+        updateToggleIcon(toggle, theme);
+      });
+    }
+
+    function updateToggleIcon(btn, t) {
+      btn.innerHTML = t === 'dark'
+        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    }
+  })();
+
+  // ----------------------------------------
+  // MOBILE NAV
+  // ----------------------------------------
+  const mobileNav = document.getElementById('mobileNav');
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNavClose = document.getElementById('mobileNavClose');
+  let isNavOpen = false;
+
+  function openMobileNav() {
+    mobileNav.style.display = 'flex';
+    requestAnimationFrame(() => { mobileNav.classList.add('open'); });
+    document.body.style.overflow = 'hidden';
+    menuToggle.setAttribute('aria-expanded', 'true');
+    isNavOpen = true;
+  }
+
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+    menuToggle.setAttribute('aria-expanded', 'false');
+    isNavOpen = false;
+    setTimeout(() => { mobileNav.style.display = 'none'; }, 350);
+  }
+
+  if (menuToggle) menuToggle.addEventListener('click', openMobileNav);
+  if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isNavOpen) closeMobileNav();
+  });
+
+  // ----------------------------------------
+  // NEWSLETTER FORM
+  // ----------------------------------------
+  function handleNewsletterSubmit(e) {
+    e.preventDefault();
+    const input = document.getElementById('newsletter-email');
+    const btn = e.target.querySelector('.footer-newsletter-btn');
+    if (!input.value.trim()) return;
+    btn.textContent = 'Subscribed!';
+    btn.style.background = 'var(--color-success, #437a22)';
+    input.value = '';
+    setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 3000);
+  }
+
+  // ----------------------------------------
+  // MULTI-STEP FORM LOGIC
+  // ----------------------------------------
+  (function() {
+    const form = document.getElementById('quoteForm');
+    const sections = document.querySelectorAll('.quote-fieldset');
+    const progressSteps = document.querySelectorAll('.progress-step');
+    const connectors = [document.getElementById('conn1'), document.getElementById('conn2'), document.getElementById('conn3')];
+    const successPanel = document.getElementById('quoteSuccess');
+    let currentStep = 1;
+
+    // --- Show/hide sections ---
+    function showSection(step) {
+      sections.forEach(s => {
+        const sNum = parseInt(s.dataset.section);
+        s.classList.toggle('active', sNum === step);
+      });
+
+      progressSteps.forEach(ps => {
+        const psStep = parseInt(ps.dataset.step);
+        ps.classList.toggle('active', psStep === step);
+        ps.classList.toggle('completed', psStep < step);
+        if (psStep === step) ps.setAttribute('aria-current', 'step');
+        else ps.removeAttribute('aria-current');
+      });
+
+      connectors.forEach((c, i) => {
+        if (c) {
+          c.style.width = (i + 1) < step ? '100%' : '0%';
+        }
+      });
+
+      currentStep = step;
+
+      // Scroll to form top
+      const bar = document.getElementById('progressBar');
+      if (bar) {
+        bar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // --- Validation ---
+    function validateSection(step) {
+      clearErrors();
+
+      if (step === 1) {
+        const name = document.getElementById('qFullName');
+        const email = document.getElementById('qEmail');
+        let valid = true;
+
+        if (!name.value.trim()) {
+          showError(name, 'qFullNameError', 'Please enter your name.');
+          valid = false;
+        }
+        if (!email.value.trim()) {
+          showError(email, 'qEmailError', 'Please enter your email address.');
+          valid = false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+          showError(email, 'qEmailError', 'Please enter a valid email address.');
+          valid = false;
+        }
+        return valid;
+      }
+
+      if (step === 2) {
+        const dests = document.querySelectorAll('input[name="destinations"]:checked');
+        if (dests.length === 0) {
+          const errEl = document.getElementById('qDestError');
+          errEl.textContent = 'Please select at least one destination.';
+          errEl.style.display = 'block';
+          return false;
+        }
+        return true;
+      }
+
+      return true;
+    }
+
+    function showError(input, errorId, msg) {
+      input.classList.add('input-error');
+      const errEl = document.getElementById(errorId);
+      if (errEl) {
+        errEl.textContent = msg;
+        errEl.style.display = 'block';
+      }
+      if (!document.querySelector('.input-error:focus')) {
+        input.focus();
+      }
+    }
+
+    function clearErrors() {
+      document.querySelectorAll('.form-error').forEach(e => {
+        e.textContent = '';
+        e.style.display = 'none';
+      });
+      document.querySelectorAll('.input-error').forEach(e => e.classList.remove('input-error'));
+    }
+
+    // --- Next/Prev buttons ---
+    document.querySelectorAll('.quote-next-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const nextStep = parseInt(btn.dataset.next);
+        if (validateSection(currentStep)) {
+          showSection(nextStep);
+        }
+      });
+    });
+
+    document.querySelectorAll('.quote-prev-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const prevStep = parseInt(btn.dataset.prev);
+        showSection(prevStep);
+      });
+    });
+
+    // --- Progress step clicks ---
+    progressSteps.forEach(ps => {
+      ps.addEventListener('click', () => {
+        const target = parseInt(ps.dataset.step);
+        // Only go back, or if all previous validated
+        if (target < currentStep) {
+          showSection(target);
+        } else if (target === currentStep + 1) {
+          if (validateSection(currentStep)) {
+            showSection(target);
+          }
+        }
+      });
+    });
+
+    // --- Form submission ---
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="btn-spinner"></span> Sending…';
+
+      // Simulate sending delay (in production, this would POST to Formspree)
+      setTimeout(() => {
+        form.style.display = 'none';
+        document.getElementById('progressBar').style.display = 'none';
+        successPanel.style.display = 'block';
+        successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 1200);
+    });
+
+    // --- Counter buttons ---
+    document.querySelectorAll('.counter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        const action = btn.dataset.action;
+        let val = parseInt(target.value);
+        const min = parseInt(target.min);
+        const max = parseInt(target.max);
+
+        if (action === 'increment' && val < max) val++;
+        else if (action === 'decrement' && val > min) val--;
+
+        target.value = val;
+
+        // Show/hide children ages
+        if (btn.dataset.target === 'qChildren') {
+          document.getElementById('childrenAgesWrap').style.display = val > 0 ? 'block' : 'none';
+        }
+      });
+    });
+
+    // ----------------------------------------
+    // URL PARAMETER PRE-FILL
+    // ----------------------------------------
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+
+      // Pre-fill destination
+      const dest = params.get('destination');
+      if (dest) {
+        const destMap = {
+          'peru': 'peru',
+          'bolivia': 'bolivia',
+          'patagonia': 'patagonia',
+          'colombia': 'colombia',
+          'ecuador': 'ecuador',
+          'argentina': 'argentina',
+          'dominican-republic': 'dominican-republic',
+          'cancun': 'cancun'
+        };
+
+        const value = destMap[dest.toLowerCase()];
+        if (value) {
+          const checkbox = document.querySelector(`input[name="destinations"][value="${value}"]`);
+          if (checkbox) checkbox.checked = true;
+        }
+      }
+
+      // Pre-fill trip type
+      const tripType = params.get('type');
+      if (tripType) {
+        const radio = document.querySelector(`input[name="tripType"][value="${tripType}"]`);
+        if (radio) radio.checked = true;
+      }
+
+      // Pre-fill step
+      const step = params.get('step');
+      if (step && parseInt(step) >= 1 && parseInt(step) <= 4) {
+        showSection(parseInt(step));
+      }
+    })();
+
+  })();
+</script>
+</body>
+</html>
