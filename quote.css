@@ -1,0 +1,48 @@
+/* quote.css — Condor Trails Quote Page Styles */
+
+/* ============================================
+   INNER PAGE NAV OVERRIDE
+   Nav is always in "scrolled" state on inner pages
+   ============================================ */
+.nav--inner {
+  background: color-mix(in oklch, var(--color-bg) 94%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--color-divider);
+  padding: var(--space-3) 0;
+}
+
+.nav--inner .nav-logo-text {
+  color: var(--color-text);
+}
+
+.nav--inner .nav-logo-icon path,
+.nav--inner .nav-logo-icon ellipse {
+  fill: var(--color-primary);
+}
+
+.nav--inner .nav-links a {
+  color: var(--color-text-muted);
+}
+
+.nav--inner .nav-links a:hover {
+  color: var(--color-primary);
+}
+
+.nav--inner .theme-toggle {
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+.nav--inner .theme-toggle:hover {
+  background: var(--color-surface-offset);
+  color: var(--color-text);
+}
+
+.nav--inner .nav-menu-toggle {
+  color: var(--color-text);
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
