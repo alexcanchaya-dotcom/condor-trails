@@ -1,0 +1,135 @@
+/* style.css — Condor Trails Complete Design System */
+
+/* ============================================
+   DESIGN TOKENS — CUSTOM CONDOR TRAILS PALETTE
+   Premium adventure: warm stone + Andean teal + terracotta
+   ============================================ */
+
+:root, [data-theme="light"] {
+  /* --- Type Scale (fluid) --- */
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.9rem  + 0.5vw,  1.125rem);
+  --text-lg:   clamp(1.125rem, 0.95rem + 0.85vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1rem    + 1.5vw,  2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3rem,     0.5rem  + 7vw,    8rem);
+
+  /* --- 4px Spacing System --- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* --- Surfaces: Sun-bleached desert rock, warm stone/sand --- */
+  --color-bg:              #f5f2ec;
+  --color-surface:         #f8f5f0;
+  --color-surface-2:       #faf8f4;
+  --color-surface-offset:  #ede8df;
+  --color-surface-offset-2:#e5dfd4;
+  --color-surface-dynamic: #dbd3c6;
+  --color-divider:         #d4cdc0;
+  --color-border:          #c9c0b0;
+
+  /* --- Text: Deep charcoal-brown --- */
+  --color-text:            #2a2319;
+  --color-text-muted:      #7a6f5e;
+  --color-text-faint:      #b8ad9e;
+  --color-text-inverse:    #faf8f4;
+
+  /* --- Primary: Andean teal-green --- */
+  --color-primary:         #2d7a6b;
+  --color-primary-hover:   #235e52;
+  --color-primary-active:  #1a4440;
+  --color-primary-highlight: #c2dbd5;
+
+  /* --- Secondary: Terracotta/copper --- */
+  --color-secondary:       #c4622d;
+  --color-secondary-hover: #a34d22;
+  --color-secondary-active:#7f3b18;
+  --color-secondary-highlight: #e8cdb8;
+
+  /* --- Semantic --- */
+  --color-success:         #437a22;
+  --color-error:           #a12c2c;
+  --color-warning:         #c47a1e;
+
+  /* --- Radius --- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* --- Transitions --- */
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* --- Shadows (warm-toned) --- */
+  --shadow-sm: 0 1px 2px oklch(0.2 0.03 55 / 0.06), 0 1px 4px oklch(0.2 0.03 55 / 0.04);
+  --shadow-md: 0 4px 12px oklch(0.2 0.03 55 / 0.10), 0 2px 4px oklch(0.2 0.03 55 / 0.06);
+  --shadow-lg: 0 12px 40px oklch(0.2 0.03 55 / 0.16), 0 4px 12px oklch(0.2 0.03 55 / 0.08);
+  --shadow-hero: 0 24px 80px oklch(0.2 0.03 55 / 0.25);
+
+  /* --- Content widths --- */
+  --content-narrow: 640px;
+  --content-default: 960px;
+  --content-wide: 1280px;
+
+  /* --- Fonts --- */
+  --font-display: 'Cormorant', 'Georgia', serif;
+  --font-body:    'DM Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* DARK MODE */
+[data-theme="dark"] {
+  --color-bg:              #1a1612;
+  --color-surface:         #201c17;
+  --color-surface-2:       #26211b;
+  --color-surface-offset:  #1e1a15;
+  --color-surface-offset-2:#232018;
+  --color-surface-dynamic: #302b23;
+  --color-divider:         #2d2820;
+  --color-border:          #3d3628;
+  --color-text:            #e8e0d4;
+  --color-text-muted:      #8a7f6e;
+  --color-text-faint:      #5a5244;
+  --color-text-inverse:    #201c17;
+  --color-primary:         #5aa897;
+  --color-primary-hover:   #3d8e7c;
+  --color-primary-active:  #2a6e5e;
+  --color-primary-highlight: #1e3530;
+  --color-secondary:       #e08050;
+  --color-secondary-hover: #d06535;
+  --color-secondary-active:#b34f22;
+  --color-secondary-highlight: #3a1f0e;
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.30);
+  --shadow-md: 0 4px 12px oklch(0 0 0 / 0.40);
+  --shadow-lg: 0 12px 40px oklch(0 0 0 / 0.55);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #1a1612; --color-surface: #201c17; --color-surface-2: #26211b;
+    --color-surface-offset: #1e1a15; --color-surface-offset-2: #232018;
+    --color-surface-dynamic: #302b23; --color-divider: #2d2820; --color-border: #3d3628;
+    --color-text: #e8e0d4; --color-text-muted: #8a7f6e; --color-text-faint: #5a5244;
+    --color-text-inverse: #201c17; --color-primary: #5aa897; --color-primary-hover: #3d8e7c;
+    --color-primary-active: #2a6e5e; --color-primary-highlight: #1e3530;
+    --color-secondary: #e08050; --color-secondary-hover: #d06535;
+    --color-secondary-active: #b34f22; --color-secondary-highlight: #3a1f0e;
+    --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.30); --shadow-md: 0 4px 12px oklch(0 0 0 / 0.40);
+    --shadow-lg: 0 12px 40px oklch(0 0 0 / 0.55);
+  }
+}
