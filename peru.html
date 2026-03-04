@@ -1,0 +1,2290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Peru — Condor Trails. Tailor-made journeys across Peru's ancient wonders and living culture. Machu Picchu, Sacred Valley, Lima's culinary scene, Amazon, and the Central Highlands — designed by a Peruvian who knows every trail.">
+  <title>Peru — Condor Trails | Ancient Wonders &amp; Living Culture</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- Peru page-specific styles -->
+  <style>
+    /* ============================================
+       NAV ACTIVE STATE (Destinations link)
+       ============================================ */
+    .nav-links .nav-link-active {
+      color: #fff !important;
+      position: relative;
+    }
+    .nav.scrolled .nav-links .nav-link-active {
+      color: var(--color-primary) !important;
+    }
+
+    /* ============================================
+       HERO — CINEMATIC ENHANCEMENTS
+       ============================================ */
+
+    /* Ken Burns slow zoom on hero image */
+    @keyframes kenBurns {
+      0%   { transform: scale(1);    }
+      100% { transform: scale(1.08); }
+    }
+
+    #hero .hero-bg img {
+      animation: kenBurns 25s ease-in-out forwards;
+      will-change: transform;
+    }
+
+    /* Film grain overlay */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 0.035;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+    }
+
+    /* Hero title override — make it MASSIVE italic */
+    #hero .hero-title {
+      font-size: clamp(4rem, 1rem + 12vw, 12rem);
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 0.85;
+      margin-bottom: var(--space-4);
+    }
+
+    #hero .hero-title em {
+      font-style: italic;
+    }
+
+    /* Hero subtitle refinement */
+    #hero .hero-subtitle {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: var(--space-8);
+    }
+
+    /* Glass morphism stat pills */
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-10);
+    }
+
+    .hero-stat {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      padding: var(--space-2) var(--space-5);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+
+    .hero-stat strong {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Refined scroll indicator — animated line */
+    #hero .hero-scroll {
+      gap: var(--space-3);
+    }
+
+    #hero .hero-scroll-text {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    #hero .hero-scroll-line {
+      width: 1px;
+      height: 48px;
+      background: transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero .hero-scroll-line::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.7), transparent);
+      animation: scrollLine 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+
+    @keyframes scrollLine {
+      0%   { top: -100%; }
+      100% { top: 100%; }
+    }
+
+    /* Hero content z-index above grain */
+    #hero .hero-content {
+      z-index: 3;
+      padding-top: var(--space-32);
+    }
+
+    /* ============================================
+       INTRODUCTION — EDITORIAL FEEL
+       ============================================ */
+    .intro-section {
+      background: var(--color-bg);
+      padding-block: clamp(var(--space-16), 8vw, var(--space-32));
+    }
+
+    .intro-content {
+      max-width: 68ch;
+      margin-inline: auto;
+    }
+
+    .intro-content p {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: var(--space-6);
+    }
+
+    .intro-content p:last-child { margin-bottom: 0; }
+
+    /* Editorial pull quote */
+    .intro-highlight {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--color-text);
+      line-height: 1.45;
+      border-left: 3px solid var(--color-secondary);
+      padding-left: var(--space-8);
+      margin-block: var(--space-10);
+      max-width: none;
+    }
+
+    /* Personal story panel */
+    .intro-personal {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      margin-top: var(--space-8);
+      position: relative;
+    }
+
+    .intro-personal::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--color-secondary), var(--color-primary));
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    }
+
+    .intro-personal p {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    .intro-personal-label {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-secondary);
+      margin-bottom: var(--space-3);
+      display: block;
+    }
+
+    /* ============================================
+       REGIONS — IMMERSIVE CARDS
+       ============================================ */
+    .regions-section {
+      background: var(--color-surface-offset);
+      padding-block: clamp(var(--space-16), 8vw, var(--space-32));
+    }
+
+    .regions-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+    }
+
+    /* Feature layout: first 2 cards span wider */
+    .regions-grid .region-card:nth-child(1),
+    .regions-grid .region-card:nth-child(2) {
+      grid-column: span 2;
+    }
+
+    @media (max-width: 1024px) {
+      .regions-grid { grid-template-columns: repeat(2, 1fr); }
+      .regions-grid .region-card:nth-child(1),
+      .regions-grid .region-card:nth-child(2) {
+        grid-column: span 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .regions-grid { grid-template-columns: 1fr; }
+    }
+
+    .region-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition-interactive),
+                  transform var(--transition-interactive);
+      cursor: pointer;
+    }
+
+    .region-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    @media (hover: none) {
+      .region-card:hover { transform: none; }
+    }
+
+    /* Taller images for visual impact */
+    .region-card-image {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Feature cards get wider aspect ratio */
+    .regions-grid .region-card:nth-child(1) .region-card-image,
+    .regions-grid .region-card:nth-child(2) .region-card-image {
+      aspect-ratio: 4/3;
+    }
+
+    .region-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .region-card:hover .region-card-image img {
+      transform: scale(1.06);
+    }
+
+    /* Color overlay on hover with region name */
+    .region-card-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(45, 122, 107, 0.7) 0%,
+        rgba(45, 122, 107, 0.1) 50%,
+        transparent 100%
+      );
+      display: flex;
+      align-items: flex-end;
+      padding: var(--space-6);
+      opacity: 0;
+      transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .region-card:hover .region-card-image-overlay {
+      opacity: 1;
+    }
+
+    .region-card-image-overlay span {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 500;
+      font-style: italic;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .region-card-body {
+      padding: var(--space-5) var(--space-6) var(--space-6);
+    }
+
+    .region-card-name {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: var(--space-1);
+      line-height: 1.2;
+    }
+
+    .region-card-tagline {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-secondary);
+      margin-bottom: var(--space-4);
+    }
+
+    .region-highlights {
+      list-style: none;
+      margin-bottom: var(--space-4);
+    }
+
+    .region-highlights li {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      padding-left: var(--space-4);
+      position: relative;
+      margin-bottom: var(--space-1);
+    }
+
+    .region-highlights li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    .region-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+    }
+
+    .region-meta-tag {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--color-text-muted);
+      background: var(--color-surface-offset);
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+    }
+
+    /* ============================================
+       ITINERARIES — PREMIUM BROCHURE
+       ============================================ */
+    .itineraries-section {
+      background: var(--color-bg);
+      padding-block: clamp(var(--space-16), 8vw, var(--space-32));
+    }
+
+    .itineraries-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-6);
+    }
+
+    @media (max-width: 768px) {
+      .itineraries-grid { grid-template-columns: 1fr; }
+    }
+
+    .itin-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition-interactive);
+      position: relative;
+    }
+
+    .itin-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Featured card — gradient border glow */
+    .itin-card.featured {
+      border-color: transparent;
+      background:
+        linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+        linear-gradient(135deg, var(--color-secondary), var(--color-primary)) border-box;
+      border-width: 2px;
+      border-style: solid;
+    }
+
+    [data-theme="dark"] .itin-card.featured {
+      background:
+        linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+        linear-gradient(135deg, var(--color-secondary), var(--color-primary)) border-box;
+    }
+
+    .itin-featured-badge {
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-inverse);
+      background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-hover));
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      box-shadow: 0 2px 8px rgba(196, 98, 45, 0.3);
+    }
+
+    .itin-header {
+      margin-bottom: var(--space-4);
+    }
+
+    .itin-name {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.15;
+      margin-bottom: var(--space-2);
+    }
+
+    .itin-route {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: var(--space-3);
+    }
+
+    .itin-description {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      margin-bottom: var(--space-5);
+      max-width: 50ch;
+    }
+
+    .itin-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-5);
+    }
+
+    .itin-badge {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+
+    .itin-badge--duration {
+      background: var(--color-primary-highlight);
+      color: var(--color-primary);
+    }
+
+    .itin-badge--price {
+      background: var(--color-secondary-highlight);
+      color: var(--color-secondary);
+    }
+
+    .itin-badge--difficulty {
+      background: var(--color-surface-offset);
+      color: var(--color-text-muted);
+    }
+
+    .itin-badge--season {
+      background: var(--color-surface-offset);
+      color: var(--color-text-muted);
+    }
+
+    .itin-callout {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      background: var(--color-primary-highlight);
+      border-left: 3px solid var(--color-primary);
+      padding: var(--space-3) var(--space-4);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-bottom: var(--space-5);
+      line-height: 1.6;
+    }
+
+    .itin-callout a {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+
+    .itin-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    .itin-toggle-btn {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-primary);
+      background: none;
+      border: 1.5px solid var(--color-primary);
+      border-radius: var(--radius-md);
+      padding: var(--space-2) var(--space-4);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      transition: background var(--transition-interactive), color var(--transition-interactive);
+      min-height: 40px;
+    }
+
+    .itin-toggle-btn:hover {
+      background: var(--color-primary-highlight);
+    }
+
+    .itin-toggle-btn svg {
+      transition: transform var(--transition-interactive);
+    }
+
+    .itin-toggle-btn.open svg {
+      transform: rotate(180deg);
+    }
+
+    /* Day-by-day expandable content */
+    .itin-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 500ms cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 300ms ease;
+      opacity: 0;
+    }
+
+    .itin-details.open {
+      max-height: 2000px;
+      opacity: 1;
+      margin-top: var(--space-6);
+    }
+
+    /* Timeline connector for expanded days */
+    .itin-day-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .itin-day-table th {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      text-align: left;
+      padding: var(--space-2) var(--space-3);
+      border-bottom: 2px solid var(--color-divider);
+    }
+
+    .itin-day-table td {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      padding: var(--space-3);
+      border-bottom: 1px solid var(--color-divider);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .itin-day-table td:first-child {
+      font-weight: 600;
+      color: var(--color-primary);
+      white-space: nowrap;
+      width: 60px;
+      position: relative;
+    }
+
+    /* Visual timeline dot on day column */
+    .itin-day-table td:first-child::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--color-primary);
+      border-radius: var(--radius-full);
+      margin-right: var(--space-2);
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+
+    .itin-day-table td:nth-child(2) {
+      font-weight: 600;
+      color: var(--color-text);
+      white-space: nowrap;
+      min-width: 100px;
+    }
+
+    /* ============================================
+       PRACTICAL INFO — VISUAL FLAIR
+       ============================================ */
+    .practical-section {
+      background: var(--color-surface-offset);
+      padding-block: clamp(var(--space-16), 8vw, var(--space-32));
+    }
+
+    .practical-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+
+    @media (max-width: 1024px) {
+      .practical-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .practical-grid { grid-template-columns: 1fr; }
+    }
+
+    .practical-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition-interactive), transform var(--transition-interactive);
+    }
+
+    .practical-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    @media (hover: none) {
+      .practical-card:hover { transform: none; }
+    }
+
+    .practical-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--color-primary-highlight);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-4);
+      color: var(--color-primary);
+    }
+
+    .practical-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
+      line-height: 1.2;
+    }
+
+    .practical-text {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    .practical-text strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    /* ============================================
+       BEAUTIFUL SEASON CHART
+       ============================================ */
+    .season-chart {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 3px;
+      margin-top: var(--space-4);
+      margin-bottom: var(--space-3);
+    }
+
+    .season-month {
+      text-align: center;
+      padding: var(--space-2) 0;
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      border-radius: var(--radius-md);
+      line-height: 1.3;
+      transition: transform var(--transition-interactive);
+    }
+
+    .season-month:hover {
+      transform: scale(1.08);
+    }
+
+    .season-month.peak {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: 0 2px 6px rgba(45, 122, 107, 0.25);
+    }
+
+    .season-month.good {
+      background: var(--color-primary-highlight);
+      color: var(--color-primary);
+    }
+
+    .season-month.wet {
+      background: var(--color-surface-offset);
+      color: var(--color-text-faint);
+    }
+
+    .season-legend {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin-top: var(--space-2);
+    }
+
+    .season-legend-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      color: var(--color-text-muted);
+    }
+
+    .season-legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: var(--radius-sm);
+      flex-shrink: 0;
+    }
+
+    /* ============================================
+       WHY CONDOR TRAILS
+       ============================================ */
+    .why-section {
+      background: var(--color-bg);
+      padding-block: clamp(var(--space-16), 8vw, var(--space-32));
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-5);
+    }
+
+    @media (max-width: 1024px) {
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .why-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================
+       CTA SECTION
+       ============================================ */
+    .cta-section {
+      background: var(--color-surface-offset);
+      padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle decorative gradient behind CTA */
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(45, 122, 107, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-content {
+      max-width: 600px;
+      margin-inline: auto;
+      position: relative;
+    }
+
+    .cta-content h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 600;
+      font-style: italic;
+      color: var(--color-text);
+      line-height: 1.1;
+      margin-bottom: var(--space-4);
+    }
+
+    .cta-content p {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      margin-bottom: var(--space-8);
+      max-width: 50ch;
+      margin-inline: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    /* ============================================
+       SCROLL ANIMATIONS — STAGGERED CHILDREN
+       ============================================ */
+    .stagger-children > * {
+      opacity: 1;
+    }
+
+    @supports (animation-timeline: scroll()) {
+      .stagger-children > :nth-child(1) { opacity: 0; animation: reveal-fade linear both; animation-timeline: view(); animation-range: entry 0% entry 80%; }
+      .stagger-children > :nth-child(2) { opacity: 0; animation: reveal-fade linear both; animation-timeline: view(); animation-range: entry 2% entry 82%; }
+      .stagger-children > :nth-child(3) { opacity: 0; animation: reveal-fade linear both; animation-timeline: view(); animation-range: entry 4% entry 84%; }
+      .stagger-children > :nth-child(4) { opacity: 0; animation: reveal-fade linear both; animation-timeline: view(); animation-range: entry 6% entry 86%; }
+      .stagger-children > :nth-child(5) { opacity: 0; animation: reveal-fade linear both; animation-timeline: view(); animation-range: entry 8% entry 88%; }
+      .stagger-children > :nth-child(6) { opacity: 0; animation: reveal-fade linear both; animation-timeline: view(); animation-range: entry 10% entry 90%; }
+      .stagger-children > :nth-child(7) { opacity: 0; animation: reveal-fade linear both; animation-timeline: view(); animation-range: entry 12% entry 92%; }
+      .stagger-children > :nth-child(8) { opacity: 0; animation: reveal-fade linear both; animation-timeline: view(); animation-range: entry 14% entry 94%; }
+    }
+
+    /* ============================================
+       SECTION DIVIDERS — subtle horizontal rule
+       ============================================ */
+    .section-divider {
+      border: none;
+      height: 1px;
+      background: var(--color-divider);
+      margin: 0;
+    }
+
+    /* ============================================
+       RESPONSIVE ADJUSTMENTS
+       ============================================ */
+    @media (max-width: 768px) {
+      #hero .hero-title {
+        font-size: clamp(3.5rem, 1rem + 10vw, 7rem);
+      }
+
+      .hero-stats {
+        gap: var(--space-2);
+      }
+
+      .hero-stat {
+        font-size: var(--text-xs);
+        padding: var(--space-1) var(--space-3);
+      }
+
+      .intro-highlight {
+        font-size: var(--text-lg);
+        padding-left: var(--space-5);
+      }
+
+      .intro-personal {
+        padding: var(--space-5);
+      }
+    }
+
+    /* ============================================
+       REDUCED MOTION
+       ============================================ */
+    @media (prefers-reduced-motion: reduce) {
+      #hero .hero-bg img {
+        animation: none;
+      }
+
+      #hero .hero-scroll-line::after {
+        animation: none;
+      }
+
+      .region-card-image-overlay {
+        transition: none;
+      }
+
+      .stagger-children > * {
+        opacity: 1 !important;
+        animation: none !important;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="./chatbot.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+<!-- Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Peru Itineraries — Condor Trails",
+  "description": "Curated Peru travel itineraries from Condor Trails, covering culture, adventure, gastronomy, and nature",
+  "numberOfItems": 7,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Classic Peru — 10 Days",
+      "url": "https://condortrails.com/trips/classic-peru.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Peru & Bolivia — 14 Days",
+      "url": "https://condortrails.com/trips/peru-bolivia.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Northern Peru — Kuelap & Gocta",
+      "url": "https://condortrails.com/peru.html#northern"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Amazon Rainforest — Tambopata & Manu",
+      "url": "https://condortrails.com/peru.html#amazon"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Central Highlands — Huancayo & Ayacucho",
+      "url": "https://condortrails.com/peru.html#central-highlands"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "Coastal Peru — Nazca, Paracas & Huacachina",
+      "url": "https://condortrails.com/peru.html#coastal"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "Gastro Peru — Culinary Journey",
+      "url": "https://condortrails.com/peru.html#gastro"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Skip to content -->
+<a href="#main" class="skip-to-content">Skip to content</a>
+
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a href="./index.html" class="nav-logo" aria-label="Condor Trails — Home">
+        <svg class="nav-logo-icon" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="currentColor"/>
+          <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="currentColor"/>
+          <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="currentColor"/>
+          <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="currentColor" opacity="0.8"/>
+          <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="currentColor"/>
+        </svg>
+        <span class="nav-logo-text">Condor Trails</span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links" role="list">
+        <li><a href="./index.html#destinations" class="nav-link-active">Destinations</a></li>
+        <li><a href="./index.html#experiences">Experiences</a></li>
+        <li><a href="./index.html#how-it-works">How It Works</a></li>
+        <li><a href="./index.html#about">About</a></li>
+        <li><a href="./blog.html">Blog</a></li>
+        <li><a href="./recipes.html">Recipes</a></li>
+        <li><a href="./index.html#contact">Contact</a></li>
+      </ul>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <!-- Theme toggle -->
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- CTA -->
+        <a href="./index.html#contact" class="btn btn-primary nav-cta">Plan My Journey</a>
+
+        <!-- Mobile toggle -->
+        <button class="nav-menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile nav drawer -->
+<div class="nav-mobile" id="mobileNav" role="dialog" aria-label="Navigation menu" aria-modal="true">
+  <button class="nav-mobile-close" id="mobileNavClose" aria-label="Close navigation menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+
+  <div style="display: flex; align-items: center; gap: var(--space-3);">
+    <svg width="32" height="22" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="var(--color-primary)"/>
+      <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="var(--color-primary)"/>
+      <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="var(--color-primary)"/>
+      <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="var(--color-primary)" opacity="0.8"/>
+      <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="var(--color-primary)"/>
+    </svg>
+    <span style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text);">Condor Trails</span>
+  </div>
+
+  <ul class="nav-mobile-links" role="list">
+    <li><a href="./index.html#destinations" onclick="closeMobileNav()">Destinations</a></li>
+    <li><a href="./index.html#experiences" onclick="closeMobileNav()">Experiences</a></li>
+    <li><a href="./index.html#how-it-works" onclick="closeMobileNav()">How It Works</a></li>
+    <li><a href="./index.html#about" onclick="closeMobileNav()">About</a></li>
+    <li><a href="./blog.html" onclick="closeMobileNav()">Blog</a></li>
+    <li><a href="./recipes.html" onclick="closeMobileNav()">Recipes</a></li>
+    <li><a href="./index.html#contact" onclick="closeMobileNav()">Contact</a></li>
+  </ul>
+  <div style="margin-top: var(--space-8);">
+    <a href="./index.html#contact" onclick="closeMobileNav()" class="btn btn-primary" style="width: 100%; justify-content: center;">Plan My Journey</a>
+  </div>
+</div>
+
+<!-- ============================================
+     MAIN CONTENT
+     ============================================ -->
+<main id="main">
+
+  <!-- =====================
+       1. CINEMATIC HERO
+       ===================== -->
+  <section id="hero" aria-label="Peru Hero">
+    <div class="hero-bg" id="heroBg">
+      <img
+        src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=1920&q=80"
+        alt="Machu Picchu ancient citadel at sunrise, Peru — mist rising through the Andes mountains"
+        fetchpriority="high"
+        width="1920"
+        height="1080"
+      >
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <span class="hero-tagline-small">Destinations</span>
+
+      <h1 class="hero-title"><em>Peru</em></h1>
+
+      <p class="hero-subtitle">Ancient Wonders &amp; Living Culture</p>
+
+      <div class="hero-stats">
+        <span class="hero-stat"><strong>From $2,499</strong></span>
+        <span class="hero-stat"><strong>8–15</strong> days</span>
+        <span class="hero-stat"><strong>13</strong> UNESCO Sites</span>
+        <span class="hero-stat"><strong>Year-round</strong></span>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#itineraries" class="btn btn-secondary btn-lg">View Itineraries</a>
+        <a href="./index.html#contact" class="btn btn-outline-light btn-lg">Plan My Journey</a>
+      </div>
+    </div>
+
+    <a href="#intro" class="hero-scroll" aria-label="Scroll down">
+      <span class="hero-scroll-text">Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </a>
+  </section>
+
+
+  <!-- =====================
+       2. EDITORIAL INTRODUCTION
+       ===================== -->
+  <section id="intro" class="intro-section" aria-labelledby="intro-heading">
+    <div class="container container--default">
+      <div class="fade-in" style="text-align: center;">
+        <p class="section-eyebrow">Discover Peru</p>
+        <h2 class="section-heading" id="intro-heading" style="margin-inline: auto;">A Country Like No Other</h2>
+      </div>
+
+      <div class="intro-content fade-in">
+        <p>Peru is a land of extremes. It holds 13 UNESCO World Heritage Sites, more than 3,000 varieties of potato, 60% of the Amazon rainforest, and what many consider the world's greatest culinary scene — Lima alone has four restaurants in the World's 50 Best, including the current number one. From the cloud-wrapped ruins of Machu Picchu to the floating reed islands of Lake Titicaca, from the Nazca Lines etched into desert floor to the pristine jungles of Tambopata, Peru compresses a continent's worth of wonder into a single, endlessly layered country.</p>
+
+        <div class="intro-highlight">
+          Peru's food scene has redefined global gastronomy. Lima is the only city on earth with two restaurants in the world's Top 10 — Maido at number one and Kjolle at number nine. Central, the former number one, holds the permanent "Best of the Best" distinction.
+        </div>
+
+        <p>But the numbers only scratch the surface. Peru is Quechua grandmothers weaving textiles whose patterns encode centuries of knowledge. It is the Inca stonework of Cusco, so precisely fitted that not even a razor blade can pass between blocks. It is the taste of ceviche on a Lima afternoon, the flight of an Andean condor in Colca Canyon, and the silence of a highland lake at 3,800 metres.</p>
+
+        <div class="intro-personal">
+          <span class="intro-personal-label">A Personal Connection</span>
+          <p>At Condor Trails, Peru is personal. Our founder Aleksander was born in Jauja, a small town in Peru's Central Highlands, in the department of Junin. His parents still run <a href="https://tourinca.com" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary);">tourinca.com</a>, a travel company in the region. When we design your Peru journey, we are not drawing from guidebooks — we are drawing from a lifetime. We know which trail is empty at dawn, which family serves the best pachamanca in the Mantaro Valley, and how to find the Peru that lies beyond the postcard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       3. IMMERSIVE REGIONS
+       ===================== -->
+  <section id="regions" class="regions-section" aria-labelledby="regions-heading">
+    <div class="container">
+      <div class="fade-in" style="text-align: center;">
+        <p class="section-eyebrow">Explore the Regions</p>
+        <h2 class="section-heading" id="regions-heading" style="margin-inline: auto;">Where to Go in Peru</h2>
+        <p class="section-subheading" style="margin-inline: auto;">Eight distinct regions, each a world of its own. We design itineraries that weave them together — or let you dive deep into one.</p>
+      </div>
+
+      <div class="regions-grid stagger-children">
+
+        <!-- Lima -->
+        <div class="region-card fade-in" data-region="lima">
+          <div class="region-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1555990793-da11153b2473?w=800&q=80"
+              alt="Lima coastline at Miraflores with Pacific Ocean views"
+              loading="lazy" width="800" height="533"
+            >
+            <div class="region-card-image-overlay"><span>Lima</span></div>
+          </div>
+          <div class="region-card-body">
+            <div class="region-card-name">Lima</div>
+            <div class="region-card-tagline">The Gastronomic Capital</div>
+            <ul class="region-highlights">
+              <li>4 restaurants in the World's 50 Best</li>
+              <li>UNESCO Historic Centre &amp; Museo Larco</li>
+              <li>Bohemian Barranco &amp; clifftop Miraflores</li>
+              <li>Huaca Pucllana pyramid amid the city</li>
+            </ul>
+            <div class="region-meta">
+              <span class="region-meta-tag">Year-round</span>
+              <span class="region-meta-tag">2–3 days</span>
+              <span class="region-meta-tag">Sea level</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cusco & Sacred Valley -->
+        <div class="region-card fade-in" data-region="cusco">
+          <div class="region-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=800&q=80"
+              alt="Machu Picchu terraces with mountain backdrop"
+              loading="lazy" width="800" height="533"
+            >
+            <div class="region-card-image-overlay"><span>Cusco &amp; Sacred Valley</span></div>
+          </div>
+          <div class="region-card-body">
+            <div class="region-card-name">Cusco &amp; Sacred Valley</div>
+            <div class="region-card-tagline">The Inca Heartland</div>
+            <ul class="region-highlights">
+              <li>Machu Picchu — New Wonder of the World</li>
+              <li>Ollantaytambo &amp; Pisac living ruins</li>
+              <li>Moray terraces &amp; Maras salt mines</li>
+              <li>Qorikancha, Sacsayhuaman, San Blas</li>
+            </ul>
+            <div class="region-meta">
+              <span class="region-meta-tag">May–Oct</span>
+              <span class="region-meta-tag">5–7 days</span>
+              <span class="region-meta-tag">2,430–3,400 m</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lake Titicaca & Puno -->
+        <div class="region-card fade-in" data-region="titicaca">
+          <div class="region-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?w=800&q=80"
+              alt="Lake Titicaca with traditional totora reed boats"
+              loading="lazy" width="800" height="533"
+            >
+            <div class="region-card-image-overlay"><span>Lake Titicaca</span></div>
+          </div>
+          <div class="region-card-body">
+            <div class="region-card-name">Lake Titicaca &amp; Puno</div>
+            <div class="region-card-tagline">The Sacred Lake of the Incas</div>
+            <ul class="region-highlights">
+              <li>Uros floating reed islands</li>
+              <li>Taquile — UNESCO textile heritage</li>
+              <li>Amantani homestay experience</li>
+              <li>Sillustani funeral towers</li>
+            </ul>
+            <div class="region-meta">
+              <span class="region-meta-tag">Apr–Oct</span>
+              <span class="region-meta-tag">2–3 days</span>
+              <span class="region-meta-tag">3,812 m</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arequipa & Colca Canyon -->
+        <div class="region-card fade-in" data-region="arequipa">
+          <div class="region-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1619546952812-520e98064a52?w=800&q=80"
+              alt="Arequipa white volcanic stone architecture with El Misti volcano"
+              loading="lazy" width="800" height="533"
+            >
+            <div class="region-card-image-overlay"><span>Arequipa &amp; Colca</span></div>
+          </div>
+          <div class="region-card-body">
+            <div class="region-card-name">Arequipa &amp; Colca Canyon</div>
+            <div class="region-card-tagline">The White City &amp; Kingdom of the Condor</div>
+            <ul class="region-highlights">
+              <li>UNESCO Historic Centre in white sillar stone</li>
+              <li>Cruz del Condor — condors in flight</li>
+              <li>Colca Canyon, twice the depth of the Grand Canyon</li>
+              <li>El Misti volcano &amp; hot springs</li>
+            </ul>
+            <div class="region-meta">
+              <span class="region-meta-tag">Apr–Nov</span>
+              <span class="region-meta-tag">3–4 days</span>
+              <span class="region-meta-tag">2,325–4,900 m</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nazca & South Coast -->
+        <div class="region-card fade-in" data-region="nazca">
+          <div class="region-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800&q=80"
+              alt="Desert sand dunes at Huacachina oasis, Peru"
+              loading="lazy" width="800" height="533"
+            >
+            <div class="region-card-image-overlay"><span>Nazca &amp; South Coast</span></div>
+          </div>
+          <div class="region-card-body">
+            <div class="region-card-name">Nazca &amp; South Coast</div>
+            <div class="region-card-tagline">Lines in the Desert, Wildlife on the Pacific</div>
+            <ul class="region-highlights">
+              <li>UNESCO Nazca Lines overflight</li>
+              <li>Ballestas Islands — sea lions &amp; penguins</li>
+              <li>Huacachina oasis &amp; sandboarding</li>
+              <li>Pisco wine route &amp; Afro-Peruvian Chincha</li>
+            </ul>
+            <div class="region-meta">
+              <span class="region-meta-tag">Year-round</span>
+              <span class="region-meta-tag">3–4 days</span>
+              <span class="region-meta-tag">Sea level</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Northern Peru -->
+        <div class="region-card fade-in" data-region="north">
+          <div class="region-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1593692557859-b209f9f4ced4?w=800&q=80"
+              alt="Gocta Falls cascading into lush cloud forest valley in Northern Peru"
+              loading="lazy" width="800" height="533"
+            >
+            <div class="region-card-image-overlay"><span>Northern Peru</span></div>
+          </div>
+          <div class="region-card-body">
+            <div class="region-card-name">Northern Peru</div>
+            <div class="region-card-tagline">The Other Peru — History Without the Crowds</div>
+            <ul class="region-highlights">
+              <li>Kuelap fortress — "Machu Picchu of the North"</li>
+              <li>Gocta Falls — one of the world's tallest</li>
+              <li>Chan Chan — world's largest adobe city</li>
+              <li>Huanchaco's ancient reed-boat fishermen</li>
+            </ul>
+            <div class="region-meta">
+              <span class="region-meta-tag">May–Oct</span>
+              <span class="region-meta-tag">7–10 days</span>
+              <span class="region-meta-tag">0–3,000 m</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amazon Rainforest -->
+        <div class="region-card fade-in" data-region="amazon">
+          <div class="region-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?w=800&q=80"
+              alt="Amazon rainforest canopy with river in Peru"
+              loading="lazy" width="800" height="533"
+            >
+            <div class="region-card-image-overlay"><span>Amazon Rainforest</span></div>
+          </div>
+          <div class="region-card-body">
+            <div class="region-card-name">Amazon Rainforest</div>
+            <div class="region-card-tagline">The Lungs of the Earth</div>
+            <ul class="region-highlights">
+              <li>Tambopata &amp; Manu National Park</li>
+              <li>Macaw clay licks &amp; giant river otters</li>
+              <li>Jungle lodges &amp; canopy walkways</li>
+              <li>Indigenous community visits</li>
+            </ul>
+            <div class="region-meta">
+              <span class="region-meta-tag">May–Oct</span>
+              <span class="region-meta-tag">3–7 days</span>
+              <span class="region-meta-tag">Lowland</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Central Highlands / Junín -->
+        <div class="region-card fade-in" data-region="highlands">
+          <div class="region-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1568805711622-9865e898f171?w=800&q=80"
+              alt="Peruvian Central Highlands with golden hillside and snow-capped Andes peaks near Junin"
+              loading="lazy" width="800" height="533"
+            >
+            <div class="region-card-image-overlay"><span>Central Highlands</span></div>
+          </div>
+          <div class="region-card-body">
+            <div class="region-card-name">Central Highlands / Junin</div>
+            <div class="region-card-tagline">Aleksander's Homeland</div>
+            <ul class="region-highlights">
+              <li>Ferrocarril Central Andino — world's highest railway</li>
+              <li>Jauja, Laguna de Paca &amp; Mantaro Valley</li>
+              <li>Artisan villages: weavings, silverwork, gourds</li>
+              <li>Operated by tourinca.com — our family on the ground</li>
+            </ul>
+            <div class="region-meta">
+              <span class="region-meta-tag">Apr–Oct</span>
+              <span class="region-meta-tag">3–6 days</span>
+              <span class="region-meta-tag">3,250–4,782 m</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       4. PREMIUM ITINERARIES
+       ===================== -->
+  <section id="itineraries" class="itineraries-section" aria-labelledby="itineraries-heading">
+    <div class="container">
+      <div class="fade-in" style="text-align: center;">
+        <p class="section-eyebrow">Tailor-Made Journeys</p>
+        <h2 class="section-heading" id="itineraries-heading" style="margin-inline: auto;">Choose Your Journey</h2>
+        <p class="section-subheading" style="margin-inline: auto;">Seven curated routes to inspire your ideal Peru trip. Every itinerary can be customised to your pace, interests, and budget.</p>
+      </div>
+
+      <div class="itineraries-grid">
+
+        <!-- Itinerary 1: Classic Peru -->
+        <div class="itin-card fade-in" id="itin-1">
+          <div class="itin-header">
+            <div class="itin-name">Classic Peru</div>
+            <div class="itin-route">Lima &rarr; Cusco &rarr; Sacred Valley &rarr; Machu Picchu &rarr; Lake Titicaca</div>
+          </div>
+          <p class="itin-description">The essential first-timer route covering Peru's greatest icons — ancient citadels, Inca ruins, highland lakes, and world-class cuisine.</p>
+          <div class="itin-badges">
+            <span class="itin-badge itin-badge--duration">10 Days</span>
+            <span class="itin-badge itin-badge--price">From $2,499</span>
+            <span class="itin-badge itin-badge--difficulty">Moderate</span>
+            <span class="itin-badge itin-badge--season">May–Oct</span>
+          </div>
+          <div class="itin-actions">
+            <button class="itin-toggle-btn" onclick="toggleItinerary('itin-1')" aria-expanded="false">
+              View Day-by-Day
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <a href="./index.html#contact" class="btn btn-primary">Plan This Journey</a>
+          </div>
+          <div class="itin-details" id="itin-1-details">
+            <table class="itin-day-table">
+              <thead><tr><th>Day</th><th>Location</th><th>Activities</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Lima</td><td>Arrive. Miraflores hotel. Afternoon Malecon walk. Dinner at La Mar or Isolina.</td></tr>
+                <tr><td>2</td><td>Lima</td><td>Historic Centre, San Francisco Catacombs, Huaca Pucllana. Afternoon: Museo Larco. Evening: Barranco, pisco sours.</td></tr>
+                <tr><td>3</td><td>Sacred Valley</td><td>Fly to Cusco. Drive to Sacred Valley for acclimatisation. Pisac market. Hotel at ~2,800 m.</td></tr>
+                <tr><td>4</td><td>Sacred Valley</td><td>Ollantaytambo fortress. Moray terraces and Salineras de Maras salt mines.</td></tr>
+                <tr><td>5</td><td>Machu Picchu</td><td>Train Ollantaytambo to Aguas Calientes. Afternoon at leisure. Overnight.</td></tr>
+                <tr><td>6</td><td>Machu Picchu &rarr; Cusco</td><td>Sunrise entry at Machu Picchu. Guided tour. Return train to Cusco.</td></tr>
+                <tr><td>7</td><td>Cusco</td><td>Qorikancha, Plaza de Armas, San Blas, Sacsayhuaman. Evening San Pedro Market.</td></tr>
+                <tr><td>8</td><td>Cusco &rarr; Puno</td><td>Scenic bus via La Raya Pass (4,335 m). Arrive Puno, gentle orientation walk.</td></tr>
+                <tr><td>9</td><td>Lake Titicaca</td><td>Uros Floating Islands. Taquile Island (2.5 hr boat ride). Return Puno.</td></tr>
+                <tr><td>10</td><td>Puno &rarr; Lima</td><td>Morning: Sillustani funeral towers. Afternoon: fly Juliaca to Lima. Depart.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Itinerary 2: Peru Culinary Journey -->
+        <div class="itin-card fade-in" id="itin-2">
+          <div class="itin-header">
+            <div class="itin-name">Peru Culinary Journey</div>
+            <div class="itin-route">Lima &rarr; Sacred Valley &rarr; Cusco</div>
+          </div>
+          <p class="itin-description">For food lovers — Lima's world-famous restaurants, market tours, cooking classes, and Andean farm-to-table dining in the Sacred Valley.</p>
+          <div class="itin-badges">
+            <span class="itin-badge itin-badge--duration">8 Days</span>
+            <span class="itin-badge itin-badge--price">From $3,200</span>
+            <span class="itin-badge itin-badge--difficulty">Easy–Moderate</span>
+            <span class="itin-badge itin-badge--season">Year-round</span>
+          </div>
+          <div class="itin-callout">Watch our <strong>Peruvian Plates</strong> series on YouTube for a taste of what awaits.</div>
+          <div class="itin-actions">
+            <button class="itin-toggle-btn" onclick="toggleItinerary('itin-2')" aria-expanded="false">
+              View Day-by-Day
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <a href="./index.html#contact" class="btn btn-primary">Plan This Journey</a>
+          </div>
+          <div class="itin-details" id="itin-2-details">
+            <table class="itin-day-table">
+              <thead><tr><th>Day</th><th>Location</th><th>Activities</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Lima</td><td>Arrive. Barranco gastro tour — Merito, Isolina, or La Mar for ceviche initiation.</td></tr>
+                <tr><td>2</td><td>Lima</td><td>Surquillo Market tour. Cooking class: ceviche, lomo saltado, causa. Evening: Maido or Kjolle.</td></tr>
+                <tr><td>3</td><td>Lima</td><td>Museo Larco. Street food walking tour. Evening: Central tasting menu.</td></tr>
+                <tr><td>4</td><td>Sacred Valley</td><td>Fly to Cusco, drive Sacred Valley. Pisac market. Dinner at El Huacatay.</td></tr>
+                <tr><td>5</td><td>Sacred Valley</td><td>Andean food workshop: native tubers, quinoa, chuño. Visit a local cheesemaker.</td></tr>
+                <tr><td>6</td><td>Sacred Valley &rarr; Cusco</td><td>Chinchero weaving cooperative. Drive to Cusco. Dinner at Chicha by Virgilio Martinez.</td></tr>
+                <tr><td>7</td><td>Cusco</td><td>San Pedro Market deep dive. Pisco cocktail workshop. Dinner at Mapache.</td></tr>
+                <tr><td>8</td><td>Cusco &rarr; Lima</td><td>Fly to Lima. Farewell dinner at Astrid y Gaston. Depart.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Itinerary 3: Adventure Peru -->
+        <div class="itin-card fade-in" id="itin-3">
+          <div class="itin-header">
+            <div class="itin-name">Adventure Peru</div>
+            <div class="itin-route">Lima &rarr; Huacachina &rarr; Cusco &rarr; Sacred Valley MTB &rarr; Apur&iacute;mac Rafting &rarr; Choquequirao Trek &rarr; Machu Picchu</div>
+          </div>
+          <p class="itin-description">Peru&rsquo;s ultimate adrenaline itinerary &mdash; sandboard desert dunes, mountain-bike ancient Inca singletrack, raft Class IV&ndash;V rapids through the Apur&iacute;mac canyon, and trek to Choquequirao, the &lsquo;other Machu Picchu&rsquo; with fewer than 50 visitors a day. Finish with Machu Picchu at sunrise.</p>
+          <div class="itin-badges">
+            <span class="itin-badge itin-badge--duration">12 Days</span>
+            <span class="itin-badge itin-badge--price">From $2,950</span>
+            <span class="itin-badge itin-badge--difficulty">Strenuous</span>
+            <span class="itin-badge itin-badge--season">May&ndash;Oct</span>
+          </div>
+          <div class="itin-callout">Choquequirao receives fewer than 50 visitors per day (versus 3,000+ at Machu Picchu) and requires no permit. The Apur&iacute;mac is South America&rsquo;s premier multi-day rafting river, with named Class V rapids like Purgatory and Toothache. <strong>Book early &mdash; rafting season is May&ndash;October only.</strong></div>
+          <div class="itin-actions">
+            <button class="itin-toggle-btn" onclick="toggleItinerary('itin-3')" aria-expanded="false">
+              View Day-by-Day
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <a href="./index.html#contact" class="btn btn-primary">Plan This Journey</a>
+          </div>
+          <div class="itin-details" id="itin-3-details">
+            <table class="itin-day-table">
+              <thead><tr><th>Day</th><th>Location</th><th>Activities</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Lima</td><td>Arrive. Miraflores. Evening paragliding over Costa Verde cliffs (tandem, 10-min flight, Pacific sunset views).</td></tr>
+                <tr><td>2</td><td>Lima &rarr; Huacachina</td><td>Drive south. Dune buggy ride + sandboarding at Huacachina (300-ft dunes). Pisco distillery visit. Overnight oasis hotel.</td></tr>
+                <tr><td>3</td><td>Huacachina &rarr; Cusco</td><td>Morning flight via Lima to Cusco. Afternoon acclimatisation in Sacred Valley (2,800 m). Trek briefing.</td></tr>
+                <tr><td>4</td><td>Sacred Valley MTB</td><td>Shuttle to 4,400 m. Mountain bike the Patacancha&ndash;Huilloc enduro trail: 1,350 m descent on Inca singletrack, rock gardens, switchbacks. Lunch at community village.</td></tr>
+                <tr><td>5</td><td>Sacred Valley MTB</td><td>Misminay&ndash;Moray&ndash;Maras ride: 1,200 m descent past Moray circular terraces and Salineras salt mines. Afternoon at leisure.</td></tr>
+                <tr><td>6</td><td>Sacred Valley &rarr; Apur&iacute;mac</td><td>Transfer to Apur&iacute;mac River put-in (2,000 m). Safety briefing. Afternoon paddle through Class III warm-up rapids. Camp on sandy river beach.</td></tr>
+                <tr><td>7</td><td>Apur&iacute;mac Rafting</td><td>Full day of Class IV&ndash;V whitewater through Granite Canyon. Named rapids: Space Odyssey (IV+), Purgatory (V), The Labyrinth (V). Canyon walls rising 500 m. Camp.</td></tr>
+                <tr><td>8</td><td>Apur&iacute;mac &rarr; Cachora</td><td>Final morning rapids including Toothache (V+). Extract from canyon. Transfer to Cachora. Trek briefing for Choquequirao.</td></tr>
+                <tr><td>9</td><td>Choquequirao Trek</td><td>Capuliyoc Pass (2,890 m) &rarr; descent to Playa Rosalina on the Apur&iacute;mac River (1,450 m) &rarr; climb to Marampata (2,900 m). 22 km, 7&ndash;8 hours.</td></tr>
+                <tr><td>10</td><td>Choquequirao</td><td>Explore the ruins (3,270 m) &mdash; more archaeological area than Machu Picchu, only 30% excavated. Llama terraces, ceremonial plazas. Return to Marampata camp.</td></tr>
+                <tr><td>11</td><td>Choquequirao &rarr; Aguas Calientes</td><td>Trek to Cachora. Transfer to Santa Teresa. Train to Aguas Calientes.</td></tr>
+                <tr><td>12</td><td>Machu Picchu &rarr; Cusco &rarr; Lima</td><td>Sunrise at Machu Picchu. Guided tour. Train to Cusco. Evening flight to Lima. Farewell dinner. Depart.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Itinerary 4: Off the Beaten Path -->
+        <div class="itin-card fade-in" id="itin-4">
+          <div class="itin-header">
+            <div class="itin-name">Off the Beaten Path</div>
+            <div class="itin-route">Northern Peru — Kuelap, Gocta, Chan Chan, Huanchaco</div>
+          </div>
+          <p class="itin-description">The places most tourists never see — cloud-forest citadels, towering waterfalls, the world's largest adobe city, and ancient reed-boat fishermen.</p>
+          <div class="itin-badges">
+            <span class="itin-badge itin-badge--duration">12 Days</span>
+            <span class="itin-badge itin-badge--price">From $1,800</span>
+            <span class="itin-badge itin-badge--difficulty">Moderate</span>
+            <span class="itin-badge itin-badge--season">May–Oct</span>
+          </div>
+          <div class="itin-actions">
+            <button class="itin-toggle-btn" onclick="toggleItinerary('itin-4')" aria-expanded="false">
+              View Day-by-Day
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <a href="./index.html#contact" class="btn btn-primary">Plan This Journey</a>
+          </div>
+          <div class="itin-details" id="itin-4-details">
+            <table class="itin-day-table">
+              <thead><tr><th>Day</th><th>Location</th><th>Activities</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Lima</td><td>Arrive. Miraflores/Barranco evening orientation.</td></tr>
+                <tr><td>2</td><td>Trujillo</td><td>Fly to Trujillo. Historic Centre, colonial mansions, Plaza de Armas.</td></tr>
+                <tr><td>3</td><td>Trujillo</td><td>Chan Chan (UNESCO). Huacas del Sol y de la Luna. Sunset at Huanchaco.</td></tr>
+                <tr><td>4</td><td>Huanchaco</td><td>Watch caballito de totora fishermen. Optional surfing. El Brujo / Cao Museum.</td></tr>
+                <tr><td>5</td><td>Chachapoyas</td><td>Transfer to Chachapoyas. Colonial centre walk.</td></tr>
+                <tr><td>6</td><td>Gocta Falls</td><td>Full day: hike to Gocta Waterfall (771 m). Cloud forest, orchids, hummingbirds.</td></tr>
+                <tr><td>7</td><td>Kuelap</td><td>Cable car to Kuelap fortress. 2-hr guided tour of Chachapoyas ruins.</td></tr>
+                <tr><td>8</td><td>Leymebamba</td><td>Museum of Leymebamba — 219 mummies from cliff tombs. Return to Chachapoyas.</td></tr>
+                <tr><td>9</td><td>Chiclayo</td><td>Transfer to Chiclayo.</td></tr>
+                <tr><td>10</td><td>Chiclayo</td><td>Huaca Rajada — Tomb of the Lord of Sipan. Royal Tombs of Sipan Museum.</td></tr>
+                <tr><td>11</td><td>Paracas</td><td>Fly to Lima. Transfer south to Paracas.</td></tr>
+                <tr><td>12</td><td>Paracas &rarr; Lima</td><td>Ballestas Islands boat tour. Paracas National Reserve. Return Lima. Depart.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Itinerary 5: Highland Heritage ★ FEATURED -->
+        <div class="itin-card featured fade-in" id="itin-5">
+          <div class="itin-featured-badge">Featured</div>
+          <div class="itin-header">
+            <div class="itin-name">Highland Heritage</div>
+            <div class="itin-route">Lima &rarr; Huancayo &rarr; Jauja &rarr; Mantaro Valley &rarr; Cusco</div>
+          </div>
+          <p class="itin-description">Our signature route — the one no other operator offers. Travel by the world's highest railway to Aleksander's homeland, experience the living culture of the Mantaro Valley, and continue to Cusco and Machu Picchu.</p>
+          <div class="itin-badges">
+            <span class="itin-badge itin-badge--duration">10 Days</span>
+            <span class="itin-badge itin-badge--price">From $1,500</span>
+            <span class="itin-badge itin-badge--difficulty">Easy–Moderate</span>
+            <span class="itin-badge itin-badge--season">Apr–Oct</span>
+          </div>
+          <div class="itin-callout">
+            This journey visits Aleksander's hometown of Jauja and the Mantaro Valley, guided by his family's travel company <a href="https://tourinca.com" target="_blank" rel="noopener noreferrer">tourinca.com</a> — the only tour operator with deep roots in Peru's central highlands. Includes the Ferrocarril Central Andino railway experience.
+          </div>
+          <div class="itin-actions">
+            <button class="itin-toggle-btn" onclick="toggleItinerary('itin-5')" aria-expanded="false">
+              View Day-by-Day
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <a href="./index.html#contact" class="btn btn-primary">Plan This Journey</a>
+          </div>
+          <div class="itin-details" id="itin-5-details">
+            <table class="itin-day-table">
+              <thead><tr><th>Day</th><th>Location</th><th>Activities</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Lima</td><td>Arrive. Historic Centre and Museo Larco. Evening pisco sour in Barranco.</td></tr>
+                <tr><td>2</td><td>Lima &rarr; Huancayo</td><td>Board the Ferrocarril Central Andino at dawn. 69 tunnels, 58 bridges, summit at Galera (4,782 m). Arrive Huancayo.</td></tr>
+                <tr><td>3</td><td>Mantaro Valley</td><td>Sunday Feria Dominical. Tourinca.com guided village tour: Hualhuas (weavings), San Jeronimo de Tunan (silverwork), Cochas Chico (carved gourds).</td></tr>
+                <tr><td>4</td><td>Jauja</td><td>Aleksander's hometown: colonial Plaza, cathedral. Boat ride on Laguna de Paca. Fresh trout lunch lakeside.</td></tr>
+                <tr><td>5</td><td>Tunanmarca</td><td>Tunanmarca ruins (Huanca culture). Torre Torre formations. Evening: pachamanca feast.</td></tr>
+                <tr><td>6</td><td>Ocopa &amp; Tarma</td><td>Santa Rosa de Ocopa convent and library. Scenic drive to Tarma, "Pearl of the Andes."</td></tr>
+                <tr><td>7</td><td>Huancayo &rarr; Cusco</td><td>Transfer to Cusco (via bus/flight). Arrive late afternoon. Acclimatise.</td></tr>
+                <tr><td>8</td><td>Sacred Valley</td><td>Drive to Sacred Valley. Pisac ruins and market. Farm-to-table dinner.</td></tr>
+                <tr><td>9</td><td>Machu Picchu</td><td>Train to Aguas Calientes. Bus to Machu Picchu. Full guided tour. Return Cusco.</td></tr>
+                <tr><td>10</td><td>Cusco &rarr; Lima</td><td>Qorikancha, San Blas artisan quarter. Afternoon flight to Lima. Depart.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Itinerary 6: South Coast Explorer -->
+        <div class="itin-card fade-in" id="itin-6">
+          <div class="itin-header">
+            <div class="itin-name">South Coast Explorer</div>
+            <div class="itin-route">Lima &rarr; Paracas &rarr; Nazca &rarr; Huacachina &rarr; Chincha</div>
+          </div>
+          <p class="itin-description">A compact coastal road trip through wildlife reserves, desert oases, ancient geoglyphs, and the heart of Afro-Peruvian culture — all at sea level.</p>
+          <div class="itin-badges">
+            <span class="itin-badge itin-badge--duration">7 Days</span>
+            <span class="itin-badge itin-badge--price">From $800</span>
+            <span class="itin-badge itin-badge--difficulty">Easy</span>
+            <span class="itin-badge itin-badge--season">Year-round</span>
+          </div>
+          <div class="itin-callout">Read our blog articles about <a href="./blog.html">Punta Sal, Chincha, and Pisco</a> for more inspiration.</div>
+          <div class="itin-actions">
+            <button class="itin-toggle-btn" onclick="toggleItinerary('itin-6')" aria-expanded="false">
+              View Day-by-Day
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <a href="./index.html#contact" class="btn btn-primary">Plan This Journey</a>
+          </div>
+          <div class="itin-details" id="itin-6-details">
+            <table class="itin-day-table">
+              <thead><tr><th>Day</th><th>Location</th><th>Activities</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Lima</td><td>Arrive. Barranco/Miraflores orientation. Pisco sour and ceviche.</td></tr>
+                <tr><td>2</td><td>Paracas</td><td>Drive south. Ballestas Islands boat tour. Sunset walk in Paracas National Reserve.</td></tr>
+                <tr><td>3</td><td>Paracas &rarr; Ica</td><td>Paracas Reserve full tour: red-sand beach, flamingoes. Drive to Ica via Pisco.</td></tr>
+                <tr><td>4</td><td>Huacachina &amp; Ica</td><td>Tacama Winery tour. La Caravedo pisco distillery. Sunset dune buggy and sandboarding.</td></tr>
+                <tr><td>5</td><td>Nazca</td><td>Drive to Nazca. Overflight of the Nazca Lines (13 figures, 30 min). Optional: Chauchilla Cemetery.</td></tr>
+                <tr><td>6</td><td>Chincha</td><td>Drive to Chincha. Afro-Peruvian cultural immersion: Hacienda San Jose, El Carmen, local music.</td></tr>
+                <tr><td>7</td><td>Chincha &rarr; Lima</td><td>Morning market. Return to Lima. Farewell meal at Mayta or La Mar. Depart.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Itinerary 7: Peru Birding Expedition ★ NEW -->
+        <div class="itin-card featured fade-in" id="itin-7">
+          <div class="itin-featured-badge">New</div>
+          <div class="itin-header">
+            <div class="itin-name">Peru Birding Expedition</div>
+            <div class="itin-route">Cusco &rarr; Manu Cloud Forest &rarr; Manu Lowlands &rarr; Tambopata &rarr; Jun&iacute;n Highlands</div>
+          </div>
+          <p class="itin-description">Peru has nearly 1,900 bird species &mdash; second only to Colombia. This expedition takes you from the Andean highlands through Manu's legendary cloud forest to the Amazon lowlands, visiting macaw clay licks, the Cock-of-the-Rock lek, oxbow lakes teeming with giant otters, and finishing in the Jun&iacute;n highlands &mdash; Aleksander's homeland and Peru's #2 birding region. Expect 350&ndash;500+ species in 14 days.</p>
+          <div class="itin-badges">
+            <span class="itin-badge itin-badge--duration">14 Days</span>
+            <span class="itin-badge itin-badge--price">From $4,800</span>
+            <span class="itin-badge itin-badge--difficulty">Moderate</span>
+            <span class="itin-badge itin-badge--season">May&ndash;Oct</span>
+          </div>
+          <div class="itin-callout">
+            <strong>Why Condor Trails?</strong> Our expert English-speaking birding guides know every trail in Manu and Jun&iacute;n. Jun&iacute;n province, home to the critically endangered Jun&iacute;n Grebe and Jun&iacute;n Rail, is where Aleksander grew up &mdash; no other operator offers this depth of access to Central Peru's birding hotspots. Manu Reserve permits are limited and managed by us.
+          </div>
+          <div class="itin-actions">
+            <button class="itin-toggle-btn" onclick="toggleItinerary('itin-7')" aria-expanded="false">
+              View Day-by-Day
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <a href="./index.html#contact" class="btn btn-primary">Plan This Journey</a>
+          </div>
+          <div class="itin-details" id="itin-7-details">
+            <table class="itin-day-table">
+              <thead><tr><th>Day</th><th>Location</th><th>Activities</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Cusco</td><td>Arrive in Cusco. Acclimatisation afternoon. Meet your expert birding guide for trip briefing. Huacarpay Lake for early endemics: Bearded Mountaineer, Rusty-fronted Canastero, Creamy-crested Spinetail.</td></tr>
+                <tr><td>2</td><td>Cusco &rarr; Manu Cloud Forest</td><td>Early departure via Paucartambo and Acjanaco Pass (3,600 m). Enter Manu cloud forest, birding en route. Arrive Cock-of-the-Rock Lodge (1,600 m). Hummingbird feeders, tanagers. Dusk: Swallow-tailed Nightjars.</td></tr>
+                <tr><td>3</td><td>Manu Cloud Forest</td><td>Pre-dawn visit to the Andean Cock-of-the-Rock lek &mdash; Peru's national bird in its famous courtship display. Full day birding the Manu Road: mixed-species flocks with quetzals, toucanets, and antpittas. Cloud-forest Screech Owl at dusk.</td></tr>
+                <tr><td>4</td><td>Manu Cloud Forest &rarr; Villa Carmen</td><td>Descend through cloud forest to foothill rainforest. Arrive Villa Carmen Biological Station (475+ species on record). Afternoon trail birding: Hoatzin, trogons, manakins.</td></tr>
+                <tr><td>5</td><td>Villa Carmen &rarr; Manu Lowlands</td><td>Board motorised canoe at Atalaya port. River birding along the Alto Madre de Dios: herons, kingfishers, caimans. Arrive Manu lodge by afternoon. Night walk for owls.</td></tr>
+                <tr><td>6</td><td>Manu Reserved Zone</td><td>Full day in the Reserve. Canoe to Cocha Salvador oxbow lake &mdash; giant river otters, Hoatzins. Canopy tower for cotingas, toucans, and raptors. 200+ species possible today.</td></tr>
+                <tr><td>7</td><td>Manu Reserved Zone</td><td>Pre-dawn macaw clay lick &mdash; hundreds of Red-and-Green Macaws, Blue-and-Yellow Macaws, parrots. Afternoon: forest trails for antbirds, woodcreepers, and mixed understorey flocks.</td></tr>
+                <tr><td>8</td><td>Manu &rarr; Puerto Maldonado</td><td>Morning birding. Boat journey downstream to Boca Colorado, then overland to Puerto Maldonado. Overnight. Trip list review with guide.</td></tr>
+                <tr><td>9</td><td>Tambopata</td><td>Travel upriver to Tambopata lodge. Afternoon birding: macaws, parakeets, Spangled Cotinga. Sunset: Black Caiman spotting. Night caiman walk.</td></tr>
+                <tr><td>10</td><td>Tambopata</td><td>Tambopata macaw clay lick (up to 11 Psittacid species). Oxbow lake excursion for Sunbittern, Sungrebe, herons. Canopy tower session. Giant Otter families. Potential Harpy Eagle nest visit.</td></tr>
+                <tr><td>11</td><td>Tambopata &rarr; Lima &rarr; Jun&iacute;n</td><td>Fly Puerto Maldonado to Lima. Connect to Jun&iacute;n highlands (drive or domestic connection). Evening arrival at Lake Jun&iacute;n area (4,080 m). Acclimatise.</td></tr>
+                <tr><td>12</td><td>Lake Jun&iacute;n</td><td>Boat ride on Lake Jun&iacute;n for the critically endangered, flightless Jun&iacute;n Grebe. Jun&iacute;n Rail in the reed marshes. Pampas de Jun&iacute;n: Andean Goose, Puna Tinamou, Vicuna herds. Guided by local community rangers.</td></tr>
+                <tr><td>13</td><td>Jun&iacute;n Highlands</td><td>Jauja &mdash; Aleksander's hometown. Laguna de Paca birding: Andean Coot, Yellow-billed Pintail, Andean Gull. Afternoon: Mantaro Valley artisan villages. Farewell pachamanca dinner with Canchaya family.</td></tr>
+                <tr><td>14</td><td>Jun&iacute;n &rarr; Lima</td><td>Morning birding in Mantaro Valley. Drive or train to Lima. Farewell. Depart.</td></tr>
+              </tbody>
+            </table>
+            <div style="padding: var(--space-5); font-family: var(--font-body); font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.65;">
+              <strong>Included:</strong> All accommodation (eco-lodges and hotels), all meals, expert English-speaking birding guide throughout, domestic flights (Cusco&ndash;Puerto Maldonado&ndash;Lima), all boat transport in Manu and Tambopata, Manu Reserve permits, entrance fees, binocular and spotting scope use, bird checklist, airport transfers, and 24/7 trip support.<br>
+              <strong>Not included:</strong> International flights, travel insurance, alcoholic beverages, personal equipment, tips for guides and lodge staff.<br>
+              <strong>Group size:</strong> 2&ndash;8 participants. Private departures available.<br>
+              <strong>Physical level:</strong> Moderate. Trails are generally easy to moderate. Some early mornings (pre-dawn starts). Altitude up to 4,080 m at Lake Jun&iacute;n (acclimatisation day built in).
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       5. PRACTICAL INFO
+       ===================== -->
+  <section id="practical" class="practical-section" aria-labelledby="practical-heading">
+    <div class="container">
+      <div class="fade-in" style="text-align: center;">
+        <p class="section-eyebrow">Essential Information</p>
+        <h2 class="section-heading" id="practical-heading" style="margin-inline: auto;">Before You Go</h2>
+        <p class="section-subheading" style="margin-inline: auto;">Everything you need to know to travel Peru with confidence.</p>
+      </div>
+
+      <div class="practical-grid stagger-children">
+
+        <!-- Visa -->
+        <div class="practical-card fade-in">
+          <div class="practical-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="16" rx="2"/>
+              <path d="M3 10h18"/>
+              <path d="M7 16h.01M11 16h2"/>
+            </svg>
+          </div>
+          <div class="practical-title">Visa &amp; Entry</div>
+          <p class="practical-text"><strong>No visa required</strong> for US, UK, Canada, Australia, Ireland, or EU citizens. Stay up to 183 days. Passport must be valid for 6 months beyond entry. An immigration officer stamps your permitted stay on arrival.</p>
+        </div>
+
+        <!-- Best Time -->
+        <div class="practical-card fade-in">
+          <div class="practical-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+          </div>
+          <div class="practical-title">Best Time to Visit</div>
+          <div class="practical-text">
+            <strong>May–October</strong> is the golden window for the Andes. Lima and the coast are year-round. The Amazon is best May–October.
+            <div class="season-chart">
+              <div class="season-month wet">Jan</div>
+              <div class="season-month wet">Feb</div>
+              <div class="season-month wet">Mar</div>
+              <div class="season-month good">Apr</div>
+              <div class="season-month peak">May</div>
+              <div class="season-month peak">Jun</div>
+              <div class="season-month peak">Jul</div>
+              <div class="season-month peak">Aug</div>
+              <div class="season-month peak">Sep</div>
+              <div class="season-month good">Oct</div>
+              <div class="season-month wet">Nov</div>
+              <div class="season-month wet">Dec</div>
+            </div>
+            <div class="season-legend">
+              <span class="season-legend-item"><span class="season-legend-dot" style="background: var(--color-primary);"></span> Peak dry</span>
+              <span class="season-legend-item"><span class="season-legend-dot" style="background: var(--color-primary-highlight);"></span> Shoulder</span>
+              <span class="season-legend-item"><span class="season-legend-dot" style="background: var(--color-surface-offset);"></span> Wet season</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Altitude -->
+        <div class="practical-card fade-in">
+          <div class="practical-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M8 21L2 15l6-6M16 3l6 6-6 6"/>
+              <path d="M2 15h20M2 9h20" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="practical-title">Altitude</div>
+          <p class="practical-text"><strong>Key tip:</strong> Arrive in the Sacred Valley (~2,800 m) before Cusco (3,400 m). Drink coca tea, hydrate constantly, and rest on arrival. Acetazolamide (Diamox) is available by prescription. Cusco and Puno are the highest-risk points for altitude sickness.</p>
+        </div>
+
+        <!-- Currency -->
+        <div class="practical-card fade-in">
+          <div class="practical-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v12M9 9.5c0-1 .5-1.5 1.5-1.5h1.5c1 0 2 .5 2 1.5s-.5 1.5-2 1.5h-1c-1.5 0-2 .5-2 1.5s1 1.5 2 1.5H14"/>
+            </svg>
+          </div>
+          <div class="practical-title">Currency</div>
+          <p class="practical-text"><strong>Peruvian Sol (PEN)</strong> — approximately S/3.7 = 1 USD. ATMs are widely available in cities. US dollars are accepted at most tourist venues. Credit cards work in cities; carry cash for markets and rural areas.</p>
+        </div>
+
+        <!-- Health -->
+        <div class="practical-card fade-in">
+          <div class="practical-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12h6M12 9v6"/>
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+            </svg>
+          </div>
+          <div class="practical-title">Health</div>
+          <p class="practical-text"><strong>Yellow fever vaccine</strong> recommended for Amazon travel. Altitude medication (acetazolamide) is helpful for Cusco/Puno. Hepatitis A and Typhoid vaccines recommended. Travel insurance with emergency evacuation is essential.</p>
+        </div>
+
+        <!-- Getting There -->
+        <div class="practical-card fade-in">
+          <div class="practical-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>
+            </svg>
+          </div>
+          <div class="practical-title">Getting There</div>
+          <p class="practical-text"><strong>Lima (LIM)</strong> is the gateway. Direct flights from London (~10 hrs), New York (~8 hrs), and Los Angeles (~9 hrs). Dublin connects via Madrid, Amsterdam, or US hubs. All itineraries begin and end in Lima.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       6. WHY CONDOR TRAILS
+       ===================== -->
+  <section id="why" class="why-section" aria-labelledby="why-heading">
+    <div class="container">
+      <div class="fade-in" style="text-align: center;">
+        <p class="section-eyebrow">The Difference</p>
+        <h2 class="section-heading" id="why-heading" style="margin-inline: auto;">Why Condor Trails for Peru</h2>
+        <p class="section-subheading" style="margin-inline: auto;">We are not a booking platform. We are Peruvian — and this is personal.</p>
+      </div>
+
+      <div class="why-grid stagger-children">
+
+        <div class="value-card fade-in">
+          <div class="value-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h3 class="value-title">Born in Peru</h3>
+          <p class="value-description">Aleksander is from Jauja, Junin. Quechua heritage. Not a tour operator who read about Peru — he grew up there.</p>
+        </div>
+
+        <div class="value-card fade-in">
+          <div class="value-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="value-title">Family on the Ground</h3>
+          <p class="value-description">His parents run tourinca.com in Peru. Real people, real connections — not a faceless partner network.</p>
+        </div>
+
+        <div class="value-card fade-in">
+          <div class="value-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h3 class="value-title">Bilingual Guides</h3>
+          <p class="value-description">Every guide speaks fluent English and Spanish. Born or long-resident in their regions — not bus-tour guides based in Lima.</p>
+        </div>
+
+        <div class="value-card fade-in">
+          <div class="value-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/>
+            </svg>
+          </div>
+          <h3 class="value-title">Tailor-Made</h3>
+          <p class="value-description">No two trips are the same. Every itinerary is custom-built around your interests, pace, and budget — from $800 to $15,000+.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       7. CTA
+       ===================== -->
+  <section id="cta" class="cta-section" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-content fade-in">
+        <p class="section-eyebrow">Start Here</p>
+        <h2 id="cta-heading">Ready to Discover Peru?</h2>
+        <p>Tell us about your dream trip and we will get back to you within 24 hours with a personalised proposal — built by someone who was born there.</p>
+        <div class="cta-buttons">
+          <a href="./index.html#contact" class="btn btn-primary btn-lg">Plan My Journey</a>
+          <a href="tel:+353857604985" class="btn btn-outline btn-lg">Call Us: +353 85 760 4985</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+
+      <!-- Brand + newsletter -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="28" height="20" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="var(--color-primary)"/>
+            <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="var(--color-primary)"/>
+            <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="var(--color-primary)"/>
+            <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="var(--color-primary)" opacity="0.8"/>
+            <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="var(--color-primary)"/>
+          </svg>
+          <span class="footer-logo-text">Condor Trails</span>
+        </div>
+        <div class="footer-tagline">South America, Revealed.</div>
+
+        <div class="footer-newsletter-label">Stay Inspired</div>
+        <form class="footer-newsletter-form" onsubmit="handleNewsletterSubmit(event)" aria-label="Newsletter subscription">
+          <label class="sr-only" for="newsletter-email">Email address for newsletter</label>
+          <input
+            type="email"
+            id="newsletter-email"
+            class="footer-newsletter-input"
+            placeholder="your@email.com"
+            autocomplete="email"
+            aria-label="Email address"
+          >
+          <button type="submit" class="footer-newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Destinations -->
+      <div>
+        <div class="footer-col-title">Destinations</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./peru.html">Peru</a></li>
+          <li><a href="./patagonia.html">Patagonia</a></li>
+          <li><a href="./bolivia.html">Bolivia</a></li>
+          <li><a href="./colombia.html">Colombia</a></li>
+          <li><a href="./ecuador.html">Ecuador &amp; Galápagos</a></li>
+          <li><a href="./argentina.html">Argentina</a></li>
+          <li><a href="./trips/dominican-republic.html">Dominican Republic</a></li>
+          <li><a href="./trips/cancun.html">Cancún</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./index.html#about">About Us</a></li>
+          <li><a href="./index.html#how-it-works">How It Works</a></li>
+          <li><a href="./index.html#about">Sustainability</a></li>
+          <li><a href="./blog.html">Blog</a></li>
+          <li><a href="./recipes.html">Recipes</a></li>
+          <li><a href="./index.html#contact">Careers</a></li>
+        </ul>
+      </div>
+
+      <!-- Support + Connect -->
+      <div>
+        <div class="footer-col-title">Support</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./index.html#contact">Contact</a></li>
+          <li><a href="./index.html#contact">FAQ</a></li>
+          <li><a href="./index.html#contact">Travel Insurance</a></li>
+          <li><a href="./terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="./privacy.html">Privacy Policy</a></li>
+        </ul>
+
+        <div class="footer-col-title" style="margin-top: var(--space-6);">Connect</div>
+        <ul class="footer-links" role="list">
+          <li>
+            <a href="https://instagram.com/condortrails" target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com/condortrails" target="_blank" rel="noopener noreferrer">
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://tripadvisor.com" target="_blank" rel="noopener noreferrer">
+              TripAdvisor
+            </a>
+          </li>
+          <li>
+            <a href="tel:+353857604985">
+              Phone
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2026 Condor Trails. All rights reserved.</p>
+      <p class="footer-made">Made with passion in Peru.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
+<script>
+  'use strict';
+
+  // ----------------------------------------
+  // THEME TOGGLE
+  // ----------------------------------------
+  (function() {
+    const root = document.documentElement;
+    let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.setAttribute('data-theme', theme);
+
+    const toggle = document.querySelector('[data-theme-toggle]');
+    if (toggle) {
+      updateToggleIcon(toggle, theme);
+
+      toggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+        updateToggleIcon(toggle, theme);
+      });
+    }
+
+    function updateToggleIcon(btn, t) {
+      btn.innerHTML = t === 'dark'
+        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    }
+  })();
+
+  // ----------------------------------------
+  // STICKY NAV — becomes solid on scroll
+  // ----------------------------------------
+  (function() {
+    const nav = document.getElementById('nav');
+    let ticking = false;
+
+    function updateNav() {
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateNav);
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
+
+  // ----------------------------------------
+  // HERO PARALLAX (subtle)
+  // ----------------------------------------
+  (function() {
+    const heroBg = document.getElementById('heroBg');
+    if (!heroBg) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let ticking = false;
+
+    function updateParallax() {
+      const scrolled = window.scrollY;
+      const rate = scrolled * 0.35;
+      heroBg.style.transform = `translateY(${rate}px)`;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
+
+  // ----------------------------------------
+  // MOBILE NAV
+  // ----------------------------------------
+  const mobileNav = document.getElementById('mobileNav');
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNavClose = document.getElementById('mobileNavClose');
+  let isNavOpen = false;
+
+  function openMobileNav() {
+    mobileNav.style.display = 'flex';
+    requestAnimationFrame(() => {
+      mobileNav.classList.add('open');
+    });
+    document.body.style.overflow = 'hidden';
+    menuToggle.setAttribute('aria-expanded', 'true');
+    isNavOpen = true;
+  }
+
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+    menuToggle.setAttribute('aria-expanded', 'false');
+    isNavOpen = false;
+    setTimeout(() => {
+      mobileNav.style.display = 'none';
+    }, 350);
+  }
+
+  if (menuToggle) menuToggle.addEventListener('click', openMobileNav);
+  if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isNavOpen) closeMobileNav();
+  });
+
+  // ----------------------------------------
+  // ITINERARY EXPAND / COLLAPSE
+  // ----------------------------------------
+  function toggleItinerary(cardId) {
+    const card = document.getElementById(cardId);
+    const details = document.getElementById(cardId + '-details');
+    const btn = card.querySelector('.itin-toggle-btn');
+    const isOpen = details.classList.contains('open');
+
+    if (isOpen) {
+      details.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.innerHTML = 'View Day-by-Day <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+    } else {
+      details.classList.add('open');
+      btn.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.innerHTML = 'Hide Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+    }
+  }
+
+  // ----------------------------------------
+  // NEWSLETTER FORM
+  // ----------------------------------------
+  function handleNewsletterSubmit(e) {
+    e.preventDefault();
+    const input = document.getElementById('newsletter-email');
+    const btn = e.target.querySelector('.footer-newsletter-btn');
+    if (!input.value.trim()) return;
+
+    btn.textContent = 'Subscribed!';
+    btn.style.background = 'var(--color-success, #437a22)';
+    input.value = '';
+
+    setTimeout(() => {
+      btn.textContent = 'Subscribe';
+      btn.style.background = '';
+    }, 3000);
+  }
+
+  // ----------------------------------------
+  // SMOOTH SCROLL for anchor nav links
+  // ----------------------------------------
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const id = anchor.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ----------------------------------------
+  // REGION CARD CLICK → SCROLL TO ITINERARIES
+  // ----------------------------------------
+  document.querySelectorAll('.region-card[data-region]').forEach(card => {
+    card.addEventListener('click', () => {
+      const itinSection = document.getElementById('itineraries');
+      if (itinSection) {
+        itinSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ----------------------------------------
+  // INTERSECTION OBSERVER for fade-in (fallback)
+  // ----------------------------------------
+  if (!CSS.supports('animation-timeline', 'scroll()')) {
+    const fadeEls = document.querySelectorAll('.fade-in');
+    let delay = 0;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Stagger children within stagger-children containers
+          const parent = entry.target.parentElement;
+          if (parent && parent.classList.contains('stagger-children')) {
+            const siblings = Array.from(parent.querySelectorAll('.fade-in'));
+            const idx = siblings.indexOf(entry.target);
+            entry.target.style.transitionDelay = (idx * 50) + 'ms';
+          }
+          entry.target.style.opacity = '1';
+          entry.target.style.transition = 'opacity 600ms cubic-bezier(0.16, 1, 0.3, 1)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    fadeEls.forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  }
+
+  // ----------------------------------------
+  // IMAGE LAZY LOAD BLUR-UP EFFECT
+  // ----------------------------------------
+  document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+    img.style.transition = 'filter 400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms cubic-bezier(0.16, 1, 0.3, 1)';
+    if (!img.complete) {
+      img.style.filter = 'blur(8px)';
+      img.style.opacity = '0.6';
+      img.addEventListener('load', function() {
+        this.style.filter = 'blur(0)';
+        this.style.opacity = '1';
+      }, { once: true });
+    }
+  });
+</script>
+
+  <script src="./chatbot.js"></script>
+</body>
+</html>
