@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Peruvian Plates with Aleksander — Authentic Peruvian recipes cooked in a Dublin kitchen, rooted in 3,000 years of Andean tradition. A Condor Trails culinary series.">
+  <title>Recipes — Peruvian Plates with Aleksander | Condor Trails</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- Recipes-specific styles -->
+  <style>
+    /* ============================================
+       RECIPES HERO
+       ============================================ */
+    .recipes-hero {
+      background: var(--color-surface-offset);
+      padding-top: calc(clamp(var(--space-16), 8vw, var(--space-32)) + 80px);
+      padding-bottom: clamp(var(--space-12), 6vw, var(--space-20));
+      text-align: center;
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .recipes-hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-secondary);
+      margin-bottom: var(--space-4);
+    }
+
+    .recipes-hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: 500;
+      font-style: italic;
+      color: var(--color-text);
+      line-height: 1.05;
+      margin-bottom: var(--space-5);
+    }
+
+    .recipes-hero-subtitle {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      max-width: 60ch;
+      margin: 0 auto var(--space-8);
+    }
+
+    .btn-youtube {
+      background: #c4302b;
+      color: #fff;
+      border-color: #c4302b;
+    }
+    .btn-youtube:hover {
+      background: #a22622;
+      border-color: #a22622;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    .btn-youtube svg {
+      flex-shrink: 0;
+    }
+
+    /* ============================================
+       SERIES INTRO
+       ============================================ */
+    .series-intro {
+      background: var(--color-bg);
+      padding-block: clamp(var(--space-12), 6vw, var(--space-20));
+    }
+
+    .series-intro-content {
+      max-width: 68ch;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .series-intro-content p {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      margin-bottom: var(--space-5);
+    }
+
+    .series-intro-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ============================================
+       EPISODE GRID
+       ============================================ */
+    .episodes-section {
+      background: var(--color-surface-offset);
+      padding-block: clamp(var(--space-12), 6vw, var(--space-20));
+    }
+
+    .episodes-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    @media (min-width: 768px) {
+      .episodes-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ============================================
+       EPISODE CARD
+       ============================================ */
+    .episode-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition-interactive), transform var(--transition-interactive);
+    }
+
+    .episode-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    @media (hover: none) {
+      .episode-card:hover { transform: none; }
+    }
+
+    .episode-card.expanded {
+      grid-column: 1 / -1;
+    }
+
+    .episode-card.expanded:hover {
+      transform: none;
+    }
+
+    .episode-card-header {
+      padding: var(--space-6) var(--space-6) var(--space-4);
+    }
+
+    .episode-card-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    .episode-badge {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-secondary);
+      background: var(--color-secondary-highlight);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+    }
+
+    .episode-region {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      color: var(--color-text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .episode-card-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.2;
+      margin-bottom: var(--space-2);
+    }
+
+    .episode-card-subtitle {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: var(--space-4);
+      max-width: 65ch;
+    }
+
+    /* Info row: difficulty, time, region */
+    .episode-info-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+      margin-bottom: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .episode-info-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      color: var(--color-text-muted);
+    }
+
+    .episode-info-item svg {
+      flex-shrink: 0;
+      color: var(--color-primary);
+      opacity: 0.7;
+    }
+
+    /* Star rating */
+    .stars {
+      display: inline-flex;
+      gap: 2px;
+    }
+
+    .star-filled {
+      color: var(--color-secondary);
+    }
+
+    .star-empty {
+      color: var(--color-divider);
+    }
+
+    /* Cultural teaser */
+    .episode-teaser {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-style: italic;
+      color: var(--color-text);
+      line-height: 1.55;
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-surface-offset);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-4);
+      border-left: 3px solid var(--color-primary);
+    }
+
+    /* Card footer with buttons */
+    .episode-card-footer {
+      padding: 0 var(--space-6) var(--space-6);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    .episode-watch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: #fff;
+      background: var(--color-primary);
+      border: 1.5px solid var(--color-primary);
+      padding: var(--space-2) var(--space-5);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      text-decoration: none;
+      min-height: 40px;
+      transition: background var(--transition-interactive), transform var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+
+    .episode-watch-btn:hover {
+      background: var(--color-primary-hover);
+      border-color: var(--color-primary-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .episode-recipe-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-primary);
+      background: none;
+      border: 1.5px solid var(--color-primary);
+      padding: var(--space-2) var(--space-5);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      min-height: 40px;
+      transition: background var(--transition-interactive), color var(--transition-interactive), transform var(--transition-interactive);
+    }
+
+    .episode-recipe-btn:hover {
+      background: var(--color-primary-highlight);
+      transform: translateY(-1px);
+    }
+
+    .episode-recipe-btn svg {
+      transition: transform var(--transition-interactive);
+    }
+
+    .episode-card.expanded .episode-recipe-btn svg {
+      transform: rotate(180deg);
+    }
+
+    /* ============================================
+       EXPANDED RECIPE CONTENT
+       ============================================ */
+    .episode-full-recipe {
+      display: none;
+      padding: 0 var(--space-6) var(--space-8);
+      border-top: 1px solid var(--color-divider);
+      margin-top: var(--space-4);
+    }
+
+    .episode-card.expanded .episode-full-recipe {
+      display: block;
+    }
+
+    .recipe-body {
+      max-width: 72ch;
+      margin: var(--space-6) auto 0;
+    }
+
+    .recipe-body h3 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.15;
+      margin-top: var(--space-8);
+      margin-bottom: var(--space-4);
+    }
+
+    .recipe-body h3:first-child {
+      margin-top: 0;
+    }
+
+    .recipe-body h4 {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.2;
+      margin-top: var(--space-6);
+      margin-bottom: var(--space-3);
+    }
+
+    .recipe-body p {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      margin-bottom: var(--space-4);
+    }
+
+    .recipe-body ul, .recipe-body ol {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      margin-bottom: var(--space-5);
+      padding-left: var(--space-6);
+    }
+
+    .recipe-body li {
+      margin-bottom: var(--space-2);
+    }
+
+    .recipe-body strong {
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    /* Substitution table */
+    .recipe-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-6) 0;
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+    }
+
+    .recipe-body table th {
+      background: var(--color-surface-offset);
+      font-weight: 600;
+      color: var(--color-text);
+      text-align: left;
+      padding: var(--space-3) var(--space-4);
+      border: 1px solid var(--color-divider);
+    }
+
+    .recipe-body table td {
+      padding: var(--space-3) var(--space-4);
+      border: 1px solid var(--color-divider);
+      color: var(--color-text-muted);
+    }
+
+    .recipe-body hr {
+      border: none;
+      border-top: 1px solid var(--color-divider);
+      margin: var(--space-6) 0;
+    }
+
+    /* Responsive table */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: var(--space-6) 0;
+    }
+
+    .table-wrap table {
+      margin: 0;
+      min-width: 480px;
+    }
+
+    /* Travel connection CTA */
+    .recipe-travel-cta {
+      background: var(--color-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-6);
+      margin-top: var(--space-6);
+    }
+
+    .recipe-travel-cta p {
+      color: rgba(255,255,255,0.9);
+      margin-bottom: var(--space-3);
+      font-size: var(--text-sm);
+    }
+
+    .recipe-travel-cta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .recipe-travel-cta strong {
+      color: #fff;
+    }
+
+    .recipe-travel-cta a {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 600;
+    }
+
+    .recipe-travel-cta a:hover {
+      opacity: 0.85;
+    }
+
+    /* ============================================
+       INGREDIENTS SOURCING SECTION
+       ============================================ */
+    .sourcing-section {
+      background: var(--color-bg);
+      padding-block: clamp(var(--space-12), 6vw, var(--space-20));
+    }
+
+    .sourcing-content {
+      max-width: 72ch;
+      margin: 0 auto;
+    }
+
+    .sourcing-content h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.1;
+      margin-bottom: var(--space-3);
+      text-align: center;
+    }
+
+    .sourcing-content > p {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      max-width: 56ch;
+      margin: 0 auto var(--space-8);
+      text-align: center;
+    }
+
+    .sourcing-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    @media (min-width: 768px) {
+      .sourcing-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .sourcing-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sourcing-card-title {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: var(--space-2);
+      line-height: 1.2;
+    }
+
+    .sourcing-card p {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       NEWSLETTER SECTION (matching blog.html)
+       ============================================ */
+    .recipes-newsletter {
+      background: var(--color-surface-offset);
+      padding-block: clamp(var(--space-12), 6vw, var(--space-20));
+      text-align: center;
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .recipes-newsletter-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.1;
+      margin-bottom: var(--space-3);
+    }
+
+    .recipes-newsletter-text {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      max-width: 48ch;
+      margin: 0 auto var(--space-8);
+    }
+
+    .recipes-newsletter-form {
+      display: flex;
+      gap: var(--space-3);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .recipes-newsletter-form input {
+      flex: 1;
+      padding: var(--space-3) var(--space-4);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      min-height: 48px;
+      transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+
+    .recipes-newsletter-form input::placeholder {
+      color: var(--color-text-faint);
+    }
+
+    .recipes-newsletter-form input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-primary) 18%, transparent);
+    }
+
+    @media (max-width: 480px) {
+      .recipes-newsletter-form {
+        flex-direction: column;
+      }
+    }
+
+    /* ============================================
+       NAV ACTIVE STATE (Recipes link)
+       ============================================ */
+    .nav-links .nav-link-active {
+      color: #fff !important;
+      position: relative;
+    }
+
+    .nav.scrolled .nav-links .nav-link-active {
+      color: var(--color-primary) !important;
+    }
+  </style>
+  <link rel="stylesheet" href="./chatbot.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+<!-- Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
+</head>
+<body>
+
+<!-- Skip to content -->
+<a href="#main" class="skip-to-content">Skip to content</a>
+
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
+<nav class="nav scrolled" id="nav" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a href="./index.html" class="nav-logo" aria-label="Condor Trails — Home">
+        <svg class="nav-logo-icon" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="currentColor"/>
+          <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="currentColor"/>
+          <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="currentColor"/>
+          <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="currentColor" opacity="0.8"/>
+          <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="currentColor"/>
+        </svg>
+        <span class="nav-logo-text">Condor Trails</span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links" role="list">
+        <li><a href="./index.html#destinations">Destinations</a></li>
+        <li><a href="./index.html#experiences">Experiences</a></li>
+        <li><a href="./index.html#how-it-works">How It Works</a></li>
+        <li><a href="./index.html#about">About</a></li>
+        <li><a href="./blog.html">Blog</a></li>
+        <li><a href="./recipes.html" class="nav-link-active">Recipes</a></li>
+        <li><a href="./index.html#contact">Contact</a></li>
+      </ul>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <!-- Theme toggle -->
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- CTA -->
+        <a href="./index.html#contact" class="btn btn-primary nav-cta">Plan My Journey</a>
+
+        <!-- Mobile toggle -->
+        <button class="nav-menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile nav drawer -->
+<div class="nav-mobile" id="mobileNav" role="dialog" aria-label="Navigation menu" aria-modal="true">
+  <button class="nav-mobile-close" id="mobileNavClose" aria-label="Close navigation menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+
+  <div style="display: flex; align-items: center; gap: var(--space-3);">
+    <svg width="32" height="22" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="var(--color-primary)"/>
+      <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="var(--color-primary)"/>
+      <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="var(--color-primary)"/>
+      <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="var(--color-primary)" opacity="0.8"/>
+      <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="var(--color-primary)"/>
+    </svg>
+    <span style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text);">Condor Trails</span>
+  </div>
+
+  <ul class="nav-mobile-links" role="list">
+    <li><a href="./index.html#destinations" onclick="closeMobileNav()">Destinations</a></li>
+    <li><a href="./index.html#experiences" onclick="closeMobileNav()">Experiences</a></li>
+    <li><a href="./index.html#how-it-works" onclick="closeMobileNav()">How It Works</a></li>
+    <li><a href="./index.html#about" onclick="closeMobileNav()">About</a></li>
+    <li><a href="./blog.html" onclick="closeMobileNav()">Blog</a></li>
+    <li><a href="./recipes.html" onclick="closeMobileNav()" style="color: var(--color-primary);">Recipes</a></li>
+    <li><a href="./index.html#contact" onclick="closeMobileNav()">Contact</a></li>
+  </ul>
+  <div style="margin-top: var(--space-8);">
+    <a href="./index.html#contact" onclick="closeMobileNav()" class="btn btn-primary" style="width: 100%; justify-content: center;">Plan My Journey</a>
+  </div>
+</div>
+
+<!-- ============================================
+     MAIN CONTENT
+     ============================================ -->
+<main id="main">
+
+  <!-- =====================
+       RECIPES HERO
+       ===================== -->
+  <section class="recipes-hero" aria-label="Recipes hero">
+    <div class="container">
+      <p class="recipes-hero-eyebrow">A Condor Trails Culinary Series</p>
+      <h1 class="recipes-hero-title">Peruvian Plates with Aleksander</h1>
+      <p class="recipes-hero-subtitle">Every week, a new authentic Peruvian recipe — cooked in a Dublin kitchen, rooted in 3,000 years of Andean tradition.</p>
+      <a href="#" class="btn btn-lg btn-youtube" aria-label="Subscribe on YouTube">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+        Subscribe on YouTube
+      </a>
+    </div>
+  </section>
+
+  <!-- =====================
+       SERIES INTRO
+       ===================== -->
+  <section class="series-intro" aria-label="About the series">
+    <div class="container">
+      <div class="series-intro-content">
+        <p>Aleksander is a Peruvian from Jauja — a small city in the central highlands, Quechua heritage running through every generation. Now living in Dublin, he cooks the traditional dishes he grew up eating, shares the cultural stories behind each recipe, and connects every plate to a travel destination you can visit with Condor Trails.</p>
+        <p>These aren't simplified versions. These are the real recipes — adapted for European and North American kitchens with ingredient substitution guides, but never compromised on flavour or technique. Each episode is a doorway into 3,000 years of Andean, Spanish, African, Chinese, and Japanese culinary fusion.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       EPISODES GRID
+       ===================== -->
+  <section class="episodes-section" aria-label="Recipe episodes">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: clamp(var(--space-8), 4vw, var(--space-12));">
+        <p class="section-eyebrow">Season One</p>
+        <h2 class="section-heading">The Recipes</h2>
+        <p class="section-subheading" style="margin-inline: auto;">Eight iconic Peruvian dishes — from Lima street food to ancient Andean comfort classics. Each episode tells the story behind the plate.</p>
+      </div>
+
+      <div class="episodes-grid">
+
+        <!-- ==================== EPISODE 1: CEVICHE ==================== -->
+        <article class="episode-card fade-in" id="episode-1">
+          <div class="episode-card-header">
+            <div class="episode-card-meta">
+              <span class="episode-badge">Episode 1</span>
+              <span class="episode-region">Lima Coast</span>
+            </div>
+            <h2 class="episode-card-title">Ceviche</h2>
+            <p class="episode-card-subtitle">Peru's most famous dish — fresh, vibrant, and no cooking required</p>
+            <div class="episode-info-row">
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Difficulty:</span>
+                <span class="stars" aria-label="2 out of 5 stars">
+                  <span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span>
+                </span>
+              </div>
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>45 min</span>
+              </div>
+            </div>
+            <div class="episode-teaser">Peru's UNESCO-recognised national dish. The Quechua word "siwichi" means fresh fish — and freshness is everything here.</div>
+          </div>
+          <div class="episode-card-footer">
+            <a href="#" class="episode-watch-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Watch Episode
+            </a>
+            <button class="episode-recipe-btn" onclick="toggleEpisode('episode-1')" aria-expanded="false">
+              View Recipe
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+          <div class="episode-full-recipe">
+            <div class="recipe-body">
+              <h3>Ingredients</h3>
+              <ul>
+                <li><strong>800g white fish</strong> (sea bass, sole, or any firm white fish), cut into 2cm cubes</li>
+                <li><strong>10–12 limes</strong>, freshly juiced (approx 200ml)</li>
+                <li><strong>1 aji amarillo</strong>, deseeded and finely chopped</li>
+                <li><strong>1 large red onion</strong>, thinly sliced into half-moons</li>
+                <li><strong>1 small bunch fresh cilantro</strong>, roughly chopped</li>
+                <li><strong>2 cloves garlic</strong>, minced</li>
+                <li><strong>1 small piece fresh ginger</strong> (1cm), grated</li>
+                <li>Salt and black pepper to taste</li>
+                <li><strong>1 large sweet potato</strong>, boiled and sliced (for serving)</li>
+                <li><strong>Cancha</strong> (toasted Andean corn) or corn nuts (for serving)</li>
+                <li><strong>1 corn on the cob</strong>, boiled and sliced into rounds</li>
+              </ul>
+
+              <h3>Method</h3>
+              <ol>
+                <li><strong>Prepare the leche de tigre base:</strong> Blend a small portion of fish (about 100g) with half the lime juice, garlic, ginger, half the aji amarillo, a pinch of salt, and a splash of fish stock or cold water. Strain. This is your "tiger's milk" — the soul of ceviche.</li>
+                <li><strong>Cure the fish:</strong> Place the cubed fish in a glass bowl. Season with salt and pepper. Pour the remaining lime juice over the fish. Let it sit for 2–3 minutes only — no longer. Peruvian ceviche is barely cured, not cooked through.</li>
+                <li><strong>Combine:</strong> Add the leche de tigre, remaining aji amarillo, sliced red onion, and chopped cilantro. Toss gently.</li>
+                <li><strong>Taste and adjust:</strong> Add more salt, lime, or aji to balance. The flavour should be bright, sharp, and slightly spicy.</li>
+                <li><strong>Serve immediately:</strong> Plate in a shallow bowl. Arrange boiled sweet potato slices and corn rounds alongside. Scatter cancha on top. Serve the extra leche de tigre in a small glass on the side.</li>
+              </ol>
+
+              <h3>Substitutions for Europe / US</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr><th>Peruvian Ingredient</th><th>Europe/US Substitute</th><th>Notes</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Aji amarillo (fresh)</td><td>Aji amarillo paste (jar) or 1 habanero + 1 tsp turmeric</td><td>Paste widely available on Amazon and in Latin shops</td></tr>
+                    <tr><td>Cancha (toasted corn)</td><td>Corn nuts or giant toasted corn from Spanish shops</td><td>Tesco and Lidl sometimes stock corn nuts in snack aisle</td></tr>
+                    <tr><td>Peruvian sweet potato (camote)</td><td>Orange sweet potato</td><td>Identical — widely available everywhere</td></tr>
+                    <tr><td>Choclo (large-kernel corn)</td><td>Regular corn on the cob</td><td>Smaller kernels but similar flavour</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="recipe-travel-cta">
+                <p><strong>Travel Connection: Lima's Ceviche Trail</strong></p>
+                <p>Lima holds more spots on the World's 50 Best Restaurants list than almost any other city. Walk the ceviche trail from market stalls in Surquillo to the world-famous kitchens of Miraflores. <a href="./index.html#contact">Book a Condor Trails Lima food journey &rarr;</a></p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==================== EPISODE 2: LOMO SALTADO ==================== -->
+        <article class="episode-card fade-in" id="episode-2">
+          <div class="episode-card-header">
+            <div class="episode-card-meta">
+              <span class="episode-badge">Episode 2</span>
+              <span class="episode-region">Lima / Barrio Chino</span>
+            </div>
+            <h2 class="episode-card-title">Lomo Saltado</h2>
+            <p class="episode-card-subtitle">Chinese-Peruvian fusion stir-fry — the dish that defines chifa cuisine</p>
+            <div class="episode-info-row">
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Difficulty:</span>
+                <span class="stars" aria-label="2 out of 5 stars">
+                  <span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span>
+                </span>
+              </div>
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>45 min</span>
+              </div>
+            </div>
+            <div class="episode-teaser">When Cantonese immigrants arrived in Peru in the 1800s, they met local ingredients. The result: a wok-fired masterpiece served in every Peruvian home.</div>
+          </div>
+          <div class="episode-card-footer">
+            <a href="#" class="episode-watch-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Watch Episode
+            </a>
+            <button class="episode-recipe-btn" onclick="toggleEpisode('episode-2')" aria-expanded="false">
+              View Recipe
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+          <div class="episode-full-recipe">
+            <div class="recipe-body">
+              <h3>Ingredients</h3>
+              <ul>
+                <li><strong>600g sirloin steak</strong>, cut into thick strips</li>
+                <li><strong>3 tbsp soy sauce</strong></li>
+                <li><strong>2 tbsp red wine vinegar</strong></li>
+                <li><strong>1 aji amarillo</strong>, deseeded and sliced (or 1 tbsp paste)</li>
+                <li><strong>2 large red onions</strong>, cut into thick wedges</li>
+                <li><strong>3 medium tomatoes</strong>, cut into wedges</li>
+                <li><strong>3 cloves garlic</strong>, minced</li>
+                <li><strong>1 tsp cumin</strong></li>
+                <li>Salt and black pepper</li>
+                <li><strong>Vegetable oil</strong> for high-heat frying</li>
+                <li>Fresh cilantro for garnish</li>
+              </ul>
+              <h4>To serve</h4>
+              <ul>
+                <li><strong>French fries</strong> — thick-cut, fried until golden</li>
+                <li><strong>White rice</strong></li>
+              </ul>
+
+              <h3>Method</h3>
+              <ol>
+                <li><strong>Season the beef:</strong> Toss steak strips with salt, pepper, and cumin. Let rest 10 minutes at room temperature.</li>
+                <li><strong>Sear the beef:</strong> Heat oil in a wok or large skillet over very high heat. Sear beef in batches — 1 minute per side. Remove and set aside. The wok must be smoking hot.</li>
+                <li><strong>Cook the vegetables:</strong> In the same wok, add a splash more oil. Stir-fry onion wedges for 1 minute. Add garlic and aji amarillo, cook 30 seconds. Add tomato wedges, cook 1 minute — tomatoes should soften but hold their shape.</li>
+                <li><strong>Deglaze and combine:</strong> Return beef to the wok. Pour in soy sauce and red wine vinegar. Toss everything together over high heat for 30 seconds.</li>
+                <li><strong>Serve:</strong> Plate the lomo saltado on one side, hot fries alongside, white rice on the other side. Garnish with fresh cilantro. The fries should mingle with the sauce — this is intentional and essential.</li>
+              </ol>
+
+              <h3>Substitutions for Europe / US</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr><th>Peruvian Ingredient</th><th>Europe/US Substitute</th><th>Notes</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Aji amarillo (fresh)</td><td>Aji amarillo paste (jar)</td><td>Available on Amazon, Asian supermarkets</td></tr>
+                    <tr><td>Peruvian soy sauce</td><td>Standard soy sauce (Kikkoman)</td><td>Identical for this dish</td></tr>
+                    <tr><td>Sirloin</td><td>Rump steak or bavette</td><td>Any well-marbled beef works</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="recipe-travel-cta">
+                <p><strong>Travel Connection: Lima's Barrio Chino</strong></p>
+                <p>Lima's Chinatown is the oldest in South America. Walk through its markets, eat at a century-old chifa restaurant, and taste the fusion that created lomo saltado. <a href="./index.html#contact">Explore Lima with Condor Trails &rarr;</a></p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==================== EPISODE 3: AJÍ DE GALLINA ==================== -->
+        <article class="episode-card fade-in" id="episode-3">
+          <div class="episode-card-header">
+            <div class="episode-card-meta">
+              <span class="episode-badge">Episode 3</span>
+              <span class="episode-region">Lima Colonial</span>
+            </div>
+            <h2 class="episode-card-title">Ají de Gallina</h2>
+            <p class="episode-card-subtitle">Creamy golden chicken stew — Peru's ultimate comfort food with Moorish-Spanish roots</p>
+            <div class="episode-info-row">
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Difficulty:</span>
+                <span class="stars" aria-label="3 out of 5 stars">
+                  <span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span>
+                </span>
+              </div>
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>75 min</span>
+              </div>
+            </div>
+            <div class="episode-teaser">Traces its lineage to the Moorish kitchens of medieval Spain. The recipe crossed the Atlantic with the conquistadors and found its true form in Lima.</div>
+          </div>
+          <div class="episode-card-footer">
+            <a href="#" class="episode-watch-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Watch Episode
+            </a>
+            <button class="episode-recipe-btn" onclick="toggleEpisode('episode-3')" aria-expanded="false">
+              View Recipe
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+          <div class="episode-full-recipe">
+            <div class="recipe-body">
+              <h3>Ingredients</h3>
+              <ul>
+                <li><strong>4 chicken breasts</strong> (or 1 whole chicken, poached and shredded)</li>
+                <li><strong>4 tbsp aji amarillo paste</strong></li>
+                <li><strong>4 slices white bread</strong>, crusts removed, soaked in 200ml evaporated milk</li>
+                <li><strong>100g walnuts</strong>, ground or blended</li>
+                <li><strong>50g parmesan cheese</strong>, finely grated</li>
+                <li><strong>2 medium onions</strong>, finely diced</li>
+                <li><strong>3 cloves garlic</strong>, minced</li>
+                <li><strong>1 tsp cumin</strong></li>
+                <li><strong>1 tsp turmeric</strong> (for colour)</li>
+                <li>Vegetable oil, salt, and pepper</li>
+              </ul>
+              <h4>To serve</h4>
+              <ul>
+                <li>White rice</li>
+                <li>Boiled yellow potatoes, halved</li>
+                <li>Hard-boiled eggs, halved</li>
+                <li>Black olives (botija olives ideally)</li>
+              </ul>
+
+              <h3>Method</h3>
+              <ol>
+                <li><strong>Poach the chicken:</strong> Simmer chicken breasts in salted water with a bay leaf and half an onion for 20 minutes. Remove, cool slightly, and shred finely. Reserve 500ml of the stock.</li>
+                <li><strong>Make the sauce base:</strong> Sauté diced onions in oil until translucent. Add garlic, cumin, and turmeric. Cook 2 minutes. Add aji amarillo paste and cook 3 minutes more until fragrant.</li>
+                <li><strong>Blend the thickener:</strong> Squeeze excess milk from the soaked bread. Blend the bread with the evaporated milk, ground walnuts, and about 200ml of chicken stock until smooth.</li>
+                <li><strong>Combine:</strong> Add the blended mixture to the saucepan. Stir continuously over medium heat. Add more stock to reach a creamy, pourable consistency. Stir in parmesan. Season with salt and pepper.</li>
+                <li><strong>Fold in the chicken:</strong> Add shredded chicken to the sauce. Simmer gently for 10 minutes, stirring occasionally.</li>
+                <li><strong>Serve:</strong> Spoon over white rice with boiled potato halves alongside. Garnish with halved hard-boiled eggs and black olives.</li>
+              </ol>
+
+              <h3>Substitutions for Europe / US</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr><th>Peruvian Ingredient</th><th>Europe/US Substitute</th><th>Notes</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Aji amarillo paste</td><td>Available on Amazon; or blend 1 habanero + turmeric + splash of vinegar</td><td>Paste is the easiest option here</td></tr>
+                    <tr><td>Evaporated milk</td><td>Carnation evaporated milk (any supermarket)</td><td>Widely available in baking aisle</td></tr>
+                    <tr><td>Botija olives</td><td>Kalamata olives</td><td>Similar briny, meaty flavour</td></tr>
+                    <tr><td>Yellow potatoes (papa amarilla)</td><td>Yukon Gold or waxy salad potatoes</td><td>Same creamy texture</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="recipe-travel-cta">
+                <p><strong>Travel Connection: Colonial Lima</strong></p>
+                <p>Walk the colonial streets of Lima Centro where this dish was born — from the Plaza Mayor to the San Francisco catacombs. The grandest food tradition in the Americas started here. <a href="./index.html#contact">Plan your Lima cultural tour &rarr;</a></p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==================== EPISODE 4: ARROZ CON POLLO ==================== -->
+        <article class="episode-card fade-in" id="episode-4">
+          <div class="episode-card-header">
+            <div class="episode-card-meta">
+              <span class="episode-badge">Episode 4</span>
+              <span class="episode-region">National / North</span>
+            </div>
+            <h2 class="episode-card-title">Arroz con Pollo</h2>
+            <p class="episode-card-subtitle">Aleksander's family recipe — vivid green cilantro rice with tender chicken</p>
+            <div class="episode-info-row">
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Difficulty:</span>
+                <span class="stars" aria-label="2 out of 5 stars">
+                  <span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span>
+                </span>
+              </div>
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>70 min</span>
+              </div>
+            </div>
+            <div class="episode-teaser">Every Peruvian family has their own version. This one comes from Aleksander's mother in Jauja — the cilantro puree is what makes the rice impossibly green.</div>
+          </div>
+          <div class="episode-card-footer">
+            <a href="#" class="episode-watch-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Watch Episode
+            </a>
+            <button class="episode-recipe-btn" onclick="toggleEpisode('episode-4')" aria-expanded="false">
+              View Recipe
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+          <div class="episode-full-recipe">
+            <div class="recipe-body">
+              <h3>Ingredients</h3>
+              <ul>
+                <li><strong>8 chicken pieces</strong> (thighs and drumsticks, bone-in, skin-on)</li>
+                <li><strong>2 large bunches fresh cilantro</strong>, blended with 200ml water into a smooth puree</li>
+                <li><strong>2 tbsp aji amarillo paste</strong></li>
+                <li><strong>330ml beer</strong> (lager)</li>
+                <li><strong>3 cups long-grain rice</strong></li>
+                <li><strong>2 medium onions</strong>, finely diced</li>
+                <li><strong>4 cloves garlic</strong>, minced</li>
+                <li><strong>1 cup peas</strong> (fresh or frozen)</li>
+                <li><strong>2 medium carrots</strong>, diced</li>
+                <li><strong>1 corn on the cob</strong>, cut into rounds</li>
+                <li><strong>1 tsp cumin</strong></li>
+                <li>Salt, pepper, vegetable oil</li>
+              </ul>
+
+              <h3>Method</h3>
+              <ol>
+                <li><strong>Brown the chicken:</strong> Season chicken pieces with salt, pepper, and cumin. Brown in oil on both sides in a large, deep pan or Dutch oven. Remove and set aside.</li>
+                <li><strong>Build the base:</strong> In the same pan, sauté onions until golden. Add garlic and aji amarillo paste, cook 2 minutes. Add carrots and cook 2 minutes more.</li>
+                <li><strong>Deglaze with beer:</strong> Pour in the beer. Let it bubble for 2 minutes to cook off the alcohol.</li>
+                <li><strong>Add cilantro puree:</strong> Pour in the blended cilantro. Stir well. Return the chicken pieces to the pan. Add enough water or stock to cover the chicken. Simmer covered for 20 minutes.</li>
+                <li><strong>Cook the rice:</strong> Remove chicken. Measure the liquid — you need approximately 3 cups of liquid for 3 cups of rice. Add rice, peas, and corn rounds. Stir once, cover, and cook on low heat for 18–20 minutes until rice is tender and liquid is absorbed.</li>
+                <li><strong>Serve:</strong> Place the chicken on top of the green rice. The rice should be vivid green and fragrant. Serve with salsa criolla (sliced red onion, lime juice, and cilantro) on the side.</li>
+              </ol>
+
+              <h3>Substitutions for Europe / US</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr><th>Peruvian Ingredient</th><th>Europe/US Substitute</th><th>Notes</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Aji amarillo paste</td><td>Jar from Amazon or Latin shop</td><td>Essential for authentic flavour</td></tr>
+                    <tr><td>Peruvian beer (Cusqueña)</td><td>Any lager (Heineken, Corona)</td><td>Any light beer works</td></tr>
+                    <tr><td>Fresh cilantro (coriander)</td><td>Widely available everywhere</td><td>Use the full plant — stems included for extra flavour</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="recipe-travel-cta">
+                <p><strong>Travel Connection: The Peruvian Highlands</strong></p>
+                <p>Arroz con pollo is Sunday lunch across Peru — but it's in the northern coastal towns and the central highlands where the family versions are most fiercely guarded. <a href="./index.html#contact">Discover Peru's highland kitchens with Condor Trails &rarr;</a></p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==================== EPISODE 5: CAUSA LIMEÑA ==================== -->
+        <article class="episode-card fade-in" id="episode-5">
+          <div class="episode-card-header">
+            <div class="episode-card-meta">
+              <span class="episode-badge">Episode 5</span>
+              <span class="episode-region">Lima / Andes</span>
+            </div>
+            <h2 class="episode-card-title">Causa Limeña</h2>
+            <p class="episode-card-subtitle">A layered potato masterpiece — cold, elegant, and deceptively simple</p>
+            <div class="episode-info-row">
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Difficulty:</span>
+                <span class="stars" aria-label="3 out of 5 stars">
+                  <span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span>
+                </span>
+              </div>
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>75 min</span>
+              </div>
+            </div>
+            <div class="episode-teaser">The Quechua word "kausay" means life — and the potato is life in the Andes. Over 3,000 varieties grow in Peru. This dish honours all of them.</div>
+          </div>
+          <div class="episode-card-footer">
+            <a href="#" class="episode-watch-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Watch Episode
+            </a>
+            <button class="episode-recipe-btn" onclick="toggleEpisode('episode-5')" aria-expanded="false">
+              View Recipe
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+          <div class="episode-full-recipe">
+            <div class="recipe-body">
+              <h3>Ingredients</h3>
+              <h4>Potato layer</h4>
+              <ul>
+                <li><strong>1kg yellow potatoes</strong>, peeled and boiled until very soft</li>
+                <li><strong>3 tbsp aji amarillo paste</strong></li>
+                <li><strong>3 tbsp lime juice</strong></li>
+                <li><strong>3 tbsp vegetable oil</strong></li>
+                <li>Salt and pepper</li>
+              </ul>
+              <h4>Filling (choose one)</h4>
+              <ul>
+                <li><strong>Chicken filling:</strong> 300g shredded cooked chicken mixed with 2 tbsp mayo, diced celery, lime juice, salt</li>
+                <li><strong>Tuna filling:</strong> 2 cans tuna (drained) mixed with 2 tbsp mayo, diced red onion, lime juice, salt</li>
+              </ul>
+              <h4>Garnish</h4>
+              <ul>
+                <li>1 ripe avocado, sliced</li>
+                <li>Hard-boiled eggs, sliced</li>
+                <li>Black olives</li>
+              </ul>
+
+              <h3>Method</h3>
+              <ol>
+                <li><strong>Make the potato dough:</strong> Mash the hot boiled potatoes until completely smooth (use a ricer for best results). While still warm, mix in aji amarillo paste, lime juice, oil, salt, and pepper. The mixture should be smooth, golden, and pliable — like soft play dough.</li>
+                <li><strong>Layer:</strong> Press half the potato mixture into the bottom of a ring mould or rectangular dish lined with cling film. Smooth the top.</li>
+                <li><strong>Add filling:</strong> Spread the chicken or tuna filling evenly over the potato layer. Add sliced avocado on top of the filling.</li>
+                <li><strong>Top layer:</strong> Press the remaining potato mixture on top. Smooth the surface. Refrigerate for at least 30 minutes.</li>
+                <li><strong>Serve:</strong> Unmould carefully. Garnish with sliced hard-boiled eggs, black olives, and a drizzle of aji amarillo sauce. Serve cold.</li>
+              </ol>
+
+              <h3>Substitutions for Europe / US</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr><th>Peruvian Ingredient</th><th>Europe/US Substitute</th><th>Notes</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Papa amarilla (yellow potato)</td><td>Yukon Gold potatoes</td><td>Closest match — creamy and golden</td></tr>
+                    <tr><td>Aji amarillo paste</td><td>Jar from Amazon</td><td>Essential — cannot be skipped</td></tr>
+                    <tr><td>Botija olives</td><td>Kalamata olives</td><td>Similar flavour profile</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="recipe-travel-cta">
+                <p><strong>Travel Connection: The Potato's Homeland</strong></p>
+                <p>Peru is the birthplace of the potato — over 3,000 varieties still grown in the Andean highlands. Visit the Potato Park near Cusco, where Quechua communities preserve this living heritage. <a href="./index.html#contact">Explore Peru's Andean heartland &rarr;</a></p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==================== EPISODE 6: PAPA A LA HUANCAÍNA ==================== -->
+        <article class="episode-card fade-in" id="episode-6">
+          <div class="episode-card-header">
+            <div class="episode-card-meta">
+              <span class="episode-badge">Episode 6</span>
+              <span class="episode-region">Huancayo / Junín</span>
+            </div>
+            <h2 class="episode-card-title">Papa a la Huancaína</h2>
+            <p class="episode-card-subtitle">Aleksander's hometown dish — creamy pepper sauce over golden potatoes</p>
+            <div class="episode-info-row">
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Difficulty:</span>
+                <span class="stars" aria-label="1 out of 5 stars">
+                  <span class="star-filled">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span>
+                </span>
+              </div>
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>35 min</span>
+              </div>
+            </div>
+            <div class="episode-teaser">Named after Huancayo, near Aleksander's hometown. Legend says Polish engineer Ernest Malinowski spread the recipe while building the world's highest railway.</div>
+          </div>
+          <div class="episode-card-footer">
+            <a href="#" class="episode-watch-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Watch Episode
+            </a>
+            <button class="episode-recipe-btn" onclick="toggleEpisode('episode-6')" aria-expanded="false">
+              View Recipe
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+          <div class="episode-full-recipe">
+            <div class="recipe-body">
+              <h3>Ingredients</h3>
+              <ul>
+                <li><strong>1kg potatoes</strong> (yellow or waxy), peeled, boiled, and sliced into 1cm rounds</li>
+                <li><strong>4 aji amarillo peppers</strong> (deseeded) or 3 tbsp aji amarillo paste</li>
+                <li><strong>200g queso fresco</strong> (fresh white cheese), crumbled</li>
+                <li><strong>150ml evaporated milk</strong></li>
+                <li><strong>6 cream crackers</strong> (saltines or water biscuits)</li>
+                <li><strong>2 tbsp vegetable oil</strong></li>
+                <li><strong>1 clove garlic</strong></li>
+                <li>Salt to taste</li>
+              </ul>
+              <h4>Garnish</h4>
+              <ul>
+                <li>Lettuce leaves</li>
+                <li>Hard-boiled eggs, halved</li>
+                <li>Black olives</li>
+              </ul>
+
+              <h3>Method</h3>
+              <ol>
+                <li><strong>Make the Huancaína sauce:</strong> Blend aji amarillo, queso fresco, evaporated milk, crackers, oil, garlic, and salt until completely smooth and creamy. Adjust consistency with more milk if needed — it should be pourable but not thin.</li>
+                <li><strong>Assemble:</strong> Line a plate with lettuce leaves. Arrange potato slices on top. Pour the Huancaína sauce generously over the potatoes.</li>
+                <li><strong>Garnish:</strong> Add halved hard-boiled eggs and black olives. Serve immediately — or refrigerate and serve cold (equally traditional).</li>
+              </ol>
+
+              <h3>Substitutions for Europe / US</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr><th>Peruvian Ingredient</th><th>Europe/US Substitute</th><th>Notes</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Queso fresco</td><td>Feta cheese (rinsed) or ricotta salata</td><td>Feta is closest in texture and saltiness</td></tr>
+                    <tr><td>Aji amarillo</td><td>Paste from jar (Amazon)</td><td>The sauce's golden colour comes from this</td></tr>
+                    <tr><td>Cream crackers</td><td>Saltine crackers, Jacob's Cream Crackers</td><td>Any plain cracker works as thickener</td></tr>
+                    <tr><td>Evaporated milk</td><td>Carnation (any supermarket)</td><td>Baking aisle staple</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="recipe-travel-cta">
+                <p><strong>Travel Connection: Huancayo &amp; the Mantaro Valley</strong></p>
+                <p>Huancayo sits at 3,271 metres in the Mantaro Valley — one of Peru's most fertile agricultural regions. Visit the massive Sunday market, see the railway Malinowski built, and eat this dish where it was invented. <a href="./index.html#contact">Journey to Peru's central highlands &rarr;</a></p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==================== EPISODE 7: ANTICUCHOS DE CORAZÓN ==================== -->
+        <article class="episode-card fade-in" id="episode-7">
+          <div class="episode-card-header">
+            <div class="episode-card-meta">
+              <span class="episode-badge">Episode 7</span>
+              <span class="episode-region">Lima Street</span>
+            </div>
+            <h2 class="episode-card-title">Anticuchos de Corazón</h2>
+            <p class="episode-card-subtitle">Beef heart skewers — Lima's most legendary street food, born from Afro-Peruvian ingenuity</p>
+            <div class="episode-info-row">
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Difficulty:</span>
+                <span class="stars" aria-label="3 out of 5 stars">
+                  <span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span>
+                </span>
+              </div>
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>4 hrs (3hr marinade)</span>
+              </div>
+            </div>
+            <div class="episode-teaser">Created by Afro-Peruvian cooks from the parts of the animal their masters didn't want. They turned scraps into one of the most beloved foods in Peru.</div>
+          </div>
+          <div class="episode-card-footer">
+            <a href="#" class="episode-watch-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Watch Episode
+            </a>
+            <button class="episode-recipe-btn" onclick="toggleEpisode('episode-7')" aria-expanded="false">
+              View Recipe
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+          <div class="episode-full-recipe">
+            <div class="recipe-body">
+              <h3>Ingredients</h3>
+              <ul>
+                <li><strong>800g beef heart</strong>, cleaned, trimmed, and cut into 3cm cubes</li>
+                <li><strong>4 tbsp aji panca paste</strong></li>
+                <li><strong>3 tbsp red wine vinegar</strong></li>
+                <li><strong>2 tsp cumin</strong></li>
+                <li><strong>1 tbsp dried oregano</strong></li>
+                <li><strong>5 cloves garlic</strong>, minced</li>
+                <li><strong>1 tsp salt</strong></li>
+                <li><strong>1 tsp black pepper</strong></li>
+                <li><strong>2 tbsp vegetable oil</strong></li>
+                <li>Wooden or metal skewers</li>
+              </ul>
+              <h4>To serve</h4>
+              <ul>
+                <li>Boiled potatoes</li>
+                <li>Corn on the cob</li>
+                <li>Aji sauce (aji amarillo blended with oil, lime, and garlic)</li>
+              </ul>
+
+              <h3>Method</h3>
+              <ol>
+                <li><strong>Prepare the marinade:</strong> Combine aji panca paste, vinegar, cumin, oregano, garlic, salt, pepper, and oil in a large bowl. Mix well.</li>
+                <li><strong>Marinate:</strong> Add beef heart cubes to the marinade. Toss to coat completely. Cover and refrigerate for a minimum of 3 hours — overnight is better.</li>
+                <li><strong>Skewer:</strong> Thread 4–5 pieces of marinated heart onto each skewer. Reserve the remaining marinade for basting.</li>
+                <li><strong>Grill:</strong> Cook over very high heat on a barbecue or griddle pan — 2–3 minutes per side. Baste with the reserved marinade while grilling. The outside should be charred and caramelised; the inside should be pink and tender. Do not overcook — beef heart becomes tough if cooked past medium.</li>
+                <li><strong>Serve:</strong> Plate with boiled potatoes and corn. Drizzle with aji sauce. These are traditionally eaten standing at a street cart at 10pm in Lima — but they're equally good at your kitchen table.</li>
+              </ol>
+
+              <h3>Substitutions for Europe / US</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr><th>Peruvian Ingredient</th><th>Europe/US Substitute</th><th>Notes</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Beef heart</td><td>Ask your butcher to order it (often available at halal butchers or online)</td><td>Very affordable — one of the cheapest cuts of beef</td></tr>
+                    <tr><td>Aji panca paste</td><td>Available on Amazon; or substitute 2 ancho chiles soaked and blended</td><td>Aji panca is smoky and mild — different from aji amarillo</td></tr>
+                    <tr><td>Peruvian corn (choclo)</td><td>Regular corn on the cob</td><td>Smaller kernels but same idea</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="recipe-travel-cta">
+                <p><strong>Travel Connection: Lima After Dark</strong></p>
+                <p>The best anticuchos in Lima are found at street carts in Miraflores and Surquillo after 9pm. The smoke, the crowds, the charcoal glow — it's an unmissable Lima experience. <a href="./index.html#contact">Book a Lima street food evening with Condor Trails &rarr;</a></p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==================== EPISODE 8: PICARONES ==================== -->
+        <article class="episode-card fade-in" id="episode-8">
+          <div class="episode-card-header">
+            <div class="episode-card-meta">
+              <span class="episode-badge">Episode 8</span>
+              <span class="episode-region">Lima Street</span>
+            </div>
+            <h2 class="episode-card-title">Picarones</h2>
+            <p class="episode-card-subtitle">Sweet potato and squash doughnuts — drizzled in warm chancaca syrup</p>
+            <div class="episode-info-row">
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Difficulty:</span>
+                <span class="stars" aria-label="3 out of 5 stars">
+                  <span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span>
+                </span>
+              </div>
+              <div class="episode-info-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>3 hrs (2hr proving)</span>
+              </div>
+            </div>
+            <div class="episode-teaser">Peru's answer to the doughnut — pre-Columbian roots, perfected on Lima's streets. The chancaca syrup is made from raw cane sugar, cinnamon, and orange peel.</div>
+          </div>
+          <div class="episode-card-footer">
+            <a href="#" class="episode-watch-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Watch Episode
+            </a>
+            <button class="episode-recipe-btn" onclick="toggleEpisode('episode-8')" aria-expanded="false">
+              View Recipe
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+          </div>
+          <div class="episode-full-recipe">
+            <div class="recipe-body">
+              <h3>Ingredients</h3>
+              <h4>Picarones dough</h4>
+              <ul>
+                <li><strong>300g sweet potato</strong>, peeled and boiled until very soft</li>
+                <li><strong>300g pumpkin or butternut squash</strong>, peeled and boiled until very soft</li>
+                <li><strong>2 tsp dried yeast</strong>, activated in 100ml warm water with 1 tsp sugar</li>
+                <li><strong>250g plain flour</strong> (approximately — may need more or less)</li>
+                <li><strong>1 tsp anise seeds</strong></li>
+                <li><strong>1 tsp ground cinnamon</strong></li>
+                <li>Pinch of salt</li>
+                <li>Vegetable oil for deep frying</li>
+              </ul>
+              <h4>Chancaca syrup</h4>
+              <ul>
+                <li><strong>250g chancaca (panela)</strong> — raw cane sugar block, broken into pieces</li>
+                <li><strong>200ml water</strong></li>
+                <li><strong>1 cinnamon stick</strong></li>
+                <li><strong>3 whole cloves</strong></li>
+                <li><strong>Peel of 1 orange</strong></li>
+                <li><strong>1 star anise</strong></li>
+              </ul>
+
+              <h3>Method</h3>
+              <ol>
+                <li><strong>Make the dough:</strong> Mash the boiled sweet potato and pumpkin together until smooth. While warm, add the activated yeast mixture, anise seeds, cinnamon, and salt. Gradually add flour, mixing until you have a soft, sticky dough (it should be wetter than bread dough — more like a thick batter).</li>
+                <li><strong>Prove:</strong> Cover the dough with a damp cloth. Let it rise in a warm place for 2 hours — it should roughly double in volume and become light and airy.</li>
+                <li><strong>Make the syrup:</strong> While the dough proves, combine chancaca, water, cinnamon stick, cloves, orange peel, and star anise in a saucepan. Simmer over medium-low heat, stirring occasionally, until the chancaca dissolves and the syrup thickens to a honey-like consistency (about 20–25 minutes). Strain and keep warm.</li>
+                <li><strong>Shape and fry:</strong> Heat oil to 170°C. Wet your hands with water. Take a golf-ball-sized piece of dough and shape it into a ring by poking a hole through the centre with your finger. Gently drop into the oil. Fry for 2–3 minutes per side until deep golden brown and puffed up. Drain on paper towels.</li>
+                <li><strong>Serve:</strong> Stack picarones on a plate. Drizzle generously with warm chancaca syrup. Serve immediately — they are best eaten hot, standing at a street cart, as is traditional.</li>
+              </ol>
+
+              <h3>Substitutions for Europe / US</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr><th>Peruvian Ingredient</th><th>Europe/US Substitute</th><th>Notes</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Chancaca / panela</td><td>Dark muscovado sugar + 1 tbsp treacle/molasses</td><td>Available in Asian/Latin shops or on Amazon as "panela"</td></tr>
+                    <tr><td>Sweet potato (camote)</td><td>Orange sweet potato</td><td>Identical — any supermarket</td></tr>
+                    <tr><td>Pumpkin (zapallo)</td><td>Butternut squash</td><td>Widely available; similar sweetness and texture</td></tr>
+                    <tr><td>Anise seeds</td><td>Anise seeds (spice aisle) or 1 tsp anise extract</td><td>Common spice, available everywhere</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="recipe-travel-cta">
+                <p><strong>Travel Connection: Lima's Sweet Side</strong></p>
+                <p>Picarones carts cluster in Lima's Plaza Mayor and along the Parque de la Exposición every evening. The best picaroneras have been frying for decades — their dough recipe is a family secret. <a href="./index.html#contact">Experience Lima's street food scene with Condor Trails &rarr;</a></p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       WHERE TO FIND INGREDIENTS
+       ===================== -->
+  <section class="sourcing-section" aria-labelledby="sourcing-heading">
+    <div class="container">
+      <div class="sourcing-content">
+        <h2 id="sourcing-heading">Where to Find Ingredients</h2>
+        <p>You don't need to fly to Lima to cook like a Peruvian. Here's how to source authentic ingredients from Dublin, Ireland, and across Europe.</p>
+        <div class="sourcing-grid">
+          <div class="sourcing-card">
+            <div class="sourcing-card-title">Dublin &amp; Ireland</div>
+            <p>Parnell Street's Asian supermarkets (Asia Market, Oriental Emporium) stock aji amarillo paste, aji panca, and panela. The English Market in Cork carries queso fresco and specialist chilies. For beef heart, ask your local butcher or visit halal butchers on Capel Street.</p>
+          </div>
+          <div class="sourcing-card">
+            <div class="sourcing-card-title">Online (UK / EU / US)</div>
+            <p>Amazon stocks aji amarillo paste, aji panca paste, cancha corn, and panela/chancaca — usually delivered within 2–3 days. Sous Chef (UK) and MexGrocer carry excellent Peruvian and Latin American ranges. In the US, check your local Latin grocery or order from Amigo Foods.</p>
+          </div>
+          <div class="sourcing-card">
+            <div class="sourcing-card-title">Supermarket Basics</div>
+            <p>Lidl, Tesco, Aldi, and Waitrose carry everything else: sweet potatoes, limes, cilantro, evaporated milk, cream crackers, butternut squash, and standard spices. Most recipes require only 1–2 specialist ingredients — the rest is already in your kitchen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       NEWSLETTER SECTION
+       ===================== -->
+  <section class="recipes-newsletter" aria-labelledby="newsletter-heading">
+    <div class="container">
+      <h2 id="newsletter-heading" class="recipes-newsletter-title">Get Recipes in Your Inbox</h2>
+      <p class="recipes-newsletter-text">New episodes, ingredient tips, and Peruvian travel stories — delivered once a week. No spam, just flavour.</p>
+      <form class="recipes-newsletter-form" onsubmit="handleNewsletterSubmit(event)" aria-label="Newsletter subscription">
+        <label class="sr-only" for="recipes-newsletter-email">Email address for newsletter</label>
+        <input type="email" id="recipes-newsletter-email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address">
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+
+      <!-- Brand + newsletter -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="28" height="20" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="var(--color-primary)"/>
+            <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="var(--color-primary)"/>
+            <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="var(--color-primary)"/>
+            <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="var(--color-primary)" opacity="0.8"/>
+            <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="var(--color-primary)"/>
+          </svg>
+          <span class="footer-logo-text">Condor Trails</span>
+        </div>
+        <div class="footer-tagline">South America, Revealed.</div>
+
+        <div class="footer-newsletter-label">Stay Inspired</div>
+        <form class="footer-newsletter-form" onsubmit="handleFooterNewsletterSubmit(event)" aria-label="Newsletter subscription">
+          <label class="sr-only" for="footer-newsletter-email">Email address for newsletter</label>
+          <input
+            type="email"
+            id="footer-newsletter-email"
+            class="footer-newsletter-input"
+            placeholder="your@email.com"
+            autocomplete="email"
+            aria-label="Email address"
+          >
+          <button type="submit" class="footer-newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Destinations -->
+      <div>
+        <div class="footer-col-title">Destinations</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./index.html#destinations">Peru</a></li>
+          <li><a href="./patagonia.html">Patagonia</a></li>
+          <li><a href="./bolivia.html">Bolivia</a></li>
+          <li><a href="./colombia.html">Colombia</a></li>
+          <li><a href="./ecuador.html">Ecuador &amp; Galápagos</a></li>
+          <li><a href="./argentina.html">Argentina</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./index.html#about">About Us</a></li>
+          <li><a href="./index.html#how-it-works">How It Works</a></li>
+          <li><a href="./index.html#about">Sustainability</a></li>
+          <li><a href="./blog.html">Blog</a></li>
+          <li><a href="./recipes.html">Recipes</a></li>
+          <li><a href="./index.html#contact">Careers</a></li>
+        </ul>
+      </div>
+
+      <!-- Support + Connect -->
+      <div>
+        <div class="footer-col-title">Support</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./index.html#contact">Contact</a></li>
+          <li><a href="./index.html#contact">FAQ</a></li>
+          <li><a href="./index.html#contact">Travel Insurance</a></li>
+          <li><a href="./terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="./privacy.html">Privacy Policy</a></li>
+        </ul>
+
+        <div class="footer-col-title" style="margin-top: var(--space-6);">Connect</div>
+        <ul class="footer-links" role="list">
+          <li>
+            <a href="https://instagram.com/condortrails" target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com/condortrails" target="_blank" rel="noopener noreferrer">
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://tripadvisor.com" target="_blank" rel="noopener noreferrer">
+              TripAdvisor
+            </a>
+          </li>
+          <li>
+            <a href="tel:+353857604985">
+              Phone
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2026 Condor Trails. All rights reserved.</p>
+      <p class="footer-made">Made with passion in Peru. 🦅</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
+<script>
+  'use strict';
+
+  // ----------------------------------------
+  // THEME TOGGLE
+  // ----------------------------------------
+  (function() {
+    const root = document.documentElement;
+    let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.setAttribute('data-theme', theme);
+
+    const toggle = document.querySelector('[data-theme-toggle]');
+    if (toggle) {
+      updateToggleIcon(toggle, theme);
+
+      toggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+        updateToggleIcon(toggle, theme);
+      });
+    }
+
+    function updateToggleIcon(btn, t) {
+      btn.innerHTML = t === 'dark'
+        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    }
+  })();
+
+  // ----------------------------------------
+  // STICKY NAV — always solid on recipes page
+  // ----------------------------------------
+  (function() {
+    const nav = document.getElementById('nav');
+    let ticking = false;
+
+    function updateNav() {
+      if (window.scrollY > 10) {
+        nav.classList.add('scrolled');
+      }
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateNav);
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
+
+  // ----------------------------------------
+  // MOBILE NAV
+  // ----------------------------------------
+  const mobileNav = document.getElementById('mobileNav');
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNavClose = document.getElementById('mobileNavClose');
+  let isNavOpen = false;
+
+  function openMobileNav() {
+    mobileNav.style.display = 'flex';
+    requestAnimationFrame(() => {
+      mobileNav.classList.add('open');
+    });
+    document.body.style.overflow = 'hidden';
+    menuToggle.setAttribute('aria-expanded', 'true');
+    isNavOpen = true;
+  }
+
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+    menuToggle.setAttribute('aria-expanded', 'false');
+    isNavOpen = false;
+    setTimeout(() => {
+      mobileNav.style.display = 'none';
+    }, 350);
+  }
+
+  if (menuToggle) menuToggle.addEventListener('click', openMobileNav);
+  if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isNavOpen) closeMobileNav();
+  });
+
+  // ----------------------------------------
+  // EPISODE EXPAND / COLLAPSE
+  // ----------------------------------------
+  function toggleEpisode(episodeId) {
+    const card = document.getElementById(episodeId);
+    const btn = card.querySelector('.episode-recipe-btn');
+    const isExpanded = card.classList.contains('expanded');
+
+    if (isExpanded) {
+      // Collapse
+      card.classList.remove('expanded');
+      btn.innerHTML = 'View Recipe <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+      btn.setAttribute('aria-expanded', 'false');
+      // Scroll back to card top
+      setTimeout(() => {
+        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    } else {
+      // Expand
+      card.classList.add('expanded');
+      btn.innerHTML = 'Hide Recipe <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  // ----------------------------------------
+  // NEWSLETTER FORMS
+  // ----------------------------------------
+  function handleNewsletterSubmit(e) {
+    e.preventDefault();
+    const input = document.getElementById('recipes-newsletter-email');
+    const btn = e.target.querySelector('.btn');
+    if (!input.value.trim()) return;
+
+    btn.textContent = 'Subscribed!';
+    btn.style.background = 'var(--color-success, #437a22)';
+    input.value = '';
+
+    setTimeout(() => {
+      btn.textContent = 'Subscribe';
+      btn.style.background = '';
+    }, 3000);
+  }
+
+  function handleFooterNewsletterSubmit(e) {
+    e.preventDefault();
+    const input = document.getElementById('footer-newsletter-email');
+    const btn = e.target.querySelector('.footer-newsletter-btn');
+    if (!input.value.trim()) return;
+
+    btn.textContent = 'Subscribed!';
+    btn.style.background = 'var(--color-success, #437a22)';
+    input.value = '';
+
+    setTimeout(() => {
+      btn.textContent = 'Subscribe';
+      btn.style.background = '';
+    }, 3000);
+  }
+
+  // ----------------------------------------
+  // SMOOTH SCROLL for anchor nav links
+  // ----------------------------------------
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const id = anchor.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ----------------------------------------
+  // INTERSECTION OBSERVER for fade-in
+  // ----------------------------------------
+  if (!CSS.supports('animation-timeline', 'scroll()')) {
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transition = 'opacity 600ms cubic-bezier(0.16, 1, 0.3, 1)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    fadeEls.forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  }
+</script>
+
+  <script src="./chatbot.js"></script>
+</body>
+</html>
