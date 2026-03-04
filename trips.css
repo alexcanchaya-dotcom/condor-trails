@@ -1,1 +1,783 @@
-TRIPS_CSS_PLACEHOLDER
+/* trips.css — Trip itinerary page styles for Condor Trails */
+/* Uses tokens from style.css — no redefined variables */
+
+/* ============================================
+   TRIP HERO
+   ============================================ */
+.trip-hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.trip-hero-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.trip-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+}
+
+.trip-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 15, 8, 0.2) 0%,
+    rgba(20, 15, 8, 0.4) 40%,
+    rgba(20, 15, 8, 0.75) 100%
+  );
+}
+
+.trip-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: var(--space-20) 0 var(--space-16);
+}
+
+.trip-hero-badges {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.trip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.trip-badge--duration {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  backdrop-filter: blur(8px);
+}
+
+.trip-badge--price {
+  background: var(--color-secondary);
+  color: #fff;
+  border: 1px solid var(--color-secondary);
+}
+
+.trip-hero-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.05;
+  margin-bottom: var(--space-4);
+}
+
+.trip-hero-tagline {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: rgba(255,255,255,0.8);
+  max-width: 55ch;
+  line-height: 1.5;
+}
+
+/* ============================================
+   TRIP HIGHLIGHTS STRIP
+   ============================================ */
+.trip-highlights {
+  background: var(--color-text);
+  padding-block: var(--space-6);
+}
+
+[data-theme="dark"] .trip-highlights {
+  background: var(--color-surface-offset-2);
+}
+
+.trip-highlights-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.trip-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  white-space: nowrap;
+}
+
+.trip-highlight-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: rgba(255,255,255,0.7);
+}
+
+[data-theme="dark"] .trip-highlight-icon {
+  background: var(--color-surface-dynamic);
+  color: var(--color-text-muted);
+}
+
+.trip-highlight-label {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.75);
+}
+
+[data-theme="dark"] .trip-highlight-label {
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   ITINERARY SECTION
+   ============================================ */
+.trip-itinerary {
+  background: var(--color-bg);
+  padding-block: clamp(var(--space-16), 8vw, var(--space-32));
+}
+
+.trip-itinerary-header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+/* Timeline wrapper */
+.trip-timeline {
+  position: relative;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* Vertical line */
+.trip-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 24px;
+  width: 2px;
+  background: var(--color-divider);
+}
+
+/* Day item */
+.trip-day {
+  position: relative;
+  padding-left: 68px;
+  padding-bottom: var(--space-10);
+}
+
+.trip-day:last-child {
+  padding-bottom: 0;
+}
+
+/* Day number circle */
+.trip-day-number {
+  position: absolute;
+  top: 0;
+  left: 6px;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  box-shadow: 0 0 0 4px var(--color-bg);
+}
+
+.trip-day-content {
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-lg);
+  transition: background var(--transition-interactive);
+}
+
+/* Alternating tint */
+.trip-day:nth-child(even) .trip-day-content {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.trip-day-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+  line-height: 1.2;
+}
+
+.trip-day-location {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-highlight);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-3);
+}
+
+.trip-day-description {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 60ch;
+}
+
+/* ============================================
+   INCLUDED / EXCLUDED
+   ============================================ */
+.trip-includes {
+  background: var(--color-surface-offset);
+  padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+}
+
+.trip-includes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.trip-includes-col {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+}
+
+.trip-includes-col-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.trip-includes-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trip-includes-icon--check {
+  background: color-mix(in oklch, var(--color-success) 15%, transparent);
+  color: var(--color-success);
+}
+
+.trip-includes-icon--x {
+  background: color-mix(in oklch, var(--color-error) 15%, transparent);
+  color: var(--color-error);
+}
+
+.trip-includes-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.trip-includes-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.trip-list-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.trip-list-icon--check {
+  color: var(--color-success);
+}
+
+.trip-list-icon--x {
+  color: var(--color-error);
+}
+
+/* ============================================
+   PRICING CARD
+   ============================================ */
+.trip-pricing-section {
+  background: var(--color-bg);
+  padding-block: clamp(var(--space-16), 6vw, var(--space-24));
+}
+
+.trip-pricing-card {
+  max-width: 520px;
+  margin: 0 auto;
+  background: var(--color-surface);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.trip-pricing-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-3);
+}
+
+.trip-pricing-amount {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.1;
+  margin-bottom: var(--space-1);
+}
+
+.trip-pricing-unit {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.trip-pricing-cta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.trip-pricing-cta .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.trip-pricing-note {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  margin-top: var(--space-4);
+  line-height: 1.5;
+}
+
+/* ============================================
+   "YOU MIGHT ALSO LIKE" CARDS
+   ============================================ */
+.trip-related {
+  background: var(--color-surface-offset);
+  padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+}
+
+.trip-related-header {
+  text-align: center;
+  margin-bottom: var(--space-10);
+}
+
+.trip-related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.trip-related-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: box-shadow var(--transition-interactive),
+              transform var(--transition-interactive);
+  box-shadow: var(--shadow-sm);
+}
+
+.trip-related-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.trip-related-card-image {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.trip-related-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trip-related-card:hover .trip-related-card-image img {
+  transform: scale(1.05);
+}
+
+.trip-related-card-body {
+  padding: var(--space-5) var(--space-6);
+}
+
+.trip-related-card-name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+  line-height: 1.2;
+}
+
+.trip-related-card-meta {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.trip-related-card-price {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+.trip-cta {
+  background: var(--color-text);
+  padding-block: clamp(var(--space-16), 6vw, var(--space-20));
+  text-align: center;
+}
+
+[data-theme="dark"] .trip-cta {
+  background: var(--color-surface-offset-2);
+}
+
+.trip-cta-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: var(--space-4);
+  line-height: 1.1;
+}
+
+[data-theme="dark"] .trip-cta-title {
+  color: var(--color-text);
+}
+
+.trip-cta-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: rgba(255,255,255,0.65);
+  max-width: 45ch;
+  margin: 0 auto var(--space-8);
+  line-height: 1.6;
+}
+
+[data-theme="dark"] .trip-cta-subtitle {
+  color: var(--color-text-muted);
+}
+
+.trip-cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-6);
+}
+
+.trip-cta-phone {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.5);
+}
+
+[data-theme="dark"] .trip-cta-phone {
+  color: var(--color-text-muted);
+}
+
+.trip-cta-phone a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color var(--transition-interactive);
+}
+
+.trip-cta-phone a:hover {
+  color: #fff;
+}
+
+[data-theme="dark"] .trip-cta-phone a {
+  color: var(--color-text);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .trip-hero {
+    min-height: 55vh;
+  }
+
+  .trip-highlights-grid {
+    gap: var(--space-4);
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: var(--space-2);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .trip-highlights-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .trip-includes-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .trip-related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-timeline::before {
+    left: 18px;
+  }
+
+  .trip-day {
+    padding-left: 54px;
+  }
+
+  .trip-day-number {
+    width: 32px;
+    height: 32px;
+    left: 3px;
+    font-size: 0.7rem;
+  }
+
+  .trip-day-content {
+    padding: var(--space-4) var(--space-5);
+  }
+
+  .trip-pricing-card {
+    padding: var(--space-8);
+  }
+
+  .trip-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .trip-cta-actions .btn {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .trip-hero {
+    min-height: 50vh;
+  }
+
+  .trip-hero-title {
+    font-size: var(--text-2xl);
+  }
+}
+
+@media (hover: none) {
+  .trip-related-card:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
+   PRICING TIERS TABLE
+   ============================================ */
+.pricing-tiers-wrapper {
+  max-width: 680px;
+  margin: var(--space-10) auto 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+}
+
+.pricing-tiers-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.pricing-tiers-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+}
+
+.pricing-tiers-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pricing-tiers-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+}
+
+.pricing-tiers-table thead th {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 2px solid var(--color-divider);
+}
+
+.pricing-tier-row td {
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--color-divider);
+  vertical-align: middle;
+}
+
+.pricing-tier-featured {
+  background: color-mix(in oklch, var(--color-primary) 8%, transparent);
+}
+
+.pricing-tier-featured td {
+  border-bottom-color: color-mix(in oklch, var(--color-primary) 20%, transparent);
+}
+
+.pricing-tier-name {
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.pricing-tier-badge {
+  display: inline-block;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: var(--space-2);
+  vertical-align: middle;
+}
+
+.pricing-tier-price {
+  font-weight: 700;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.pricing-tier-featured .pricing-tier-price {
+  font-size: var(--text-base);
+}
+
+.pricing-tier-details {
+  color: var(--color-text-muted);
+}
+
+.pricing-tiers-note {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  margin-top: var(--space-4);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.pricing-tiers-cta {
+  margin-top: var(--space-5);
+}
+
+.pricing-tiers-cta .btn {
+  min-width: 200px;
+}
+
+@media (max-width: 480px) {
+  .pricing-tiers-wrapper {
+    padding: var(--space-5) var(--space-3);
+  }
+
+  .pricing-tiers-table {
+    font-size: var(--text-xs);
+  }
+
+  .pricing-tier-badge {
+    display: block;
+    margin-left: 0;
+    margin-top: 2px;
+    width: fit-content;
+  }
+}
