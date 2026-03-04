@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ecuador — Condor Trails. Four worlds in one country: Galápagos wildlife, Andean volcanoes, Amazon rainforest, and colonial Quito. Your equatorial adventure starts here.">
+  <title>Ecuador — Condor Trails | Four Worlds, Infinite Wonders</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./destinations.css">
+  <link rel="stylesheet" href="./chatbot.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+<!-- Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
+</head>
+<body>
+
+<!-- Skip to content -->
+<a href="#main" class="skip-to-content">Skip to content</a>
+
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="./index.html" class="nav-logo" aria-label="Condor Trails — Home">
+        <svg class="nav-logo-icon" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="currentColor"/>
+          <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="currentColor"/>
+          <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="currentColor"/>
+          <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="currentColor" opacity="0.8"/>
+          <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="currentColor"/>
+        </svg>
+        <span class="nav-logo-text">Condor Trails</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="./index.html#destinations" class="nav-link-active">Destinations</a></li>
+        <li><a href="./index.html#experiences">Experiences</a></li>
+        <li><a href="./index.html#how-it-works">How It Works</a></li>
+        <li><a href="./index.html#about">About</a></li>
+        <li><a href="./blog.html">Blog</a></li>
+        <li><a href="./recipes.html">Recipes</a></li>
+        <li><a href="./index.html#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <a href="./index.html#contact" class="btn btn-primary nav-cta">Plan My Journey</a>
+        <button class="nav-menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile nav drawer -->
+<div class="nav-mobile" id="mobileNav" role="dialog" aria-label="Navigation menu" aria-modal="true">
+  <button class="nav-mobile-close" id="mobileNavClose" aria-label="Close navigation menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+  <div style="display: flex; align-items: center; gap: var(--space-3);">
+    <svg width="32" height="22" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="var(--color-primary)"/>
+      <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="var(--color-primary)"/>
+      <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="var(--color-primary)"/>
+      <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="var(--color-primary)" opacity="0.8"/>
+      <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="var(--color-primary)"/>
+    </svg>
+    <span style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text);">Condor Trails</span>
+  </div>
+  <ul class="nav-mobile-links" role="list">
+    <li><a href="./index.html#destinations" onclick="closeMobileNav()">Destinations</a></li>
+    <li><a href="./index.html#experiences" onclick="closeMobileNav()">Experiences</a></li>
+    <li><a href="./index.html#how-it-works" onclick="closeMobileNav()">How It Works</a></li>
+    <li><a href="./index.html#about" onclick="closeMobileNav()">About</a></li>
+    <li><a href="./blog.html" onclick="closeMobileNav()">Blog</a></li>
+    <li><a href="./recipes.html" onclick="closeMobileNav()">Recipes</a></li>
+    <li><a href="./index.html#contact" onclick="closeMobileNav()">Contact</a></li>
+  </ul>
+  <div style="margin-top: var(--space-8);">
+    <a href="./index.html#contact" onclick="closeMobileNav()" class="btn btn-primary" style="width: 100%; justify-content: center;">Plan My Journey</a>
+  </div>
+</div>
+
+<!-- ============================================
+     MAIN CONTENT
+     ============================================ -->
+<main id="main">
+
+  <!-- 1. CINEMATIC HERO -->
+  <section id="hero" aria-label="Ecuador Hero">
+    <div class="hero-bg" id="heroBg">
+      <img
+        src="https://images.unsplash.com/photo-1555990793-da11153b2473?w=1920&q=80"
+        alt="Quilotoa crater lake turquoise water surrounded by Andean mountains Ecuador"
+        fetchpriority="high"
+        width="1920"
+        height="1080"
+      >
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <span class="hero-tagline-small">Destinations</span>
+      <h1 class="hero-title"><em>Ecuador</em></h1>
+      <p class="hero-subtitle">Four Worlds, Infinite Wonders</p>
+
+      <div class="hero-stats">
+        <span class="hero-stat"><strong>From $2,800</strong></span>
+        <span class="hero-stat"><strong>7–14</strong> days</span>
+        <span class="hero-stat"><strong>5</strong> UNESCO Sites</span>
+        <span class="hero-stat"><strong>Jun–Sep</strong></span>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#itinerary" class="btn btn-secondary btn-lg">View Itinerary</a>
+        <a href="./index.html#contact" class="btn btn-outline-light btn-lg">Plan My Journey</a>
+      </div>
+    </div>
+
+    <a href="#stats" class="hero-scroll" aria-label="Scroll down">
+      <span class="hero-scroll-text">Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </a>
+  </section>
+
+
+  <!-- 2. QUICK STATS STRIP -->
+  <section id="stats" class="stats-strip" aria-label="Quick facts about Ecuador">
+    <div class="container">
+      <div class="stats-strip-inner">
+        <div class="stats-strip-item">
+          <div class="stats-strip-value">Jun–Sep</div>
+          <div class="stats-strip-label">Best Time</div>
+        </div>
+        <div class="stats-strip-item">
+          <div class="stats-strip-value">Spanish</div>
+          <div class="stats-strip-label">Language</div>
+        </div>
+        <div class="stats-strip-item">
+          <div class="stats-strip-value">USD</div>
+          <div class="stats-strip-label">US Dollar</div>
+        </div>
+        <div class="stats-strip-item">
+          <div class="stats-strip-value">Quito</div>
+          <div class="stats-strip-label">Capital</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 3. EDITORIAL INTRODUCTION -->
+  <section id="intro" class="intro-section" aria-labelledby="intro-heading">
+    <div class="container container--default">
+      <div class="fade-in" style="text-align: center;">
+        <p class="section-eyebrow">Discover Ecuador</p>
+        <h2 class="section-heading" id="intro-heading" style="margin-inline: auto;">A Symphony of Ecosystems</h2>
+      </div>
+
+      <div class="intro-content fade-in">
+        <p>Nestled on the equator, Ecuador captivates with extraordinary diversity — from the wildlife wonderland of the Galápagos Islands, where blue-footed boobies dance and giant tortoises roam, to the mist-shrouded Amazon teeming with pink dolphins and shaman-led jungle treks. Ascend the Avenue of Volcanoes to hike snow-capped Cotopaxi or wander UNESCO-listed Quito's colonial plazas, then unwind in Cuenca's artisan ateliers crafting iconic Panama hats.</p>
+
+        <div class="intro-highlight">
+          Ecuador packs more biodiversity per square kilometre than almost any country on Earth. Four distinct worlds — Andes, Coast, Amazon, and Galápagos — compressed into a country the size of Colorado. This is nature's greatest stage.
+        </div>
+
+        <p>This compact gem packs equatorial beaches fringed by whale-watching waters, cloud forests alive with toucans, and Andean markets bursting with colour. Beyond postcard perfection lies authentic encounters: sipping cacao with indigenous communities, swinging at the "end of the world" in Baños, and snorkelling with sea lions. Ecuador delivers profound, unscripted magic for the curious traveller.</p>
+
+        <div class="intro-personal">
+          <span class="intro-personal-label">The Condor Trails Difference</span>
+          <p>Ecuador and Peru share a border — and much more. The same Quechua language Aleksander grew up speaking in Jauja is spoken in Ecuador's highlands. Our Ecuadorian partners are naturalists and indigenous community leaders who bring the same depth of local knowledge that defines our Peru journeys. When we add Galápagos to your itinerary, we work with small-vessel operators who prioritise wildlife welfare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 4. REGION CARDS -->
+  <section id="regions" class="regions-section" aria-labelledby="regions-heading">
+    <div class="container">
+      <div class="fade-in" style="text-align: center;">
+        <p class="section-eyebrow">Explore the Regions</p>
+        <h2 class="section-heading" id="regions-heading" style="margin-inline: auto;">Where to Go in Ecuador</h2>
+        <p class="section-subheading" style="margin-inline: auto;">Each region offers a distinct character and experience. We design itineraries that weave them together — or let you dive deep into one.</p>
+      </div>
+
+      <div class="regions-grid stagger-children">
+
+        <div class="region-card fade-in">
+          <div class="region-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1555990793-da11153b2473?w=800&q=80"
+              alt="Galápagos Islands sea lion resting on beach with turquoise water"
+              loading="lazy" width="800" height="533"
+            >
+            <div class="region-card-image-overlay"><span>Galápagos Islands</span></div>
+          </div>
+          <div class="region-card-body">
+            <div class="region-card-name">Galápagos Islands</div>
+            <div class="region-card-tagline">Darwin's Living Laboratory</div>
+            <ul class="region-highlights">
+              <li>Snorkel with sea lions &amp; marine iguanas</li>
+              <li>Giant tortoise breeding centres</li>
+              <li>Blue-footed booby nesting sites</li>
+              <li>Small-vessel cruises &amp; island hopping</li>
+            </ul>
+            <div class="region-meta">
+              <span class="region-meta-tag">Year-round</span>
+              <span class="region-meta-tag">4–8 days</span>
+              <span class="region-meta-tag">Sea level</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="region-card fade-in">
+          <div class="region-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&q=80"
+              alt="Quito UNESCO old town with colonial churches and Andean mountains"
+              loading="lazy" width="800" height="533"
+            >
+            <div class="region-card-image-overlay"><span>Quito &amp; the Andes</span></div>
+          </div>
+          <div class="region-card-body">
+            <div class="region-card-name">Quito &amp; the Andes</div>
+            <div class="region-card-tagline">Colonial Charm at the Centre of the World</div>
+            <ul class="region-highlights">
+              <li>UNESCO Old Town — best preserved in South America</li>
+              <li>Mitad del Mundo equator monument</li>
+              <li>Cotopaxi Volcano &amp; Quilotoa Crater Lake</li>
+              <li>Otavalo indigenous market — South America's largest</li>
+            </ul>
+            <div class="region-meta">
+              <span class="region-meta-tag">Jun–Sep</span>
+              <span class="region-meta-tag">3–5 days</span>
+              <span class="region-meta-tag">2,850 m</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="region-card fade-in">
+          <div class="region-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1619546952812-520e98064a52?w=800&q=80"
+              alt="Ecuador Amazon rainforest with dense canopy and river"
+              loading="lazy" width="800" height="533"
+            >
+            <div class="region-card-image-overlay"><span>Amazon Rainforest</span></div>
+          </div>
+          <div class="region-card-body">
+            <div class="region-card-name">Amazon Rainforest</div>
+            <div class="region-card-tagline">Jungle Lodges &amp; Indigenous Wisdom</div>
+            <ul class="region-highlights">
+              <li>Yasuni National Park — world's most biodiverse place</li>
+              <li>Pink river dolphin &amp; monkey spotting</li>
+              <li>Indigenous community homestays</li>
+              <li>Canopy walks &amp; night jungle treks</li>
+            </ul>
+            <div class="region-meta">
+              <span class="region-meta-tag">Year-round</span>
+              <span class="region-meta-tag">3–5 days</span>
+              <span class="region-meta-tag">Lowland</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="region-card fade-in">
+          <div class="region-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1478827387698-1527781a4887?w=800&q=80"
+              alt="Cuenca Ecuador riverside with blue-domed cathedral and colonial architecture"
+              loading="lazy" width="800" height="533"
+            >
+            <div class="region-card-image-overlay"><span>Cuenca &amp; Southern Highlands</span></div>
+          </div>
+          <div class="region-card-body">
+            <div class="region-card-name">Cuenca &amp; Southern Highlands</div>
+            <div class="region-card-tagline">Panama Hats &amp; Mountain Mist</div>
+            <ul class="region-highlights">
+              <li>UNESCO riverside colonial city</li>
+              <li>Panama hat workshops &amp; artisan studios</li>
+              <li>Cajas National Park hiking</li>
+              <li>Ingapirca — Ecuador's most important Inca ruins</li>
+            </ul>
+            <div class="region-meta">
+              <span class="region-meta-tag">Jun–Sep</span>
+              <span class="region-meta-tag">2–3 days</span>
+              <span class="region-meta-tag">2,550 m</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="region-card fade-in">
+          <div class="region-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800&q=80"
+              alt="Baños Ecuador swing over Tungurahua volcano valley"
+              loading="lazy" width="800" height="533"
+            >
+            <div class="region-card-image-overlay"><span>Baños &amp; the Waterfalls</span></div>
+          </div>
+          <div class="region-card-body">
+            <div class="region-card-name">Baños &amp; the Waterfalls</div>
+            <div class="region-card-tagline">Adventure Capital of Ecuador</div>
+            <ul class="region-highlights">
+              <li>Swing at the End of the World</li>
+              <li>Ruta de las Cascadas waterfall route</li>
+              <li>Hot springs beneath Tungurahua volcano</li>
+              <li>Canyoning, rafting &amp; zip-lining</li>
+            </ul>
+            <div class="region-meta">
+              <span class="region-meta-tag">Year-round</span>
+              <span class="region-meta-tag">2–3 days</span>
+              <span class="region-meta-tag">1,820 m</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 5. KEY EXPERIENCES -->
+  <section id="experiences" class="experiences-section" aria-labelledby="experiences-heading">
+    <div class="container">
+      <div class="fade-in" style="text-align: center;">
+        <p class="section-eyebrow">Signature Experiences</p>
+        <h2 class="section-heading" id="experiences-heading" style="margin-inline: auto;">Must-Do in Ecuador</h2>
+        <p class="section-subheading" style="margin-inline: auto;">The experiences that define a journey here — each one designed to be more than a tick on a list.</p>
+      </div>
+
+      <div class="experiences-grid-dest stagger-children">
+
+        <div class="experience-card fade-in">
+          <div class="experience-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" opacity="0.3"/><path d="M5 17c1.5-2.5 4-4 7-4s5.5 1.5 7 4"/></svg>
+          </div>
+          <div class="experience-title">Snorkel with Sea Lions</div>
+          <p class="experience-text">Slip into the water beside playful Galápagos sea lions — one of the most magical wildlife encounters on the planet.</p>
+        </div>
+
+        <div class="experience-card fade-in">
+          <div class="experience-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21l-5-10 5-4 4 7 4-7 5 4-5 10z"/></svg>
+          </div>
+          <div class="experience-title">Hike Cotopaxi Volcano</div>
+          <p class="experience-text">Ascend to the refuge at 4,864 m on one of the world's highest active volcanoes, with panoramic views of the Avenue of Volcanoes.</p>
+        </div>
+
+        <div class="experience-card fade-in">
+          <div class="experience-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20l2-6h16l2 6"/><path d="M12 4v10M8 8l4-4 4 4"/></svg>
+          </div>
+          <div class="experience-title">Amazon River Cruise</div>
+          <p class="experience-text">Navigate Ecuador's Amazon tributaries spotting pink dolphins, monkeys, caimans, and hundreds of bird species from a jungle lodge.</p>
+        </div>
+
+        <div class="experience-card fade-in">
+          <div class="experience-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="experience-title">Otavalo Market</div>
+          <p class="experience-text">Browse South America's largest indigenous market — handwoven textiles, carved tagua nuts, and Andean crafts at the foot of Imbabura volcano.</p>
+        </div>
+
+        <div class="experience-card fade-in">
+          <div class="experience-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="experience-title">Swing at the End of the World</div>
+          <p class="experience-text">Soar over the Tungurahua valley on the famous swing in Baños — the most Instagrammed spot in Ecuador.</p>
+        </div>
+
+        <div class="experience-card fade-in">
+          <div class="experience-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 4v16M13 4l5 4-5 4"/><path d="M2 20h20" opacity="0.3"/></svg>
+          </div>
+          <div class="experience-title">Quilotoa Crater Lake Trek</div>
+          <p class="experience-text">Hike the rim of this volcanic crater filled with luminous turquoise water — one of the Andes' most stunning natural features.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 6. BEST TIME TO VISIT -->
+  <section id="season" class="season-section" aria-labelledby="season-heading">
+    <div class="container container--default">
+      <div class="fade-in" style="text-align: center;">
+        <p class="section-eyebrow">Planning</p>
+        <h2 class="section-heading" id="season-heading" style="margin-inline: auto;">Best Time to Visit</h2>
+      </div>
+
+      <div class="fade-in">
+        <div class="season-chart">
+            <div class="season-month wet">Jan</div>
+            <div class="season-month wet">Feb</div>
+            <div class="season-month wet">Mar</div>
+            <div class="season-month wet">Apr</div>
+            <div class="season-month good">May</div>
+            <div class="season-month peak">Jun</div>
+            <div class="season-month peak">Jul</div>
+            <div class="season-month peak">Aug</div>
+            <div class="season-month peak">Sep</div>
+            <div class="season-month good">Oct</div>
+            <div class="season-month wet">Nov</div>
+            <div class="season-month wet">Dec</div>
+        </div>
+        <div class="season-legend">
+          <span class="season-legend-item"><span class="season-legend-dot" style="background: var(--color-primary);"></span> Peak / Best</span>
+          <span class="season-legend-item"><span class="season-legend-dot" style="background: var(--color-primary-highlight);"></span> Shoulder / Good</span>
+          <span class="season-legend-item"><span class="season-legend-dot" style="background: var(--color-surface);"></span> Off-season</span>
+        </div>
+        <p class="season-note"><strong>June–September</strong> offers dry highland weather, clear volcano views, and excellent Galápagos marine life. The Galápagos is a year-round destination with different wildlife highlights each season. The Amazon is accessible year-round though drier June–November.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 7. PRACTICAL TIPS -->
+  <section id="practical" class="practical-section" aria-labelledby="practical-heading">
+    <div class="container">
+      <div class="fade-in" style="text-align: center;">
+        <p class="section-eyebrow">Essential Information</p>
+        <h2 class="section-heading" id="practical-heading" style="margin-inline: auto;">Before You Go</h2>
+        <p class="section-subheading" style="margin-inline: auto;">Everything you need to know to travel Ecuador with confidence.</p>
+      </div>
+
+      <div class="practical-grid stagger-children">
+
+        <div class="practical-card fade-in">
+          <div class="practical-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M7 16h.01M11 16h2"/></svg>
+          </div>
+          <div class="practical-title">Visa &amp; Entry</div>
+          <p class="practical-text"><strong>Visa-free for up to 90 days</strong> for most nationalities with a valid passport. No advance forms required. Passport must be valid for 6+ months beyond entry date.</p>
+        </div>
+
+        <div class="practical-card fade-in">
+          <div class="practical-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6M12 9v6"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          </div>
+          <div class="practical-title">Altitude</div>
+          <p class="practical-text"><strong>Quito sits at 2,850 m</strong> — acclimatise by hydrating, resting on arrival, and avoiding alcohol on Day 1. If heading to higher-altitude hikes (Cotopaxi, Quilotoa), build in acclimatisation days. Travel insurance is essential.</p>
+        </div>
+
+        <div class="practical-card fade-in">
+          <div class="practical-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M9 9.5c0-1 .5-1.5 1.5-1.5h1.5c1 0 2 .5 2 1.5s-.5 1.5-2 1.5h-1c-1.5 0-2 .5-2 1.5s1 1.5 2 1.5H14"/></svg>
+          </div>
+          <div class="practical-title">Currency &amp; Money</div>
+          <p class="practical-text"><strong>US Dollar (USD)</strong> is the official currency — no exchange needed for US travellers. ATMs are widely available. Carry small bills ($1, $5, $10) for markets and taxis. Cards accepted in cities and tourist areas.</p>
+        </div>
+
+        <div class="practical-card fade-in">
+          <div class="practical-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+          </div>
+          <div class="practical-title">Getting There</div>
+          <p class="practical-text"><strong>Quito (UIO)</strong> is the main international gateway with connections from Miami, Houston, Amsterdam, and Madrid. Dublin connects via US or European hubs. Galápagos flights depart from Quito or Guayaquil.</p>
+        </div>
+
+        <div class="practical-card fade-in">
+          <div class="practical-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </div>
+          <div class="practical-title">Weather</div>
+          <p class="practical-text"><strong>Equatorial climate varies by altitude.</strong> Coast: 25–31°C year-round. Quito: 10–21°C. Amazon: hot and humid. Galápagos: 20–30°C. Pack layers for the highlands and light clothes for lowlands.</p>
+        </div>
+
+        <div class="practical-card fade-in">
+          <div class="practical-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="practical-title">Safety</div>
+          <p class="practical-text"><strong>Stay vigilant in cities</strong> — use Uber, stick to tourist areas in Quito's Historic Centre and Cuenca. Petty theft is the main risk. The Galápagos and rural highlands are very safe. Register with your embassy before travel.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 8. SAMPLE ITINERARY -->
+  <section id="itinerary" class="itinerary-section" aria-labelledby="itinerary-heading">
+    <div class="container container--default">
+      <div class="fade-in" style="text-align: center;">
+        <p class="section-eyebrow">7-Day Highlights</p>
+        <h2 class="section-heading" id="itinerary-heading" style="margin-inline: auto;">Sample Itinerary</h2>
+        <p class="section-subheading" style="margin-inline: auto;">A curated overview of what seven days in Ecuador can look like. Every itinerary is fully customised to your pace and interests.</p>
+      </div>
+
+      <div class="itinerary-timeline">
+
+        <div class="itinerary-day fade-in">
+          <div class="itinerary-day-label">Day 1</div>
+          <div class="itinerary-day-title">Quito</div>
+          <p class="itinerary-day-desc">Arrive in Quito. Explore the UNESCO Old Town — Plaza Grande, La Compañía church, San Francisco monastery. Evening in La Mariscal.</p>
+        </div>
+
+        <div class="itinerary-day fade-in">
+          <div class="itinerary-day-label">Day 2</div>
+          <div class="itinerary-day-title">Equator &amp; Otavalo</div>
+          <p class="itinerary-day-desc">Visit the Mitad del Mundo equator line. Drive to Otavalo for South America's largest indigenous market. Return to Quito.</p>
+        </div>
+
+        <div class="itinerary-day fade-in">
+          <div class="itinerary-day-label">Day 3</div>
+          <div class="itinerary-day-title">Quilotoa Crater Lake</div>
+          <p class="itinerary-day-desc">Day trip to the stunning turquoise Quilotoa Crater Lake. Hike the rim with panoramic Andean views. Optional descent to the water.</p>
+        </div>
+
+        <div class="itinerary-day fade-in">
+          <div class="itinerary-day-label">Day 4</div>
+          <div class="itinerary-day-title">Baños</div>
+          <p class="itinerary-day-desc">Drive to Baños. Ruta de las Cascadas waterfall route. Swing at the End of the World. Hot springs in the evening.</p>
+        </div>
+
+        <div class="itinerary-day fade-in">
+          <div class="itinerary-day-label">Day 5</div>
+          <div class="itinerary-day-title">Cotopaxi</div>
+          <p class="itinerary-day-desc">Cotopaxi National Park. Hike towards the refuge on this iconic snow-capped volcano. Picnic lunch with volcano views.</p>
+        </div>
+
+        <div class="itinerary-day fade-in">
+          <div class="itinerary-day-label">Day 6</div>
+          <div class="itinerary-day-title">Fly to Galápagos</div>
+          <p class="itinerary-day-desc">Fly to the Galápagos. Afternoon snorkelling at Tortuga Bay. Visit the Charles Darwin Research Station and giant tortoises.</p>
+        </div>
+
+        <div class="itinerary-day fade-in">
+          <div class="itinerary-day-label">Day 7</div>
+          <div class="itinerary-day-title">Galápagos &amp; Departure</div>
+          <p class="itinerary-day-desc">Morning island hopping — blue-footed boobies and sea lion colonies. Afternoon flight to Guayaquil or Quito. Connect home.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 9. CTA SECTION -->
+  <section id="cta" class="cta-section" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-content fade-in">
+        <p class="section-eyebrow">Start Here</p>
+        <h2 id="cta-heading">Ready to Discover Ecuador?</h2>
+        <p>Tell us about your dream trip and we will get back to you within 24 hours with a personalised proposal — designed by people who know South America from the inside.</p>
+        <div class="cta-buttons">
+          <a href="./index.html#contact" class="btn btn-primary btn-lg">Plan My Journey</a>
+          <a href="tel:+353857604985" class="btn btn-outline btn-lg">Call Us: +353 85 760 4985</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="28" height="20" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="var(--color-primary)"/>
+            <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="var(--color-primary)"/>
+            <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="var(--color-primary)"/>
+            <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="var(--color-primary)" opacity="0.8"/>
+            <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="var(--color-primary)"/>
+          </svg>
+          <span class="footer-logo-text">Condor Trails</span>
+        </div>
+        <div class="footer-tagline">South America, Revealed.</div>
+        <div class="footer-newsletter-label">Stay Inspired</div>
+        <form class="footer-newsletter-form" onsubmit="handleNewsletterSubmit(event)" aria-label="Newsletter subscription">
+          <label class="sr-only" for="newsletter-email">Email address for newsletter</label>
+          <input type="email" id="newsletter-email" class="footer-newsletter-input" placeholder="your@email.com" autocomplete="email" aria-label="Email address">
+          <button type="submit" class="footer-newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Destinations</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./peru.html">Peru</a></li>
+          <li><a href="./patagonia.html">Patagonia</a></li>
+          <li><a href="./bolivia.html">Bolivia</a></li>
+          <li><a href="./colombia.html">Colombia</a></li>
+          <li><a href="./ecuador.html">Ecuador &amp; Galápagos</a></li>
+          <li><a href="./argentina.html">Argentina</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./index.html#about">About Us</a></li>
+          <li><a href="./index.html#how-it-works">How It Works</a></li>
+          <li><a href="./index.html#about">Sustainability</a></li>
+          <li><a href="./blog.html">Blog</a></li>
+          <li><a href="./recipes.html">Recipes</a></li>
+          <li><a href="./index.html#contact">Careers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Support</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./index.html#contact">Contact</a></li>
+          <li><a href="./index.html#contact">FAQ</a></li>
+          <li><a href="./index.html#contact">Travel Insurance</a></li>
+          <li><a href="./terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="./privacy.html">Privacy Policy</a></li>
+        </ul>
+        <div class="footer-col-title" style="margin-top: var(--space-6);">Connect</div>
+        <ul class="footer-links" role="list">
+          <li><a href="https://instagram.com/condortrails" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://facebook.com/condortrails" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          <li><a href="https://tripadvisor.com" target="_blank" rel="noopener noreferrer">TripAdvisor</a></li>
+          <li><a href="tel:+353857604985">Phone</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2026 Condor Trails. All rights reserved.</p>
+      <p class="footer-made">Made with passion in Peru.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
+<script>
+  'use strict';
+
+  // THEME TOGGLE
+  (function() {
+    const root = document.documentElement;
+    let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.setAttribute('data-theme', theme);
+    const toggle = document.querySelector('[data-theme-toggle]');
+    if (toggle) {
+      updateToggleIcon(toggle, theme);
+      toggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+        updateToggleIcon(toggle, theme);
+      });
+    }
+    function updateToggleIcon(btn, t) {
+      btn.innerHTML = t === 'dark'
+        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    }
+  })();
+
+  // STICKY NAV
+  (function() {
+    const nav = document.getElementById('nav');
+    let ticking = false;
+    function updateNav() {
+      if (window.scrollY > 60) { nav.classList.add('scrolled'); }
+      else { nav.classList.remove('scrolled'); }
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(updateNav); ticking = true; }
+    }, { passive: true });
+  })();
+
+  // HERO PARALLAX
+  (function() {
+    const heroBg = document.getElementById('heroBg');
+    if (!heroBg) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let ticking = false;
+    function updateParallax() {
+      const scrolled = window.scrollY;
+      const rate = scrolled * 0.35;
+      heroBg.style.transform = `translateY(${rate}px)`;
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
+    }, { passive: true });
+  })();
+
+  // MOBILE NAV
+  const mobileNav = document.getElementById('mobileNav');
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNavClose = document.getElementById('mobileNavClose');
+  let isNavOpen = false;
+  function openMobileNav() {
+    mobileNav.style.display = 'flex';
+    requestAnimationFrame(() => { mobileNav.classList.add('open'); });
+    document.body.style.overflow = 'hidden';
+    menuToggle.setAttribute('aria-expanded', 'true');
+    isNavOpen = true;
+  }
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+    menuToggle.setAttribute('aria-expanded', 'false');
+    isNavOpen = false;
+    setTimeout(() => { mobileNav.style.display = 'none'; }, 350);
+  }
+  if (menuToggle) menuToggle.addEventListener('click', openMobileNav);
+  if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isNavOpen) closeMobileNav();
+  });
+
+  // NEWSLETTER FORM
+  function handleNewsletterSubmit(e) {
+    e.preventDefault();
+    const input = document.getElementById('newsletter-email');
+    const btn = e.target.querySelector('.footer-newsletter-btn');
+    if (!input.value.trim()) return;
+    btn.textContent = 'Subscribed!';
+    btn.style.background = 'var(--color-success, #437a22)';
+    input.value = '';
+    setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 3000);
+  }
+
+  // SMOOTH SCROLL
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const id = anchor.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // INTERSECTION OBSERVER for fade-in (fallback)
+  if (!CSS.supports('animation-timeline', 'scroll()')) {
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const parent = entry.target.parentElement;
+          if (parent && parent.classList.contains('stagger-children')) {
+            const siblings = Array.from(parent.querySelectorAll('.fade-in'));
+            const idx = siblings.indexOf(entry.target);
+            entry.target.style.transitionDelay = (idx * 50) + 'ms';
+          }
+          entry.target.style.opacity = '1';
+          entry.target.style.transition = 'opacity 600ms cubic-bezier(0.16, 1, 0.3, 1)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    fadeEls.forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  }
+
+  // IMAGE LAZY LOAD BLUR-UP EFFECT
+  document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+    img.style.transition = 'filter 400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms cubic-bezier(0.16, 1, 0.3, 1)';
+    if (!img.complete) {
+      img.style.filter = 'blur(8px)';
+      img.style.opacity = '0.6';
+      img.addEventListener('load', function() {
+        this.style.filter = 'blur(0)';
+        this.style.opacity = '1';
+      }, { once: true });
+    }
+  });
+</script>
+
+<script src="./chatbot.js"></script>
+</body>
+</html>
