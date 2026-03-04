@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Design your dream South American journey with Condor Trails. Choose destinations, travel style, and budget — we'll craft the adventure.">
+  <title>Trip Planner — Condor Trails</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./planner.css">
+  <link rel="stylesheet" href="./chatbot.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+<!-- Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
+</head>
+<body>
+
+<!-- Skip to content -->
+<a href="#main" class="skip-to-content">Skip to content</a>
+
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
+<nav class="nav scrolled" id="nav" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a href="./index.html" class="nav-logo" aria-label="Condor Trails — Home">
+        <!-- Condor silhouette SVG: bird in flight seen from below, wings spread -->
+        <svg class="nav-logo-icon" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Body -->
+          <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="currentColor"/>
+          <!-- Left wing — sweeping outward and upward -->
+          <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="currentColor"/>
+          <!-- Right wing — sweeping outward and upward (mirrored) -->
+          <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="currentColor"/>
+          <!-- Tail -->
+          <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="currentColor" opacity="0.8"/>
+          <!-- Head -->
+          <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="currentColor"/>
+        </svg>
+        <span class="nav-logo-text">Condor Trails</span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links" role="list">
+        <li><a href="./index.html#destinations">Destinations</a></li>
+        <li><a href="./index.html#experiences">Experiences</a></li>
+        <li><a href="./index.html#how-it-works">How It Works</a></li>
+        <li><a href="./index.html#about">About</a></li>
+        <li><a href="./blog.html">Blog</a></li>
+        <li><a href="./recipes.html">Recipes</a></li>
+        <li><a href="./planner.html">Trip Planner</a></li>
+        <li><a href="./index.html#contact">Contact</a></li>
+      </ul>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <!-- Theme toggle -->
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- CTA -->
+        <a href="./index.html#contact" class="btn btn-primary nav-cta">Plan My Journey</a>
+
+        <!-- Mobile toggle -->
+        <button class="nav-menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile nav drawer -->
+<div class="nav-mobile" id="mobileNav" role="dialog" aria-label="Navigation menu" aria-modal="true">
+  <button class="nav-mobile-close" id="mobileNavClose" aria-label="Close navigation menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+
+  <div style="display: flex; align-items: center; gap: var(--space-3);">
+    <svg width="32" height="22" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="var(--color-primary)"/>
+      <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="var(--color-primary)"/>
+      <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="var(--color-primary)"/>
+      <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="var(--color-primary)" opacity="0.8"/>
+      <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="var(--color-primary)"/>
+    </svg>
+    <span style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text);">Condor Trails</span>
+  </div>
+
+  <ul class="nav-mobile-links" role="list">
+    <li><a href="./index.html#destinations" onclick="closeMobileNav()">Destinations</a></li>
+    <li><a href="./index.html#experiences" onclick="closeMobileNav()">Experiences</a></li>
+    <li><a href="./index.html#how-it-works" onclick="closeMobileNav()">How It Works</a></li>
+    <li><a href="./index.html#about" onclick="closeMobileNav()">About</a></li>
+    <li><a href="./blog.html" onclick="closeMobileNav()">Blog</a></li>
+    <li><a href="./recipes.html" onclick="closeMobileNav()">Recipes</a></li>
+    <li><a href="./planner.html" onclick="closeMobileNav()">Trip Planner</a></li>
+    <li><a href="./index.html#contact" onclick="closeMobileNav()">Contact</a></li>
+  </ul>
+  <div style="margin-top: var(--space-8);">
+    <a href="./index.html#contact" onclick="closeMobileNav()" class="btn btn-primary" style="width: 100%; justify-content: center;">Plan My Journey</a>
+  </div>
+</div>
+
+<!-- ============================================
+     MAIN CONTENT
+     ============================================ -->
+<main id="main">
+
+  <!-- =====================
+       PLANNER HERO
+       ===================== -->
+  <section class="planner-hero" aria-label="Trip planner hero">
+    <div class="planner-hero-content">
+      <h1 class="planner-hero-title">Design Your <em>Journey</em></h1>
+      <p class="planner-hero-subtitle">Tell us your dreams. We'll craft the adventure.</p>
+    </div>
+  </section>
+
+  <!-- =====================
+       PROGRESS BAR
+       ===================== -->
+  <div class="planner-progress" id="plannerProgress" aria-label="Planning progress">
+    <div class="progress-inner">
+      <button class="progress-step active" data-step="1" aria-current="step">
+        <span class="progress-dot">1</span>
+        <span class="progress-label">Where</span>
+      </button>
+      <div class="progress-connector" data-connector="1"></div>
+      <button class="progress-step" data-step="2">
+        <span class="progress-dot">2</span>
+        <span class="progress-label">When</span>
+      </button>
+      <div class="progress-connector" data-connector="2"></div>
+      <button class="progress-step" data-step="3">
+        <span class="progress-dot">3</span>
+        <span class="progress-label">Style</span>
+      </button>
+      <div class="progress-connector" data-connector="3"></div>
+      <button class="progress-step" data-step="4">
+        <span class="progress-dot">4</span>
+        <span class="progress-label">Details</span>
+      </button>
+      <div class="progress-connector" data-connector="4"></div>
+      <button class="progress-step" data-step="5">
+        <span class="progress-dot">5</span>
+        <span class="progress-label">Send</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =====================
+       STEP PANELS
+       ===================== -->
+  <div class="planner-steps" id="plannerSteps">
+
+    <!-- ===== STEP 1: WHERE ===== -->
+    <section class="planner-step active" data-panel="1" aria-label="Step 1: Choose destinations">
+      <div class="container">
+        <div class="step-header">
+          <p class="section-eyebrow">Step 1</p>
+          <h2 class="section-heading">Where Would You Like to Go?</h2>
+          <p class="section-subheading">Select one or more destinations that call to you.</p>
+        </div>
+
+        <div class="destinations-layout">
+          <div class="dest-select-grid">
+
+            <div class="dest-select-card" data-dest="peru" role="checkbox" aria-checked="false" tabindex="0">
+              <div class="dest-select-img">
+                <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=600&q=80" alt="Machu Picchu, Peru" loading="lazy" width="600" height="450">
+              </div>
+              <div class="dest-select-info">
+                <div class="dest-select-name">Peru</div>
+                <div class="dest-select-tagline">Ancient wonders &amp; living culture</div>
+              </div>
+            </div>
+
+            <div class="dest-select-card" data-dest="bolivia" role="checkbox" aria-checked="false" tabindex="0">
+              <div class="dest-select-img">
+                <img src="https://images.unsplash.com/photo-1583901370237-2befec865f88?w=600&q=80" alt="Salar de Uyuni, Bolivia" loading="lazy" width="600" height="450">
+              </div>
+              <div class="dest-select-info">
+                <div class="dest-select-name">Bolivia</div>
+                <div class="dest-select-tagline">Salt flats &amp; altiplano majesty</div>
+              </div>
+            </div>
+
+            <div class="dest-select-card" data-dest="patagonia" role="checkbox" aria-checked="false" tabindex="0">
+              <div class="dest-select-img">
+                <img src="https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?w=600&q=80" alt="Patagonia mountains" loading="lazy" width="600" height="450">
+              </div>
+              <div class="dest-select-info">
+                <div class="dest-select-name">Patagonia</div>
+                <div class="dest-select-tagline">Glaciers, peaks &amp; infinite horizons</div>
+              </div>
+            </div>
+
+            <div class="dest-select-card" data-dest="colombia" role="checkbox" aria-checked="false" tabindex="0">
+              <div class="dest-select-img">
+                <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=600&q=80" alt="Colorful streets of Colombia" loading="lazy" width="600" height="450">
+              </div>
+              <div class="dest-select-info">
+                <div class="dest-select-name">Colombia</div>
+                <div class="dest-select-tagline">Caribbean coast to coffee highlands</div>
+              </div>
+            </div>
+
+            <div class="dest-select-card" data-dest="ecuador" role="checkbox" aria-checked="false" tabindex="0">
+              <div class="dest-select-img">
+                <img src="https://images.unsplash.com/photo-1555990793-da11153b2473?w=600&q=80" alt="Ecuador landscape" loading="lazy" width="600" height="450">
+              </div>
+              <div class="dest-select-info">
+                <div class="dest-select-name">Ecuador</div>
+                <div class="dest-select-tagline">Andes, Amazon &amp; Galápagos</div>
+              </div>
+            </div>
+
+            <div class="dest-select-card" data-dest="argentina" role="checkbox" aria-checked="false" tabindex="0">
+              <div class="dest-select-img">
+                <img src="https://images.unsplash.com/photo-1612294037637-ec328d0e075e?w=600&q=80" alt="Buenos Aires, Argentina" loading="lazy" width="600" height="450">
+              </div>
+              <div class="dest-select-info">
+                <div class="dest-select-name">Argentina</div>
+                <div class="dest-select-tagline">Tango, wine &amp; wild frontiers</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- SVG MAP -->
+          <div class="dest-map-wrap" aria-hidden="true">
+            <div class="dest-map-title">Your Selections</div>
+            <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+              <!-- Colombia -->
+              <path class="map-country" data-map="colombia"
+                d="M40,30 L55,25 L75,28 L85,35 L90,50 L82,65 L75,72 L65,70 L55,75 L45,68 L35,55 L30,42 Z"/>
+              <!-- Ecuador -->
+              <path class="map-country" data-map="ecuador"
+                d="M35,75 L45,68 L55,75 L58,85 L50,95 L38,92 L30,85 Z"/>
+              <!-- Peru -->
+              <path class="map-country" data-map="peru"
+                d="M50,95 L58,85 L55,75 L65,70 L75,72 L82,65 L90,72 L95,85 L100,100 L95,120 L85,130 L70,125 L60,115 L50,105 Z"/>
+              <!-- Bolivia -->
+              <path class="map-country" data-map="bolivia"
+                d="M85,130 L95,120 L100,100 L110,105 L120,115 L115,135 L105,145 L90,140 Z"/>
+              <!-- Argentina (including Patagonia region) -->
+              <path class="map-country" data-map="argentina"
+                d="M75,155 L90,140 L105,145 L115,135 L120,115 L130,125 L125,145 L120,165 L115,185 L110,200 L105,220 L100,240 L95,255 L85,270 L80,260 L85,240 L82,220 L78,200 L75,180 L72,165 Z"/>
+              <!-- Patagonia (southern Argentina/Chile) -->
+              <path class="map-country" data-map="patagonia"
+                d="M72,210 L78,200 L82,220 L85,240 L80,260 L85,270 L82,280 L75,285 L70,275 L68,255 L65,235 L68,220 Z"
+                style="opacity: 0.85"/>
+              <!-- Chile (thin strip along west) -->
+              <path class="map-country" data-map="chile"
+                d="M60,115 L70,125 L75,155 L72,165 L75,180 L72,210 L68,220 L65,235 L68,255 L70,275 L65,280 L60,270 L58,250 L55,230 L58,210 L60,190 L58,170 L55,150 L52,130 Z"
+                style="opacity: 0.4"/>
+              <!-- Brazil (background for context) -->
+              <path class="map-country" data-map="brazil"
+                d="M90,50 L105,40 L125,35 L145,40 L160,55 L170,75 L168,100 L160,120 L145,135 L130,125 L120,115 L110,105 L100,100 L95,85 L90,72 L82,65 L90,50 Z"
+                style="opacity: 0.25"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <button class="btn-next" id="btnNext1">
+            Continue
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 2: WHEN ===== -->
+    <section class="planner-step" data-panel="2" aria-label="Step 2: Choose when to travel">
+      <div class="container">
+        <div class="step-header">
+          <p class="section-eyebrow">Step 2</p>
+          <h2 class="section-heading">When Do You Want to Travel?</h2>
+          <p class="section-subheading">Pick a month or let us know if your dates are flexible.</p>
+        </div>
+
+        <div class="month-grid">
+          <div class="month-card" data-month="January" tabindex="0" role="radio" aria-checked="false">
+            <div class="month-name">Jan</div>
+            <div class="month-season">Summer</div>
+          </div>
+          <div class="month-card" data-month="February" tabindex="0" role="radio" aria-checked="false">
+            <div class="month-name">Feb</div>
+            <div class="month-season">Summer</div>
+          </div>
+          <div class="month-card" data-month="March" tabindex="0" role="radio" aria-checked="false">
+            <div class="month-name">Mar</div>
+            <div class="month-season">Autumn</div>
+          </div>
+          <div class="month-card" data-month="April" tabindex="0" role="radio" aria-checked="false">
+            <div class="month-name">Apr</div>
+            <div class="month-season">Autumn</div>
+          </div>
+          <div class="month-card" data-month="May" tabindex="0" role="radio" aria-checked="false">
+            <div class="month-name">May</div>
+            <div class="month-season">Dry season</div>
+          </div>
+          <div class="month-card" data-month="June" tabindex="0" role="radio" aria-checked="false">
+            <div class="month-name">Jun</div>
+            <div class="month-season">Dry season</div>
+          </div>
+          <div class="month-card" data-month="July" tabindex="0" role="radio" aria-checked="false">
+            <div class="month-name">Jul</div>
+            <div class="month-season">Peak season</div>
+          </div>
+          <div class="month-card" data-month="August" tabindex="0" role="radio" aria-checked="false">
+            <div class="month-name">Aug</div>
+            <div class="month-season">Peak season</div>
+          </div>
+          <div class="month-card" data-month="September" tabindex="0" role="radio" aria-checked="false">
+            <div class="month-name">Sep</div>
+            <div class="month-season">Shoulder</div>
+          </div>
+          <div class="month-card" data-month="October" tabindex="0" role="radio" aria-checked="false">
+            <div class="month-name">Oct</div>
+            <div class="month-season">Spring</div>
+          </div>
+          <div class="month-card" data-month="November" tabindex="0" role="radio" aria-checked="false">
+            <div class="month-name">Nov</div>
+            <div class="month-season">Spring</div>
+          </div>
+          <div class="month-card" data-month="December" tabindex="0" role="radio" aria-checked="false">
+            <div class="month-name">Dec</div>
+            <div class="month-season">Summer</div>
+          </div>
+        </div>
+
+        <div class="flexible-option">
+          <button class="flexible-btn" id="flexibleBtn" type="button">
+            ✶ I'm Flexible — Suggest the Best Time
+          </button>
+        </div>
+
+        <div class="step-nav">
+          <button class="btn-back" data-back>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back
+          </button>
+          <button class="btn-next" id="btnNext2">
+            Continue
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 3: STYLE ===== -->
+    <section class="planner-step" data-panel="3" aria-label="Step 3: Choose travel style">
+      <div class="container">
+        <div class="step-header">
+          <p class="section-eyebrow">Step 3</p>
+          <h2 class="section-heading">What's Your Travel Style?</h2>
+          <p class="section-subheading">Select everything that sparks your interest. We'll weave them into your itinerary.</p>
+        </div>
+
+        <div class="chips-grid">
+          <button class="chip" data-interest="Culture &amp; History" type="button">
+            <span class="chip-icon">🏗️</span> Culture &amp; History
+          </button>
+          <button class="chip" data-interest="Culinary Adventures" type="button">
+            <span class="chip-icon">🍷</span> Culinary Adventures
+          </button>
+          <button class="chip" data-interest="Trekking &amp; Hiking" type="button">
+            <span class="chip-icon">🥾</span> Trekking &amp; Hiking
+          </button>
+          <button class="chip" data-interest="Wildlife &amp; Nature" type="button">
+            <span class="chip-icon">🦜</span> Wildlife &amp; Nature
+          </button>
+          <button class="chip" data-interest="Photography" type="button">
+            <span class="chip-icon">📷</span> Photography
+          </button>
+          <button class="chip" data-interest="Wellness &amp; Relaxation" type="button">
+            <span class="chip-icon">🧘</span> Wellness &amp; Relaxation
+          </button>
+          <button class="chip" data-interest="Family-Friendly" type="button">
+            <span class="chip-icon">👨‍👩‍👧</span> Family-Friendly
+          </button>
+          <button class="chip" data-interest="Off the Beaten Path" type="button">
+            <span class="chip-icon">🗺️</span> Off the Beaten Path
+          </button>
+        </div>
+
+        <div class="step-nav">
+          <button class="btn-back" data-back>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back
+          </button>
+          <button class="btn-next" id="btnNext3">
+            Continue
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 4: DURATION &amp; BUDGET ===== -->
+    <section class="planner-step" data-panel="4" aria-label="Step 4: Duration and budget">
+      <div class="container">
+        <div class="step-header">
+          <p class="section-eyebrow">Step 4</p>
+          <h2 class="section-heading">Duration &amp; Budget</h2>
+          <p class="section-subheading">Help us tailor the perfect trip length and experience level.</p>
+        </div>
+
+        <div class="duration-budget-grid">
+          <div>
+            <div class="option-group-title">How Long?</div>
+            <div class="duration-options">
+              <button class="duration-option" data-duration="7 days" type="button">7 Days</button>
+              <button class="duration-option" data-duration="10 days" type="button">10 Days</button>
+              <button class="duration-option" data-duration="14 days" type="button">14 Days</button>
+              <button class="duration-option" data-duration="21 days" type="button">21 Days</button>
+              <button class="duration-option" data-duration="Custom" type="button">Custom Duration</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="option-group-title">Budget Per Person</div>
+            <div class="budget-options">
+              <button class="budget-option" data-budget="Comfort ($100–150/day)" type="button">
+                <div class="budget-name">Comfort</div>
+                <div class="budget-range">$100 – $150 per day</div>
+              </button>
+              <button class="budget-option" data-budget="Premium ($150–300/day)" type="button">
+                <div class="budget-name">Premium</div>
+                <div class="budget-range">$150 – $300 per day</div>
+              </button>
+              <button class="budget-option" data-budget="Luxury ($300+/day)" type="button">
+                <div class="budget-name">Luxury</div>
+                <div class="budget-range">$300+ per day</div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <button class="btn-back" data-back>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back
+          </button>
+          <button class="btn-next" id="btnNext4">
+            Review &amp; Send
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 5: SUMMARY &amp; SEND ===== -->
+    <section class="planner-step" data-panel="5" aria-label="Step 5: Review and send">
+      <div class="container">
+        <div class="step-header">
+          <p class="section-eyebrow">Step 5</p>
+          <h2 class="section-heading">Your Dream Trip</h2>
+          <p class="section-subheading">Review your selections and share your details. We'll take it from here.</p>
+        </div>
+
+        <div class="summary-layout">
+          <!-- Summary card -->
+          <div class="summary-card">
+            <div class="summary-card-title">Journey Summary</div>
+            <div class="summary-row">
+              <span class="summary-label">Destinations</span>
+              <span class="summary-value" id="sumDest">—</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">When</span>
+              <span class="summary-value" id="sumWhen">—</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Interests</span>
+              <span class="summary-value" id="sumStyle">—</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Duration</span>
+              <span class="summary-value" id="sumDuration">—</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Budget</span>
+              <span class="summary-value" id="sumBudget">—</span>
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <div class="summary-form">
+            <div class="summary-form-title">Almost There</div>
+            <p class="summary-form-subtitle">Share your name and email and our team will start crafting your journey within 24 hours.</p>
+
+            <form id="plannerForm" novalidate>
+              <div class="form-group">
+                <label class="form-label" for="plannerName">Full Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="plannerName" name="plannerName" class="form-input" placeholder="Your full name" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="plannerEmail">Email <span aria-hidden="true">*</span></label>
+                <input type="email" id="plannerEmail" name="plannerEmail" class="form-input" placeholder="you@example.com" required autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="plannerNotes">Anything else we should know?</label>
+                <textarea id="plannerNotes" name="plannerNotes" class="form-textarea" placeholder="Group size, special occasions, accessibility needs…" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: var(--space-4);">
+                Send My Dream Trip
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="step-nav" style="border-top: none;">
+          <button class="btn-back" data-back>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- =====================
+       SUCCESS STATE
+       ===================== -->
+  <div class="planner-success" id="plannerSuccess" aria-live="polite">
+    <div class="planner-success-icon" aria-hidden="true">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <h2 class="planner-success-title">Your Dream Trip Is Being Crafted</h2>
+    <p class="planner-success-message">We'll be in touch within 24 hours with a personalized itinerary designed just for you. In the meantime, start dreaming.</p>
+    <div style="margin-top: var(--space-8);">
+      <a href="./index.html" class="btn btn-outline">Back to Home</a>
+    </div>
+  </div>
+
+</main>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+
+      <!-- Brand + newsletter -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="28" height="20" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="24" cy="16" rx="4.5" ry="3" fill="var(--color-primary)"/>
+            <path d="M19.5 16 C14 13 8 10 2 12 C6 14 9 15.5 11 16 C9 16 5 16.5 1 19 C5 18 10 17.5 14 17 C11 19 8 22 6 25 C9 22 13 19 17 17.5 C18 17 19 16.5 19.5 16Z" fill="var(--color-primary)"/>
+            <path d="M28.5 16 C34 13 40 10 46 12 C42 14 39 15.5 37 16 C39 16 43 16.5 47 19 C43 18 38 17.5 34 17 C37 19 40 22 42 25 C39 22 35 19 31 17.5 C30 17 29 16.5 28.5 16Z" fill="var(--color-primary)"/>
+            <path d="M22 19 L21 26 L24 23 L27 26 L26 19Z" fill="var(--color-primary)" opacity="0.8"/>
+            <ellipse cx="24" cy="13.5" rx="2.2" ry="1.8" fill="var(--color-primary)"/>
+          </svg>
+          <span class="footer-logo-text">Condor Trails</span>
+        </div>
+        <div class="footer-tagline">South America, Revealed.</div>
+
+        <div class="footer-newsletter-label">Stay Inspired</div>
+        <form class="footer-newsletter-form" onsubmit="handleNewsletterSubmit(event)" aria-label="Newsletter subscription">
+          <label class="sr-only" for="newsletter-email">Email address for newsletter</label>
+          <input
+            type="email"
+            id="newsletter-email"
+            class="footer-newsletter-input"
+            placeholder="your@email.com"
+            autocomplete="email"
+            aria-label="Email address"
+          >
+          <button type="submit" class="footer-newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Destinations -->
+      <div>
+        <div class="footer-col-title">Destinations</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./peru.html">Peru</a></li>
+          <li><a href="./patagonia.html">Patagonia</a></li>
+          <li><a href="./bolivia.html">Bolivia</a></li>
+          <li><a href="./colombia.html">Colombia</a></li>
+          <li><a href="./ecuador.html">Ecuador &amp; Galápagos</a></li>
+          <li><a href="./argentina.html">Argentina</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./index.html#about">About Us</a></li>
+          <li><a href="./index.html#how-it-works">How It Works</a></li>
+          <li><a href="./index.html#about">Sustainability</a></li>
+          <li><a href="./index.html#contact">Careers</a></li>
+        </ul>
+      </div>
+
+      <!-- Support + Connect -->
+      <div>
+        <div class="footer-col-title">Support</div>
+        <ul class="footer-links" role="list">
+          <li><a href="./index.html#contact">Contact</a></li>
+          <li><a href="./index.html#contact">FAQ</a></li>
+          <li><a href="./index.html#contact">Travel Insurance</a></li>
+          <li><a href="./terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="./privacy.html">Privacy Policy</a></li>
+        </ul>
+
+        <div class="footer-col-title" style="margin-top: var(--space-6);">Connect</div>
+        <ul class="footer-links" role="list">
+          <li>
+            <a href="https://instagram.com/condortrails" target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com/condortrails" target="_blank" rel="noopener noreferrer">
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://tripadvisor.com" target="_blank" rel="noopener noreferrer">
+              TripAdvisor
+            </a>
+          </li>
+          <li>
+            <a href="tel:+353857604985">
+              Phone
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2026 Condor Trails. All rights reserved.</p>
+      <p class="footer-made">Made with passion in Peru. 🦅</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
+<script>
+  'use strict';
+
+  // ----------------------------------------
+  // STATE
+  // ----------------------------------------
+  const state = {
+    step: 1,
+    destinations: new Set(),
+    month: null,
+    flexible: false,
+    interests: new Set(),
+    duration: null,
+    budget: null
+  };
+
+  // ----------------------------------------
+  // THEME TOGGLE
+  // ----------------------------------------
+  (function() {
+    const root = document.documentElement;
+    let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.setAttribute('data-theme', theme);
+
+    const toggle = document.querySelector('[data-theme-toggle]');
+    if (toggle) {
+      updateToggleIcon(toggle, theme);
+      toggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+        updateToggleIcon(toggle, theme);
+      });
+    }
+
+    function updateToggleIcon(btn, t) {
+      btn.innerHTML = t === 'dark'
+        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    }
+  })();
+
+  // ----------------------------------------
+  // MOBILE NAV
+  // ----------------------------------------
+  const mobileNav = document.getElementById('mobileNav');
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNavClose = document.getElementById('mobileNavClose');
+  let isNavOpen = false;
+
+  function openMobileNav() {
+    mobileNav.style.display = 'flex';
+    requestAnimationFrame(() => { mobileNav.classList.add('open'); });
+    document.body.style.overflow = 'hidden';
+    menuToggle.setAttribute('aria-expanded', 'true');
+    isNavOpen = true;
+  }
+
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+    menuToggle.setAttribute('aria-expanded', 'false');
+    isNavOpen = false;
+    setTimeout(() => { mobileNav.style.display = 'none'; }, 350);
+  }
+
+  if (menuToggle) menuToggle.addEventListener('click', openMobileNav);
+  if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isNavOpen) closeMobileNav(); });
+
+  // ----------------------------------------
+  // NEWSLETTER
+  // ----------------------------------------
+  function handleNewsletterSubmit(e) {
+    e.preventDefault();
+    const input = document.getElementById('newsletter-email');
+    const btn = e.target.querySelector('.footer-newsletter-btn');
+    if (!input.value.trim()) return;
+    btn.textContent = 'Subscribed!';
+    btn.style.background = 'var(--color-success, #437a22)';
+    input.value = '';
+    setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 3000);
+  }
+
+  // ----------------------------------------
+  // STEP NAVIGATION
+  // ----------------------------------------
+  function goToStep(n) {
+    if (n < 1 || n > 5) return;
+    state.step = n;
+
+    // Update panels
+    document.querySelectorAll('.planner-step').forEach(p => p.classList.remove('active'));
+    const target = document.querySelector(`[data-panel="${n}"]`);
+    if (target) target.classList.add('active');
+
+    // Update progress
+    document.querySelectorAll('.progress-step').forEach(s => {
+      const sn = parseInt(s.dataset.step);
+      s.classList.remove('active', 'completed');
+      if (sn === n) s.classList.add('active');
+      else if (sn < n) s.classList.add('completed');
+      s.removeAttribute('aria-current');
+      if (sn === n) s.setAttribute('aria-current', 'step');
+    });
+
+    document.querySelectorAll('.progress-connector').forEach(c => {
+      const cn = parseInt(c.dataset.connector);
+      c.classList.toggle('completed', cn < n);
+    });
+
+    // Update summary if on step 5
+    if (n === 5) updateSummary();
+
+    // Scroll to top of steps
+    document.getElementById('plannerProgress').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Progress step clicks
+  document.querySelectorAll('.progress-step').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const n = parseInt(btn.dataset.step);
+      // Only allow going to completed or current steps
+      if (n <= state.step) goToStep(n);
+    });
+  });
+
+  // Next buttons
+  document.getElementById('btnNext1').addEventListener('click', () => goToStep(2));
+  document.getElementById('btnNext2').addEventListener('click', () => goToStep(3));
+  document.getElementById('btnNext3').addEventListener('click', () => goToStep(4));
+  document.getElementById('btnNext4').addEventListener('click', () => goToStep(5));
+
+  // Back buttons
+  document.querySelectorAll('[data-back]').forEach(btn => {
+    btn.addEventListener('click', () => goToStep(state.step - 1));
+  });
+
+  // ----------------------------------------
+  // STEP 1: DESTINATION SELECTION
+  // ----------------------------------------
+  const destCards = document.querySelectorAll('.dest-select-card');
+  const mapCountries = document.querySelectorAll('.map-country');
+
+  destCards.forEach(card => {
+    function toggleDest() {
+      const dest = card.dataset.dest;
+      if (state.destinations.has(dest)) {
+        state.destinations.delete(dest);
+        card.classList.remove('selected');
+        card.setAttribute('aria-checked', 'false');
+      } else {
+        state.destinations.add(dest);
+        card.classList.add('selected');
+        card.setAttribute('aria-checked', 'true');
+      }
+      updateMap();
+    }
+
+    card.addEventListener('click', toggleDest);
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleDest(); }
+    });
+  });
+
+  function updateMap() {
+    mapCountries.forEach(path => {
+      const mapId = path.dataset.map;
+      if (mapId && state.destinations.has(mapId)) {
+        path.classList.add('highlighted');
+      } else {
+        path.classList.remove('highlighted');
+      }
+    });
+  }
+
+  // ----------------------------------------
+  // STEP 2: MONTH SELECTION
+  // ----------------------------------------
+  const monthCards = document.querySelectorAll('.month-card');
+  const flexBtn = document.getElementById('flexibleBtn');
+
+  monthCards.forEach(card => {
+    function selectMonth() {
+      monthCards.forEach(m => { m.classList.remove('selected'); m.setAttribute('aria-checked', 'false'); });
+      card.classList.add('selected');
+      card.setAttribute('aria-checked', 'true');
+      state.month = card.dataset.month;
+      state.flexible = false;
+      flexBtn.classList.remove('selected');
+    }
+
+    card.addEventListener('click', selectMonth);
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectMonth(); }
+    });
+  });
+
+  flexBtn.addEventListener('click', () => {
+    monthCards.forEach(m => { m.classList.remove('selected'); m.setAttribute('aria-checked', 'false'); });
+    state.month = null;
+    state.flexible = !state.flexible;
+    flexBtn.classList.toggle('selected', state.flexible);
+  });
+
+  // ----------------------------------------
+  // STEP 3: INTERESTS
+  // ----------------------------------------
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const interest = chip.dataset.interest;
+      if (state.interests.has(interest)) {
+        state.interests.delete(interest);
+        chip.classList.remove('selected');
+      } else {
+        state.interests.add(interest);
+        chip.classList.add('selected');
+      }
+    });
+  });
+
+  // ----------------------------------------
+  // STEP 4: DURATION &amp; BUDGET
+  // ----------------------------------------
+  document.querySelectorAll('.duration-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      document.querySelectorAll('.duration-option').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      state.duration = opt.dataset.duration;
+    });
+  });
+
+  document.querySelectorAll('.budget-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      document.querySelectorAll('.budget-option').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      state.budget = opt.dataset.budget;
+    });
+  });
+
+  // ----------------------------------------
+  // STEP 5: SUMMARY
+  // ----------------------------------------
+  function updateSummary() {
+    const destNames = {
+      peru: 'Peru', bolivia: 'Bolivia', patagonia: 'Patagonia',
+      colombia: 'Colombia', ecuador: 'Ecuador', argentina: 'Argentina'
+    };
+
+    // Destinations
+    const destEl = document.getElementById('sumDest');
+    if (state.destinations.size > 0) {
+      const tags = [...state.destinations].map(d => `<span class="summary-tag">${destNames[d] || d}</span>`).join(' ');
+      destEl.innerHTML = `<div class="summary-tags">${tags}</div>`;
+    } else {
+      destEl.textContent = 'Not selected';
+    }
+
+    // When
+    const whenEl = document.getElementById('sumWhen');
+    if (state.flexible) whenEl.textContent = "I'm flexible";
+    else if (state.month) whenEl.textContent = state.month;
+    else whenEl.textContent = 'Not selected';
+
+    // Style
+    const styleEl = document.getElementById('sumStyle');
+    if (state.interests.size > 0) {
+      const tags = [...state.interests].map(i => `<span class="summary-tag">${i}</span>`).join(' ');
+      styleEl.innerHTML = `<div class="summary-tags">${tags}</div>`;
+    } else {
+      styleEl.textContent = 'Not selected';
+    }
+
+    // Duration
+    document.getElementById('sumDuration').textContent = state.duration || 'Not selected';
+
+    // Budget
+    document.getElementById('sumBudget').textContent = state.budget || 'Not selected';
+  }
+
+  // ----------------------------------------
+  // FORM SUBMISSION
+  // ----------------------------------------
+  const plannerForm = document.getElementById('plannerForm');
+  plannerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('plannerName').value.trim();
+    const email = document.getElementById('plannerEmail').value.trim();
+
+    if (!name || !email) {
+      if (!name) document.getElementById('plannerName').focus();
+      else document.getElementById('plannerEmail').focus();
+      return;
+    }
+
+    const submitBtn = plannerForm.querySelector('[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    setTimeout(() => {
+      // Hide all steps and progress
+      document.getElementById('plannerSteps').style.display = 'none';
+      document.getElementById('plannerProgress').style.display = 'none';
+
+      // Show success
+      const success = document.getElementById('plannerSuccess');
+      success.classList.add('show');
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 800);
+  });
+</script>
+
+<script src="./chatbot.js"></script>
+</body>
+</html>
