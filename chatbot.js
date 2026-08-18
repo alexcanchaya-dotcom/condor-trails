@@ -87,7 +87,7 @@
     {
       keywords: ['money', 'currency', 'cash', 'atm', 'credit card', 'payment', 'exchange', 'tip', 'tipping'],
       q: 'What about money and tipping?',
-      a: 'Each country uses its own currency (Peruvian Sol, Boliviano, Colombian Peso, etc.), but US Dollars are widely accepted as backup. ATMs are available in cities and tourist towns. We recommend:<br>• Carry some local cash for markets and small vendors<br>• Credit cards work in hotels, restaurants, and shops in cities<br>• Tipping: 10% at restaurants, $5–10/day for guides, $2–5/day for drivers<br><br>We provide a currency and budget guide with your trip pack.'
+      a: 'Each country uses its own currency (Peruvian Sol, Boliviano, Colombian Peso, etc.), but US Dollars are widely accepted as backup (Ecuador uses USD directly). ATMs are available in cities and tourist towns. We recommend:<br>• Carry some local cash for markets and small vendors<br>• Credit cards work in hotels, restaurants, and shops in cities<br>• Tipping: 10% at restaurants, €5–10/day for guides, €2–5/day for drivers<br><br>We provide a currency and budget guide with your trip pack.'
     },
     {
       keywords: ['language', 'spanish', 'english', 'speak', 'communicate', 'quechua'],
@@ -109,7 +109,7 @@
     {
       keywords: ['price', 'cost', 'budget', 'expensive', 'how much', 'afford', 'cheap'],
       q: 'How much does a trip cost?',
-      a: 'Every trip is custom, so pricing varies. As a rough guide:<br>• <b>Budget-friendly</b>: from ~$80–120/day (hostels, local transport, group tours)<br>• <b>Mid-range</b>: ~$150–250/day (boutique hotels, private guides, domestic flights)<br>• <b>Premium</b>: $300+/day (luxury lodges, exclusive experiences, helicopter transfers)<br><br>We build trips to match your budget. Tell us what you\'re comfortable with and we\'ll make it work.'
+      a: 'Every trip is custom, so pricing varies. As a rough guide:<br>• <b>Budget-friendly</b>: from ~€70–110/day (hostels, local transport, group tours)<br>• <b>Mid-range</b>: ~€140–230/day (boutique hotels, private guides, domestic flights)<br>• <b>Premium</b>: €290+/day (luxury lodges, exclusive experiences, helicopter transfers)<br><br>We build trips to match your budget. Tell us what you\'re comfortable with and we\'ll make it work.'
     },
     {
       keywords: ['who', 'about', 'condor trails', 'team', 'aleksander', 'founder', 'story'],
