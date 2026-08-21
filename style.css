@@ -1607,3 +1607,17 @@ footer {
   .dest-card:hover { transform: none; }
   .exp-card:hover { transform: none; }
 }
+
+/* ============================================
+   Also Available on Request - hover states
+   ============================================ */
+.also-available-pill:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-highlight);
+  transform: translateY(-1px);
+}
+.also-available-pill:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
