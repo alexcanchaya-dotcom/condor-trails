@@ -10,7 +10,7 @@
     {
       keywords: ['peru', 'machu picchu', 'cusco', 'lima', 'sacred valley', 'inca'],
       q: 'What can I see in Peru?',
-      a: 'Peru is our flagship destination. Highlights include Machu Picchu, the Sacred Valley, Cusco\'s colonial streets, the Nazca Lines, Lake Titicaca, the Amazon rainforest near Iquitos, and the culinary scene in Lima. We also cover off-the-beaten-path gems like Kuelap in the north and the Huanca highlands. <a href="./peru.html">Explore our Peru page →</a>'
+      a: 'Peru is our flagship destination, arranged with our family operating partner in Lima. Highlights include Classic Peru, Cusco and the Sacred Valley, the classic 4-day Inca Trail to Machu Picchu, jungle trips (including Puerto Maldonado), and Lima\'s culinary scene — plus Lake Titicaca, the Nazca Lines, and the central highlands around Jauja. <a href="./peru.html">Explore our Peru page →</a>'
     },
     {
       keywords: ['bolivia', 'uyuni', 'salt flat', 'la paz', 'altiplano'],
@@ -77,7 +77,7 @@
     {
       keywords: ['safe', 'safety', 'danger', 'crime', 'secure', 'risk'],
       q: 'Is South America safe for tourists?',
-      a: 'Yes — with sensible precautions. The destinations we operate in are well-established tourist routes with strong safety records. We work exclusively with vetted local guides, trusted transport providers, and reputable accommodations. Standard travel sense applies: keep valuables secure, use registered taxis, and avoid unlit areas at night. We provide detailed safety briefings for every trip.'
+      a: 'Yes — with sensible precautions. The trips we introduce are on well-established tourist routes. They are run by our Peru operating partner and their local guides. Standard travel sense applies: keep valuables secure, use registered taxis, and avoid unlit areas at night. Your written quote will include practical safety notes for your itinerary.'
     },
     {
       keywords: ['pack', 'packing', 'bring', 'luggage', 'clothes', 'gear', 'what to wear'],
@@ -104,17 +104,22 @@
     {
       keywords: ['book', 'booking', 'reserve', 'how to book', 'get started', 'plan'],
       q: 'How do I book a trip?',
-      a: 'Simple — fill out the <a href="#contact">contact form</a> with your travel dates, interests, and group size. We\'ll get back to you within 24 hours with a personalised proposal. There\'s no commitment until you\'re happy with the plan. You can also call us at <a href="tel:+353857604985">+353 85 760 4985</a>.'
+      a: 'Start with an enquiry — fill out the <a href="#contact">contact form</a> or call <a href="tel:+353857604985">+353 85 760 4985</a>. Condor Trails will come back to you in English with a written quote prepared with our Peru operating partner. If you decide to go ahead, you book and pay the Peruvian company directly. There is no payment to Condor Trails to make an enquiry.'
     },
     {
       keywords: ['price', 'cost', 'budget', 'expensive', 'how much', 'afford', 'cheap'],
       q: 'How much does a trip cost?',
-      a: 'Every trip is custom, so pricing varies. As a rough guide:<br>• <b>Budget-friendly</b>: from ~€70–110/day (hostels, local transport, group tours)<br>• <b>Mid-range</b>: ~€140–230/day (boutique hotels, private guides, domestic flights)<br>• <b>Premium</b>: €290+/day (luxury lodges, exclusive experiences, helicopter transfers)<br><br>We build trips to match your budget. Tell us what you\'re comfortable with and we\'ll make it work.'
+      a: 'Guide prices on the site are quoted in EUR, per person unless stated. Ask us for a USD, GBP or AUD equivalent. The price you pay is confirmed in your written quote from our Peru operating partner. As a rough daily guide, published pages currently show ranges from about €70–110 (simpler) to €290+ (premium) — treat these as starting points, not a confirmed offer.'
+    },
+    {
+      keywords: ['deposit', 'cancellation', 'cancel', 'refund', 'terms', 'payment', 'pay', 'booking conditions'],
+      q: 'What are the deposit and cancellation terms?',
+      a: 'Deposit and cancellation terms are set by our Peru operating partner and confirmed in your written quote. You pay the Operator, not Condor Trails. We will explain the terms in English before you book. Read the full picture on our <a href="./terms.html">Terms &amp; Conditions</a> page.'
     },
     {
       keywords: ['who', 'about', 'condor trails', 'team', 'aleksander', 'founder', 'story'],
       q: 'Who is behind Condor Trails?',
-      a: 'Condor Trails was founded by Aleksander Canchaya, who has Quechua heritage from the Huanca people of Junín, Peru, and is based in Dublin, Ireland. His family runs a travel agency in Peru (tourinca.com), specialising in South American journeys. Every trip we design draws on deep local knowledge, family connections, and genuine passion for the continent.'
+      a: 'Condor Trails was founded by Aleksander Canchaya, who has Quechua heritage from the Huanca people of Junín, Peru, and is based in Dublin, Ireland. We are the English-language sales front for his parents\' Lima tour operator, Maria Kralewska Turismo y Aventura S.A.C. (MK Tours; tourinca.com / mariakralewska.com.pe). You plan with us in English; you book and pay with them, and they run the trip on the ground.'
     },
     {
       keywords: ['group', 'solo', 'family', 'couple', 'friends', 'private'],
