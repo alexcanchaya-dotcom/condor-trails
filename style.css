@@ -1621,3 +1621,49 @@ footer {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
+
+
+/* ============================================
+   TRIP INQUIRY FORM (Peru trip pages lead magnet)
+   ============================================ */
+.trip-inquiry {
+  background: var(--color-surface-offset);
+}
+
+.trip-inquiry-inner {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.trip-inquiry .section-eyebrow,
+.trip-inquiry .section-heading,
+.trip-inquiry .section-subheading {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.trip-inquiry .section-subheading {
+  margin-bottom: var(--space-8);
+}
+
+.trip-inquiry-form-wrap {
+  margin-inline: auto;
+}
+
+.trip-inquiry-form .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.trip-inquiry-note {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin-top: var(--space-4);
+  margin-bottom: 0;
+}
+
+.trip-inquiry-form .form-textarea {
+  min-height: 96px;
+}
