@@ -838,11 +838,6 @@
             </a>
           </li>
           <li>
-            <a href="https://tripadvisor.com" target="_blank" rel="noopener noreferrer">
-              TripAdvisor
-            </a>
-          </li>
-          <li>
             <a href="tel:+353857604985">
               Phone
             </a>
@@ -856,8 +851,7 @@
     <div class="footer-bottom">
       <p class="footer-copyright">&copy; 2026 Condor Trails. All rights reserved.</p>
       <p class="footer-made">
-        <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.35); text-decoration: none; transition: color 180ms ease;">Created with Perplexity Computer</a>
-        &nbsp;·&nbsp; Made with passion in Peru. 🦅
+        Made with passion in Peru. 🦅
       </p>
     </div>
   </div>
@@ -866,6 +860,7 @@
 <!-- ============================================
      JAVASCRIPT
      ============================================ -->
+<script src="./contact-forms.js"></script>
 <script>
   'use strict';
 
@@ -949,22 +944,7 @@
   // ----------------------------------------
   // NEWSLETTER FORM
   // ----------------------------------------
-  function handleNewsletterSubmit(e) {
-    e.preventDefault();
-    const input = document.getElementById('newsletter-email');
-    const btn = e.target.querySelector('.footer-newsletter-btn');
-    if (!input.value.trim()) return;
-
-    btn.textContent = 'Subscribed!';
-    btn.style.background = 'var(--color-success, #437a22)';
-    input.value = '';
-
-    setTimeout(() => {
-      btn.textContent = 'Subscribe';
-      btn.style.background = '';
-    }, 3000);
-  }
-</script>
+  </script>
 
 </body>
 </html>

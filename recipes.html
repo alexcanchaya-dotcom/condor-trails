@@ -605,7 +605,7 @@
     }
   </style>
   <link rel="stylesheet" href="./chatbot.css">
-<!-- Google Analytics -->
+<!-- Google Analytics placeholder (G-XXXXXXXXXX) — commented out until a real Measurement ID is added.
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -613,8 +613,8 @@
   gtag('js', new Date());
   gtag('config', 'G-XXXXXXXXXX');
 </script>
-<!-- Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
-<!-- Meta Pixel -->
+Replace G-XXXXXXXXXX with your actual Google Analytics 4 Measurement ID -->
+<!-- Meta Pixel placeholder (YOUR_PIXEL_ID) — commented out until a real Pixel ID is added.
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -628,7 +628,7 @@ fbq('init', 'YOUR_PIXEL_ID');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
-<!-- Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
+Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
 </head>
 <body>
 
@@ -737,10 +737,6 @@ fbq('track', 'PageView');
       <p class="recipes-hero-eyebrow">A Condor Trails Culinary Series</p>
       <h1 class="recipes-hero-title">Peruvian Plates with Aleksander</h1>
       <p class="recipes-hero-subtitle">Every week, a new authentic Peruvian recipe — cooked in a Dublin kitchen, rooted in 3,000 years of Andean tradition.</p>
-      <a href="#" class="btn btn-lg btn-youtube" aria-label="Subscribe on YouTube">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"/></svg>
-        Subscribe on YouTube
-      </a>
     </div>
   </section>
 
@@ -1595,11 +1591,6 @@ fbq('track', 'PageView');
             </a>
           </li>
           <li>
-            <a href="https://tripadvisor.com" target="_blank" rel="noopener noreferrer">
-              TripAdvisor
-            </a>
-          </li>
-          <li>
             <a href="tel:+353857604985">
               Phone
             </a>
@@ -1735,38 +1726,8 @@ fbq('track', 'PageView');
   // ----------------------------------------
   // NEWSLETTER FORMS
   // ----------------------------------------
-  function handleNewsletterSubmit(e) {
-    e.preventDefault();
-    const input = document.getElementById('recipes-newsletter-email');
-    const btn = e.target.querySelector('.btn');
-    if (!input.value.trim()) return;
-
-    btn.textContent = 'Subscribed!';
-    btn.style.background = 'var(--color-success, #437a22)';
-    input.value = '';
-
-    setTimeout(() => {
-      btn.textContent = 'Subscribe';
-      btn.style.background = '';
-    }, 3000);
-  }
-
-  function handleFooterNewsletterSubmit(e) {
-    e.preventDefault();
-    const input = document.getElementById('footer-newsletter-email');
-    const btn = e.target.querySelector('.footer-newsletter-btn');
-    if (!input.value.trim()) return;
-
-    btn.textContent = 'Subscribed!';
-    btn.style.background = 'var(--color-success, #437a22)';
-    input.value = '';
-
-    setTimeout(() => {
-      btn.textContent = 'Subscribe';
-      btn.style.background = '';
-    }, 3000);
-  }
-
+  
+  
   // ----------------------------------------
   // SMOOTH SCROLL for anchor nav links
   // ----------------------------------------
@@ -1804,6 +1765,7 @@ fbq('track', 'PageView');
   }
 </script>
 
-  <script src="./chatbot.js"></script>
+  <script src="./contact-forms.js"></script>
+<script src="./chatbot.js"></script>
 </body>
 </html>
