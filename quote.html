@@ -180,8 +180,8 @@
             <polyline points="20 6 9 17 4 12"/>
           </svg>
         </div>
-        <h2 class="success-title">Your Quote Request Has Been Sent!</h2>
-        <p class="success-message">Thank you for choosing Condor Trails. Our travel specialists will review your request and reply with a personalised itinerary and quote within 24 hours.</p>
+        <h2 class="success-title">Open your email to send this request</h2>
+        <p class="success-message">Your email app should have opened with a message to info@condortrails.com. Please send it to complete your request. If it did not open, email us at <a href="mailto:info@condortrails.com">info@condortrails.com</a>.</p>
         <div style="margin-top: var(--space-8); display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
           <a href="./index.html#destinations" class="btn btn-primary">Explore Destinations</a>
           <a href="./index.html" class="btn btn-outline">Return Home</a>
@@ -189,15 +189,14 @@
       </div>
 
       <!--
-        IMPORTANT: To enable form submissions, Aleksander needs to:
-        1. Create a free account at https://formspree.io
-        2. Create a new form there
-        3. Replace "YOUR_FORM_ID" below with the actual form ID (e.g. "xpznkael")
-        The form will then send submissions directly to his email.
+        TODO: Replace the mailto: fallback in the submit handler with a form-service
+        endpoint (for example a Formspree action such as
+        https://formspree.io/f/YOUR_FORM_ID) once an account is configured.
+        Until then this form opens a pre-filled email to info@condortrails.com,
+        the contact address already published on this site.
       -->
       <form
         id="quoteForm"
-        action="https://formspree.io/f/YOUR_FORM_ID"
         method="POST"
         novalidate
         aria-label="Trip quotation request form"
@@ -719,11 +718,6 @@
             </a>
           </li>
           <li>
-            <a href="https://tripadvisor.com" target="_blank" rel="noopener noreferrer">
-              TripAdvisor
-            </a>
-          </li>
-          <li>
             <a href="tel:+353857604985">
               Phone
             </a>
@@ -736,7 +730,6 @@
     <!-- Bottom bar -->
     <div class="footer-bottom">
       <p class="footer-copyright">© 2026 Condor Trails. All rights reserved.</p>
-      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-body); font-size: var(--text-xs); color: rgba(255,255,255,0.35); text-decoration: none; transition: color var(--transition-interactive);" onmouseover="this.style.color='rgba(255,255,255,0.65)'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Created with Perplexity Computer</a>
       <p class="footer-made">Made with passion in Peru. 🦅</p>
     </div>
   </div>
@@ -745,6 +738,7 @@
 <!-- ============================================
      JAVASCRIPT
      ============================================ -->
+<script src="./contact-forms.js"></script>
 <script>
   'use strict';
 
@@ -807,17 +801,7 @@
   // ----------------------------------------
   // NEWSLETTER FORM
   // ----------------------------------------
-  function handleNewsletterSubmit(e) {
-    e.preventDefault();
-    const input = document.getElementById('newsletter-email');
-    const btn = e.target.querySelector('.footer-newsletter-btn');
-    if (!input.value.trim()) return;
-    btn.textContent = 'Subscribed!';
-    btn.style.background = 'var(--color-success, #437a22)';
-    input.value = '';
-    setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 3000);
-  }
-
+  
   // ----------------------------------------
   // MULTI-STEP FORM LOGIC
   // ----------------------------------------
@@ -951,18 +935,17 @@
     // --- Form submission ---
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+      if (!validateSection(currentStep)) return;
 
-      const submitBtn = document.getElementById('submitBtn');
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span class="btn-spinner"></span> Sending…';
+      // TODO: Replace this mailto: fallback with a form-service endpoint
+      // (e.g. Formspree action https://formspree.io/f/YOUR_FORM_ID) once an account is configured.
+      const body = condorTrailsFormValuesAsBody(form);
+      openCondorTrailsMailto('Quote request — Condor Trails', body);
 
-      // Simulate sending delay (in production, this would POST to Formspree)
-      setTimeout(() => {
-        form.style.display = 'none';
-        document.getElementById('progressBar').style.display = 'none';
-        successPanel.style.display = 'block';
-        successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 1200);
+      form.style.display = 'none';
+      document.getElementById('progressBar').style.display = 'none';
+      successPanel.style.display = 'block';
+      successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
 
     // --- Counter buttons ---
