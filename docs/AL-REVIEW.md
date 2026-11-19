@@ -28,15 +28,31 @@ Nothing here invents a replacement figure. Visitor-facing prices that clash were
 
 7. **Inca Trail card and 4-day trek (index.html, Signature Experiences).** The site did not list a 4-day Inca Trail as an instantly bookable product. It listed a 5-day "Inca Trail, Reimagined" add-on from €4,490, which read as bookable. That card now says it is available on request, subject to permit availability via an authorised agency, and notes Tu Boleto, the 750 visitors a day cap, the February closure, and that the classic 4-day trail can be arranged on the same basis. The existing 5-day / €4,490 figures were kept (now marked on request) so no new price was invented. Confirm duration, style, inclusions and price against the Operator's classic 4-day / 3-night trail (or this luxury variant), and confirm a named authorised agency for Tu Boleto permits, before treating the figures as current.
 
-## Unverified homepage claims
+## Homepage claims confirmed fictitious (19 Nov 2026)
 
-8. **"2,000+" Happy Travelers and "98%" Would Recommend (index.html trust bar).** Both are unverified. They have been commented out, not deleted. Restore only if Al confirms the figures are real.
+8. **Trust bar (index.html).** On 19 November 2026 (Europe/Dublin), Al confirmed that the remaining "15+" Years Experience and "50+" Local Expert Guides figures are fictitious, as are the already-hidden "2,000+" Happy Travelers and "98%" Would Recommend figures. The whole trust bar is now commented out, not deleted, so the page is not left with an empty bar. The hero scroll previously targeted #trust and now goes to #destinations. Real, sourced figures may replace this later.
 
-9. **"Classic Peru · 14 days" testimonial (index.html, Sarah and James Mitchell).** Unverified, and Classic Peru is listed as 10 days elsewhere. The card has been commented out, not deleted, and one carousel dot was hidden so the remaining five cards still work. Restore only if Al confirms this is a real guest review.
+9. **All homepage testimonials (index.html).** On 19 November 2026, Al confirmed that the remaining testimonials are fictitious: David Chen, Emma Blackwell, Marcus and Lisa Rivera, Hannah Johansson, and Robert and Patricia Hayes, as well as the already-hidden Sarah and James Mitchell "Classic Peru · 14 days" card. The whole testimonials section is now commented out, not deleted, so the page is not left with an empty carousel. The carousel script exits cleanly when that markup is absent. Real guest reviews may replace this later.
 
-10. **Other homepage testimonials (index.html).** David Chen, Emma Blackwell, Marcus and Lisa Rivera, Hannah Johansson, and Robert and Patricia Hayes were left visible because they were not named in the brief. They have also not been verified. Confirm them before treating the section as real guest stories.
+10. **Search for real testimonials on tourinca.com (19 Nov 2026).** Al said real testimonials from his parents' Peru agency, Maria Kralewska Turismo y Aventura S.A.C. (tourinca.com), may be used. A same-day search found **no published customer testimonials with a reviewer name** that could be placed in the carousel. Nothing was invented, and no third-party forum post was used. Sources checked:
 
-11. **Other trust-bar figures still visible (index.html).** "15+" Years Experience and "50+" Local Expert Guides were not hidden, because they were not named in the brief. They have also not been verified.
+    - https://tourinca.com and https://www.tourinca.com (homepage only; `products.html` is a 404)
+    - The linked current site https://www.mariakralewska.com.pe/ (Polish home, English `/en/home/`, Spanish `/es/inicio/`, all 30 WordPress pages, posts, comments, and the empty `project` content type)
+    - The linked sister site http://www.peru-wakacje.pl (unreachable, HTTP 500, as on 18 November)
+    - Older linked paths on mariakralewska.com.pe (`/index_ingles.htm`, `/foty`) also returned HTTP 500
+    - No TripAdvisor or Google review listing for this agency was found (this matches the 18 November research in `/workspace/condor/tourinca-summary.md`)
+    - Facebook (https://www.facebook.com/MARIA.KRALEWSKA) and Instagram are linked from tourinca.com, but no published, copyable customer testimonial with a reviewer name was retrieved from those pages
+    - Third-party forum threads (for example globtroter.pl and forum.gazeta.pl) were not used, because they are not published on tourinca.com or on a review page it links to
+
+    **Quotes used: none.** The testimonials section stays hidden until real, named reviews are provided or published on the operator's site.
+
+11. **Other review-like content left in place (not Condor social proof).** A site-wide check found no JSON-LD `aggregateRating` or `Review` blocks, and no Condor TripAdvisor badge. The following were left visible because they are not Condor traveller-count, rating, or testimonial claims:
+
+    - Blog posts that cite TripAdvisor scores for third-party hotels and restaurants (for example in Punta Sal and at the Museo Larco café)
+    - Star icons on `recipes.html`, which mark recipe difficulty, not guest reviews
+    - A "TripAdvisor" option in the "How did you hear about us?" list on `quote.html`
+    - The word TripAdvisor in the privacy policy, as an example of a third-party site
+    - "50+ pages of insider tips" in a blog lead-magnet line, which is a document length, not a traveller count
 
 ---
 
@@ -44,4 +60,5 @@ Nothing here invents a replacement figure. Visitor-facing prices that clash were
 
 - The "All Inclusive" badge on Classic Peru was replaced with "Selected meals included", which matches the listed inclusions (daily breakfast and four dinners). International flights, insurance, personal expenses and tips remain listed as not included. The same badge still appears on some other trip pages and was left untouched.
 - "World's highest railway" was changed to "the highest railway in the Americas." Galera is shown as 4,781 m. Highland Heritage now says the tourist train runs on set dates only.
+- On 19 November 2026, the fictitious trust bar and the whole testimonials section were commented out, not deleted, after Al confirmed they were not real. No replacement testimonials were added, because none were found on tourinca.com or its linked public review pages.
 - No files were deleted. This pull request is not merged. No DNS or GitHub Pages settings were changed.
