@@ -1939,6 +1939,83 @@ Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
     </div>
   </section>
 
+  <!-- Trip inquiry lead magnet -->
+  <section class="section trip-inquiry" id="trip-inquiry" aria-labelledby="trip-inquiry-heading">
+    <div class="container">
+      <div class="trip-inquiry-inner">
+        <p class="section-eyebrow">Get in touch</p>
+        <h2 class="section-heading" id="trip-inquiry-heading">Interested in a journey through Peru?</h2>
+        <p class="section-subheading">Send us your name and email and we will get back to you.</p>
+
+        <div class="contact-form trip-inquiry-form-wrap" id="tripInquiryWrap">
+          <div class="form-success" id="tripInquirySuccess">
+            <div class="success-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="success-title">Open your email to send this request</div>
+            <p class="success-message">Your email app should have opened with a message to info@condortrails.com. Please send it to complete your request. If it did not open, email us at <a href="mailto:info@condortrails.com">info@condortrails.com</a>.</p>
+          </div>
+
+          <!--
+            TODO: Replace this mailto: fallback with a form-service endpoint
+            (for example a Formspree form action such as
+            https://formspree.io/f/YOUR_FORM_ID) once an account is configured.
+            Until then, submitting opens a pre-filled email to info@condortrails.com.
+          -->
+          <form
+            id="tripInquiryForm"
+            class="trip-inquiry-form"
+            data-trip-name="Peru"
+            onsubmit="handleTripInquirySubmit(event)"
+            aria-label="Trip inquiry form for Peru"
+          >
+            <input type="hidden" name="Trip" value="Peru">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="trip-inquiry-name">Traveler name <span aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="trip-inquiry-name"
+                  name="Name"
+                  class="form-input"
+                  placeholder="Your name"
+                  required
+                  autocomplete="name"
+                >
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="trip-inquiry-email">Email <span aria-hidden="true">*</span></label>
+                <input
+                  type="email"
+                  id="trip-inquiry-email"
+                  name="Email"
+                  class="form-input"
+                  placeholder="you@example.com"
+                  required
+                  autocomplete="email"
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="trip-inquiry-message">Message</label>
+              <textarea
+                id="trip-inquiry-message"
+                name="Message"
+                class="form-textarea"
+                rows="4"
+                placeholder="Tell us a little about your dates, group, or questions"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send inquiry</button>
+            <p class="trip-inquiry-note">This opens an email to info@condortrails.com. Please send it to complete your enquiry.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 
