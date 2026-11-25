@@ -10,13 +10,13 @@ Nothing here invents a replacement figure. Visitor-facing prices that clash were
 
 ## Prices and itineraries
 
-1. **Classic Peru "from" price (trips/classic-peru.html, index.html, peru.html, and related-trip cards).** The trip page and homepage say from €1,690 per person. The Peru page lists the same-named 10-day itinerary at from €2,290. Do not quote either figure in ads or public posts until one Operator price is confirmed and the odd page is updated. Current text was left unchanged.
+1. **Classic Peru "from" price (trips/classic-peru.html, index.html, peru.html, and related-trip cards).** The trip page and homepage say from [price hidden] per person. The Peru page lists the same-named 10-day itinerary at from [price hidden]. Do not quote either figure in ads or public posts until one Operator price is confirmed and the odd page is updated. Current text was left unchanged.
 
-2. **Classic Peru JSON-LD price (trips/classic-peru.html).** Structured data still lists price 1850 with currency USD, leftover from the old USD pricing. It matches neither on-page EUR figure. Update it only after the Operator price is confirmed.
+2. **Classic Peru JSON-LD price (trips/classic-peru.html).** The leftover structured-data offer has now been removed, along with on-page guide prices, until the Operator confirms a figure.
 
 3. **Classic Peru itinerary clash (trips/classic-peru.html vs peru.html).** The trip page flies to Puno on day 9 and departs from Juliaca on day 10. The Peru page uses a bus via La Raya on day 8, visits Sillustani on day 10, then flies to Lima. The trip page JSON-LD itinerary is different again (it includes Rainbow Mountain). Harmonise before marketing the 10 days as one trip. Current text was left unchanged.
 
-4. **Peru page hero "from" price (peru.html).** The hero says from €2,290 per person, which matches the Classic Peru card on that page but clashes with the trip page and homepage, and is higher than cheaper itineraries listed on the same page (including Highland Heritage). Confirm the lead "from" price.
+4. **Peru page hero "from" price (peru.html).** The hero says from [price hidden] per person, which matches the Classic Peru card on that page but clashes with the trip page and homepage, and is higher than cheaper itineraries listed on the same page (including Highland Heritage). Confirm the lead "from" price.
 
 ## Railway and Highland Heritage
 
@@ -26,7 +26,7 @@ Nothing here invents a replacement figure. Visitor-facing prices that clash were
 
 ## Inca Trail
 
-7. **Inca Trail card and 4-day trek (index.html, Signature Experiences).** The site did not list a 4-day Inca Trail as an instantly bookable product. It listed a 5-day "Inca Trail, Reimagined" add-on from €4,490, which read as bookable. That card now says it is available on request, subject to permit availability via an authorised agency, and notes Tu Boleto, the 750 visitors a day cap, the February closure, and that the classic 4-day trail can be arranged on the same basis. The existing 5-day / €4,490 figures were kept (now marked on request) so no new price was invented. Confirm duration, style, inclusions and price against the Operator's classic 4-day / 3-night trail (or this luxury variant), and confirm a named authorised agency for Tu Boleto permits, before treating the figures as current.
+7. **Inca Trail card and 4-day trek (index.html, Signature Experiences).** The site did not list a 4-day Inca Trail as an instantly bookable product. It listed a 5-day "Inca Trail, Reimagined" add-on from [price hidden] which read as bookable. That card now says it is available on request, subject to permit availability via an authorised agency, and notes Tu Boleto, the 750 visitors a day cap, the February closure, and that the classic 4-day trail can be arranged on the same basis. The existing 5-day / [price hidden] figures were kept (now marked on request) so no new price was invented. Confirm duration, style, inclusions and price against the Operator's classic 4-day / 3-night trail (or this luxury variant), and confirm a named authorised agency for Tu Boleto permits, before treating the figures as current.
 
 ## Homepage claims confirmed fictitious (19 Nov 2026)
 
