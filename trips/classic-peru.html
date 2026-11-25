@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- TODO-ALCONFIRM: Classic Peru "from" price is €1,690 on this trip page and the homepage, but €2,290 on peru.html. Do not pick a figure until Al confirms the current Operator price. Current text left unchanged. -->
-  <meta name="description" content="Classic Peru: 10 Days — From Lima's culinary heights to Machu Picchu's misty throne. A tailor-made journey with Condor Trails from €1,690 per person.">
+  <!-- Guide prices are hidden until the Operator confirms them. Do not restore figures until Al confirms. -->
+  <meta name="description" content="Classic Peru: 10 Days — From Lima's culinary heights to Machu Picchu's misty throne. A tailor-made journey with Condor Trails.">
   <title>Classic Peru: 10 Days — Condor Trails</title>
 
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -51,7 +51,7 @@ fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
 Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
-<!-- TODO-ALCONFIRM: Classic Peru JSON-LD still lists price 1850 USD, which is leftover from the old USD pricing and does not match either on-page EUR figure (€1,690 here, €2,290 on peru.html). Do not update this structured-data price until the Operator price is confirmed. Current value left unchanged. The JSON-LD itinerary also differs from the visible day-by-day (it includes Rainbow Mountain). -->
+<!-- Guide prices are hidden until the Operator confirms them. Do not restore figures until Al confirms. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -63,23 +63,57 @@ Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
     "@type": "ItemList",
     "numberOfItems": 10,
     "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Lima — Arrival & Culinary Capital"},
-      {"@type": "ListItem", "position": 2, "name": "Lima — Colonial Centre & Larco Museum"},
-      {"@type": "ListItem", "position": 3, "name": "Cusco — Imperial City"},
-      {"@type": "ListItem", "position": 4, "name": "Sacred Valley — Ollantaytambo & Pisac"},
-      {"@type": "ListItem", "position": 5, "name": "Sacred Valley — Moray & Maras Salt Mines"},
-      {"@type": "ListItem", "position": 6, "name": "Machu Picchu — Wonder of the World"},
-      {"@type": "ListItem", "position": 7, "name": "Cusco — San Pedro Market & Sacsayhuamán"},
-      {"@type": "ListItem", "position": 8, "name": "Rainbow Mountain or Alternative Trek"},
-      {"@type": "ListItem", "position": 9, "name": "Lake Titicaca — Uros Floating Islands"},
-      {"@type": "ListItem", "position": 10, "name": "Departure"}
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Lima — Arrival & Culinary Capital"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Lima — Colonial Centre & Larco Museum"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Cusco — Imperial City"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Sacred Valley — Ollantaytambo & Pisac"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "Sacred Valley — Moray & Maras Salt Mines"
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "Machu Picchu — Wonder of the World"
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "name": "Cusco — San Pedro Market & Sacsayhuamán"
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "name": "Rainbow Mountain or Alternative Trek"
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "name": "Lake Titicaca — Uros Floating Islands"
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "name": "Departure"
+      }
     ]
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "1850",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock"
   },
   "provider": {
     "@type": "TravelAgency",
@@ -209,8 +243,8 @@ Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           10 Days
         </span>
-        <!-- TODO-ALCONFIRM: Classic Peru "from" price clash: €1,690 here vs €2,290 on peru.html. Confirm with the Operator before quoting either figure. Current text left unchanged. -->
-        <span class="trip-badge trip-badge--price">From €1,690 pp</span>
+        <!-- Guide prices are hidden until the Operator confirms them. Do not restore figures until Al confirms. -->
+        <span class="trip-badge trip-badge--price">Price on request</span>
       </div>
       <h1 class="trip-hero-title">Classic Peru</h1>
       <p class="trip-hero-tagline">From Lima's culinary heights to Machu Picchu's misty throne</p>
@@ -472,8 +506,8 @@ Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
     <div class="container">
       <div class="trip-pricing-card">
         <div class="trip-pricing-eyebrow">Classic Peru · 10 Days</div>
-        <!-- TODO-ALCONFIRM: Classic Peru "from" price clash: €1,690 here vs €2,290 on peru.html. Confirm with the Operator before quoting either figure. Current text left unchanged. -->
-        <div class="trip-pricing-amount" id="pricing-heading">From €1,690</div>
+        <!-- Guide prices are hidden until the Operator confirms them. Do not restore figures until Al confirms. -->
+        <div class="trip-pricing-amount" id="pricing-heading">Price on request</div>
         <div class="trip-pricing-unit">per person, based on double occupancy · flights not included</div>
         <div class="trip-pricing-cta">
           <a href="../quote.html?destination=peru" class="btn btn-primary btn-lg">Request This Trip</a>
@@ -498,34 +532,34 @@ Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
             <tbody>
             <tr class="pricing-tier-row">
               <td class="pricing-tier-name">Solo Traveller</td>
-              <td class="pricing-tier-price">€1,990</td>
+              <td class="pricing-tier-price">Price on request</td>
               <td class="pricing-tier-details">Private guide, single supplement</td>
             </tr>
-            <!-- TODO-ALCONFIRM: Couple tier €1,690 is the same "from" figure that clashes with peru.html (€2,290). Confirm all Classic Peru tier prices with the Operator. Current text left unchanged. -->
+            <!-- Guide prices are hidden until the Operator confirms them. Do not restore figures until Al confirms. -->
             <tr class="pricing-tier-row pricing-tier-featured">
               <td class="pricing-tier-name">Couple<span class="pricing-tier-badge">Most Popular</span></td>
-              <td class="pricing-tier-price">€1,690</td>
+              <td class="pricing-tier-price">Price on request</td>
               <td class="pricing-tier-details">Per person, shared room</td>
             </tr>
             <tr class="pricing-tier-row">
               <td class="pricing-tier-name">Small Group (3–6)</td>
-              <td class="pricing-tier-price">€1,490</td>
+              <td class="pricing-tier-price">Price on request</td>
               <td class="pricing-tier-details">Per person, group discount</td>
             </tr>
             <tr class="pricing-tier-row">
               <td class="pricing-tier-name">Family (2 adults + kids)</td>
-              <td class="pricing-tier-price">€1,390</td>
-              <td class="pricing-tier-details">Per adult, kids under 12: 30% off</td>
+              <td class="pricing-tier-price">Price on request</td>
+              <td class="pricing-tier-details">Per adult; children's rate confirmed in your quote</td>
             </tr>
             <tr class="pricing-tier-row">
               <td class="pricing-tier-name">Peak Season (Jun–Aug)</td>
-              <td class="pricing-tier-price">+€200</td>
+              <td class="pricing-tier-price">Price on request</td>
               <td class="pricing-tier-details">Supplement per person</td>
             </tr>
             </tbody>
           </table>
         </div>
-        <p class="pricing-tiers-note">All prices are starting from. Final price depends on dates, accommodation grade, and activities selected. Contact us for a detailed quote.</p>
+        <p class="pricing-tiers-note">Final prices depend on dates, accommodation grade, and activities selected. Contact us for a detailed quote.</p>
         <div class="pricing-tiers-cta">
           <a href="../quote.html?destination=peru" class="btn btn-primary">Request Quote</a>
         </div>
@@ -556,7 +590,7 @@ Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
             <div class="trip-related-card-name">Peru &amp; Bolivia: 14 Days</div>
             <div class="trip-related-card-meta">
               <span>14 days</span>
-              <span class="trip-related-card-price">From €2,690 per person · flights not included</span>
+              <span class="trip-related-card-price">Price on request · flights not included</span>
             </div>
           </div>
         </a>
@@ -575,7 +609,7 @@ Replace YOUR_PIXEL_ID with your actual Meta Pixel ID -->
             <div class="trip-related-card-name">Grand Latin America: 21 Days</div>
             <div class="trip-related-card-meta">
               <span>21 days</span>
-              <span class="trip-related-card-price">From €4,890 per person · flights not included</span>
+              <span class="trip-related-card-price">Price on request · flights not included</span>
             </div>
           </div>
         </a>
